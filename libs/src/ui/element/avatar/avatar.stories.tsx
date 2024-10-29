@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Avatar from './avatar';
 
 export default {
-  title: 'Design System/Avatar',
+  title: 'Component/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {

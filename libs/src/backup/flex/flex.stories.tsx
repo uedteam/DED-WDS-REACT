@@ -5,7 +5,7 @@ import { Column } from './column';
 import { Flex } from './flex';
 
 export default {
-  title: 'Design System/Flex',
+  title: 'Component/Flex',
   component: Flex,
   tags: ['autodocs'],
   argTypes: {

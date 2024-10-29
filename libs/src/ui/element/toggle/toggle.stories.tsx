@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Toggle } from './toggle';
 
 export default {
-  title: 'Design System/Toggle',
+  title: 'Component/Toggle',
   component: Toggle,
   tags: ['autodocs'],
   argTypes: {

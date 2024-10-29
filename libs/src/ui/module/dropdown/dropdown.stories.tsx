@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from '@src/ui';
 
 export default {
-  title: 'Design System/Dropdown',
+  title: 'Component/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   argTypes: {

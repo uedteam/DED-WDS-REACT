@@ -4,7 +4,7 @@ import { Checkbox } from './checkbox';
 import { useState } from 'react';
 
 export default {
-  title: 'Design System/Checkbox',
+  title: 'Component/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
@@ -80,7 +80,10 @@ const DefaultWithHooks = () => {
   };
 
   return (
-    <Checkbox options={options} initValue={value} onChange={handleChange} />
+    <>
+      <Checkbox options={options} initValue={value} onChange={handleChange} />
+      <div>已選項目: [{value.join(', ')}]</div>
+    </>
   );
 };
 

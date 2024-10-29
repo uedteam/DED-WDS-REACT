@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Textarea } from './textarea';
 
 export default {
-  title: 'Design System/Textarea',
+  title: 'Component/Textarea',
   component: Textarea,
   tags: ['autodocs'],
   argTypes: {

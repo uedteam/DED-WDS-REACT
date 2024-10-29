@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { CircleProgress } from './progress-circle';
 
 export default {
-  title: 'Design System/Progress-Circle',
+  title: 'Component/Progress-Circle',
   component: CircleProgress,
   tags: ['autodocs'],
   argTypes: {

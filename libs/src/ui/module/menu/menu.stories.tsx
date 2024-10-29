@@ -4,7 +4,7 @@ import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';
 
 export default {
-  title: 'Design System/Menu',
+  title: 'Component/Menu',
   component: Menu,
   tags: ['autodocs'],
   argTypes: {
