@@ -28,20 +28,6 @@ export interface CheckboxProps {
   className?: string;
 }
 
-/**
- * Checkbox 元件
- *
- * @param {CheckboxProps} props - Checkbox 元件的屬性
- * @param {string} [props.themeColor='primary'] - 主題顏色
- * @param {string} [props.direction='row'] - 排列方向，'row' 或 'column'
- * @param {string[]} [props.initValue=[]] - 初始選中的選項值
- * @param {Array<{ value: string, label: string }>} [props.options=[]] - 可選項目列表
- * @param {function} [props.onChange] - 當選項改變時的回調函數
- * @param {string} [props.className] - 自訂的 class 名稱
- * @param {object} [props.rest] - 其他傳遞給 input 元素的屬性
- *
- * @returns {JSX.Element} Checkbox 元件的 JSX
- */
 export const Checkbox: React.FC<CheckboxProps> = ({
   themeColor = 'primary',
   direction = 'row',
@@ -50,12 +36,12 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
   className,
   ...rest
-}) => {
+}: CheckboxProps) => {
   const [currOptions, setCurrOptions] = useState<string[]>(initValue);
 
-  useEffect(() => {
-    setCurrOptions(initValue || []);
-  }, [initValue]);
+  // useEffect(() => {
+  //   setCurrOptions(initValue || []);
+  // }, [initValue]);
 
   const handleChange = (value: string, checked: boolean) => {
     const updatedOptions = checked
