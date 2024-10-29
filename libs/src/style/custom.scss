@@ -74,3 +74,17 @@
 .card-button-empty {
   background-color: transparent;
 }
+
+.social-button {
+  background-color: #EBEBEB;
+  color: #4D4D4D;
+
+  &:hover {
+    background-color: #d6d8db;
+    color: #4D4D4D;
+  }
+}
+
+.link-button {
+  color: #CA25FC;
+}
