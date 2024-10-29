@@ -1,6 +1,9 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Input } from './input';
+import { Grid } from '@src/ui/section/grid/grid';
+import { Row } from '@src/ui/section/grid/row';
+import { Column } from '@src/ui/section/grid/column';
 import {
   AccountIcon,
   SearchIcon,
@@ -11,7 +14,7 @@ import {
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Input',
+  title: 'Component/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {
@@ -65,8 +68,8 @@ export default {
     hint: {
       description: '提示訊息',
     },
-    value: {
-      description: '輸入值',
+    initValue: {
+      description: '初始值',
     },
     onChange: {
       description: '輸入事件',
@@ -92,7 +95,7 @@ export default {
     placeholder: '請輸入...',
     prefix: null,
     hint: { error: '', description: '' },
-    value: '',
+    initValue: '',
     className: '',
   },
 } as Meta;
@@ -106,9 +109,13 @@ export const Default: Story = {
   },
   render(args) {
     return (
-      <div style={{ width: '300px' }}>
-        <Input {...args} />
-      </div>
+      <Grid>
+        <Row>
+          <Column xs={12} sm={6} md={4} lg={3}>
+            <Input {...args} />
+          </Column>
+        </Row>
+      </Grid>
     );
   },
 };
@@ -121,20 +128,35 @@ export const InputWithStatus: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-        <Input {...args} label="帳號" />
-        <Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
-        <Input
-          {...args}
-          label="帳號"
-          hint={{ error: 'Error Message', description: '' }}
-        />
-        <Input
-          {...args}
-          label="帳號"
-          hint={{ error: '', description: 'Something Description' }}
-        />
-      </div>
+      <Grid>
+        <Row gap={8}>
+          <Column xs={12} sm={6} md={4} lg={3}>
+            <Input {...args} label="帳號" />
+          </Column>
+          <Column xs={12} sm={6} md={4} lg={3}>
+            <Input
+              {...args}
+              label="密碼"
+              type={'password'}
+              prefix={<LockIcon />}
+            />
+          </Column>
+          <Column xs={12} sm={6} md={4} lg={3}>
+            <Input
+              {...args}
+              label="帳號"
+              hint={{ error: 'Error Message', description: '' }}
+            />
+          </Column>
+          <Column xs={12} sm={6} md={4} lg={3}>
+            <Input
+              {...args}
+              label="帳號"
+              hint={{ error: '', description: 'Something Description' }}
+            />
+          </Column>
+        </Row>
+      </Grid>
     );
   },
 };

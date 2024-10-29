@@ -20,15 +20,15 @@ import { isEmpty } from 'lodash';
  * @property {string} [className] - 自訂的 CSS 類名。
  */
 export interface InputProps {
-  label?: ReactNode;
+  label?: string;
   type: 'text' | 'password' | 'email' | 'number';
   placeholder?: string;
   prefix?: ReactNode;
   isDisabled?: boolean;
   size?: 'small' | 'medium' | 'large';
   hint?: { error: string; description: string };
-  value?: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  initValue: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   className?: string;
 }
 
@@ -58,33 +58,43 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
     size = 'medium',
     prefix = '',
     isDisabled = false,
+    initValue,
     hint = { error: '', description: '' },
     className = '',
+    onChange,
   } = props;
 
-  const { inputType, value, onChange, action } = useInput('', type);
+  const { inputType, value, action, handleInputChange } = useInput(
+    initValue,
+    type,
+    onChange
+  );
 
   return (
-    <div className={`input-container ${className}`}>
+    <div className={`ded-input-container ${className}`}>
       {label && (
-        <label className={`${isDisabled ? 'input-disable' : 'input-label'}`}>
+        <label
+          className={`${isDisabled ? 'ded-input-disable' : 'ded-input-label'}`}
+        >
           {label}
         </label>
       )}
       <div
         className={` 
-          input-group
+          ded-input-group
           ${getSizeClass('component', size)} 
-          ${isDisabled ? 'input-disable' : getBorderClass(hint)}
+          ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}
           ${className ? className : ''}`}
       >
         {prefix && <div className={getSizeClass('icon', size)}>{prefix}</div>}
         <input
           value={value}
-          onChange={onChange}
+          onChange={handleInputChange}
           type={inputType}
           className={`${
-            isDisabled ? 'input-disable' : `input ${getSizeClass('text', size)}`
+            isDisabled
+              ? 'ded-input-disable'
+              : `ded-input ${getSizeClass('text', size)}`
           }`}
           placeholder={placeholder}
         />
@@ -106,8 +116,8 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
         )}
       </div>
       <small
-        className={`input-hint ${
-          isDisabled ? 'input-disable' : getHintClass(hint)
+        className={`ded-input-hint ${
+          isDisabled ? 'ded-input-disable' : getHintClass(hint)
         }`}
       >
         {hint.error.length > 0 ? hint.error : hint.description}

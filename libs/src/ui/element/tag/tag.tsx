@@ -26,19 +26,21 @@ export const Tag: React.FC<TagProps> = (props: TagProps) => {
 
   return (
     <div
-      className={`tag ${className} ${
+      className={`ded-tag ${className} ${
         isDisabled ? getDisableClass('outlined') : ''
       }`}
     >
-      {icon && <div className="tag-icon">{icon}</div>}
-      <span className="tag-text">{children}</span>
+      {icon && <div className="ded-tag-icon">{icon}</div>}
+      <span className="ded-tag-text">{children}</span>
       {closable && (
         <Button variant="text" onClick={onClose}>
           {closeIcon ? (
             closeIcon
           ) : (
             <CloseIcon
-              className={`tag-close ${isDisabled ? 'tag-close-disabled' : ''}`}
+              className={`ded-tag-close ${
+                isDisabled ? 'ded-tag-close-disabled' : ''
+              }`}
             />
           )}
         </Button>
