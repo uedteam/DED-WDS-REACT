@@ -26,7 +26,7 @@ export const Layout: LayoutComponent = (props: LayoutProps) => {
 interface HeaderProps {
   children?: React.ReactNode;
 }
-const header = (props: HeaderProps) => {
+const Header = (props: HeaderProps) => {
   const { children } = props;
 
   return <header className="ded-header">{children}</header>;
@@ -35,7 +35,7 @@ const header = (props: HeaderProps) => {
 interface FooterProps {
   children?: React.ReactNode;
 }
-const footer = (props: FooterProps) => {
+const Footer = (props: FooterProps) => {
   const { children } = props;
 
   return <footer className="ded-footer">{children}</footer>;
@@ -44,7 +44,7 @@ const footer = (props: FooterProps) => {
 interface ContentProps {
   children?: React.ReactNode;
 }
-const content = (props: ContentProps) => {
+const Content = (props: ContentProps) => {
   const { children } = props;
 
   return <main className="ded-content">{children}</main>;
@@ -53,15 +53,14 @@ const content = (props: ContentProps) => {
 interface SideProps {
   children?: React.ReactNode;
 }
-const side = (props: SideProps) => {
+const Side = (props: SideProps) => {
   const { children } = props;
   return <aside className="ded-side">{children}</aside>;
 };
 
-Layout.Header = header;
-Layout.Footer = footer;
-Layout.Content = content;
-Layout.Side = side;
+Layout.Header = Header;
+Layout.Footer = Footer;
+Layout.Content = Content;
+Layout.Side = Side;
 
-export { header, footer, content };
 export default Layout;
