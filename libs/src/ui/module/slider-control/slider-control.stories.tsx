@@ -4,7 +4,7 @@ import { ButtonSlider } from '@src/ui';
 import { PlusIcon, MinusIcon } from '@src/assets';
 
 export default {
-  title: 'Design System/Button-Slider',
+  title: 'Component/Slider-Control',
   component: ButtonSlider,
   tags: ['autodocs'],
   argTypes: {

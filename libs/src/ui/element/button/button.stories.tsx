@@ -9,7 +9,7 @@ import {
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Button',
+  title: 'Component/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
@@ -113,7 +113,7 @@ export const Additional: Story = {
   args: {
     themeColor: 'primary',
     variant: 'outlined',
-    children: <Title>標題按鈕</Title>,
+    children: '標題按鈕',
     onClick: () => action('onClick')('點擊事件'),
     className: '',
   },
@@ -136,7 +136,7 @@ export const Shape: Story = {
   args: {
     themeColor: 'primary',
     variant: 'outlined',
-    children: <Title>標題按鈕</Title>,
+    children: '標題按鈕',
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),
     className: '',
@@ -162,7 +162,7 @@ export const Theme: Story = {
   name: '主題色彩',
   args: {
     variant: 'outlined',
-    children: <Title>標題按鈕</Title>,
+    children: '標題按鈕',
     prefix: <AccountIcon />,
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),

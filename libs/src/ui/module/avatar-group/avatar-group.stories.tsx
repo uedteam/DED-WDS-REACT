@@ -3,7 +3,7 @@ import AvatarGroup from './avatar-group';
 import { AvatarProps } from '@src/ui/element/avatar';
 
 export default {
-  title: 'Design System/Avatar-Group',
+  title: 'Component/Avatar-Group',
   component: AvatarGroup,
   tags: ['autodocs'],
   argTypes: {

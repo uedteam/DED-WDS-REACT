@@ -9,7 +9,7 @@ import {
 } from '@src/assets';
 
 export default {
-  title: 'Design System/Tag',
+  title: 'Component/Tag',
   component: Tag,
   tags: ['autodocs'],
   argTypes: {

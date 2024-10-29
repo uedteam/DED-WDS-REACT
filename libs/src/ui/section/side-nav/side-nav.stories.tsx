@@ -4,7 +4,7 @@ import { ItemProps } from '@src/hooks/useMenu';
 import SideNav from './side-nav';
 
 export default {
-  title: 'Design System/SideNav',
+  title: 'Component/SideNav',
   component: SideNav,
   tags: ['autodocs'],
   argTypes: {
@@ -22,7 +22,7 @@ export default {
       },
     },
     logo: {
-      description: 'Logo',
+      description: 'Logo 圖示',
       mapping: {
         AUOIcon: <AUOIcon width={90} height={30} />,
       },

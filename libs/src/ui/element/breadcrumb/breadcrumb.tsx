@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import Portal from '@src/ui/portal';
+import { List } from '@src/ui/module/list';
 
 interface BreadcrumbItemProps {
   label: string;
@@ -106,8 +107,29 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (
         {isVisible && (
           <div
             style={getTargetPosition(position, childrenSize, placement, '6px')}
-            className={`tooltip ${className}`}
+            className={`dropdown-menu ${className}`}
           >
+            {/* <List
+              options={[
+                {
+                  prefix: '',
+                  content: {
+                    label: '123',
+                    value: '123',
+                    href: '',
+                  },
+                },
+                {
+                  prefix: '',
+                  content: {
+                    label: '123',
+                    value: '123',
+                    href: '',
+                  },
+                },
+              ]}
+              isMenu
+            /> */}
             <ul className="rest-dropdown-menu">
               {breadcrumbItems
                 .slice(1, -2)

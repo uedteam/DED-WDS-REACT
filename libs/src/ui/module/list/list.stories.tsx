@@ -4,7 +4,7 @@ import { List } from '@src/ui';
 import { AccountIcon } from '@src/assets';
 
 export default {
-  title: 'Design System/List',
+  title: 'Component/List',
   component: List,
   tags: ['autodocs'],
   argTypes: {

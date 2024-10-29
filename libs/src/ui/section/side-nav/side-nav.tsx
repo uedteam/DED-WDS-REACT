@@ -3,7 +3,18 @@ import { SearchIcon, ArrowDownIcon } from '@src/assets';
 import { ItemProps } from '@src/hooks/useMenu';
 import { Menu, Input } from '@src/ui';
 
-interface SideNavProps {
+/**
+ * 側邊導航組件的屬性介面。
+ *
+ * @interface SideNavProps
+ *
+ * @property {ReactNode} logo - 導航欄的標誌。
+ * @property {ItemProps[]} menuData - 導航欄的菜單數據。
+ * @property {string} [themeColor] - 可選的主題顏色。
+ * @property {string} [width] - 可選的導航欄寬度。
+ * @property {string} [className] - 可選的自定義樣式類名。
+ */
+export interface SideNavProps {
   logo: ReactNode;
   menuData: ItemProps[];
   themeColor?: string;
@@ -19,6 +30,17 @@ const THEME_COLOR = {
   White: '#ffffff',
 };
 
+/**
+ * 側邊導航元件
+ *
+ * @component
+ * @param {SideNavProps} props - 傳遞給元件的屬性
+ * @param {React.ReactElement} props.logo - 導航欄的標誌
+ * @param {THEME_COLOR} props.themeColor - 主題顏色
+ * @param {ItemProps[]} props.menuData - 導航菜單數據
+ * @param {number} props.width - 導航欄寬度
+ * @returns {JSX.Element} 側邊導航元件
+ */
 export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
   const { logo, themeColor, menuData, width, ...rest } = props;
 

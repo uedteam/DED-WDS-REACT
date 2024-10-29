@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Button, Tooltip } from '@src/ui';
 
 export default {
-  title: 'Design System/Tooltip',
+  title: 'Component/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {

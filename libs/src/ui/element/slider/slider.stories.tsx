@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Slider } from '@src/ui';
 
 export default {
-  title: 'Design System/Slider',
+  title: 'Component/Slider',
   component: Slider,
   tags: ['autodocs'],
   argTypes: {

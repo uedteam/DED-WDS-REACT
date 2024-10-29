@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Breadcrumb } from './breadcrumb';
 
 export default {
-  title: 'Design System/Breadcrumb',
+  title: 'Component/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
   argTypes: {

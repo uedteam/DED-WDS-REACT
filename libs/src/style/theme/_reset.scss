@@ -20,3 +20,11 @@
 svg {
   vertical-align: middle;
 }
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -50%;
+  min-width: 200px;
+  border-radius: 4px;
+}

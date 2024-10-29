@@ -1,9 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from './checkbox';
+import { useState } from 'react';
 
 export default {
-  title: 'Design System/Checkbox',
+  title: 'Component/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
@@ -52,11 +53,7 @@ export default {
       action: 'onChange',
     },
   },
-  args: {
-    direction: 'row',
-    themeColor: 'primary',
-    value: '',
-  },
+  args: {},
   parameters: {
     docs: {
       title: 'Checkbox',
@@ -68,19 +65,84 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Primary: Story = {
-  name: '主要項目',
+const options = [
+  { label: '選項一', value: 'option1' },
+  { label: '選項二', value: 'option2' },
+  { label: '選項三', value: 'option3' },
+];
+
+const DefaultWithHooks = () => {
+  const [value, setValue] = useState<string[]>(['option1']);
+
+  const handleChange = (e: string[]) => {
+    console.log(e);
+    setValue(e);
+  };
+
+  return (
+    <>
+      <Checkbox options={options} initValue={value} onChange={handleChange} />
+      <div>已選項目: [{value.join(', ')}]</div>
+    </>
+  );
+};
+
+export const Default: Story = {
+  name: '預設項目',
   args: {
-    className: '',
-    options: [
-      { label: '選項一', value: 'option1' },
-      { label: '選項二', value: 'option2' },
-      { label: '選項三', value: 'option3' },
-    ],
-    initValue: ['option2'],
+    options: options,
+    initValue: [],
     onChange: (e) => action('onChange')(e),
+    className: '',
   },
   render(args) {
-    return <Checkbox {...args} />;
+    return <DefaultWithHooks />;
+  },
+};
+
+const ThemeWithHooks = ({
+  themeColor,
+}: {
+  themeColor:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
+}) => {
+  const [value, setValue] = useState<string[]>(['option1']);
+
+  return (
+    <Checkbox
+      themeColor={themeColor}
+      options={options}
+      initValue={value}
+      onChange={setValue}
+    />
+  );
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {
+    options: options,
+    initValue: ['option1'],
+    onChange: (e) => action('onChange')(e),
+    className: '',
+  },
+  render(args) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <ThemeWithHooks themeColor="primary" />
+        <ThemeWithHooks themeColor="secondary" />
+        <ThemeWithHooks themeColor="tertiary" />
+        <ThemeWithHooks themeColor="info" />
+        <ThemeWithHooks themeColor="success" />
+        <ThemeWithHooks themeColor="warning" />
+        <ThemeWithHooks themeColor="error" />
+      </div>
+    );
   },
 };

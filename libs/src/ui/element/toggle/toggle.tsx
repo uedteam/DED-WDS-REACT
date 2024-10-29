@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import {
   getThemeClass,
   getPositionClass,
@@ -62,8 +62,6 @@ export interface ToggleProps {
  * @param {function} [props.onChange] - 當切換狀態改變時的回調函數
  * @param {string} [props.className=''] - 自定義樣式類名
  * @param {object} [props.rest] - 其他屬性
- *
- * @returns {JSX.Element} 切換元件的 JSX 元素
  */
 export const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
   const {
@@ -78,6 +76,9 @@ export const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
   } = props;
 
   const [checked, setChecked] = useState(isChecked);
+  useEffect(() => {
+    setChecked(isChecked);
+  }, [isChecked]);
 
   return (
     <div
