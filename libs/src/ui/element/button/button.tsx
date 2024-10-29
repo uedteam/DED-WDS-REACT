@@ -26,6 +26,7 @@ export interface ButtonProps {
     | 'warning'
     | 'error'
     | 'info';
+  width?: string;
   isDisabled?: boolean;
   children: ReactNode;
   size?: 'small' | 'medium' | 'large';
@@ -54,6 +55,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const {
     variant = 'contained',
     themeColor = 'primary',
+    width = 'auto',
     isDisabled = false,
     children = '按鈕',
     size = 'medium',
@@ -67,6 +69,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   return (
     <button
       {...rest}
+      style={{ width: width }}
       className={`button 
         ${getSizeClass('component', size)}
         ${
