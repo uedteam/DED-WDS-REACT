@@ -59,7 +59,12 @@ type Story = StoryObj<typeof Tooltip>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {},
+  args: {
+    content: '請設定參數',
+    children: '可操作參數',
+    placement: 'top',
+    className: '',
+  },
   render(args) {
     return (
       <div

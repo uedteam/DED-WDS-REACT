@@ -62,7 +62,12 @@ type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {},
+  args: {
+    closable: true,
+    isDisabled: false,
+    className: '',
+    onClose: action('onClick'),
+  },
   render(args) {
     const forMap = [111, 222, 333, 444, 555];
     return (

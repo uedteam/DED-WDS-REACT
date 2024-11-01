@@ -80,6 +80,17 @@ export default {
   },
   args: {
     themeColor: 'primary',
+    isDisabled: false,
+    onChange: action('onChange'),
+    onClick: action('onClick'),
+    className: '',
+  },
+} as Meta;
+type Story = StoryObj<typeof ButtonSlider>;
+
+export const Default: Story = {
+  name: '預設項目',
+  args: {
     prefix: 'Decrease',
     suffix: 'Increase',
     isDisabled: false,
