@@ -66,8 +66,7 @@ export const Login: React.FC<LoginProps> = (props: LoginProps) => {
                 {/* 登入表單 */}
                 {form && form}
 
-                {/* 第三方登入 */}
-
+                {/* 分隔線 */}
                 {externalLinks && <Divider>Or</Divider>}
 
                 {/* 第三方登入 */}
