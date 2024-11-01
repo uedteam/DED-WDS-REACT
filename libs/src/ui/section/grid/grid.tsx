@@ -4,8 +4,6 @@ import { Column } from './column';
 
 export interface GridProps {
   fluid?: boolean;
-  gap?: string;
-  direction?: 'row' | 'column';
   children: ReactNode;
   className?: string;
 }
@@ -16,14 +14,13 @@ export interface GridComponent extends React.FC<GridProps> {
 }
 
 export const Grid: GridComponent = (props) => {
-  const { fluid, direction = 'column', gap = '16px', children } = props;
+  const { fluid, children } = props;
   return (
     <div
       style={{
         display: 'flex',
-        flexDirection: direction,
+        flexDirection: 'column',
         justifyContent: 'center',
-        gap: gap,
       }}
       className={fluid ? 'container-fluid' : 'container'}
     >

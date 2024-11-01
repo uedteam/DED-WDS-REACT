@@ -61,6 +61,16 @@ export default {
       },
     },
     // Column 参数
+    align: {
+      control: {
+        type: 'select',
+      },
+      options: ['start', 'center', 'end'],
+      description: '對齊方式',
+      table: {
+        category: 'Column',
+      },
+    },
     xs: {
       control: 'number',
       description: '手機尺寸',
@@ -111,11 +121,7 @@ export default {
     hasGap: false,
     justify: 'flex-start',
     alignItems: 'stretch',
-    xs: 12,
-    sm: 6,
-    md: 4,
-    lg: 3,
-    xl: 2,
+    align: 'center',
   },
 } as Meta;
 type Story = StoryObj<typeof Grid>;
@@ -127,7 +133,7 @@ export const Default: Story = {
     return (
       <Grid {...args}>
         <Row {...args}>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -135,7 +141,7 @@ export const Default: Story = {
               Column1
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -143,7 +149,7 @@ export const Default: Story = {
               Column2
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -151,7 +157,7 @@ export const Default: Story = {
               Column3
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -159,7 +165,7 @@ export const Default: Story = {
               Column4
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -167,7 +173,7 @@ export const Default: Story = {
               Column5
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -175,7 +181,7 @@ export const Default: Story = {
               Column6
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -183,7 +189,7 @@ export const Default: Story = {
               Column7
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -191,7 +197,7 @@ export const Default: Story = {
               Column8
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -199,7 +205,7 @@ export const Default: Story = {
               Column9
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -207,7 +213,7 @@ export const Default: Story = {
               Column10
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -215,7 +221,7 @@ export const Default: Story = {
               Column11
             </div>
           </Column>
-          <Column {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3} xl={2}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -235,8 +241,8 @@ export const FourColumn: Story = {
   render(args) {
     return (
       <Grid {...args}>
-        <Row>
-          <Column xs={12} sm={6} md={4} lg={3}>
+        <Row {...args}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -244,7 +250,7 @@ export const FourColumn: Story = {
               Column1
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -252,7 +258,7 @@ export const FourColumn: Story = {
               Column2
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -260,7 +266,7 @@ export const FourColumn: Story = {
               Column3
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -268,7 +274,7 @@ export const FourColumn: Story = {
               Column4
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -276,7 +282,7 @@ export const FourColumn: Story = {
               Column5
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -284,7 +290,7 @@ export const FourColumn: Story = {
               Column6
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -292,7 +298,7 @@ export const FourColumn: Story = {
               Column7
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -300,7 +306,7 @@ export const FourColumn: Story = {
               Column8
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -308,7 +314,7 @@ export const FourColumn: Story = {
               Column9
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -316,7 +322,7 @@ export const FourColumn: Story = {
               Column10
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -324,7 +330,7 @@ export const FourColumn: Story = {
               Column11
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
+          <Column {...args} xs={12} sm={6} md={4} lg={3}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -345,7 +351,7 @@ export const ThreeColumn: Story = {
     return (
       <Grid {...args}>
         <Row>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -353,7 +359,7 @@ export const ThreeColumn: Story = {
               Column1
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -361,7 +367,7 @@ export const ThreeColumn: Story = {
               Column2
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -369,7 +375,7 @@ export const ThreeColumn: Story = {
               Column3
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -377,7 +383,7 @@ export const ThreeColumn: Story = {
               Column4
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -385,7 +391,7 @@ export const ThreeColumn: Story = {
               Column5
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -393,7 +399,7 @@ export const ThreeColumn: Story = {
               Column6
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -401,7 +407,7 @@ export const ThreeColumn: Story = {
               Column7
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -409,7 +415,7 @@ export const ThreeColumn: Story = {
               Column8
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -417,7 +423,7 @@ export const ThreeColumn: Story = {
               Column9
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -425,7 +431,7 @@ export const ThreeColumn: Story = {
               Column10
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -433,7 +439,7 @@ export const ThreeColumn: Story = {
               Column11
             </div>
           </Column>
-          <Column xs={12} sm={6} md={4}>
+          <Column {...args} xs={12} sm={6} md={4}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -454,7 +460,7 @@ export const TwoColumn: Story = {
     return (
       <Grid {...args}>
         <Row>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -462,7 +468,7 @@ export const TwoColumn: Story = {
               Column1
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -470,7 +476,7 @@ export const TwoColumn: Story = {
               Column2
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -478,7 +484,7 @@ export const TwoColumn: Story = {
               Column3
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -486,7 +492,7 @@ export const TwoColumn: Story = {
               Column4
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -494,7 +500,7 @@ export const TwoColumn: Story = {
               Column5
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -502,7 +508,7 @@ export const TwoColumn: Story = {
               Column6
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -510,7 +516,7 @@ export const TwoColumn: Story = {
               Column7
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -518,7 +524,7 @@ export const TwoColumn: Story = {
               Column8
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -526,7 +532,7 @@ export const TwoColumn: Story = {
               Column9
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -534,7 +540,7 @@ export const TwoColumn: Story = {
               Column10
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -542,7 +548,7 @@ export const TwoColumn: Story = {
               Column11
             </div>
           </Column>
-          <Column xs={12} sm={6}>
+          <Column {...args} xs={12} sm={6}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -563,7 +569,7 @@ export const OneColumn: Story = {
     return (
       <Grid {...args}>
         <Row>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -571,7 +577,7 @@ export const OneColumn: Story = {
               Column1
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -579,7 +585,7 @@ export const OneColumn: Story = {
               Column2
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -587,7 +593,7 @@ export const OneColumn: Story = {
               Column3
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -595,7 +601,7 @@ export const OneColumn: Story = {
               Column4
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -603,7 +609,7 @@ export const OneColumn: Story = {
               Column5
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -611,7 +617,7 @@ export const OneColumn: Story = {
               Column6
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -619,7 +625,7 @@ export const OneColumn: Story = {
               Column7
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -627,7 +633,7 @@ export const OneColumn: Story = {
               Column8
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -635,7 +641,7 @@ export const OneColumn: Story = {
               Column9
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -643,7 +649,7 @@ export const OneColumn: Story = {
               Column10
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
@@ -651,7 +657,7 @@ export const OneColumn: Story = {
               Column11
             </div>
           </Column>
-          <Column xs={12}>
+          <Column {...args} xs={12}>
             <div
               className="diagonal-background"
               style={{ border: '1px solid #ccc', padding: '8px 16px' }}
