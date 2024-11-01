@@ -1,7 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox } from './checkbox';
+import { Checkbox, CheckboxProps } from './checkbox';
 import { useState } from 'react';
+import { Grid, Row, Column } from '@src/ui/section/grid';
 
 export default {
   title: 'Component/Checkbox',
@@ -71,7 +72,7 @@ const options = [
   { label: '選項三', value: 'option3' },
 ];
 
-const DefaultWithHooks = () => {
+const DefaultWithHooks = (args: CheckboxProps) => {
   const [value, setValue] = useState<string[]>(['option1']);
 
   const handleChange = (e: string[]) => {
@@ -81,8 +82,13 @@ const DefaultWithHooks = () => {
 
   return (
     <>
-      <Checkbox options={options} initValue={value} onChange={handleChange} />
-      <div>已選項目: [{value.join(', ')}]</div>
+      <Checkbox
+        {...args}
+        options={options}
+        initValue={value}
+        onChange={handleChange}
+      />
+      <div style={{ marginTop: '16px' }}>已選項目: [{value.join(', ')}]</div>
     </>
   );
 };
@@ -93,10 +99,11 @@ export const Default: Story = {
     options: options,
     initValue: [],
     onChange: (e) => action('onChange')(e),
+    direction: 'row',
     className: '',
   },
   render(args) {
-    return <DefaultWithHooks />;
+    return <DefaultWithHooks {...args} />;
   },
 };
 
@@ -134,15 +141,31 @@ export const Theme: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <ThemeWithHooks themeColor="primary" />
-        <ThemeWithHooks themeColor="secondary" />
-        <ThemeWithHooks themeColor="tertiary" />
-        <ThemeWithHooks themeColor="info" />
-        <ThemeWithHooks themeColor="success" />
-        <ThemeWithHooks themeColor="warning" />
-        <ThemeWithHooks themeColor="error" />
-      </div>
+      <Grid>
+        <Row>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="primary" />
+          </Column>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="secondary" />
+          </Column>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="tertiary" />
+          </Column>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="info" />
+          </Column>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="success" />
+          </Column>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="warning" />
+          </Column>
+          <Column xs={12} md={4}>
+            <ThemeWithHooks themeColor="error" />
+          </Column>
+        </Row>
+      </Grid>
     );
   },
 };
