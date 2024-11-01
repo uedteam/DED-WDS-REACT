@@ -57,7 +57,7 @@ export default {
 /* 設定組件類型 */
 type Story = StoryObj<typeof Dropdown>;
 
-export const Primary: Story = {
+export const Default: Story = {
   name: '搜尋輸入框',
   args: {
     options: [

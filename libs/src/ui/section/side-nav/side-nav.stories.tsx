@@ -82,8 +82,8 @@ const menuData: ItemProps[] = [
   },
 ];
 
-export const Primary: Story = {
-  name: '主要項目',
+export const Default: Story = {
+  name: '預設項目',
   args: {
     themeColor: 'Blue',
     logo: <AUOIcon width={90} height={30} />,

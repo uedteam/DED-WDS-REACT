@@ -25,7 +25,7 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Layout>;
 
-export const Primary: Story = {
+export const Default: Story = {
   name: '預設項目',
   args: {
     className: '',

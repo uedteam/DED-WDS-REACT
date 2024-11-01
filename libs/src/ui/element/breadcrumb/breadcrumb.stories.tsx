@@ -35,8 +35,8 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Breadcrumb>;
 
-export const Primary: Story = {
-  name: '主要項目',
+export const Default: Story = {
+  name: '預設項目',
   args: {
     breadcrumbItems: [
       { label: '首頁', href: '/' },

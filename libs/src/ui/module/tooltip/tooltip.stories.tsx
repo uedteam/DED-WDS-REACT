@@ -50,8 +50,8 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Tooltip>;
 
-export const Primary: Story = {
-  name: '主要項目',
+export const Default: Story = {
+  name: '預設項目',
   args: {
     content: '請設定參數',
     children: '可操作參數',

@@ -52,8 +52,8 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Tag>;
 
-export const Primary: Story = {
-  name: '主要項目',
+export const Default: Story = {
+  name: '預設項目',
   args: {
     closable: true,
     isDisabled: false,
