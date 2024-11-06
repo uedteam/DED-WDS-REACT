@@ -11,7 +11,6 @@ import { LineProgress, CircleProgress } from './element/progress';
 import { AvatarGroup } from './module/avatar-group';
 import { List, Item } from './module/list';
 import { Tooltip } from './module/tooltip';
-import { Dropdown } from './module/dropdown';
 import { Slider } from './element/slider';
 import { ButtonSlider } from './module/slider-control';
 import { Card } from './section/card';
@@ -33,7 +32,6 @@ export {
   List,
   Item,
   Tooltip,
-  Dropdown,
   Slider,
   ButtonSlider,
   Card,

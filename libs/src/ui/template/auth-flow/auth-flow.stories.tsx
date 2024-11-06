@@ -104,7 +104,7 @@ export const Default: Story = {
 
             <Column md={6} align="end">
               <Checkbox
-                options={[{ label: 'Remember me', value: '1' }]}
+                dataSource={[{ label: 'Remember me', value: '1' }]}
               ></Checkbox>
             </Column>
 
@@ -235,7 +235,7 @@ export const SignUp: Story = {
                   alignItems: 'center',
                 }}
               >
-                <Checkbox options={[{ label: '', value: '1' }]}></Checkbox>
+                <Checkbox dataSource={[{ label: '', value: '1' }]}></Checkbox>
                 <span style={{ marginRight: '8px' }}>I agree to all the</span>
                 <Button className="link-button" variant="text">
                   Terms

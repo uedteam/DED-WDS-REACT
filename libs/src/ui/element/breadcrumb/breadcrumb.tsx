@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import Portal from '@src/ui/portal';
-import { List } from '@src/ui/module/list';
 
 interface BreadcrumbItemProps {
   label: string;
@@ -26,7 +25,6 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
 };
 
 interface BreadcrumbProps {
-  className?: string;
   placement:
     | 'top-left'
     | 'top'
@@ -40,13 +38,14 @@ interface BreadcrumbProps {
     | 'left-bottom'
     | 'left'
     | 'left-top';
-  breadcrumbItems: { label: string; href?: string }[];
+  dataSource: { label: string; href?: string }[];
+  className?: string;
 }
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = (
   props: BreadcrumbProps
 ) => {
-  const { breadcrumbItems, placement, className } = props;
+  const { dataSource, placement, className } = props;
   const breadcrumbRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { childrenSize, position } = usePosition(breadcrumbRef);
@@ -72,13 +71,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (
   }, []);
 
   const itemsToShow =
-    breadcrumbItems.length > 3
-      ? [
-          breadcrumbItems[0],
-          { label: '...', href: '#' },
-          ...breadcrumbItems.slice(-2),
-        ]
-      : breadcrumbItems;
+    dataSource.length > 3
+      ? [dataSource[0], { label: '...', href: '#' }, ...dataSource.slice(-2)]
+      : dataSource;
 
   return (
     <>
@@ -131,15 +126,13 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (
               isMenu
             /> */}
             <ul className="rest-dropdown-menu">
-              {breadcrumbItems
-                .slice(1, -2)
-                .map((dropdownItem, dropdownIndex) => (
-                  <li className="drop-item" key={dropdownIndex}>
-                    <a className="drop-item-link" href={dropdownItem.href}>
-                      {dropdownItem.label}
-                    </a>
-                  </li>
-                ))}
+              {dataSource.slice(1, -2).map((dropdownItem, dropdownIndex) => (
+                <li className="drop-item" key={dropdownIndex}>
+                  <a className="drop-item-link" href={dropdownItem.href}>
+                    {dropdownItem.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         )}

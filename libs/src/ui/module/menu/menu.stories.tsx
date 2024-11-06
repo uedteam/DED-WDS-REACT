@@ -3,41 +3,6 @@ import { Meta, StoryObj } from '@storybook/react';
 import { ItemProps } from '@src/hooks/useMenu';
 import Menu from './menu';
 
-export default {
-  title: 'Component/Menu',
-  component: Menu,
-  tags: ['autodocs'],
-  argTypes: {
-    className: {
-      description: '客製化樣式',
-    },
-    menuData: {
-      description: '選單資料',
-    },
-    isCollapsed: {
-      description: '是否收合',
-    },
-    width: {
-      description: '寬度',
-    },
-    color: {
-      description: '顏色',
-      control: {
-        type: 'color',
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      title: '選單',
-      description: {
-        component: '選單的呈現及說明。',
-      },
-    },
-  },
-} as Meta;
-type Story = StoryObj<typeof Menu>;
-
 const menuData: ItemProps[] = [
   {
     title: 'Dashboard',
@@ -68,14 +33,50 @@ const menuData: ItemProps[] = [
   },
 ];
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    className: '',
-    menuData,
-    isCollapsed: false,
-    width: '300px',
+export default {
+  title: 'Component/Menu',
+  component: Menu,
+  tags: ['autodocs'],
+  argTypes: {
+    dataSource: {
+      description: '資料來源',
+    },
+    isCollapsed: {
+      description: '是否收合',
+    },
+    width: {
+      description: '寬度',
+    },
+    color: {
+      description: '顏色',
+      control: {
+        type: 'color',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+    },
   },
+  args: {
+    dataSource: menuData,
+    isCollapsed: false,
+    width: '100%',
+    className: '',
+  },
+  parameters: {
+    docs: {
+      title: '選單',
+      description: {
+        component: '選單的呈現及說明。',
+      },
+    },
+  },
+} as Meta;
+type Story = StoryObj<typeof Menu>;
+
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Menu {...args} />;
   },

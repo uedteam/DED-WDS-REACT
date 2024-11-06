@@ -90,33 +90,23 @@ export default {
   args: {
     size: 'medium',
     isDisabled: false,
-    label: '',
+    label: '帳號',
     type: 'text',
-    placeholder: '請輸入...',
-    prefix: null,
-    hint: { error: '', description: '' },
+    placeholder: '請輸入帳號...',
+    prefix: <AccountIcon />,
+    hint: { error: '', description: '描述提示信息' },
     initValue: '',
     className: '',
+    onChange: (e: string) => action('changed')(e),
   },
 } as Meta;
 type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    placeholder: '請輸入帳號 ...',
-    onChange: (e) => action('onChange')(e),
-  },
+  args: {},
   render(args) {
-    return (
-      <Grid>
-        <Row>
-          <Column xs={12} sm={6} md={4} lg={3}>
-            <Input {...args} />
-          </Column>
-        </Row>
-      </Grid>
-    );
+    return <Input {...args} />;
   },
 };
 
@@ -128,35 +118,20 @@ export const InputWithStatus: Story = {
   },
   render(args) {
     return (
-      <Grid>
-        <Row gap={8}>
-          <Column xs={12} sm={6} md={4} lg={3}>
-            <Input {...args} label="帳號" />
-          </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
-            <Input
-              {...args}
-              label="密碼"
-              type={'password'}
-              prefix={<LockIcon />}
-            />
-          </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
-            <Input
-              {...args}
-              label="帳號"
-              hint={{ error: 'Error Message', description: '' }}
-            />
-          </Column>
-          <Column xs={12} sm={6} md={4} lg={3}>
-            <Input
-              {...args}
-              label="帳號"
-              hint={{ error: '', description: 'Something Description' }}
-            />
-          </Column>
-        </Row>
-      </Grid>
+      <div>
+        <Input {...args} label="帳號" />
+        <Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
+        <Input
+          {...args}
+          label="帳號"
+          hint={{ error: '錯誤訊息', description: '' }}
+        />
+        <Input
+          {...args}
+          label="帳號"
+          hint={{ error: '', description: '描述' }}
+        />
+      </div>
     );
   },
 };

@@ -30,8 +30,8 @@ export interface SliderProps {
   step?: number;
   unit?: string;
   initValue?: number;
-  onChange?: (value: number) => void;
   className?: string;
+  onChange?: (value: number) => void;
 }
 
 /**
@@ -46,8 +46,8 @@ export interface SliderProps {
  * @param {number} [props.step=1] - Slider 的步進值
  * @param {string} [props.unit='%'] - Slider 值的單位
  * @param {number} [props.initValue=0] - Slider 的初始值
- * @param {function} [props.onChange] - 當 Slider 值改變時的回調函數
  * @param {string} [props.className] - 自定義 CSS 類名
+ * @param {function} [props.onChange] - 當 Slider 值改變時的回調函數
  *
  * @returns {JSX.Element} Slider 元件的 JSX
  */

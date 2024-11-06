@@ -56,11 +56,11 @@ export default {
         Decrease: <MinusIcon width={32} height={32} />,
       },
     },
-    className: {
-      description: '客製化樣式',
-    },
     initValue: {
       description: '初始值',
+    },
+    className: {
+      description: '客製化樣式',
     },
     onChange: {
       description: '變更事件',
@@ -80,33 +80,31 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    isDisabled: false,
-    onChange: action('onChange'),
-    onClick: action('onClick'),
-    className: '',
-  },
-} as Meta;
-type Story = StoryObj<typeof ButtonSlider>;
-
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
     prefix: 'Decrease',
     suffix: 'Increase',
-    min: 0,
+    isDisabled: false,
+    min: -100,
     max: 100,
     step: 1,
     unit: '℃',
     initValue: 50,
+    className: '',
+    onChange: action('onChange'),
     onClick: action('onClick'),
   },
+} as Meta;
+type Story = StoryObj<typeof ButtonSlider>;
+
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <ButtonSlider {...args} />;
   },
 };
 
 export const ThemeColor: Story = {
-  name: '主題色按鈕滑桿',
+  name: '主題色彩',
   args: {
     prefix: 'Decrease',
     suffix: 'Increase',

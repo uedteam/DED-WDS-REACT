@@ -41,12 +41,12 @@ export interface ToggleProps {
     | 'warning'
     | 'error'
     | 'info';
-  checkChildren?: ReactNode;
-  unCheckChildren?: ReactNode;
+  checkChildren?: string;
+  unCheckChildren?: string;
   isChecked: boolean;
   isDisabled?: boolean;
-  onChange?: (checked: boolean) => void;
   className?: string;
+  onChange?: (checked: boolean) => void;
 }
 
 /**
@@ -57,8 +57,8 @@ export interface ToggleProps {
  * @param {string} [props.themeColor=''] - 主題顏色
  * @param {boolean} [props.isChecked=false] - 是否被選中
  * @param {boolean} [props.isDisabled=false] - 是否禁用
- * @param {React.ReactNode} [props.checkChildren='on'] - 被選中時顯示的內容
- * @param {React.ReactNode} [props.unCheckChildren='off'] - 未被選中時顯示的內容
+ * @param {React.string} [props.checkChildren='on'] - 被選中時顯示的內容
+ * @param {React.string} [props.unCheckChildren='off'] - 未被選中時顯示的內容
  * @param {function} [props.onChange] - 當切換狀態改變時的回調函數
  * @param {string} [props.className=''] - 自定義樣式類名
  * @param {object} [props.rest] - 其他屬性
@@ -70,8 +70,8 @@ export const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
     isDisabled = false,
     checkChildren = 'on',
     unCheckChildren = 'off',
-    onChange,
     className = '',
+    onChange,
     ...rest
   } = props;
 

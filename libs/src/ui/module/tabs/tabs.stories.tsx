@@ -2,6 +2,12 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
 
+const tabs = [
+  { title: '頁籤 1', content: '內容一' },
+  { title: '頁籤 2', content: '內容二' },
+  { title: '頁籤 3', content: '內容三' },
+];
+
 export default {
   title: 'Component/Tabs',
   component: Tabs,
@@ -40,16 +46,25 @@ export default {
         max: 2,
       },
     },
-    tabs: {
+    dataSource: {
       description: '頁籤列表',
+    },
+    className: {
+      description: '客製化樣式',
     },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
     },
-    className: {
-      description: '客製化樣式',
-    },
+  },
+  args: {
+    themeColor: 'primary',
+    type: 'default',
+    isDisabled: false,
+    dataSource: tabs,
+    activeIndex: 0,
+    className: '',
+    onClick: action('onClick'),
   },
   parameters: {
     docs: {
@@ -59,27 +74,12 @@ export default {
       },
     },
   },
-  args: {
-    themeColor: 'primary',
-    type: 'default',
-    isDisabled: false,
-    tabs: [
-      { title: '頁籤 1', content: '內容一' },
-      { title: '頁籤 2', content: '內容二' },
-      { title: '頁籤 3', content: '內容三' },
-    ],
-    activeIndex: 0,
-    className: '',
-    onClick: action('onClick'),
-  },
 } as Meta;
 type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    activeIndex: 0,
-  },
+  args: {},
   render(args) {
     return <Tabs {...args} />;
   },

@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Textarea } from './textarea';
 
@@ -15,22 +16,29 @@ export default {
     isDisabled: {
       description: '是否禁用',
     },
-    total: {
-      description: '字數限制',
-    },
     hint: {
       description: '提示訊息',
     },
     initValue: {
       description: '輸入值',
     },
+    className: {
+      description: '客製化樣式',
+    },
     onChange: {
       description: '輸入事件',
       action: 'onChange',
     },
-    className: {
-      description: '客製化樣式',
-    },
+  },
+  args: {
+    label: '內文描述',
+    placeholder: '請輸入描述 ...',
+    isDisabled: false,
+    limit: 0,
+    hint: { error: '', description: '描述提示信息' },
+    initValue: '',
+    className: '',
+    onChange: action('onChange'),
   },
   parameters: {
     docs: {
@@ -40,32 +48,12 @@ export default {
       },
     },
   },
-  args: {
-    isDisabled: false,
-    placeholder: '請輸入 ...',
-    total: 0,
-    className: '',
-  },
 } as Meta;
 type Story = StoryObj<typeof Textarea>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    label: '',
-    hint: { error: '', description: '' },
-  },
-  render(args) {
-    return <Textarea {...args} />;
-  },
-};
-
-export const Label: Story = {
-  name: '顯示標籤',
-  args: {
-    label: '內文描述',
-    hint: { error: '', description: '' },
-  },
+  args: {},
   render(args) {
     return <Textarea {...args} />;
   },
@@ -93,7 +81,7 @@ export const TextareaStatus: Story = {
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', gap: '16px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Textarea {...args} />
         <Textarea
           {...args}

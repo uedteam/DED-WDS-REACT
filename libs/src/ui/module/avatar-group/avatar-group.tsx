@@ -11,13 +11,13 @@ import { AccountIcon } from '@src/assets';
 /**
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
  *
- * @param {AvatarProps[]} users - Avatar 的使用者陣列。
+ * @param {AvatarProps[]} dataSource - Avatar 的使用者陣列。
  * @param {'top-left' | 'top' | 'top-right' | 'right-top' | 'right' | 'right-bottom' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left-bottom' | 'left' | 'left-top'} placement - Avatar 群組的排列位置。
  * @param {number} limit - Avatar 顯示的最大數量。
  * @param {string} [className] - 自訂的 CSS 類名。
  */
 export interface AvatarGroupProps {
-  users: AvatarProps[];
+  dataSource: AvatarProps[];
   placement:
     | 'top-left'
     | 'top'
@@ -39,7 +39,7 @@ export interface AvatarGroupProps {
  * AvatarGroup 組件
  *
  * @param {AvatarGroupProps} props - AvatarGroup 的屬性
- * @param {User[]} props.users - 用戶數組
+ * @param {User[]} props.dataSource - 資料來源
  * @param {number} props.limit - 顯示的用戶數量限制
  * @param {string} props.placement - 下拉菜單的位置
  * @param {string} [props.className] - 額外的 CSS 類名
@@ -56,14 +56,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
   props: AvatarGroupProps
 ) => {
   const {
-    users = [],
+    dataSource = [],
     limit = 1,
     placement = 'right-top',
-    className = ' ',
+    className = '',
     ...rest
   } = props;
-  const restCount = users.length - limit;
-  const result = splitArray(users, limit);
+  const restCount = dataSource.length - limit;
+  const result = splitArray(dataSource, limit);
 
   const [menu, setMenu] = React.useState<ItemProps[]>([]);
 
@@ -144,7 +144,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
             style={getTargetPosition(position, childrenSize, placement, '6px')}
             className={`dropdown-menu ${className}`}
           >
-            <List options={menu} isMenu />
+            <List dataSource={menu} isMenu />
           </div>
         )}
       </Portal>

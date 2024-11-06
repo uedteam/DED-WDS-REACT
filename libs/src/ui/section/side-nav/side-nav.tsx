@@ -9,14 +9,14 @@ import { Menu, Input } from '@src/ui';
  * @interface SideNavProps
  *
  * @property {ReactNode} logo - 導航欄的標誌。
- * @property {ItemProps[]} menuData - 導航欄的菜單數據。
+ * @property {ItemProps[]} dataSource - 導航欄的菜單數據。
  * @property {string} [themeColor] - 可選的主題顏色。
  * @property {string} [width] - 可選的導航欄寬度。
  * @property {string} [className] - 可選的自定義樣式類名。
  */
 export interface SideNavProps {
   logo: ReactNode;
-  menuData: ItemProps[];
+  dataSource: ItemProps[];
   themeColor?: string;
   width?: string;
   className?: string;
@@ -37,15 +37,16 @@ const THEME_COLOR = {
  * @param {SideNavProps} props - 傳遞給元件的屬性
  * @param {React.ReactElement} props.logo - 導航欄的標誌
  * @param {THEME_COLOR} props.themeColor - 主題顏色
- * @param {ItemProps[]} props.menuData - 導航菜單數據
+ * @param {ItemProps[]} props.dataSource - 導航菜單數據
  * @param {number} props.width - 導航欄寬度
  * @returns {JSX.Element} 側邊導航元件
  */
 export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
-  const { logo, themeColor, menuData, width, ...rest } = props;
+  const { logo, themeColor, dataSource, width, ...rest } = props;
 
   const [color, setColor] = useState(THEME_COLOR.White);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   const coloredLogo = React.cloneElement(logo as React.ReactElement, {
     fill: color,
@@ -79,9 +80,9 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
     } else {
       setColor('#000000');
     }
-  }, [color, menuData, themeColor]);
+  }, [color, dataSource, themeColor]);
 
-  applyColorToIcons(menuData, color);
+  applyColorToIcons(dataSource, color);
 
   return (
     <div className="side-nav" style={{ backgroundColor: themeColor }}>
@@ -106,6 +107,7 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
       {!isCollapsed && (
         <div>
           <Input
+            initValue={searchValue}
             onChange={() => ({})}
             placeholder="請輸項目..."
             prefix={<SearchIcon />}
@@ -116,7 +118,7 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
       )}
       <Menu
         {...rest}
-        menuData={menuData}
+        dataSource={dataSource}
         isCollapsed={isCollapsed}
         color={color}
       />

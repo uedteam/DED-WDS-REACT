@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CheckIcon } from '@src/assets';
 import { getThemeClass } from './styled';
 
@@ -14,6 +14,7 @@ import { getThemeClass } from './styled';
  */
 export interface CheckboxProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -21,27 +22,23 @@ export interface CheckboxProps {
     | 'warning'
     | 'error'
     | 'info';
-  options?: { label: string; value: string }[];
+  dataSource?: { label: string; value: string }[];
   initValue?: string[];
   direction?: 'row' | 'column';
-  onChange?: (value: string[]) => void;
   className?: string;
+  onChange?: (value: string[]) => void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
   themeColor = 'primary',
   direction = 'row',
   initValue = [],
-  options = [],
-  onChange,
+  dataSource = [],
   className,
+  onChange,
   ...rest
 }: CheckboxProps) => {
   const [currOptions, setCurrOptions] = useState<string[]>(initValue);
-
-  // useEffect(() => {
-  //   setCurrOptions(initValue || []);
-  // }, [initValue]);
 
   const handleChange = (value: string, checked: boolean) => {
     const updatedOptions = checked
@@ -62,7 +59,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           : 'checkbox-container-column'
       }`}
     >
-      {options.map((option) => (
+      {dataSource.map((option) => (
         <label
           key={option.value}
           htmlFor={option.value}

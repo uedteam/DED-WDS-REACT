@@ -1,19 +1,33 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Breadcrumb } from './breadcrumb';
+import { c } from 'vite/dist/node/types.d-aGj9QkWt';
 
 export default {
   title: 'Component/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
   argTypes: {
-    breadcrumbItems: {
-      description: '麵包屑項目',
+    dataSource: {
+      description: '資料來源',
     },
     placement: {
       description: '麵包屑位置',
       control: {
         type: 'select',
-        options: ['top', 'bottom'],
+        options: [
+          'top-left',
+          'top',
+          'top-right',
+          'right-top',
+          'right',
+          'right-bottom',
+          'bottom-right',
+          'bottom',
+          'bottom-left',
+          'left-bottom',
+          'left',
+          'left-top',
+        ],
       },
     },
     className: {
@@ -23,7 +37,18 @@ export default {
       },
     },
   },
-  args: {},
+  args: {
+    dataSource: [
+      { label: '首頁', href: '/' },
+      { label: '第一層', href: '/first' },
+      { label: '第二層', href: 'https://tw.yahoo.com' },
+      { label: '第三層', href: '/first/second/third' },
+      { label: '第n層', href: '/first/second/third/n' },
+      { label: '當前頁' },
+    ],
+    placement: 'bottom-left',
+    className: '',
+  },
   parameters: {
     docs: {
       title: '麵包屑',
@@ -35,19 +60,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Breadcrumb>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    breadcrumbItems: [
-      { label: '首頁', href: '/' },
-      { label: '第一層', href: '/first' },
-      { label: '第二層', href: 'https://tw.yahoo.com' },
-      { label: '第三層', href: '/first/second/third' },
-      { label: '第n層', href: '/first/second/third/n' },
-      { label: '當前頁' },
-    ],
-    placement: 'bottom',
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     return <Breadcrumb {...args} />;
   },

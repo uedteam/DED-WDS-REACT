@@ -18,9 +18,9 @@ export interface ButtonSliderProps {
   max?: number;
   step?: number;
   unit?: string;
+  className?: string;
   onClick?: () => void;
   onChange?: (value: number) => void;
-  className?: string;
 }
 
 export const ButtonSlider: React.FC<ButtonSliderProps> = (
@@ -35,10 +35,10 @@ export const ButtonSlider: React.FC<ButtonSliderProps> = (
     step = 1,
     unit,
     initValue,
-    onClick,
-    onChange,
     isDisabled,
     className,
+    onClick,
+    onChange,
     ...rest
   } = props;
 

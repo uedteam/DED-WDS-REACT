@@ -19,6 +19,7 @@ import { getSizeClass } from '@src/utils/style';
 export interface ButtonProps {
   variant: 'contained' | 'outlined' | 'text';
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'

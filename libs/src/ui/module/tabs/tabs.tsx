@@ -100,8 +100,8 @@ export interface TabsProps {
   type?: 'card' | 'default';
   activeIndex?: number;
   isDisabled?: boolean;
+  dataSource: Tab[];
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  tabs: Tab[];
   className?: string;
 }
 /**
@@ -118,8 +118,8 @@ export interface TabsProps {
  */
 export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   const {
-    tabs = [],
     themeColor = 'primary',
+    dataSource = [],
     type = 'default',
     activeIndex = 0,
     isDisabled = false,
@@ -142,7 +142,7 @@ export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   return (
     <div className={`tabs-container ${className}`}>
       <div className="tabs">
-        {tabs.map((tab, index) => (
+        {dataSource.map((tab, index) => (
           <TabItem
             key={index}
             title={tab.title}
@@ -156,7 +156,7 @@ export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
         ))}
       </div>
       <div className={`tab-content ${isDisabled && 'tab-disable'}`}>
-        {tabs[activeTabIndex].content}
+        {dataSource[activeTabIndex].content}
       </div>
     </div>
   );

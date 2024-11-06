@@ -41,6 +41,14 @@ export default {
       action: 'closed',
     },
   },
+  args: {
+    isDisabled: false,
+    icon: 'None',
+    closable: true,
+    closeIcon: null,
+    className: '',
+    onClose: action('closed'),
+  },
   parameters: {
     docs: {
       title: '標籤',
@@ -52,14 +60,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Tag>;
 
-export const Primary: Story = {
-  name: '主要項目',
-  args: {
-    closable: true,
-    isDisabled: false,
-    className: '',
-    onClose: action('onClick'),
-  },
+export const Default: Story = {
+  name: '預設項目',
+  args: {},
   render(args) {
     const forMap = [111, 222, 333, 444, 555];
     return (

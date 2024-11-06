@@ -1,13 +1,12 @@
 import { ReactNode } from 'react';
 
 interface ColumnProps {
+  align?: 'start' | 'center' | 'end';
   xs?: number;
   sm?: number;
   md?: number;
   lg?: number;
   xl?: number;
-  align?: 'start' | 'center' | 'end';
-  // justify?: 'start' | 'center' | 'end';
   children: ReactNode;
 }
 
