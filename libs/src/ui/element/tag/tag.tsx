@@ -8,9 +8,9 @@ interface TagProps {
   icon?: React.ReactNode;
   closeIcon?: React.ReactNode;
   closable?: boolean;
-  onClose?: () => void;
   children: React.ReactNode;
   className?: string;
+  onClose?: () => void;
 }
 
 export const Tag: React.FC<TagProps> = (props: TagProps) => {
@@ -18,10 +18,10 @@ export const Tag: React.FC<TagProps> = (props: TagProps) => {
     isDisabled,
     icon,
     closeIcon,
-    onClose,
     closable,
-    className,
     children,
+    className,
+    onClose,
   } = props;
 
   return (
