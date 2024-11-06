@@ -2,9 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
-import { ArrowDownIcon } from '@src/assets';
 import { List, Input } from '@src/ui';
-import { ItemProps } from '../list';
+import { ItemProps } from '@src/ui/module/list';
 
 interface DropdownProps {
   // isDisabled?: boolean;
