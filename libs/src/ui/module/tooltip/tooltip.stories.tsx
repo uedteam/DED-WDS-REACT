@@ -39,6 +39,13 @@ export default {
       description: '客製化樣式',
     },
   },
+  args: {
+    content: '請設定參數',
+    children: '可操作參數',
+    placement: 'top',
+    showArrow: true,
+    className: '',
+  },
   parameters: {
     docs: {
       title: '提示工具',
@@ -52,12 +59,7 @@ type Story = StoryObj<typeof Tooltip>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    content: '請設定參數',
-    children: '可操作參數',
-    placement: 'top',
-    className: '',
-  },
+  args: {},
   render(args) {
     return (
       <div

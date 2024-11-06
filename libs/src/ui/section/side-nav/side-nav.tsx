@@ -16,7 +16,7 @@ import { Menu, Input } from '@src/ui';
  */
 export interface SideNavProps {
   logo: ReactNode;
-  menuData: ItemProps[];
+  dataSource: ItemProps[];
   themeColor?: string;
   width?: string;
   className?: string;
@@ -42,10 +42,11 @@ const THEME_COLOR = {
  * @returns {JSX.Element} 側邊導航元件
  */
 export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
-  const { logo, themeColor, menuData, width, ...rest } = props;
+  const { logo, themeColor, dataSource, width, ...rest } = props;
 
   const [color, setColor] = useState(THEME_COLOR.White);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   const coloredLogo = React.cloneElement(logo as React.ReactElement, {
     fill: color,
@@ -79,9 +80,9 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
     } else {
       setColor('#000000');
     }
-  }, [color, menuData, themeColor]);
+  }, [color, dataSource, themeColor]);
 
-  applyColorToIcons(menuData, color);
+  applyColorToIcons(dataSource, color);
 
   return (
     <div className="side-nav" style={{ backgroundColor: themeColor }}>
@@ -106,6 +107,7 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
       {!isCollapsed && (
         <div>
           <Input
+            initValue={searchValue}
             onChange={() => ({})}
             placeholder="請輸項目..."
             prefix={<SearchIcon />}
@@ -116,7 +118,7 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
       )}
       <Menu
         {...rest}
-        menuData={menuData}
+        menuData={dataSource}
         isCollapsed={isCollapsed}
         color={color}
       />
