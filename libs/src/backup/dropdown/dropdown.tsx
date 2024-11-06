@@ -39,6 +39,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
   const [selected, setSelected] = useState<string[]>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { childrenSize, position } = usePosition(dropdownRef);
+  const [value, setValue] = useState('');
 
   const handleSelect = (value: string) => {
     setSelected((prev) => {
@@ -82,6 +83,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
     <>
       <div className="dropdown" ref={dropdownRef} onClick={handleClick}>
         <Input
+          initValue={value}
           type="text"
           onChange={() => console.log('change')}
           // suffix={
