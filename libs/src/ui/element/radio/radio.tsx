@@ -8,7 +8,7 @@ import { getThemeClass } from './styled';
  * @interface InputProps
  * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
  * @property {string} [className] - 自訂樣式類別名稱。
- * @property {{ label: string; value: string }[]} [options] - 選項列表，每個選項包含標籤和值。
+ * @property {{ label: string; value: string }[]} [dataSource] - 選項列表，每個選項包含標籤和值。
  * @property {('row' | 'column')} [direction] - 排列方向，可選值包括 'row' 和 'column'。
  * @property {string} [initValue] - 初始選定值。
  * @property {(value: string) => void} [onChange] - 當選定值改變時的回調函數。
@@ -22,10 +22,10 @@ export interface InputProps {
     | 'warning'
     | 'error'
     | 'info';
-  className?: string;
-  options?: { label: string; value: string }[];
+  dataSource?: { label: string; value: string }[];
   direction?: 'row' | 'column';
   initValue?: string;
+  className?: string;
   onChange?: (value: string) => void;
 }
 
@@ -43,7 +43,7 @@ export interface InputProps {
 export const Radio: React.FC<InputProps> = (props: InputProps) => {
   const {
     themeColor = 'primary',
-    options = [],
+    dataSource = [],
     direction = 'row',
     initValue = '',
     onChange,
@@ -63,7 +63,7 @@ export const Radio: React.FC<InputProps> = (props: InputProps) => {
         direction === 'row' ? 'radio-container-row' : 'radio-container-column'
       }`}
     >
-      {options.map((option) => (
+      {dataSource.map((option) => (
         <label
           key={option.value}
           htmlFor={option.value}

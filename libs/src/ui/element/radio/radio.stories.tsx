@@ -2,6 +2,12 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Radio } from './radio';
 
+const options = [
+  { label: '選項一', value: 'option1' },
+  { label: '選項二', value: 'option2' },
+  { label: '選項三', value: 'option3' },
+];
+
 export default {
   title: 'Component/Radio',
   component: Radio,
@@ -22,11 +28,11 @@ export default {
         ],
       },
     },
-    options: {
-      description: '選項',
+    dataSource: {
+      description: '資料來源',
     },
     direction: {
-      description: '方向',
+      description: '排列方向',
       control: {
         type: 'select',
         options: ['row', 'column'],
@@ -45,8 +51,10 @@ export default {
   },
   args: {
     themeColor: 'primary',
+    dataSource: options,
     direction: 'row',
-    className: '',
+    initValue: 'option1',
+    onChange: action('onChange'),
   },
   parameters: {
     docs: {
@@ -59,21 +67,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Radio>;
 
-const options = [
-  { label: '選項一', value: 'option1' },
-  { label: '選項二', value: 'option2' },
-  { label: '選項三', value: 'option3' },
-];
-
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    options: options,
-    initValue: 'option1',
-    onChange: (e) => {
-      action('onChange')(e);
-    },
-  },
+  args: {},
   render(args) {
     return <Radio {...args} />;
   },
@@ -82,7 +78,7 @@ export const Default: Story = {
 export const Theme: Story = {
   name: '主題色彩',
   args: {
-    options: options,
+    dataSource: options,
     initValue: 'option1',
   },
   render(args) {
