@@ -2,13 +2,38 @@ import { Meta, StoryObj } from '@storybook/react';
 import AvatarGroup from './avatar-group';
 import { AvatarProps } from '@src/ui/element/avatar';
 
+const users: AvatarProps[] = [
+  {
+    userName: 'eason',
+    shape: 'circle',
+    size: 'medium',
+  },
+  {
+    userName: 'KevinYang',
+    shape: 'circle',
+    size: 'medium',
+  },
+  {
+    userName: 'AmosLee',
+    shape: 'circle',
+    size: 'medium',
+    imgSrc: 'https://picsum.photos/320/240',
+  },
+  {
+    userName: 'JohnWu',
+    shape: 'circle',
+    size: 'medium',
+    imgSrc: 'https://picsum.photos/320/340',
+  },
+];
+
 export default {
   title: 'Component/Avatar-Group',
   component: AvatarGroup,
   tags: ['autodocs'],
   argTypes: {
-    users: {
-      description: '使用者清單',
+    dataSource: {
+      description: '資料來源',
     },
     placement: {
       description: '頭像群組的排列位置',
@@ -42,7 +67,7 @@ export default {
     },
   },
   args: {
-    users: [],
+    dataSource: users,
     placement: 'right-top',
     limit: 1,
     className: '',
@@ -58,36 +83,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof AvatarGroup>;
 
-const users: AvatarProps[] = [
-  {
-    userName: 'eason',
-    shape: 'circle',
-    size: 'medium',
-  },
-  {
-    userName: 'KevinYang',
-    shape: 'circle',
-    size: 'medium',
-  },
-  {
-    userName: 'AmosLee',
-    shape: 'circle',
-    size: 'medium',
-    imgSrc: 'https://picsum.photos/320/240',
-  },
-  {
-    userName: 'JohnWu',
-    shape: 'circle',
-    size: 'medium',
-    imgSrc: 'https://picsum.photos/320/340',
-  },
-];
-
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    users: users,
-  },
+  args: {},
   render(args) {
     return <AvatarGroup {...args} />;
   },
