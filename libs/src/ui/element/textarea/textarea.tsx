@@ -47,8 +47,8 @@ export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
     limit = 0,
     initValue = '',
     hint = { error: '', description: '' },
-    onChange,
     className = '',
+    onChange,
     ...rest
   } = props;
 
