@@ -10,6 +10,26 @@ export default {
     users: {
       description: '使用者清單',
     },
+    placement: {
+      description: '頭像群組的排列位置',
+      control: {
+        type: 'select',
+        options: [
+          'top-left',
+          'top',
+          'top-right',
+          'right-top',
+          'right',
+          'right-bottom',
+          'bottom-right',
+          'bottom',
+          'bottom-left',
+          'left-bottom',
+          'left',
+          'left-top',
+        ],
+      },
+    },
     limit: {
       description: '限制顯示數量',
       control: {
@@ -20,6 +40,12 @@ export default {
     className: {
       description: '客製化樣式',
     },
+  },
+  args: {
+    users: [],
+    placement: 'right-top',
+    limit: 1,
+    className: '',
   },
   parameters: {
     docs: {
@@ -61,9 +87,6 @@ export const Default: Story = {
   name: '預設項目',
   args: {
     users: users,
-    placement: 'right-top',
-    limit: 1,
-    className: '',
   },
   render(args) {
     return <AvatarGroup {...args} />;

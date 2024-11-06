@@ -59,7 +59,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
     users = [],
     limit = 1,
     placement = 'right-top',
-    className = ' ',
+    className = '',
     ...rest
   } = props;
   const restCount = users.length - limit;
