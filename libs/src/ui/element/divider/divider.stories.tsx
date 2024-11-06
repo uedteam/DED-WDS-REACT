@@ -60,6 +60,15 @@ export default {
       },
     },
   },
+  args: {
+    themeColor: 'none',
+    children: '分隔線',
+    direction: 'horizontal',
+    width: 'small',
+    type: 'solid',
+    align: 'center',
+    className: '',
+  },
   parameters: {
     docs: {
       title: '分隔線',
@@ -74,14 +83,7 @@ type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    children: '分隔線',
-    direction: 'horizontal',
-    width: 'small',
-    type: 'solid',
-    align: 'center',
-    className: '',
-  },
+  args: {},
   render(args) {
     return <Divider {...args} />;
   },
