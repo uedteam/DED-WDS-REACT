@@ -118,7 +118,7 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
       )}
       <Menu
         {...rest}
-        dataSource={dataSource}
+        menuData={dataSource}
         isCollapsed={isCollapsed}
         color={color}
       />

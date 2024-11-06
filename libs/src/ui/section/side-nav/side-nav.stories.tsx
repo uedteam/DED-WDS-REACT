@@ -89,45 +89,9 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof SideNav>;
 
-const menuData: ItemProps[] = [
-  {
-    title: 'Dashboard',
-    icon: <HomeIcon width={24} height={24} />,
-    path: '/dashboard',
-  },
-  {
-    title: 'Settings',
-    icon: <AirIcon width={24} height={24} />,
-    path: '/settings',
-    children: [
-      {
-        title: 'Profile',
-        icon: <FanIcon width={24} height={24} />,
-        path: '/settings/profile',
-      },
-      {
-        title: 'Account',
-        icon: <FanIcon width={24} height={24} />,
-        path: '/settings/account',
-      },
-    ],
-  },
-  {
-    title: 'Help',
-    icon: <PowerIcon width={24} height={24} />,
-    path: '/help',
-  },
-];
-
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    themeColor: 'Blue',
-    logo: <AUOIcon width={90} height={30} />,
-    menuData,
-    width: '240px',
-    className: '',
-  },
+  args: {},
   render(args) {
     return <SideNav {...args} />;
   },
