@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { Title, Button } from '@src/ui';
+import { Button } from '@src/ui';
 import {
   AccountIcon,
   SearchIcon,
@@ -18,6 +18,7 @@ export default {
       control: {
         type: 'select',
         options: [
+          'none',
           'primary',
           'secondary',
           'tertiary',
