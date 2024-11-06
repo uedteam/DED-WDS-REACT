@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { Dropdown } from '@src/ui';
+import { Dropdown } from '../dropdown';
 
 export default {
   title: 'Component/Dropdown',
@@ -60,7 +60,7 @@ type Story = StoryObj<typeof Dropdown>;
 export const Default: Story = {
   name: '搜尋輸入框',
   args: {
-    options: [
+    dataSource: [
       {
         content: {
           label: '選項一',

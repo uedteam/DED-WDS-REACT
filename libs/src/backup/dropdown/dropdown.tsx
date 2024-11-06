@@ -7,7 +7,7 @@ import { ItemProps } from '@src/ui/module/list';
 
 interface DropdownProps {
   // isDisabled?: boolean;
-  options: ItemProps[];
+  dataSource: ItemProps[];
   placement:
     | 'top-left'
     | 'top'

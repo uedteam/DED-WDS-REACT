@@ -144,7 +144,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
             style={getTargetPosition(position, childrenSize, placement, '6px')}
             className={`dropdown-menu ${className}`}
           >
-            <List options={menu} isMenu />
+            <List dataSource={menu} isMenu />
           </div>
         )}
       </Portal>
