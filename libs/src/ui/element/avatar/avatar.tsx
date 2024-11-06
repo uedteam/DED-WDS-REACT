@@ -25,9 +25,9 @@ const getStatusIcon = (size: string, status: string) => {
 };
 
 export interface AvatarProps {
+  userName: string;
   size: 'xsmall' | 'small' | 'medium' | 'large';
   shape: 'circle' | 'square';
-  userName: string;
   status?: 'none' | 'online' | 'busy' | 'idle' | 'offline';
   imgSrc?: string;
   alt?: string;
@@ -36,18 +36,19 @@ export interface AvatarProps {
 
 export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
   const {
+    userName = 'default',
     size = 'medium',
     shape = 'circle',
-    userName = 'default',
     status = '',
-    imgSrc = '',
     alt = '無圖顯示',
+    imgSrc = '',
+    className = '',
   } = props;
 
   return (
     <div
       className={`avatar-container 
-        ${getSizeClass('avatar-container', size)}`}
+        ${getSizeClass('avatar-container', size)} ${className}`}
     >
       <div className={`avatar ${getShapeClass('avatar', shape)}`}>
         {imgSrc ? (

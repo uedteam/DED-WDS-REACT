@@ -6,6 +6,16 @@ export default {
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {
+    userName: {
+      description: '登入者名稱',
+    },
+    status: {
+      description: '登入者狀態',
+      control: {
+        type: 'select',
+        options: ['none', 'online', 'idle', 'busy', 'offline'],
+      },
+    },
     size: {
       description: '頭像尺寸',
       control: {
@@ -18,16 +28,6 @@ export default {
       control: {
         type: 'select',
         options: ['circle', 'square'],
-      },
-    },
-    userName: {
-      description: '登入者名稱',
-    },
-    status: {
-      description: '登入者狀態',
-      control: {
-        type: 'select',
-        options: ['none', 'online', 'idle', 'busy', 'offline'],
       },
     },
     imgSrc: {
@@ -48,19 +48,21 @@ export default {
       },
     },
   },
+  args: {
+    userName: 'default',
+    status: 'none',
+    size: 'medium',
+    shape: 'circle',
+    imgSrc: '',
+    alt: '無圖顯示',
+    className: '',
+  },
 } as Meta;
 type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    size: 'medium',
-    shape: 'circle',
-    userName: 'default',
-    status: 'none',
-    imgSrc: '',
-    alt: '無圖顯示',
-  },
+  args: {},
   render(args) {
     return <Avatar {...args} />;
   },
@@ -71,7 +73,6 @@ export const AvatarShape: Story = {
   args: {
     userName: 'Kevin',
     imgSrc: 'https://picsum.photos/320/240',
-    className: '',
   },
   render(args) {
     return (
