@@ -33,8 +33,30 @@ const menuData: ItemProps[] = [
   },
 ];
 
-export const Default: Story = {
-  name: '預設項目',
+export default {
+  title: 'Component/Menu',
+  component: Menu,
+  tags: ['autodocs'],
+  argTypes: {
+    dataSource: {
+      description: '資料來源',
+    },
+    isCollapsed: {
+      description: '是否收合',
+    },
+    width: {
+      description: '寬度',
+    },
+    color: {
+      description: '顏色',
+      control: {
+        type: 'color',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+    },
+  },
   args: {
     dataSource: menuData,
     isCollapsed: false,
