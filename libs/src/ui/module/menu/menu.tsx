@@ -77,15 +77,15 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 };
 
 export interface MenuProps {
-  className?: string;
-  menuData: ItemProps[];
+  dataSource: ItemProps[];
   isCollapsed: boolean;
   width?: string;
   color?: string;
+  className?: string;
 }
 
 export const Menu: React.FC<MenuProps> = (props) => {
-  const { menuData, isCollapsed, width = '240px', color = '#000000' } = props;
+  const { dataSource, isCollapsed, width = '240px', color = '#000000' } = props;
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -104,7 +104,7 @@ export const Menu: React.FC<MenuProps> = (props) => {
         }}
       >
         <ul className="nav-menu">
-          {menuData.map((item, index) => (
+          {dataSource.map((item, index) => (
             <MenuItem
               key={index}
               item={item}
