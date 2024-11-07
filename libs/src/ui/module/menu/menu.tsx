@@ -9,8 +9,11 @@ export interface MenuItemProps {
   color?: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = (props) => {
-  const { item, isCollapsed, color } = props;
+const MenuItem: React.FC<MenuItemProps> = ({
+  item = { title: '', icon: '' },
+  isCollapsed = false,
+  color = '#000000',
+}: MenuItemProps) => {
   const { isOpen, setIsOpen, contentRef, maxHeight, hasChildren } = useMenu(
     item,
     isCollapsed
@@ -18,19 +21,19 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 
   return (
     <li>
-      <div className="menu-item">
+      <div className="ded-menu-item">
         <div
           style={{ color: color }}
-          className="menu-item-content"
+          className="ded-menu-item-content"
           onClick={() => {
             if (item.path) {
               console.log('go to', item.path);
             }
           }}
         >
-          <div className="menu-item-content-icon">{item.icon}</div>
+          <div className="ded-menu-item-content-icon">{item.icon}</div>
           <span
-            className="menu-item-content-title"
+            className="ded-menu-item-content-title"
             style={{
               opacity: isCollapsed ? 0 : 1,
             }}
@@ -57,7 +60,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 
       <ul
         ref={contentRef}
-        className="menu-subitem"
+        className="ded-menu-subitem"
         style={{
           maxHeight: maxHeight,
         }}
@@ -84,8 +87,12 @@ export interface MenuProps {
   className?: string;
 }
 
-export const Menu: React.FC<MenuProps> = (props) => {
-  const { dataSource, isCollapsed, width = '240px', color = '#000000' } = props;
+export const Menu: React.FC<MenuProps> = ({
+  dataSource = [],
+  isCollapsed = false,
+  width = '240px',
+  color = '#000000',
+}: MenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -95,15 +102,15 @@ export const Menu: React.FC<MenuProps> = (props) => {
   }, [isCollapsed, width]);
 
   return (
-    <div className="menu-container">
+    <div className="ded-menu-container">
       <nav
         ref={menuRef}
-        className="nav"
+        className="ded-nav"
         style={{
           width: isCollapsed ? '60px' : '100%',
         }}
       >
-        <ul className="nav-menu">
+        <ul className="ded-nav-menu">
           {dataSource.map((item, index) => (
             <MenuItem
               key={index}
