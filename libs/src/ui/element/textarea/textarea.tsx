@@ -22,8 +22,8 @@ export interface TextareaProps {
   limit?: number;
   hint?: { error: string; description: string };
   initValue?: string;
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   className?: string;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 /**
  * Textarea 組件。
@@ -39,19 +39,16 @@ export interface TextareaProps {
  * @param {string} props.hint.description - 描述提示信息。
  * @param {Function} props.onChange - 當 Textarea 的值改變時的回調函數。
  */
-export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
-  const {
-    label,
-    placeholder = '請輸入...',
-    isDisabled = false,
-    limit = 0,
-    initValue = '',
-    hint = { error: '', description: '' },
-    className = '',
-    onChange,
-    ...rest
-  } = props;
-
+export const Textarea: React.FC<TextareaProps> = ({
+  label,
+  placeholder = '請輸入...',
+  isDisabled = false,
+  limit = 0,
+  initValue = '',
+  hint = { error: '', description: '' },
+  className = '',
+  onChange = () => ({}),
+}: TextareaProps) => {
   const [value, setValue] = useState('');
 
   useEffect(() => {
@@ -59,22 +56,23 @@ export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
   }, [initValue]);
 
   return (
-    <div className={`textarea-container ${className}`}>
+    <div className={`ded-textarea-container ${className}`}>
       {label && (
         <label
-          className={`${isDisabled ? 'textarea-disable' : 'textarea-label'}`}
+          className={`${
+            isDisabled ? 'ded-textarea-disable' : 'ded-textarea-label'
+          }`}
           htmlFor="id"
         >
           {label}
         </label>
       )}
       <div
-        className={`textarea-group ${
-          isDisabled ? 'textarea-disable' : getBorderClass(hint.error)
+        className={`ded-textarea-group ${
+          isDisabled ? 'ded-textarea-disable' : getBorderClass(hint.error)
         }`}
       >
         <textarea
-          {...rest}
           id="id"
           onChange={(e) => {
             setValue(e.target.value);
@@ -82,13 +80,13 @@ export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
           }}
           value={value}
           maxLength={limit || undefined}
-          className={`${isDisabled ? 'textarea-disable' : 'textarea'}`}
+          className={`${isDisabled ? 'ded-textarea-disable' : 'ded-textarea'}`}
           placeholder={placeholder}
         />
         {limit > 0 && (
           <small
             className={`${
-              isDisabled ? 'textarea-disable' : getCountClass(value)
+              isDisabled ? 'ded-textarea-disable' : getCountClass(value)
             }`}
           >
             {value.length > 0 && `${value.length}/${limit}`}
@@ -96,8 +94,8 @@ export const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
         )}
       </div>
       <small
-        className={`textarea-hint ${
-          isDisabled ? 'textarea-disable' : getHintClass(hint)
+        className={`ded-textarea-hint ${
+          isDisabled ? 'ded-textarea-disable' : getHintClass(hint)
         }`}
       >
         {hint.error.length > 0 ? hint.error : hint.description}
