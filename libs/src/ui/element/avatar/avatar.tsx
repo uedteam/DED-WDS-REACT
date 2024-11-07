@@ -4,8 +4,8 @@ import { getSizeClass, getStatusClass, getShapeClass } from './styled';
 import { getAbbrFullName } from '@src/utils';
 
 const getStatusIcon = (size: string, status: string) => {
-  const sizeClass = getSizeClass('avatar-icon', size);
-  const statusClass = getStatusClass('avatar-icon', status);
+  const sizeClass = getSizeClass('ded-avatar-icon', size);
+  const statusClass = getStatusClass('ded-avatar-icon', status);
 
   const statusIcons: {
     [key: string]: React.FunctionComponent<
@@ -20,41 +20,39 @@ const getStatusIcon = (size: string, status: string) => {
   const StatusIcon = statusIcons[status];
 
   return StatusIcon ? (
-    <StatusIcon className={`avatar-icon ${sizeClass} ${statusClass}`} />
+    <StatusIcon className={`ded-avatar-icon ${sizeClass} ${statusClass}`} />
   ) : null;
 };
 
 export interface AvatarProps {
   userName: string;
-  size: 'xsmall' | 'small' | 'medium' | 'large';
-  shape: 'circle' | 'square';
+  size?: 'xsmall' | 'small' | 'medium' | 'large';
+  shape?: 'circle' | 'square';
   status?: 'none' | 'online' | 'busy' | 'idle' | 'offline';
   imgSrc?: string;
   alt?: string;
   className?: string;
 }
 
-export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
-  const {
-    userName = 'default',
-    size = 'medium',
-    shape = 'circle',
-    status = '',
-    alt = '無圖顯示',
-    imgSrc = '',
-    className = '',
-  } = props;
-
+export const Avatar: React.FC<AvatarProps> = ({
+  userName = 'default',
+  size = 'medium',
+  shape = 'circle',
+  status = 'none',
+  alt = '無圖顯示',
+  imgSrc = '',
+  className = '',
+}) => {
   return (
     <div
-      className={`avatar-container 
-        ${getSizeClass('avatar-container', size)} ${className}`}
+      className={`ded-avatar-container 
+        ${getSizeClass('ded-avatar-container', size)} ${className}`}
     >
-      <div className={`avatar ${getShapeClass('avatar', shape)}`}>
+      <div className={`ded-avatar ${getShapeClass('ded-avatar', shape)}`}>
         {imgSrc ? (
-          <img className="avatar-pic" src={imgSrc} alt={alt} />
+          <img className="ded-avatar-pic" src={imgSrc} alt={alt} />
         ) : (
-          <span className={`avatar-text ${getSizeClass('text', size)}`}>
+          <span className={`ded-avatar-text ${getSizeClass('ded-text', size)}`}>
             {getAbbrFullName(userName, 2)}
           </span>
         )}
