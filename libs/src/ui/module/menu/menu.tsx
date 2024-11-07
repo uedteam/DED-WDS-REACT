@@ -3,12 +3,32 @@ import { ArrowDownIcon } from '@src/assets';
 import { useMenu } from '@src/hooks';
 import { ItemProps } from '@src/hooks/useMenu';
 
+/**
+ * @interface MenuItemProps
+ * @description 表示菜單項目的屬性。
+ *
+ * @property {ItemProps} item - 菜單項目的詳細信息。
+ * @property {boolean} isCollapsed - 指示菜單是否折疊。
+ * @property {string} [color] - 菜單項目的顏色（可選）。
+ */
 export interface MenuItemProps {
   item: ItemProps;
   isCollapsed: boolean;
   color?: string;
 }
 
+/**
+ * `MenuItem` 是一個 React Functional Component，用於渲染菜單項目。
+ *
+ * @param {MenuItemProps} props - 組件的屬性。
+ * @param {Object} props.item - 菜單項目的資料，包含 `title` 和 `icon`。
+ * @param {string} [props.item.title=''] - 菜單項目的標題。
+ * @param {string} [props.item.icon=''] - 菜單項目的圖標。
+ * @param {boolean} [props.isCollapsed=false] - 指示菜單是否折疊。
+ * @param {string} [props.color='#000000'] - 菜單項目的顏色。
+ *
+ * @returns {JSX.Element} 返回一個渲染的菜單項目。
+ */
 const MenuItem: React.FC<MenuItemProps> = ({
   item = { title: '', icon: '' },
   isCollapsed = false,
@@ -79,6 +99,15 @@ const MenuItem: React.FC<MenuItemProps> = ({
   );
 };
 
+/**
+ * @interface MenuProps
+ * @description 定義 Menu 組件的屬性
+ * @property {ItemProps[]} dataSource - 菜單項目數據源
+ * @property {boolean} isCollapsed - 菜單是否折疊
+ * @property {string} [width] - 菜單寬度（可選）
+ * @property {string} [color] - 菜單顏色（可選）
+ * @property {string} [className] - 自定義 CSS 類名（可選）
+ */
 export interface MenuProps {
   dataSource: ItemProps[];
   isCollapsed: boolean;
@@ -87,6 +116,18 @@ export interface MenuProps {
   className?: string;
 }
 
+/**
+ * Menu 組件
+ *
+ * @param {MenuProps} props - 組件的屬性
+ * @param {Array} props.dataSource - 菜單項目數據源，默認為空數組
+ * @param {boolean} props.isCollapsed - 是否折疊菜單，默認為 false
+ * @param {string} props.width - 菜單寬度，默認為 '240px'
+ * @param {string} props.color - 菜單項目顏色，默認為 '#000000'
+ *
+ * @returns {JSX.Element} - 返回渲染的菜單組件
+ *
+ */
 export const Menu: React.FC<MenuProps> = ({
   dataSource = [],
   isCollapsed = false,
