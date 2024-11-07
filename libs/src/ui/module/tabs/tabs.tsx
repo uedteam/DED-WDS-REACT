@@ -38,7 +38,6 @@ export interface TabItemProps {
     | 'info';
   type?: 'card' | 'default';
   title: string;
-  index: number;
   activeIndex?: number;
   isActive: boolean;
   isDisabled?: boolean;
@@ -56,21 +55,21 @@ export interface TabItemProps {
  * @param {Function} props.onClick - 當標籤被點擊時觸發的回調函數。
  */
 const TabItem: React.FC<TabItemProps> = ({
-  themeColor = '',
+  themeColor = 'primary',
   type = 'default',
-  title,
-  index,
+  title = '',
   isActive,
   isDisabled = false,
-  onClick,
   className,
-}) => (
+  onClick,
+}: TabItemProps) => (
   <Button
-    className={`tab ${isActive ? getActiveClass(themeColor, type) : ''} ${
-      isDisabled ? 'tab-disable' : className || getThemeClass(themeColor, type)
+    className={`ded-tab ${isActive ? getActiveClass(themeColor, type) : ''} ${
+      isDisabled
+        ? 'ded-tab-disable'
+        : className || getThemeClass(themeColor, type)
     }`}
     variant="text"
-    data-index={index}
     onClick={onClick}
   >
     {title}
@@ -101,8 +100,8 @@ export interface TabsProps {
   activeIndex?: number;
   isDisabled?: boolean;
   dataSource: Tab[];
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   className?: string;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 /**
  * 渲染帶有相關內容的標籤組。
@@ -116,20 +115,18 @@ export interface TabsProps {
  * @param {function} props.onClick - 標籤的點擊事件處理程序。
  * @returns {JSX.Element} 渲染的 Tabs 組件。
  */
-export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
-  const {
-    themeColor = 'primary',
-    dataSource = [],
-    type = 'default',
-    activeIndex = 0,
-    isDisabled = false,
-    onClick,
-    className = '',
-  } = props;
+export const Tabs: React.FC<TabsProps> = ({
+  themeColor = 'primary',
+  dataSource = [],
+  type = 'default',
+  activeIndex = 0,
+  isDisabled = false,
+  className = '',
+  onClick,
+}: TabsProps): JSX.Element => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    const index = parseInt(event.currentTarget.dataset.index || '0', 10);
+  const handleClick = (event: MouseEvent<HTMLButtonElement>, index: number) => {
     setActiveTabIndex(index);
     event.currentTarget.blur();
     onClick && onClick(event);
@@ -140,8 +137,8 @@ export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   }, [activeIndex]);
 
   return (
-    <div className={`tabs-container ${className}`}>
-      <div className="tabs">
+    <div className={`ded-tabs-container ${className}`}>
+      <div className="ded-tabs">
         {dataSource.map((tab, index) => (
           <TabItem
             key={index}
@@ -149,13 +146,12 @@ export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
             themeColor={themeColor}
             type={type}
             isDisabled={isDisabled}
-            index={index}
             isActive={index === activeTabIndex}
-            onClick={handleClick}
+            onClick={(e) => handleClick(e, index)}
           />
         ))}
       </div>
-      <div className={`tab-content ${isDisabled && 'tab-disable'}`}>
+      <div className={`ded-tab-content ${isDisabled && 'ded-tab-disable'}`}>
         {dataSource[activeTabIndex].content}
       </div>
     </div>
