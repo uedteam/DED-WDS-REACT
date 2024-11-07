@@ -54,6 +54,7 @@ export default {
     dataSource: options,
     direction: 'row',
     initValue: 'option1',
+    className: '',
     onChange: action('onChange'),
   },
   parameters: {
