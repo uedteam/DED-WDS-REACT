@@ -1,4 +1,4 @@
-.breadcrumb-container {
+.ded-breadcrumb-container {
   display: flex;
   flex-wrap: wrap;
   padding: 0.5rem 1rem;
@@ -6,7 +6,7 @@
   list-style: none;
 }
 
-.breadcrumb {
+.ded-breadcrumb {
   display: flex;
   list-style: none;
   padding: 0;
@@ -42,7 +42,7 @@
   }
 }
 
-.rest {
+.ded-rest {
   position: relative;
 
   &-label {
@@ -65,7 +65,7 @@
   }
 }
 
-.drop-item {
+.ded-drop-item {
   &-link {
     display: block;
     padding: 12px 8px;

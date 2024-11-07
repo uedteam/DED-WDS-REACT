@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import Card from './card';
-import { Title, Button, LineProgress, List, ButtonSlider } from '@src/ui';
+import { Title, Button, LineProgress, List, SliderControl } from '@src/ui';
 import {
   LockIcon,
   PlusIcon,
@@ -90,7 +90,7 @@ export const Default: Story = {
                 justifyContent: 'space-between',
               }}
             >
-              <Title className="card-title" themeColor="primary">
+              <Title className="ded-card-title" themeColor="primary">
                 空調
               </Title>
               <Button variant="text">
@@ -113,7 +113,7 @@ export const Default: Story = {
           cardFooter={
             <div style={{ display: 'flex', gap: '8px' }}>
               <Button
-                className="card-button card-button-active"
+                className="ded-card-button ded-card-button-active"
                 variant="contained"
                 themeColor="warning"
               >
@@ -123,7 +123,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
-                className="card-button"
+                className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
               >
@@ -133,10 +133,10 @@ export const Default: Story = {
                 </div>
               </Button>
 
-              <div className="card-button card-button-empty"></div>
+              <div className="ded-card-button ded-card-button-empty"></div>
 
               <Button
-                className="card-button card-button-active"
+                className="ded-card-button ded-card-button-active"
                 variant="contained"
                 themeColor="warning"
               >
@@ -145,7 +145,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
-                className="card-button"
+                className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
               >
@@ -154,7 +154,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
-                className="card-button"
+                className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
               >
@@ -163,7 +163,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
-                className="card-button"
+                className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
               >
@@ -183,7 +183,7 @@ export const Default: Story = {
               gap: '8px',
             }}
           >
-            <ButtonSlider
+            <SliderControl
               initValue={0}
               themeColor="warning"
               unit="℃"
@@ -194,17 +194,16 @@ export const Default: Story = {
         </Card>
 
         <Card {...args} width="242px" height="auto">
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <TemperatureIcon fill="#ffffff" width={80} height={80} />
-
-            <Title className="card-title">溫度 25 ℃</Title>
+            <Title className="ded-card-title">溫度 25 ℃</Title>
           </div>
         </Card>
 
         <Card {...args} width="242px" height="auto">
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <HumidityIcon fill="#ffffff" width={66} height={66} />
-            <Title className="card-title">濕度 75 ℃</Title>
+            <Title className="ded-card-title">濕度 75 ℃</Title>
           </div>
         </Card>
 
@@ -236,7 +235,7 @@ export const Default: Story = {
                   justifyContent: 'space-between',
                 }}
               >
-                <Title className="card-title" themeColor="primary">
+                <Title className="ded-card-title" themeColor="primary">
                   {device.label}
                 </Title>
                 <Button variant="text" themeColor="primary">
@@ -267,7 +266,7 @@ export const Default: Story = {
               }}
             >
               {device.icon}
-              <Title className="card-feature">{device.status}</Title>
+              <Title className="ded-card-feature">{device.status}</Title>
             </div>
           </Card>
         ))}
@@ -315,7 +314,7 @@ export const Default: Story = {
             </div>
             <LineProgress themeColor="success" percent={50} height={8} />
             <List
-              options={[
+              dataSource={[
                 { content: { label: 'abc', value: '123' } },
                 { content: { label: 'abc', value: '123' } },
                 { content: { label: 'abc', value: '123' } },

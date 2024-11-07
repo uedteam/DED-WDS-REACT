@@ -79,18 +79,23 @@ export const TextareaStatus: Story = {
     limit: 10,
     placeholder: '請輸入描述 ...',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Textarea {...args} />
+<Textarea {...args} hint={{ error: '錯誤訊息', description: '' }} />
+<Textarea {...args} hint={{ error: '', description: '描述提示信息' }} />
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Textarea {...args} />
-        <Textarea
-          {...args}
-          hint={{ error: 'Error Message', description: '' }}
-        />
-        <Textarea
-          {...args}
-          hint={{ error: '', description: 'Something Description' }}
-        />
+        <Textarea {...args} hint={{ error: '錯誤訊息', description: '' }} />
+        <Textarea {...args} hint={{ error: '', description: '描述提示信息' }} />
       </div>
     );
   },

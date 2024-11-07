@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { ButtonSlider } from '@src/ui';
+import { SliderControl } from '@src/ui';
 import { PlusIcon, MinusIcon } from '@src/assets';
 
 export default {
   title: 'Component/Slider-Control',
-  component: ButtonSlider,
+  component: SliderControl,
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
@@ -93,13 +93,13 @@ export default {
     onClick: action('onClick'),
   },
 } as Meta;
-type Story = StoryObj<typeof ButtonSlider>;
+type Story = StoryObj<typeof SliderControl>;
 
 export const Default: Story = {
   name: '預設項目',
   args: {},
   render(args) {
-    return <ButtonSlider {...args} />;
+    return <SliderControl {...args} />;
   },
 };
 
@@ -115,16 +115,31 @@ export const ThemeColor: Story = {
     initValue: 50,
     onClick: action('onClick'),
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<SliderControl {...args} initValue={40} themeColor="primary" />
+<SliderControl {...args} initValue={50} themeColor="secondary" />
+<SliderControl {...args} initValue={60} themeColor="tertiary" />
+<SliderControl {...args} initValue={70} themeColor="success" />
+<SliderControl {...args} initValue={80} themeColor="info" />
+<SliderControl {...args} initValue={90} themeColor="warning" />
+<SliderControl {...args} initValue={100} themeColor="error" />
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div>
-        <ButtonSlider {...args} initValue={40} themeColor="primary" />
-        <ButtonSlider {...args} initValue={50} themeColor="secondary" />
-        <ButtonSlider {...args} initValue={60} themeColor="tertiary" />
-        <ButtonSlider {...args} initValue={70} themeColor="success" />
-        <ButtonSlider {...args} initValue={80} themeColor="info" />
-        <ButtonSlider {...args} initValue={90} themeColor="warning" />
-        <ButtonSlider {...args} initValue={100} themeColor="error" />
+        <SliderControl {...args} initValue={40} themeColor="primary" />
+        <SliderControl {...args} initValue={50} themeColor="secondary" />
+        <SliderControl {...args} initValue={60} themeColor="tertiary" />
+        <SliderControl {...args} initValue={70} themeColor="success" />
+        <SliderControl {...args} initValue={80} themeColor="info" />
+        <SliderControl {...args} initValue={90} themeColor="warning" />
+        <SliderControl {...args} initValue={100} themeColor="error" />
       </div>
     );
   },

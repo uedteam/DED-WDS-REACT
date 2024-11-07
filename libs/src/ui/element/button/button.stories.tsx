@@ -72,12 +72,12 @@ export default {
       description: '按鈕內容',
       options: ['標題按鈕', '客製化按鈕'],
     },
+    className: {
+      description: '客製化樣式',
+    },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
-    },
-    className: {
-      description: '客製化樣式',
     },
   },
   args: {
@@ -87,7 +87,9 @@ export default {
     isDisabled: false,
     prefix: null,
     suffix: null,
-    children: '按鈕',
+    children: '送出訂單',
+    width: 'auto',
+    className: '',
     onClick: action('onClick'),
   },
   parameters: {
@@ -112,11 +114,19 @@ export const Default: Story = {
 export const Additional: Story = {
   name: '附加元素',
   args: {
-    themeColor: 'primary',
     variant: 'outlined',
-    children: '標題按鈕',
     onClick: () => action('onClick')('點擊事件'),
     className: '',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Button {...args} prefix={<AccountIcon />}>{args.children}</Button>
+<Button {...args} suffix={<SearchIcon />}>{args.children}</Button>
+`,
+      },
+    },
   },
   render(args) {
     return (
@@ -135,12 +145,21 @@ export const Additional: Story = {
 export const Shape: Story = {
   name: '按鈕樣式',
   args: {
-    themeColor: 'primary',
     variant: 'outlined',
-    children: '標題按鈕',
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),
     className: '',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Button {...args} variant="contained">{args.children}</Button>
+<Button {...args} variant="outlined">{args.children}</Button>
+<Button {...args} variant="text">{args.children}</Button>
+`,
+      },
+    },
   },
   render(args) {
     return (
@@ -163,11 +182,25 @@ export const Theme: Story = {
   name: '主題色彩',
   args: {
     variant: 'outlined',
-    children: '標題按鈕',
     prefix: <AccountIcon />,
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),
     className: '',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Button {...args} themeColor="primary">{args.children}</Button>
+<Button {...args} themeColor="secondary">{args.children}</Button>
+<Button {...args} themeColor="tertiary">{args.children}</Button>
+<Button {...args} themeColor="info">{args.children}</Button>
+<Button {...args} themeColor="success">{args.children}</Button>
+<Button {...args} themeColor="warning">{args.children}</Button>
+<Button {...args} themeColor="error">{args.children}</Button>
+`,
+      },
+    },
   },
   render(args) {
     return (

@@ -7,6 +7,7 @@ import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import { AccountIcon } from '@src/assets';
+import { useClickOutside } from '@src/hooks';
 
 /**
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
@@ -39,29 +40,22 @@ export interface AvatarGroupProps {
  * AvatarGroup 組件
  *
  * @param {AvatarGroupProps} props - AvatarGroup 的屬性
- * @param {User[]} props.dataSource - 資料來源
- * @param {number} props.limit - 顯示的用戶數量限制
- * @param {string} props.placement - 下拉菜單的位置
+ * @param {User[]} [props.dataSource] - 資料來源
+ * @param {number} [props.limit] - 顯示的用戶數量限制
+ * @param {string} [props.placement] - 下拉菜單的位置
  * @param {string} [props.className] - 額外的 CSS 類名
- * @param {object} [props.rest] - 其他屬性
  *
  * @returns {JSX.Element} AvatarGroup 組件
  *
  * @throws {Error} 當 limit 小於 1 時拋出錯誤
  *
- * @description
- * AvatarGroup 組件用於顯示一組用戶頭像，並在超過限制時顯示更多用戶的下拉菜單。
  */
-export const AvatarGroup: React.FC<AvatarGroupProps> = (
-  props: AvatarGroupProps
-) => {
-  const {
-    dataSource = [],
-    limit = 1,
-    placement = 'right-top',
-    className = '',
-    ...rest
-  } = props;
+export const AvatarGroup: React.FC<AvatarGroupProps> = ({
+  dataSource = [],
+  limit = 1,
+  placement = 'right-top',
+  className = '',
+}: AvatarGroupProps): JSX.Element => {
   const restCount = dataSource.length - limit;
   const result = splitArray(dataSource, limit);
 
@@ -69,7 +63,10 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
 
   const [isVisible, setIsVisible] = useState(false);
   const avatarRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const { childrenSize, position } = usePosition(avatarRef);
+
+  useClickOutside(menuRef, () => setIsVisible(false));
 
   if (limit < 1) {
     throw new Error('Limit must be at least 1');
@@ -100,7 +97,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
 
   return (
     <>
-      <div className="avatar-group">
+      <div className="ded-avatar-group">
         {result.currList.map((user, index) => {
           const { shape, size, userName, status, imgSrc } = user;
           return (
@@ -111,7 +108,6 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
               userName={userName}
               status={status}
               imgSrc={imgSrc || ''}
-              {...rest}
             />
           );
         })}
@@ -121,7 +117,11 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
           if (index !== 0) return;
           const { shape, size } = user;
           return (
-            <div ref={avatarRef} key={index} className="avatar-group-container">
+            <div
+              ref={avatarRef}
+              key={index}
+              className="ded-avatar-group-container"
+            >
               <Button
                 variant="text"
                 size="large"
@@ -131,7 +131,6 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
                   shape={shape}
                   size={size}
                   userName={`+${restCount}`}
-                  {...rest}
                 ></Avatar>
               </Button>
             </div>
@@ -141,8 +140,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (
       <Portal>
         {isVisible && (
           <div
+            ref={menuRef}
             style={getTargetPosition(position, childrenSize, placement, '6px')}
-            className={`dropdown-menu ${className}`}
+            className={`ded-dropdown-menu ${className}`}
           >
             <List dataSource={menu} isMenu />
           </div>

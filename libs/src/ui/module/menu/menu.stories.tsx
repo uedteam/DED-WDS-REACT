@@ -61,6 +61,7 @@ export default {
     dataSource: menuData,
     isCollapsed: false,
     width: '100%',
+    color: '#000000',
     className: '',
   },
   parameters: {

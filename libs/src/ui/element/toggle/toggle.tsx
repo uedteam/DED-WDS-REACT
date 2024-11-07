@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   getThemeClass,
   getPositionClass,
@@ -7,30 +7,16 @@ import {
 } from './styled';
 
 /**
- * 切換開關元件的屬性介面。
+ * 切換按鈕的屬性介面。
  *
  * @interface ToggleProps
- *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor]
- * - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error'、'info'。
- *
- * @property {ReactNode} [checkChildren]
- * - 當切換開關處於選中狀態時顯示的子元素。
- *
- * @property {ReactNode} [unCheckChildren]
- * - 當切換開關處於未選中狀態時顯示的子元素。
- *
- * @property {boolean} isChecked
- * - 切換開關的當前狀態，true 表示選中，false 表示未選中。
- *
- * @property {boolean} [isDisabled]
- * - 是否禁用切換開關，true 表示禁用，false 表示啟用。
- *
- * @property {(checked: boolean) => void} [onChange]
- * - 當切換開關狀態改變時的回調函數，參數為新的狀態。
- *
- * @property {string} [className]
- * - 自定義的 CSS 類名。
+ * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
+ * @property {string} [checkChildren] - 當切換按鈕被選中時顯示的子元素。
+ * @property {string} [unCheckChildren] - 當切換按鈕未被選中時顯示的子元素。
+ * @property {boolean} isChecked - 切換按鈕的選中狀態。
+ * @property {boolean} [isDisabled] - 切換按鈕是否被禁用。
+ * @property {string} [className] - 自訂的CSS類名。
+ * @property {(checked: boolean) => void} [onChange] - 當切換按鈕狀態改變時的回調函數。
  */
 export interface ToggleProps {
   themeColor?:
@@ -63,18 +49,15 @@ export interface ToggleProps {
  * @param {string} [props.className=''] - 自定義樣式類名
  * @param {object} [props.rest] - 其他屬性
  */
-export const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
-  const {
-    themeColor = '',
-    isChecked = false,
-    isDisabled = false,
-    checkChildren = 'on',
-    unCheckChildren = 'off',
-    className = '',
-    onChange,
-    ...rest
-  } = props;
-
+export const Toggle: React.FC<ToggleProps> = ({
+  themeColor = 'primary',
+  isChecked = false,
+  isDisabled = false,
+  checkChildren = 'on',
+  unCheckChildren = 'off',
+  className = '',
+  onChange,
+}: ToggleProps) => {
   const [checked, setChecked] = useState(isChecked);
   useEffect(() => {
     setChecked(isChecked);
@@ -82,18 +65,17 @@ export const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
 
   return (
     <div
-      {...rest}
-      className={`toggle ${getThemeClass(themeColor)} ${getPositionClass(
+      className={`ded-toggle ${getThemeClass(themeColor)} ${getPositionClass(
         checked
-      )} ${className} ${isDisabled ? 'toggle-disable' : ''}`}
+      )} ${className} ${isDisabled ? 'ded-toggle-disable' : ''}`}
       onClick={(e) => {
         setChecked((prev) => !prev);
         onChange && onChange(!checked);
       }}
     >
-      <div className={`toggle-thumb ${getThumbPositionClass(checked)}`} />
+      <div className={`ded-toggle-thumb ${getThumbPositionClass(checked)}`} />
       <label
-        className={`toggle-label ${getLabelPositionClass(checked)} ${
+        className={`ded-toggle-label ${getLabelPositionClass(checked)} ${
           isDisabled ? 'toggle-label-disable' : ''
         }`}
       >

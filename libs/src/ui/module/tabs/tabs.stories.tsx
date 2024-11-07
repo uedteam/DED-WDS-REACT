@@ -47,7 +47,7 @@ export default {
       },
     },
     dataSource: {
-      description: '頁籤列表',
+      description: '資料來源',
     },
     className: {
       description: '客製化樣式',

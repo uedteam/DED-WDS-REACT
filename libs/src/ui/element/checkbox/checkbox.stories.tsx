@@ -94,6 +94,21 @@ export const Theme: Story = {
     onChange: (e) => action('onChange')(e),
     className: '',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Checkbox {...args} themeColor="primary" />
+<Checkbox {...args} themeColor="secondary" />
+<Checkbox {...args} themeColor="tertiary" />
+<Checkbox {...args} themeColor="info" />
+<Checkbox {...args} themeColor="success" />
+<Checkbox {...args} themeColor="warning" />
+<Checkbox {...args} themeColor="error" />
+        `,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

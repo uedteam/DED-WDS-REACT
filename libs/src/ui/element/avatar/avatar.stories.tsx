@@ -7,10 +7,10 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     userName: {
-      description: '登入者名稱',
+      description: '沒有設定頭像時，所顯示的登入者名稱',
     },
     status: {
-      description: '登入者狀態',
+      description: '登入者目前狀態',
       control: {
         type: 'select',
         options: ['none', 'online', 'idle', 'busy', 'offline'],
@@ -31,10 +31,10 @@ export default {
       },
     },
     imgSrc: {
-      description: '圖片連結',
+      description: '頭像圖片連結',
     },
     alt: {
-      description: '圖片描述',
+      description: '頭像圖片描述',
     },
     className: {
       description: '客製化樣式',
@@ -74,6 +74,16 @@ export const AvatarShape: Story = {
     userName: 'Kevin',
     imgSrc: 'https://picsum.photos/320/240',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        <Avatar {...args} size="large" shape="circle" status="online" />
+<Avatar {...args} size="large" shape="square" status="idle" />
+        `,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
@@ -90,6 +100,18 @@ export const AvatarStatus: Story = {
     userName: 'Kevin',
     imgSrc: 'https://picsum.photos/320/240',
     className: '',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        <Avatar {...args} size="large" shape="circle" status="online" />
+<Avatar {...args} size="large" shape="circle" status="idle" />
+<Avatar {...args} size="large" shape="circle" status="busy" />
+<Avatar {...args} size="large" shape="circle" status="offline" />
+        `,
+      },
+    },
   },
   render(args) {
     return (

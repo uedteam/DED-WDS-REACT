@@ -50,20 +50,18 @@ export interface InputProps {
  * @param {string} [props.className] - 自定義的 CSS 類名。
  * @param {Object} [props.rest] - 其他屬性。
  */
-export const Input: React.FC<InputProps> = (props: InputProps) => {
-  const {
-    label = '',
-    type = 'text',
-    placeholder,
-    size = 'medium',
-    prefix = '',
-    isDisabled = false,
-    initValue,
-    hint = { error: '', description: '' },
-    className = '',
-    onChange,
-  } = props;
-
+export const Input: React.FC<InputProps> = ({
+  label = '',
+  type = 'text',
+  placeholder = '請輸入...',
+  size = 'medium',
+  prefix = '',
+  isDisabled = false,
+  initValue = '',
+  hint = { error: '', description: '' },
+  className = '',
+  onChange = () => ({}),
+}: InputProps) => {
   const { inputType, value, action, handleInputChange } = useInput(
     initValue,
     type,
@@ -82,11 +80,13 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
       <div
         className={` 
           ded-input-group
-          ${getSizeClass('component', size)} 
+          ${getSizeClass('ded-component', size)} 
           ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}
           ${className ? className : ''}`}
       >
-        {prefix && <div className={getSizeClass('icon', size)}>{prefix}</div>}
+        {prefix && (
+          <div className={getSizeClass('ded-icon', size)}>{prefix}</div>
+        )}
         <input
           value={value}
           onChange={handleInputChange}
@@ -94,7 +94,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
           className={`${
             isDisabled
               ? 'ded-input-disable'
-              : `ded-input ${getSizeClass('text', size)}`
+              : `ded-input ${getSizeClass('ded-text', size)}`
           }`}
           placeholder={placeholder}
         />
@@ -103,7 +103,7 @@ export const Input: React.FC<InputProps> = (props: InputProps) => {
           <div
             onClick={action}
             style={{ cursor: 'pointer' }}
-            className={getSizeClass('icon', size)}
+            className={getSizeClass('ded-icon', size)}
           >
             {type === 'text' ? (
               <CloseIcon />

@@ -1,9 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import { Input } from './input';
-import { Grid } from '@src/ui/section/grid/grid';
-import { Row } from '@src/ui/section/grid/row';
-import { Column } from '@src/ui/section/grid/column';
 import {
   AccountIcon,
   SearchIcon,
@@ -115,6 +112,18 @@ export const InputWithStatus: Story = {
   args: {
     prefix: <AccountIcon />,
     placeholder: '請輸入帳號 ...',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Input {...args} label="帳號" />
+<Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
+<Input {...args} label="帳號" hint={{ error: '錯誤訊息', description: '' }} />
+<Input {...args} label="帳號" hint={{ error: '', description: '描述' }} />
+`,
+      },
+    },
   },
   render(args) {
     return (
