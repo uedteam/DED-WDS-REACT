@@ -1,29 +1,54 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import Portal from '@src/ui/portal';
+import { useClickOutside } from '@src/hooks';
 
+/**
+ * 面包屑項目屬性介面。
+ *
+ * @interface BreadcrumbItemProps
+ * @property {string} label - 項目的標籤。
+ * @property {string} [href] - 項目的連結（可選）。
+ * @property {boolean} [isCurrentPage] - 是否為當前頁面（可選）。
+ */
 interface BreadcrumbItemProps {
   label: string;
   href?: string;
   isCurrentPage?: boolean;
 }
 
+/**
+ * 麵包屑項目元件。
+ *
+ * @param {BreadcrumbItemProps} props - 麵包屑項目的屬性。
+ * @param {string} [props.label=''] - 項目的標籤文字。
+ * @param {string} [props.href='#'] - 項目的連結 URL。
+ * @param {boolean} [props.isCurrentPage=false] - 是否為當前頁面。
+ * @returns {JSX.Element} 麵包屑項目元件。
+ */
 const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
-  label,
-  href,
-  isCurrentPage,
-}) => {
+  label = '',
+  href = '#',
+  isCurrentPage = false,
+}: BreadcrumbItemProps): JSX.Element => {
   if (isCurrentPage) {
-    return <span className="breadcrumb-item-label">{label}</span>;
+    return <span className="ded-breadcrumb-item-label">{label}</span>;
   }
   return (
-    <a className="breadcrumb-item-link" href={href}>
+    <a className="ded-breadcrumb-item-link" href={href}>
       {label}
     </a>
   );
 };
 
+/**
+ * `BreadcrumbProps` 是麵包屑導航元件的屬性接口。
+ *
+ * @property {'top-left' | 'top' | 'top-right' | 'right-top' | 'right' | 'right-bottom' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left-bottom' | 'left' | 'left-top'} placement - 指定麵包屑導航的位置。
+ * @property {{ label: string; href?: string }[]} dataSource - 包含麵包屑導航項目的數據源，每個項目包含一個標籤和一個可選的鏈接。
+ * @property {string} [className] - 可選的CSS類名，用於自定義樣式。
+ */
 interface BreadcrumbProps {
   placement:
     | 'top-left'
@@ -42,33 +67,32 @@ interface BreadcrumbProps {
   className?: string;
 }
 
-export const Breadcrumb: React.FC<BreadcrumbProps> = (
-  props: BreadcrumbProps
-) => {
-  const { dataSource, placement, className } = props;
+/**
+ * `Breadcrumb` 元件用於顯示導航路徑。
+ *
+ * @param {BreadcrumbProps} props - 元件的屬性。
+ * @param {Array} props.dataSource - 導航路徑的資料來源。
+ * @param {string} [props.placement='bottom-left'] - 下拉選單的位置。
+ * @param {string} [props.className=''] - 自訂的 CSS 類別名稱。
+ *
+ * @returns {JSX.Element} - 渲染的 `Breadcrumb` 元件。
+ *
+ */
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  dataSource = [],
+  placement = 'bottom-left',
+  className = '',
+}: BreadcrumbProps): JSX.Element => {
   const breadcrumbRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { childrenSize, position } = usePosition(breadcrumbRef);
+
+  useClickOutside(menuRef, () => setIsVisible(false));
 
   const handleClick = () => {
     setIsVisible((prev) => !prev);
   };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      breadcrumbRef.current &&
-      !breadcrumbRef.current.contains(event.target as Node)
-    ) {
-      setIsVisible(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   const itemsToShow =
     dataSource.length > 3
@@ -77,13 +101,13 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (
 
   return (
     <>
-      <nav className={`breadcrumb-container ${className}`}>
-        <ol className="breadcrumb">
+      <nav className={`ded-breadcrumb-container ${className}`}>
+        <ol className="ded-breadcrumb">
           {itemsToShow.map((item, index) => (
-            <li className="breadcrumb-item" key={index}>
+            <li className="ded-breadcrumb-item" key={index}>
               {item.label === '...' ? (
-                <div ref={breadcrumbRef} className="rest">
-                  <span onClick={handleClick} className="rest-label">
+                <div ref={breadcrumbRef} className="ded-rest">
+                  <span onClick={handleClick} className="ded-rest-label">
                     {item.label}
                   </span>
                 </div>
@@ -101,34 +125,14 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = (
       <Portal>
         {isVisible && (
           <div
+            ref={menuRef}
             style={getTargetPosition(position, childrenSize, placement, '6px')}
-            className={`dropdown-menu ${className}`}
+            className={`ded-dropdown-menu ${className}`}
           >
-            {/* <List
-              options={[
-                {
-                  prefix: '',
-                  content: {
-                    label: '123',
-                    value: '123',
-                    href: '',
-                  },
-                },
-                {
-                  prefix: '',
-                  content: {
-                    label: '123',
-                    value: '123',
-                    href: '',
-                  },
-                },
-              ]}
-              isMenu
-            /> */}
-            <ul className="rest-dropdown-menu">
+            <ul className="ded-rest-dropdown-menu">
               {dataSource.slice(1, -2).map((dropdownItem, dropdownIndex) => (
-                <li className="drop-item" key={dropdownIndex}>
-                  <a className="drop-item-link" href={dropdownItem.href}>
+                <li className="ded-drop-item" key={dropdownIndex}>
+                  <a className="ded-drop-item-link" href={dropdownItem.href}>
                     {dropdownItem.label}
                   </a>
                 </li>

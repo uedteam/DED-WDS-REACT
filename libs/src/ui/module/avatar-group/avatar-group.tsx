@@ -7,6 +7,7 @@ import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
 import { usePosition } from '@src/hooks/usePosition';
 import { AccountIcon } from '@src/assets';
+import { useClickOutside } from '@src/hooks';
 
 /**
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
@@ -62,7 +63,10 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
 
   const [isVisible, setIsVisible] = useState(false);
   const avatarRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const { childrenSize, position } = usePosition(avatarRef);
+
+  useClickOutside(menuRef, () => setIsVisible(false));
 
   if (limit < 1) {
     throw new Error('Limit must be at least 1');
@@ -136,8 +140,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
       <Portal>
         {isVisible && (
           <div
+            ref={menuRef}
             style={getTargetPosition(position, childrenSize, placement, '6px')}
-            className={`dropdown-menu ${className}`}
+            className={`ded-dropdown-menu ${className}`}
           >
             <List dataSource={menu} isMenu />
           </div>
