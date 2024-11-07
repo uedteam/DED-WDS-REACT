@@ -56,6 +56,7 @@ export default {
   },
   args: {
     width: '',
+    height: '',
     cardHeader: '',
     hasHeaderDivider: false,
     children: '',
