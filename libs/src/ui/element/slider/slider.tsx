@@ -57,11 +57,11 @@ export const Slider: React.FC<SliderProps> = ({
   min = 0,
   max = 100,
   step = 1,
-  unit = '℃',
+  unit = '',
   initValue = 0,
   onChange,
   className,
-}) => {
+}: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number>(initValue || min);
   const [thumbPosition, setThumbPosition] = useState<number>(0);
   const rangeRef = useRef<HTMLInputElement>(null);
@@ -115,7 +115,7 @@ export const Slider: React.FC<SliderProps> = ({
   }, [value, min, max]);
 
   return (
-    <div className="slider-container" ref={containerRef}>
+    <div className="ded-slider-container" ref={containerRef}>
       <div
         style={{
           display: 'flex',
@@ -133,21 +133,21 @@ export const Slider: React.FC<SliderProps> = ({
           value={value}
           disabled={isDisabled}
           onChange={handleChange}
-          className={`slider 
+          className={`ded-slider 
             ${
               isDisabled
-                ? 'slider-disable'
-                : className || getThemeClass(themeColor, 'slider')
+                ? 'ded-slider-disable'
+                : className || getThemeClass(themeColor, 'ded-slider')
             }`}
         />
       </div>
 
       <div
-        className={`tooltip 
+        className={`ded-tooltip 
         ${
           isDisabled
-            ? 'tooltip-disable'
-            : className || getThemeClass(themeColor, 'tooltip')
+            ? 'ded-tooltip-disable'
+            : className || getThemeClass(themeColor, 'ded-tooltip')
         }`}
         style={{
           left: `calc(${thumbPosition}px + ${thumbWidth / 2}px - ${

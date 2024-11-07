@@ -12,7 +12,7 @@ import { AvatarGroup } from './module/avatar-group';
 import { List, Item } from './module/list';
 import { Tooltip } from './module/tooltip';
 import { Slider } from './element/slider';
-import { ButtonSlider } from './module/slider-control';
+import { SliderControl } from './module/slider-control';
 import { Card } from './section/card';
 import { Menu } from './module/menu';
 
@@ -33,7 +33,7 @@ export {
   Item,
   Tooltip,
   Slider,
-  ButtonSlider,
+  SliderControl,
   Card,
   Menu,
 };
