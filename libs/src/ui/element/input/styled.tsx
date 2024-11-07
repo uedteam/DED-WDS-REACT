@@ -16,7 +16,6 @@ export const getBorderClass = ({
   description: string;
 }) => {
   if (isEmpty(error) && isEmpty(description)) return;
-  console.log('error', error);
 
   return error.length > 0 ? 'ded-input-border-error' : 'ded-input-border-desc';
 };
@@ -39,7 +38,7 @@ export const getHintClass = ({
   }
 
   if (description.length > 0) {
-    return 'input-hint-desc';
+    return 'ded-input-hint-desc';
   }
 };
 
@@ -49,5 +48,5 @@ export const getHintClass = ({
  * @returns 對應的 CSS class。
  */
 export const getSizeClass = (size: string) => {
-  return `input-group-${size}`;
+  return `ded-input-group-${size}`;
 };
