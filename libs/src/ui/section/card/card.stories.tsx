@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import Card from './card';
-import { Title, Button, LineProgress, List, ButtonSlider } from '@src/ui';
+import { Title, Button, LineProgress, List, SliderControl } from '@src/ui';
 import {
   LockIcon,
   PlusIcon,
@@ -183,7 +183,7 @@ export const Default: Story = {
               gap: '8px',
             }}
           >
-            <ButtonSlider
+            <SliderControl
               initValue={0}
               themeColor="warning"
               unit="℃"
