@@ -4,6 +4,19 @@ import { Grid } from '@src/ui/section/grid/grid';
 import { Title } from '@src/ui/element/title';
 import { Divider } from '@src/ui/element/divider';
 
+/**
+ * @interface LoginProps
+ * @description 定義登入元件的屬性。
+ *
+ * @property {string} [bgColorSrc] - 背景顏色的來源。
+ * @property {string} [bgImgSrc] - 背景圖片的來源。
+ * @property {string} title - 登入表單的標題。
+ * @property {string} [description] - 登入表單的描述。
+ * @property {React.ReactNode} form - 登入表單的 React 元素。
+ * @property {React.ReactNode} externalLinks - 外部連結的 React 元素。
+ * @property {React.ReactNode} signUp - 註冊連結的 React 元素。
+ * @property {string} [className] - 自訂的 CSS 類別名稱。
+ */
 interface LoginProps {
   bgColorSrc?: string;
   bgImgSrc?: string;
@@ -15,22 +28,21 @@ interface LoginProps {
   className?: string;
 }
 
-export const Login: React.FC<LoginProps> = (props: LoginProps) => {
-  const {
-    bgColorSrc,
-    bgImgSrc,
-    title,
-    description,
-    form,
-    externalLinks,
-    signUp,
-    className,
-  } = props;
+export const AuthFLow: React.FC<LoginProps> = ({
+  bgColorSrc = '',
+  bgImgSrc = '',
+  title = '',
+  description = '',
+  form = null,
+  externalLinks = null,
+  signUp = null,
+  className = '',
+}: LoginProps) => {
   const { Content } = Layout;
   const { Row, Column } = Grid;
 
   return (
-    <Layout className="">
+    <Layout className={className}>
       <Content>
         <Grid fluid={false}>
           <Row hasGap={false}>
@@ -82,4 +94,4 @@ export const Login: React.FC<LoginProps> = (props: LoginProps) => {
     </Layout>
   );
 };
-export default Login;
+export default AuthFLow;
