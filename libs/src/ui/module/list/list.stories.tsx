@@ -63,6 +63,12 @@ export default {
       },
     },
   },
+  args: {
+    dataSource: options,
+    isMenu: false,
+    className: '',
+    onSelect: action('onSelect'),
+  },
   parameters: {
     docs: {
       title: '清單',
@@ -76,8 +82,14 @@ type Story = StoryObj<typeof List>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    dataSource: options,
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<List {...args} />`,
+      },
+    },
   },
   render(args) {
     return (
@@ -90,15 +102,19 @@ export const Default: Story = {
 
 export const Menu: Story = {
   name: '選單樣式',
-  args: {
-    isMenu: true,
-    dataSource: options,
-    onSelect: action('onSelect'),
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<List {...args} isMenu />`,
+      },
+    },
   },
   render(args) {
     return (
       <div style={{ width: '200px' }}>
-        <List {...args} />
+        <List {...args} isMenu />
       </div>
     );
   },

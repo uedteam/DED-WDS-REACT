@@ -1,4 +1,4 @@
-.list {
+.ded-list {
   display: inline-flex;
   flex-direction: column;
   width: 100%;
@@ -6,13 +6,13 @@
   list-style: none;
 }
 
-.menu {
+.ded-menu {
   box-shadow: $shadow-light2;
   list-style: none;
   background-color: $color-white;
 }
 
-.item {
+.ded-item {
   position: relative;
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@
   }
 }
 
-.list-link {
+.ded-list-link {
   cursor: pointer;
 
   &:hover {
@@ -36,7 +36,7 @@
   }
 }
 
-.item-link {
+.ded-item-link {
   cursor: pointer;
 
   &:hover {
@@ -48,7 +48,7 @@
   }
 }
 
-.item-link-disabled {
+.ded-item-link-disabled {
   cursor: not-allowed;
   color: $color-gray40;
 }
