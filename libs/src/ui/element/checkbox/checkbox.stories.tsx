@@ -8,12 +8,6 @@ const options = [
   { label: '選項三', value: 'option3' },
 ];
 
-const options = [
-  { label: '選項一', value: 'option1' },
-  { label: '選項二', value: 'option2' },
-  { label: '選項三', value: 'option3' },
-];
-
 export default {
   title: 'Component/Checkbox',
   component: Checkbox,
