@@ -42,14 +42,14 @@ export interface CardProps {
  * @returns {JSX.Element} 回傳卡片元件
  */
 export const Card: React.FC<CardProps> = ({
-  width,
-  height,
-  cardHeader,
-  hasHeaderDivider,
-  children,
-  cardFooter,
-  onClick,
-  className,
+  width = '100%',
+  height = '100%',
+  cardHeader = null,
+  hasHeaderDivider = false,
+  children = null,
+  cardFooter = null,
+  onClick = () => ({}),
+  className = '',
 }: CardProps): JSX.Element => {
   const handleClick = () => {
     console.log('click');
