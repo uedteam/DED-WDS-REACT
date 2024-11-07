@@ -49,30 +49,26 @@ export interface ButtonProps {
  * @param {'small' | 'medium' | 'large'} [props.size] - 按鈕的大小
  * @param {ReactNode} [props.prefix] - 按鈕前綴圖標
  * @param {ReactNode} [props.suffix] - 按鈕後綴圖標
- * @param {MouseEventHandler<HTMLButtonElement>} [props.onClick] - 按鈕的點擊事件處理函數
  * @param {string} [props.className] - 按鈕的自定義類名
+ * @param {MouseEventHandler<HTMLButtonElement>} [props.onClick] - 按鈕的點擊事件處理函數
  */
-export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const {
-    variant = 'contained',
-    themeColor = 'primary',
-    width = 'auto',
-    isDisabled = false,
-    children = '按鈕',
-    size = 'medium',
-    prefix,
-    suffix,
-    className,
-    onClick,
-    ...rest
-  } = props;
-
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'contained',
+  themeColor = 'primary',
+  width = 'auto',
+  isDisabled = false,
+  children = '送出',
+  size = 'medium',
+  prefix,
+  suffix,
+  className,
+  onClick,
+}: ButtonProps) => {
   return (
     <button
-      {...rest}
       style={{ width: width }}
-      className={`button 
-        ${getSizeClass('component', size)}
+      className={`ded-button 
+        ${getSizeClass('ded-component', size)}
         ${
           isDisabled
             ? getDisableClass(variant)
@@ -80,9 +76,11 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         } ${className}`}
       onClick={onClick}
     >
-      {prefix && <div className={getSizeClass('icon', size)}>{prefix}</div>}
-      {children && <div className={getSizeClass('text', size)}>{children}</div>}
-      {suffix && <div className={getSizeClass('icon', size)}>{suffix}</div>}
+      {prefix && <div className={getSizeClass('ded-icon', size)}>{prefix}</div>}
+      {children && (
+        <div className={getSizeClass('ded-text', size)}>{children}</div>
+      )}
+      {suffix && <div className={getSizeClass('ded-icon', size)}>{suffix}</div>}
     </button>
   );
 };
