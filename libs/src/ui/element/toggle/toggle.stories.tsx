@@ -73,6 +73,21 @@ export const Theme: Story = {
   args: {
     isChecked: true,
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Toggle {...args} themeColor="primary" />
+<Toggle {...args} themeColor="secondary" />
+<Toggle {...args} themeColor="tertiary" />
+<Toggle {...args} themeColor="info" />
+<Toggle {...args} themeColor="success" />
+<Toggle {...args} themeColor="warning" />
+<Toggle {...args} themeColor="error" />
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
