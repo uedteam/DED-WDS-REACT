@@ -36,7 +36,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   dataSource = [],
   className,
   onChange,
-  ...rest
 }: CheckboxProps) => {
   const [currOptions, setCurrOptions] = useState<string[]>(initValue);
 
@@ -53,21 +52,20 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <div
-      className={`checkbox-container ${
+      className={`ded-checkbox-container ${
         direction === 'row'
-          ? 'checkbox-container-row'
-          : 'checkbox-container-column'
+          ? 'ded-checkbox-container-row'
+          : 'ded-checkbox-container-column'
       }`}
     >
       {dataSource.map((option) => (
         <label
           key={option.value}
           htmlFor={option.value}
-          className={`checkbox ${className}`}
+          className={`ded-checkbox ${className}`}
         >
           <input
-            {...rest}
-            className="checkbox-input"
+            className="ded-checkbox-input"
             id={option.value}
             value={option.value}
             checked={currOptions.includes(option.value)}
@@ -76,14 +74,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             type="checkbox"
           />
           <div
-            className={`checkbox-icon ${getThemeClass(
+            className={`ded-checkbox-icon ${getThemeClass(
               currOptions.includes(option.value) ? 'checked' : 'unchecked',
               themeColor
             )}`}
           >
             {currOptions.includes(option.value) && <CheckIcon />}
           </div>
-          <span className="checkbox-text">{option.label}</span>
+          <span className="ded-checkbox-text">{option.label}</span>
         </label>
       ))}
     </div>
