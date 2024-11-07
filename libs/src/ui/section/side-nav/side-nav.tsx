@@ -41,9 +41,13 @@ const THEME_COLOR = {
  * @param {number} props.width - 導航欄寬度
  * @returns {JSX.Element} 側邊導航元件
  */
-export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
-  const { logo, themeColor, dataSource, width, ...rest } = props;
-
+export const SideNav: React.FC<SideNavProps> = ({
+  logo = '',
+  themeColor = THEME_COLOR.Blue,
+  dataSource = [],
+  width = '100%',
+  className,
+}: SideNavProps) => {
   const [color, setColor] = useState(THEME_COLOR.White);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -64,31 +68,42 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
   };
 
   useEffect(() => {
-    if (themeColor) {
-      if (themeColor === THEME_COLOR.Blue) {
-        setColor('#ffffff');
-      }
-      if (themeColor === THEME_COLOR.Yellow) {
-        setColor('#004E81');
-      }
-      if (themeColor === THEME_COLOR.Grape) {
-        setColor('#004E81');
-      }
-      if (themeColor === THEME_COLOR.Black) {
-        setColor('#cccccc');
-      }
-    } else {
+    if (!themeColor) {
       setColor('#000000');
+      return;
+    }
+
+    if (themeColor === THEME_COLOR.Blue) {
+      setColor('#ffffff');
+      return;
+    }
+
+    if (themeColor === THEME_COLOR.Yellow) {
+      setColor('#004E81');
+      return;
+    }
+
+    if (themeColor === THEME_COLOR.Grape) {
+      setColor('#004E81');
+      return;
+    }
+
+    if (themeColor === THEME_COLOR.Black) {
+      setColor('#cccccc');
+      return;
     }
   }, [color, dataSource, themeColor]);
 
   applyColorToIcons(dataSource, color);
 
   return (
-    <div className="side-nav" style={{ backgroundColor: themeColor }}>
-      <div className="side-nav-header">
+    <div
+      className={`ded-side-nav ${className}`}
+      style={{ backgroundColor: themeColor }}
+    >
+      <div className="ded-side-nav-header">
         {!isCollapsed && (
-          <div className="side-nav-header-logo">
+          <div className="ded-side-nav-header-logo">
             <div>{coloredLogo}</div>
             <div style={{ color: color }}>DesignLogo</div>
           </div>
@@ -116,12 +131,7 @@ export const SideNav: React.FC<SideNavProps> = (props: SideNavProps) => {
           />
         </div>
       )}
-      <Menu
-        {...rest}
-        dataSource={dataSource}
-        isCollapsed={isCollapsed}
-        color={color}
-      />
+      <Menu dataSource={dataSource} isCollapsed={isCollapsed} color={color} />
     </div>
   );
 };
