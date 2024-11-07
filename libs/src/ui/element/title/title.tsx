@@ -43,19 +43,15 @@ export interface TitleProps {
  * @param {string} props.className - 標題的附加 class 名稱。
  * @returns {JSX.Element} 渲染的 Title 組件。
  */
-export const Title: React.FC<TitleProps> = (props: TitleProps) => {
-  const {
-    themeColor = 'primary',
-    level = 0,
-    children,
-    className = '',
-    ...rest
-  } = props;
-
+export const Title: React.FC<TitleProps> = ({
+  themeColor = 'primary',
+  level = 0,
+  children,
+  className = '',
+}: TitleProps): JSX.Element => {
   return (
     <div
-      {...rest}
-      className={`title ${className || getTitleClass(themeColor, level)}`}
+      className={`ded-title ${className || getTitleClass(themeColor, level)}`}
     >
       {children}
     </div>

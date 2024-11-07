@@ -63,6 +63,21 @@ export const Default: Story = {
 export const Size: Story = {
   name: '標題大小',
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Title level={1}>level 1: {args.children}</Title>
+<Title level={2}>level 2: {args.children}</Title>
+<Title level={3}>level 3: {args.children}</Title>
+<Title level={4}>level 4: {args.children}</Title>
+<Title level={5}>level 5: {args.children}</Title>
+<Title level={6}>level 6: {args.children}</Title>
+<Title level={0}>level 0: {args.children}</Title>
+`,
+      },
+    },
+  },
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -82,6 +97,21 @@ export const Theme: Story = {
   name: '主題色彩',
   args: {
     level: 3,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Title level={args.level} themeColor="primary">{args.children}</Title>
+<Title level={args.level} themeColor="secondary">{args.children}</Title>
+<Title level={args.level} themeColor="tertiary">{args.children}</Title>
+<Title level={args.level} themeColor="info">{args.children}</Title>
+<Title level={args.level} themeColor="success">{args.children}</Title>
+<Title level={args.level} themeColor="warning">{args.children}</Title>
+<Title level={args.level} themeColor="error">{args.children}</Title>
+`,
+      },
+    },
   },
   render(args) {
     return (
