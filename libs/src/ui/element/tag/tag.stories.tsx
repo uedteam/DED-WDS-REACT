@@ -7,6 +7,7 @@ import {
   VisibilityIcon,
   VisibilityOffIcon,
 } from '@src/assets';
+import { last } from 'lodash';
 
 export default {
   title: 'Component/Tag',
@@ -32,7 +33,12 @@ export default {
         category: 'PROPS',
       },
     },
-
+    label: {
+      description: '標籤名稱',
+      table: {
+        category: 'PROPS',
+      },
+    },
     prefix: {
       description: '圖示',
       options: ['None', 'Account', 'Search', 'Visibility', 'VisibilityOff'],
@@ -75,9 +81,10 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    isDisabled: false,
+    label: 'default',
     prefix: 'None',
     closable: true,
+    isDisabled: false,
     className: '',
     onClose: action('closed'),
   },
@@ -96,7 +103,7 @@ export const Default: Story = {
   name: '預設項目',
   args: {},
   render(args) {
-    return <Tag {...args}>Photography</Tag>;
+    return <Tag {...args} />;
   },
 };
 
@@ -107,13 +114,13 @@ export const ThemeColor: Story = {
     docs: {
       source: {
         code: `
-<Tag {...args} themeColor="primary">Photography</Tag>
-<Tag {...args} themeColor="secondary">Cooking</Tag>
-<Tag {...args} themeColor="tertiary">Reading</Tag>
-<Tag {...args} themeColor="info">Dancing</Tag>
-<Tag {...args} themeColor="success">Dancing</Tag>
-<Tag {...args} themeColor="warning">Dancing</Tag>
-<Tag {...args} themeColor="error">Dancing</Tag>
+<Tag {...args} themeColor="primary" label="primary" />
+<Tag {...args} themeColor="secondary" label="secondary" />
+<Tag {...args} themeColor="tertiary" label="tertiary" />
+<Tag {...args} themeColor="info" label="info" />
+<Tag {...args} themeColor="success" label="success" />
+<Tag {...args} themeColor="warning" label="warning" />
+<Tag {...args} themeColor="error" label="error" />
 `,
       },
     },
@@ -121,27 +128,13 @@ export const ThemeColor: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Tag {...args} themeColor="primary">
-          Photography
-        </Tag>
-        <Tag {...args} themeColor="secondary">
-          Cooking
-        </Tag>
-        <Tag {...args} themeColor="tertiary">
-          Reading
-        </Tag>
-        <Tag {...args} themeColor="info">
-          Dancing
-        </Tag>
-        <Tag {...args} themeColor="success">
-          Dancing
-        </Tag>
-        <Tag {...args} themeColor="warning">
-          Dancing
-        </Tag>
-        <Tag {...args} themeColor="error">
-          Dancing
-        </Tag>
+        <Tag {...args} themeColor="primary" label="primary" />
+        <Tag {...args} themeColor="secondary" label="secondary" />
+        <Tag {...args} themeColor="tertiary" label="tertiary" />
+        <Tag {...args} themeColor="info" label="info" />
+        <Tag {...args} themeColor="success" label="success" />
+        <Tag {...args} themeColor="warning" label="warning" />
+        <Tag {...args} themeColor="error" label="error" />
       </div>
     );
   },

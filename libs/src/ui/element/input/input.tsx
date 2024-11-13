@@ -24,8 +24,8 @@ export interface InputProps {
   type: 'text' | 'password' | 'email' | 'number';
   placeholder?: string;
   size?: 'small' | 'medium' | 'large';
-  initValue: string;
   prefix?: ReactNode;
+  initValue: string;
   hint?: { error: string; description: string };
   isDisabled?: boolean;
   className?: string;
@@ -40,12 +40,12 @@ export interface InputProps {
  * @param {string} [props.type='text'] - 輸入框的類型。
  * @param {string} [props.placeholder='請輸入...'] - 輸入框的佔位符。
  * @param {string} [props.size='medium'] - 輸入框的大小。
- * @param {string} props.initValue - 輸入框的值。
  * @param {React.ReactNode} [props.prefix] - 輸入框前綴圖標。
- * @param {boolean} [props.isDisabled=false] - 是否禁用輸入框。
+ * @param {string} props.initValue - 輸入框的值。
  * @param {Object} [props.hint={ error: '', description: '' }] - 提示信息。
  * @param {string} props.hint.error - 錯誤提示信息。
  * @param {string} props.hint.description - 描述提示信息。
+ * @param {boolean} [props.isDisabled=false] - 是否禁用輸入框。
  * @param {string} [props.className] - 自定義的 CSS 類名。
  * @param {function} props.onChange - 當輸入框值改變時的回調函數。
  */

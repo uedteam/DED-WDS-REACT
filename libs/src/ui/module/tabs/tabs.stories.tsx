@@ -31,18 +31,8 @@ export default {
         category: 'PROPS',
       },
     },
-    type: {
-      description: '頁籤樣式',
-      control: {
-        type: 'select',
-        options: ['card', 'default'],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
-    isDisabled: {
-      description: '是否禁用',
+    dataSource: {
+      description: '資料來源',
       table: {
         category: 'PROPS',
       },
@@ -58,8 +48,18 @@ export default {
         category: 'PROPS',
       },
     },
-    dataSource: {
-      description: '資料來源',
+    type: {
+      description: '頁籤樣式',
+      control: {
+        type: 'select',
+        options: ['card', 'default'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
       table: {
         category: 'PROPS',
       },
@@ -80,10 +80,10 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    type: 'default',
-    isDisabled: false,
     dataSource: tabs,
     activeIndex: 0,
+    type: 'default',
+    isDisabled: false,
     className: '',
     onClick: action('onClick'),
   },
