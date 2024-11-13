@@ -13,6 +13,7 @@ export interface TagProps {
     | 'warning'
     | 'error'
     | 'info';
+  label: string;
   prefix?: React.ReactNode;
   closable?: boolean;
   isDisabled?: boolean;
@@ -23,11 +24,11 @@ export interface TagProps {
 
 export const Tag: React.FC<TagProps> = ({
   themeColor = 'none',
+  label,
   prefix,
   closable = false,
   isDisabled = false,
   className,
-  children,
   onClose,
 }) => {
   return (
@@ -39,7 +40,7 @@ export const Tag: React.FC<TagProps> = ({
       }`}
     >
       {prefix && <div className="ded-tag-icon">{prefix}</div>}
-      <span className="ded-tag-text">{children}</span>
+      <span className="ded-tag-text">{label}</span>
       {closable && (
         <Button variant="text" onClick={onClose}>
           <CloseIcon
