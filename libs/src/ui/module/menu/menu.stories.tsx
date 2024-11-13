@@ -6,29 +6,29 @@ import Menu from './menu';
 const menuData: ItemProps[] = [
   {
     title: 'Dashboard',
-    icon: <HomeIcon width={24} height={24} />,
+    prefix: <HomeIcon width={24} height={24} />,
     path: '/dashboard',
   },
   {
     title: 'Settings',
-    icon: <HomeIcon width={24} height={24} />,
+    prefix: <HomeIcon width={24} height={24} />,
     path: '/settings',
     children: [
       {
         title: 'Profile',
-        icon: <AccountIcon width={24} height={24} />,
+        prefix: <AccountIcon width={24} height={24} />,
         path: '/settings/profile',
       },
       {
         title: 'Account',
-        icon: <AccountIcon width={24} height={24} />,
+        prefix: <AccountIcon width={24} height={24} />,
         path: '/settings/account',
       },
     ],
   },
   {
     title: 'Help',
-    icon: <HomeIcon width={24} height={24} />,
+    prefix: <HomeIcon width={24} height={24} />,
     path: '/help',
   },
 ];
@@ -40,27 +40,35 @@ export default {
   argTypes: {
     dataSource: {
       description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
     },
     isCollapsed: {
       description: '是否收合',
-    },
-    width: {
-      description: '寬度',
+      table: {
+        category: 'PROPS',
+      },
     },
     color: {
       description: '顏色',
       control: {
         type: 'color',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     dataSource: menuData,
     isCollapsed: false,
-    width: '100%',
     color: '#000000',
     className: '',
   },

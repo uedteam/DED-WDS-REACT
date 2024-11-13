@@ -15,15 +15,46 @@ export default {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
+    label: {
+      description: '標題',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    type: {
+      description: '輸入類型',
+      control: {
+        type: 'select',
+        options: ['text', 'password', 'number', 'email'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    placeholder: {
+      description: '輸入提示',
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     size: {
       description: '輸入框尺寸',
       control: {
         type: 'select',
         options: ['small', 'medium', 'large'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    isDisabled: {
-      description: '是否禁用',
+    initValue: {
+      description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
     },
     prefix: {
       description: '前置元素',
@@ -45,35 +76,34 @@ export default {
         Close: <CloseIcon />,
         Lock: <LockIcon />,
       },
-    },
-    label: {
-      description: '標題',
-    },
-    type: {
-      description: '輸入類型',
-      control: {
-        type: 'select',
-        options: ['text', 'password', 'number', 'email'],
-      },
-    },
-    placeholder: {
-      description: '輸入提示',
-      control: {
-        type: 'text',
+      table: {
+        category: 'PROPS',
       },
     },
     hint: {
       description: '提示訊息',
+      table: {
+        category: 'PROPS',
+      },
     },
-    initValue: {
-      description: '初始值',
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '輸入事件',
       action: 'changed',
-    },
-    className: {
-      description: '客製化樣式',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   parameters: {
@@ -85,14 +115,14 @@ export default {
     },
   },
   args: {
-    size: 'medium',
-    isDisabled: false,
     label: '帳號',
     type: 'text',
     placeholder: '請輸入帳號...',
+    size: 'medium',
+    initValue: '',
     prefix: <AccountIcon />,
     hint: { error: '', description: '描述提示信息' },
-    initValue: '',
+    isDisabled: false,
     className: '',
     onChange: (e: string) => action('changed')(e),
   },

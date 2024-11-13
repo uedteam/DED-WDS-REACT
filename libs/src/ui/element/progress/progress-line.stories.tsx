@@ -21,6 +21,9 @@ export default {
         ],
       },
     },
+    label: {
+      description: '進度指示標籤',
+    },
     percent: {
       description: '進度',
       control: {
@@ -30,7 +33,7 @@ export default {
         step: 1,
       },
     },
-    height: {
+    strokeWidth: {
       description: '線條寬度',
       control: {
         type: 'range',
@@ -39,18 +42,15 @@ export default {
         step: 1,
       },
     },
-    label: {
-      description: '進度指示標籤',
-    },
     className: {
       description: '客製化樣式',
     },
   },
   args: {
     themeColor: 'primary',
+    label: 'Saving',
     percent: 50,
-    height: 10,
-    label: '',
+    strokeWidth: 10,
     className: '',
   },
   parameters: {

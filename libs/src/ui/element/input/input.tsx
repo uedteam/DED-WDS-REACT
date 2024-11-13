@@ -9,27 +9,27 @@ import { isEmpty } from 'lodash';
  * `InputProps` 介面定義了輸入元件的屬性。
  *
  * @property {ReactNode} [label] - 輸入框的標籤。
+ * @property {string} [initValue] - 輸入框的值。
  * @property {'text' | 'password' | 'email' | 'number'} type - 輸入框的類型。
  * @property {string} [placeholder] - 輸入框的佔位符。
  * @property {ReactNode} [prefix] - 輸入框前綴的圖示或文字。
- * @property {boolean} [isDisabled] - 是否禁用輸入框。
  * @property {'small' | 'medium' | 'large'} [size] - 輸入框的大小。
  * @property {{ error: string; description: string }} [hint] - 錯誤提示和描述信息。
- * @property {string} [value] - 輸入框的值。
+ * @property {boolean} [isDisabled] - 是否禁用輸入框。
  * @property {ChangeEventHandler<HTMLInputElement>} onChange - 當輸入框值改變時的回調函數。
  * @property {string} [className] - 自訂的 CSS 類名。
  */
 export interface InputProps {
-  label?: string;
+  label?: ReactNode;
   type: 'text' | 'password' | 'email' | 'number';
   placeholder?: string;
-  prefix?: ReactNode;
-  isDisabled?: boolean;
   size?: 'small' | 'medium' | 'large';
-  hint?: { error: string; description: string };
   initValue: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  prefix?: ReactNode;
+  hint?: { error: string; description: string };
+  isDisabled?: boolean;
   className?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 /**
@@ -40,15 +40,14 @@ export interface InputProps {
  * @param {string} [props.type='text'] - 輸入框的類型。
  * @param {string} [props.placeholder='請輸入...'] - 輸入框的佔位符。
  * @param {string} [props.size='medium'] - 輸入框的大小。
+ * @param {string} props.initValue - 輸入框的值。
  * @param {React.ReactNode} [props.prefix] - 輸入框前綴圖標。
  * @param {boolean} [props.isDisabled=false] - 是否禁用輸入框。
  * @param {Object} [props.hint={ error: '', description: '' }] - 提示信息。
  * @param {string} props.hint.error - 錯誤提示信息。
  * @param {string} props.hint.description - 描述提示信息。
- * @param {string} props.value - 輸入框的值。
- * @param {function} props.onChange - 當輸入框值改變時的回調函數。
  * @param {string} [props.className] - 自定義的 CSS 類名。
- * @param {Object} [props.rest] - 其他屬性。
+ * @param {function} props.onChange - 當輸入框值改變時的回調函數。
  */
 export const Input: React.FC<InputProps> = ({
   label = '',
@@ -56,9 +55,9 @@ export const Input: React.FC<InputProps> = ({
   placeholder = '請輸入...',
   size = 'medium',
   prefix = '',
-  isDisabled = false,
   initValue = '',
   hint = { error: '', description: '' },
+  isDisabled = false,
   className = '',
   onChange = () => ({}),
 }: InputProps) => {

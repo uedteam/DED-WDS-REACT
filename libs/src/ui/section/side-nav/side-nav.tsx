@@ -11,14 +11,12 @@ import { Menu, Input } from '@src/ui';
  * @property {ReactNode} logo - 導航欄的標誌。
  * @property {ItemProps[]} dataSource - 導航欄的菜單數據。
  * @property {string} [themeColor] - 可選的主題顏色。
- * @property {string} [width] - 可選的導航欄寬度。
  * @property {string} [className] - 可選的自定義樣式類名。
  */
 export interface SideNavProps {
   logo: ReactNode;
   dataSource: ItemProps[];
   themeColor?: string;
-  width?: string;
   className?: string;
 }
 
@@ -38,14 +36,12 @@ const THEME_COLOR = {
  * @param {React.ReactElement} props.logo - 導航欄的標誌
  * @param {THEME_COLOR} props.themeColor - 主題顏色
  * @param {ItemProps[]} props.dataSource - 導航菜單數據
- * @param {number} props.width - 導航欄寬度
  * @returns {JSX.Element} 側邊導航元件
  */
 export const SideNav: React.FC<SideNavProps> = ({
   logo = '',
   themeColor = THEME_COLOR.Blue,
   dataSource = [],
-  width = '100%',
   className,
 }: SideNavProps) => {
   const [color, setColor] = useState(THEME_COLOR.White);
@@ -58,7 +54,7 @@ export const SideNav: React.FC<SideNavProps> = ({
 
   const applyColorToIcons = (items: ItemProps[], color: string) => {
     items.forEach((item) => {
-      item.icon = React.cloneElement(item.icon as React.ReactElement, {
+      item.prefix = React.cloneElement(item.prefix as React.ReactElement, {
         fill: color,
       });
       if (item.children) {

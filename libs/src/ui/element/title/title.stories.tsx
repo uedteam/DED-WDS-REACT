@@ -20,6 +20,9 @@ export default {
           'error',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     level: {
       description: '標題等級',
@@ -27,12 +30,21 @@ export default {
         type: 'select',
         options: [0, 1, 2, 3, 4, 5, 6],
       },
-    },
-    children: {
-      description: '標題內容',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    children: {
+      description: '標題內容',
+      table: {
+        category: 'SLOTS',
+      },
     },
   },
   parameters: {
@@ -46,8 +58,8 @@ export default {
   args: {
     themeColor: 'primary',
     level: 1,
-    children: '標題',
     className: '',
+    children: '標題',
   },
 } as Meta;
 type Story = StoryObj<typeof Title>;

@@ -27,6 +27,9 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     type: {
       description: '頁籤樣式',
@@ -34,9 +37,15 @@ export default {
         type: 'select',
         options: ['card', 'default'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     isDisabled: {
       description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     activeIndex: {
       description: '活動頁籤索引',
@@ -45,16 +54,28 @@ export default {
         min: 0,
         max: 2,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     dataSource: {
       description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {

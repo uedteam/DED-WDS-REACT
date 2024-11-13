@@ -12,6 +12,7 @@ export default {
       control: {
         type: 'select',
         options: [
+          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -21,31 +22,58 @@ export default {
           'info',
         ],
       },
-    },
-    isDisabled: {
-      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     max: {
       description: '最大值',
+      table: {
+        category: 'PROPS',
+      },
     },
     min: {
       description: '最小值',
+      table: {
+        category: 'PROPS',
+      },
     },
     unit: {
       description: '顯示單位',
+      table: {
+        category: 'PROPS',
+      },
     },
     step: {
       description: '步進值',
+      table: {
+        category: 'PROPS',
+      },
     },
     initValue: {
       description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '值改變事件',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   parameters: {
@@ -58,12 +86,12 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    isDisabled: false,
     min: -100,
     max: 100,
     step: 1,
     initValue: 0,
     unit: '℃',
+    isDisabled: false,
     onChange: action('onChange'),
     className: '',
   },

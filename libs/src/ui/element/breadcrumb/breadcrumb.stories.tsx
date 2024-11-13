@@ -17,25 +17,8 @@ export default {
   argTypes: {
     dataSource: {
       description: '資料來源',
-    },
-    placement: {
-      description: '麵包屑位置',
-      control: {
-        type: 'select',
-        options: [
-          'top-left',
-          'top',
-          'top-right',
-          'right-top',
-          'right',
-          'right-bottom',
-          'bottom-right',
-          'bottom',
-          'bottom-left',
-          'left-bottom',
-          'left',
-          'left-top',
-        ],
+      table: {
+        category: 'PROPS',
       },
     },
     className: {
@@ -43,11 +26,13 @@ export default {
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     dataSource: linkList,
-    placement: 'bottom-left',
     className: '',
   },
   parameters: {

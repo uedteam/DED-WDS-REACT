@@ -35,7 +35,7 @@ export default {
     dataSource: {
       description: '資料來源',
       table: {
-        category: 'list',
+        category: 'PROPS',
       },
     },
     isMenu: {
@@ -44,13 +44,7 @@ export default {
         type: 'boolean',
       },
       table: {
-        category: 'list',
-      },
-    },
-    onSelect: {
-      description: '選擇事件',
-      table: {
-        category: 'list',
+        category: 'PROPS',
       },
     },
     className: {
@@ -59,7 +53,13 @@ export default {
         type: 'text',
       },
       table: {
-        category: 'list',
+        category: 'PROPS',
+      },
+    },
+    onSelect: {
+      description: '選擇事件',
+      table: {
+        category: 'EVENTS',
       },
     },
   },

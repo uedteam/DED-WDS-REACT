@@ -37,9 +37,22 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     dataSource: {
       description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
+      required: true,
+    },
+    initValue: {
+      description: '選中的項目',
+      table: {
+        category: 'PROPS',
+      },
     },
     direction: {
       description: '排列方向',
@@ -47,23 +60,29 @@ export default {
         type: 'select',
         options: ['row', 'column'],
       },
-    },
-    initValue: {
-      description: '選中的項目',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '選中選項改變時的回調函數',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
     themeColor: 'primary',
     dataSource: options,
-    direction: 'row',
     initValue: ['option1'],
+    direction: 'row',
     className: '',
     onChange: (e: string[]) => action('onChange')(e),
   },
@@ -91,8 +110,8 @@ export const Theme: Story = {
   args: {
     dataSource: options,
     initValue: ['option1'],
-    onChange: (e) => action('onChange')(e),
     className: '',
+    onChange: (e) => action('onChange')(e),
   },
   parameters: {
     docs: {

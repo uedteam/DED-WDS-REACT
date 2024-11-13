@@ -12,6 +12,9 @@ export default {
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   parameters: {

@@ -1,48 +1,52 @@
 import React from 'react';
 import { Button } from '@src/ui';
 import { CloseIcon } from '@src/assets';
-import { getDisableClass } from './styled';
+import { getDisableClass, getThemeClass } from './styled';
 
-interface TagProps {
-  isDisabled?: boolean;
-  icon?: React.ReactNode;
-  closeIcon?: React.ReactNode;
+export interface TagProps {
+  themeColor?:
+    | 'none'
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'info';
+  prefix?: React.ReactNode;
   closable?: boolean;
-  children: React.ReactNode;
+  isDisabled?: boolean;
   className?: string;
+  children: React.ReactNode;
   onClose?: () => void;
 }
 
-export const Tag: React.FC<TagProps> = (props: TagProps) => {
-  const {
-    isDisabled,
-    icon,
-    closeIcon,
-    closable,
-    children,
-    className,
-    onClose,
-  } = props;
-
+export const Tag: React.FC<TagProps> = ({
+  themeColor = 'none',
+  prefix,
+  closable = false,
+  isDisabled = false,
+  className,
+  children,
+  onClose,
+}) => {
   return (
     <div
       className={`ded-tag ${className} ${
-        isDisabled ? getDisableClass('outlined') : ''
+        isDisabled
+          ? getDisableClass('outlined')
+          : getThemeClass('contained', themeColor)
       }`}
     >
-      {icon && <div className="ded-tag-icon">{icon}</div>}
+      {prefix && <div className="ded-tag-icon">{prefix}</div>}
       <span className="ded-tag-text">{children}</span>
       {closable && (
         <Button variant="text" onClick={onClose}>
-          {closeIcon ? (
-            closeIcon
-          ) : (
-            <CloseIcon
-              className={`ded-tag-close ${
-                isDisabled ? 'ded-tag-close-disabled' : ''
-              }`}
-            />
-          )}
+          <CloseIcon
+            className={`ded-tag-close ${
+              isDisabled ? 'ded-tag-close-disabled' : ''
+            }`}
+          />
         </Button>
       )}
     </div>

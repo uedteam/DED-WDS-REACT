@@ -22,28 +22,52 @@ export default {
   argTypes: {
     width: {
       description: '卡片寬度',
+      table: {
+        category: 'PROPS',
+      },
     },
     height: {
       description: '卡片高度',
+      table: {
+        category: 'PROPS',
+      },
     },
     cardHeader: {
       description: '卡片標題',
+      table: {
+        category: 'SLOTS',
+      },
     },
     children: {
       description: '卡片內容',
+      table: {
+        category: 'SLOTS',
+      },
     },
     cardFooter: {
       description: '卡片底部',
+      table: {
+        category: 'SLOTS',
+      },
     },
     hasHeaderDivider: {
       description: '是否有標題分隔線',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onClick: {
       action: 'clicked',
       description: '點擊事件',
-    },
-    className: {
-      description: '客製化樣式',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   parameters: {
@@ -212,17 +236,17 @@ export const Default: Story = {
           {
             label: '電控玻璃',
             status: '霧面',
-            icon: <DoorIcon fill="#ffffff" width={80} height={80} />,
+            prefix: <DoorIcon fill="#ffffff" width={80} height={80} />,
           },
           {
             label: '門鎖',
             status: '已上鎖',
-            icon: <LockIcon fill="#ffffff" width={80} height={80} />,
+            prefix: <LockIcon fill="#ffffff" width={80} height={80} />,
           },
           {
             label: '照明群組',
             status: '0個開, 3個關',
-            icon: <LightIcon fill="#ffffff" width={80} height={80} />,
+            prefix: <LightIcon fill="#ffffff" width={80} height={80} />,
           },
         ].map((device) => (
           <Card
@@ -266,63 +290,11 @@ export const Default: Story = {
                 gap: '8px',
               }}
             >
-              {device.icon}
+              {device.prefix}
               <Title className="ded-card-feature">{device.status}</Title>
             </div>
           </Card>
         ))}
-        <Card
-          {...args}
-          width="242px"
-          hasHeaderDivider
-          cardHeader={
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Title themeColor="info" level={4}>
-                KKA0954
-              </Title>
-            </div>
-          }
-        >
-          <div
-            style={{
-              paddingInline: '16px',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-                justifyContent: 'flex-end',
-              }}
-            >
-              <div
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '20px',
-                  backgroundColor: '#28c76f',
-                }}
-              ></div>
-              <Title themeColor="success" level={6}>
-                進度條
-              </Title>
-            </div>
-            <LineProgress themeColor="success" percent={50} height={8} />
-            <List
-              dataSource={[
-                { content: { label: 'abc', value: '123' } },
-                { content: { label: 'abc', value: '123' } },
-                { content: { label: 'abc', value: '123' } },
-              ]}
-            />
-          </div>
-        </Card>
       </div>
     );
   },

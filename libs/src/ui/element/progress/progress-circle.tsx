@@ -13,6 +13,7 @@ import { getThemeClass } from './styled';
  */
 export interface CircleProgressProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -47,7 +48,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
   size = 100,
   strokeWidth = 10,
   className = '',
-}) => {
+}: CircleProgressProps): JSX.Element => {
   const textRef = useRef<SVGTextElement>(null);
   const [contentLength, setContentLength] = React.useState(0);
   useEffect(() => {

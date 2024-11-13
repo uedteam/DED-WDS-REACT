@@ -18,6 +18,7 @@ export default {
       control: {
         type: 'select',
         options: [
+          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -27,9 +28,15 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     dataSource: {
       description: '資料來源',
+      table: {
+        category: 'PROPS',
+      },
     },
     direction: {
       description: '排列方向',
@@ -37,16 +44,28 @@ export default {
         type: 'select',
         options: ['row', 'column'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     initValue: {
       description: '預設值',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '選擇選項後的事件',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {

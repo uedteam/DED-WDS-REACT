@@ -67,6 +67,7 @@ input[type="range"].ded-slider::-webkit-slider-thumb {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  background-color: #000;
 }
 
 input[type="range"].ded-slider::-webkit-slider-runnable-track {
