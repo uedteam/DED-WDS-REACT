@@ -20,33 +20,54 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    checkChildren: {
+    checkLabel: {
       description: '開啟文字',
+      table: {
+        category: 'PROPS',
+      },
     },
-    unCheckChildren: {
+    unCheckLabel: {
       description: '關閉文字',
+      table: {
+        category: 'PROPS',
+      },
     },
     isChecked: {
       description: '是否開啟',
+      table: {
+        category: 'PROPS',
+      },
     },
     isDisabled: {
       description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '開關事件',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
     themeColor: 'primary',
-    isChecked: false,
+    checkLabel: 'on',
+    unCheckLabel: 'off',
+    isChecked: true,
     isDisabled: false,
-    checkChildren: 'on',
-    unCheckChildren: 'off',
     className: '',
   },
   parameters: {

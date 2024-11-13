@@ -13,6 +13,7 @@ export default {
       control: {
         type: 'select',
         options: [
+          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -22,21 +23,46 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    isDisabled: {
-      description: '是否禁用',
-    },
+
     min: {
       description: '最小值',
+      table: {
+        category: 'PROPS',
+      },
     },
     max: {
       description: '最大值',
+      table: {
+        category: 'PROPS',
+      },
     },
     step: {
       description: '步進值',
+      table: {
+        category: 'PROPS',
+      },
     },
     unit: {
       description: '單位',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    initValue: {
+      description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     prefix: {
       description: '前置元素',
@@ -45,6 +71,9 @@ export default {
         None: null,
         Increase: <PlusIcon width={32} height={32} />,
         Decrease: <MinusIcon width={32} height={32} />,
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     suffix: {
@@ -55,19 +84,28 @@ export default {
         Increase: <PlusIcon width={32} height={32} />,
         Decrease: <MinusIcon width={32} height={32} />,
       },
-    },
-    initValue: {
-      description: '初始值',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
-    },
-    onChange: {
-      description: '變更事件',
+      table: {
+        category: 'PROPS',
+      },
     },
     onClick: {
       description: '點擊事件',
       action: 'onClick',
+      table: {
+        category: 'EVENTS',
+      },
+    },
+    onChange: {
+      description: '變更事件',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   parameters: {
@@ -80,17 +118,17 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    prefix: 'Decrease',
-    suffix: 'Increase',
-    isDisabled: false,
     min: -100,
     max: 100,
     step: 1,
     unit: '℃',
     initValue: 50,
+    prefix: 'Decrease',
+    suffix: 'Increase',
+    isDisabled: false,
     className: '',
-    onChange: action('onChange'),
     onClick: action('onClick'),
+    onChange: action('onChange'),
   },
 } as Meta;
 type Story = StoryObj<typeof SliderControl>;
@@ -114,6 +152,7 @@ export const ThemeColor: Story = {
     unit: '%',
     initValue: 50,
     onClick: action('onClick'),
+    onChange: action('onChange'),
   },
   parameters: {
     docs: {

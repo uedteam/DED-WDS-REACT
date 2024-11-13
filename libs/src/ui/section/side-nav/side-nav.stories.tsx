@@ -6,29 +6,29 @@ import SideNav from './side-nav';
 const menuData: ItemProps[] = [
   {
     title: 'Dashboard',
-    icon: <HomeIcon width={24} height={24} />,
+    prefix: <HomeIcon width={24} height={24} />,
     path: '/dashboard',
   },
   {
     title: 'Settings',
-    icon: <AirIcon width={24} height={24} />,
+    prefix: <AirIcon width={24} height={24} />,
     path: '/settings',
     children: [
       {
         title: 'Profile',
-        icon: <FanIcon width={24} height={24} />,
+        prefix: <FanIcon width={24} height={24} />,
         path: '/settings/profile',
       },
       {
         title: 'Account',
-        icon: <FanIcon width={24} height={24} />,
+        prefix: <FanIcon width={24} height={24} />,
         path: '/settings/account',
       },
     ],
   },
   {
     title: 'Help',
-    icon: <PowerIcon width={24} height={24} />,
+    prefix: <PowerIcon width={24} height={24} />,
     path: '/help',
   },
 ];
@@ -50,6 +50,9 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     logo: {
       description: 'Logo 圖示',
@@ -60,22 +63,27 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     dataSource: {
       description: '資料來源',
-    },
-    width: {
-      description: '寬度',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     themeColor: 'Blue',
     logo: <AUOIcon width={90} height={30} />,
     dataSource: menuData,
-    width: '240px',
     className: '',
   },
   parameters: {

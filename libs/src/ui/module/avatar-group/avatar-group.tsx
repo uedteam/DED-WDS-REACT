@@ -13,25 +13,11 @@ import { useClickOutside } from '@src/hooks';
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
  *
  * @param {AvatarProps[]} dataSource - Avatar 的使用者陣列。
- * @param {'top-left' | 'top' | 'top-right' | 'right-top' | 'right' | 'right-bottom' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left-bottom' | 'left' | 'left-top'} placement - Avatar 群組的排列位置。
  * @param {number} limit - Avatar 顯示的最大數量。
  * @param {string} [className] - 自訂的 CSS 類名。
  */
 export interface AvatarGroupProps {
   dataSource: AvatarProps[];
-  placement:
-    | 'top-left'
-    | 'top'
-    | 'top-right'
-    | 'right-top'
-    | 'right'
-    | 'right-bottom'
-    | 'bottom-right'
-    | 'bottom'
-    | 'bottom-left'
-    | 'left-bottom'
-    | 'left'
-    | 'left-top';
   limit: number;
   className?: string;
 }
@@ -42,7 +28,6 @@ export interface AvatarGroupProps {
  * @param {AvatarGroupProps} props - AvatarGroup 的屬性
  * @param {User[]} [props.dataSource] - 資料來源
  * @param {number} [props.limit] - 顯示的用戶數量限制
- * @param {string} [props.placement] - 下拉菜單的位置
  * @param {string} [props.className] - 額外的 CSS 類名
  *
  * @returns {JSX.Element} AvatarGroup 組件
@@ -53,7 +38,6 @@ export interface AvatarGroupProps {
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   dataSource = [],
   limit = 1,
-  placement = 'right-top',
   className = '',
 }: AvatarGroupProps): JSX.Element => {
   const restCount = dataSource.length - limit;
@@ -81,7 +65,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
               size="xsmall"
               shape="circle"
               userName={user.userName}
-              imgSrc={user.imgSrc || ''}
+              src={user.imgSrc || ''}
             />
           ),
           content: {
@@ -99,7 +83,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
     <>
       <div className="ded-avatar-group">
         {result.currList.map((user, index) => {
-          const { shape, size, userName, status, imgSrc } = user;
+          const { shape, size, userName, status, src } = user;
           return (
             <Avatar
               key={index}
@@ -107,7 +91,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
               size={size}
               userName={userName}
               status={status}
-              imgSrc={imgSrc || ''}
+              src={src || ''}
             />
           );
         })}
@@ -141,7 +125,12 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         {isVisible && (
           <div
             ref={menuRef}
-            style={getTargetPosition(position, childrenSize, placement, '6px')}
+            style={getTargetPosition(
+              position,
+              childrenSize,
+              'right-top',
+              '6px'
+            )}
             className={`ded-dropdown-menu ${className}`}
           >
             <List dataSource={menu} isMenu />

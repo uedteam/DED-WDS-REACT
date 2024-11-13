@@ -6,7 +6,7 @@ import { getThemeClass } from './styled';
  * 定義 Radio 元件的屬性介面。
  *
  * @interface InputProps
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
+ * @property {('none' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
  * @property {string} [className] - 自訂樣式類別名稱。
  * @property {{ label: string; value: string }[]} [dataSource] - 選項列表，每個選項包含標籤和值。
  * @property {('row' | 'column')} [direction] - 排列方向，可選值包括 'row' 和 'column'。
@@ -15,6 +15,7 @@ import { getThemeClass } from './styled';
  */
 export interface InputProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -41,7 +42,7 @@ export interface InputProps {
  * @returns {JSX.Element} 單選框元件的 JSX 元素。
  */
 export const Radio: React.FC<InputProps> = ({
-  themeColor = 'primary',
+  themeColor = 'none',
   dataSource = [],
   direction = 'row',
   initValue = '',

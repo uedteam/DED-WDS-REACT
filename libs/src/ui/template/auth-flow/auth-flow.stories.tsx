@@ -21,10 +21,31 @@ export default {
   component: AuthFLow,
   tags: ['autodocs'],
   argTypes: {
+    form: {
+      description: '表單',
+      table: {
+        category: 'SLOTS',
+      },
+    },
+    externalLinks: {
+      description: '外部連結',
+      table: {
+        category: 'SLOTS',
+      },
+    },
+    signUp: {
+      description: '註冊',
+      table: {
+        category: 'SLOTS',
+      },
+    },
     bgColorSrc: {
       description: '背景顏色',
       control: {
         type: 'text',
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     bgImgSrc: {
@@ -32,11 +53,17 @@ export default {
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     title: {
       description: '標題',
       control: {
         type: 'text',
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     description: {
@@ -44,11 +71,17 @@ export default {
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
       control: {
         type: 'text',
+      },
+      table: {
+        category: 'PROPS',
       },
     },
   },

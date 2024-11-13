@@ -9,34 +9,61 @@ export default {
   argTypes: {
     label: {
       description: '標題',
+      table: {
+        category: 'PROPS',
+      },
     },
     placeholder: {
       description: '輸入提示',
+      table: {
+        category: 'PROPS',
+      },
     },
-    isDisabled: {
-      description: '是否禁用',
-    },
-    hint: {
-      description: '提示訊息',
+    limit: {
+      description: '字數限制',
+      table: {
+        category: 'PROPS',
+      },
     },
     initValue: {
       description: '輸入值',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    hint: {
+      description: '提示訊息',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onChange: {
       description: '輸入事件',
       action: 'onChange',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
     label: '內文描述',
     placeholder: '請輸入描述 ...',
-    isDisabled: false,
     limit: 0,
-    hint: { error: '', description: '描述提示信息' },
     initValue: '',
+    hint: { error: '', description: '描述提示信息' },
+    isDisabled: false,
     className: '',
     onChange: action('onChange'),
   },

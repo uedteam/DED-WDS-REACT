@@ -28,6 +28,9 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     variant: {
       description: '按鈕樣式',
@@ -35,16 +38,15 @@ export default {
         type: 'select',
         options: ['contained', 'outlined', 'text'],
       },
-    },
-    size: {
-      description: '按鈕尺寸',
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
+      table: {
+        category: 'PROPS',
       },
     },
     isDisabled: {
       description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     prefix: {
       description: '前置元素',
@@ -55,6 +57,9 @@ export default {
         Search: <SearchIcon />,
         Visibility: <VisibilityIcon />,
         VisibilityOff: <VisibilityOffIcon />,
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     suffix: {
@@ -67,28 +72,60 @@ export default {
         Visibility: <VisibilityIcon />,
         VisibilityOff: <VisibilityOffIcon />,
       },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    size: {
+      description: '按鈕尺寸',
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    width: {
+      description: '按鈕寬度',
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     children: {
       description: '按鈕內容',
       options: ['標題按鈕', '客製化按鈕'],
-    },
-    className: {
-      description: '客製化樣式',
+      table: {
+        category: 'SLOTS',
+      },
     },
     onClick: {
       description: '點擊事件',
       action: 'clicked',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
+
   args: {
     themeColor: 'primary',
     variant: 'contained',
     size: 'medium',
-    isDisabled: false,
     prefix: null,
     suffix: null,
     children: '送出訂單',
     width: 'auto',
+    isDisabled: false,
     className: '',
     onClick: action('onClick'),
   },

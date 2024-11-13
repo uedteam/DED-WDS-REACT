@@ -17,13 +17,13 @@ const users: AvatarProps[] = [
     userName: 'AmosLee',
     shape: 'circle',
     size: 'medium',
-    imgSrc: 'https://picsum.photos/320/240',
+    src: 'https://picsum.photos/320/240',
   },
   {
     userName: 'JohnWu',
     shape: 'circle',
     size: 'medium',
-    imgSrc: 'https://picsum.photos/320/340',
+    src: 'https://picsum.photos/320/340',
   },
 ];
 
@@ -34,25 +34,8 @@ export default {
   argTypes: {
     dataSource: {
       description: '資料來源',
-    },
-    placement: {
-      description: '頭像群組的排列位置',
-      control: {
-        type: 'select',
-        options: [
-          'top-left',
-          'top',
-          'top-right',
-          'right-top',
-          'right',
-          'right-bottom',
-          'bottom-right',
-          'bottom',
-          'bottom-left',
-          'left-bottom',
-          'left',
-          'left-top',
-        ],
+      table: {
+        category: 'PROPS',
       },
     },
     limit: {
@@ -61,14 +44,19 @@ export default {
         type: 'number',
         min: 1,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     dataSource: users,
-    placement: 'right-top',
     limit: 1,
     className: '',
   },

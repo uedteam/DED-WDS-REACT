@@ -21,16 +21,9 @@ export default {
         'error',
         'info',
       ],
-    },
-    children: {
-      description: '分隔線內容',
-    },
-    direction: {
-      description: '分隔線方向',
-      control: {
-        type: 'select',
+      table: {
+        category: 'PROPS',
       },
-      options: ['horizontal', 'vertical'],
     },
     width: {
       description: '分隔線寬度',
@@ -38,6 +31,9 @@ export default {
         type: 'select',
       },
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      table: {
+        category: 'PROPS',
+      },
     },
     type: {
       description: '分隔線樣式',
@@ -45,6 +41,19 @@ export default {
         type: 'select',
       },
       options: ['solid', 'dashed', 'dotted'],
+      table: {
+        category: 'PROPS',
+      },
+    },
+    direction: {
+      description: '分隔線方向',
+      control: {
+        type: 'select',
+      },
+      options: ['horizontal', 'vertical'],
+      table: {
+        category: 'PROPS',
+      },
     },
     align: {
       description: '分隔線對齊方式',
@@ -52,22 +61,34 @@ export default {
         type: 'select',
       },
       options: ['start', 'center', 'end'],
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    children: {
+      description: '分隔線內容',
+      table: {
+        category: 'SLOTS',
+      },
     },
   },
   args: {
-    themeColor: 'none',
-    children: '分隔線',
-    direction: 'horizontal',
+    themeColor: 'primary',
     width: 'small',
     type: 'solid',
+    direction: 'horizontal',
     align: 'center',
     className: '',
+    children: '分隔線',
   },
   parameters: {
     docs: {
@@ -92,9 +113,9 @@ export const Default: Story = {
 export const Type: Story = {
   name: '線條粗細',
   args: {
-    direction: 'horizontal',
     width: 'small',
     type: 'solid',
+    direction: 'horizontal',
     align: 'center',
     className: '',
   },
@@ -124,12 +145,12 @@ export const Type: Story = {
 export const Width: Story = {
   name: '線條類型',
   args: {
-    children: '分隔線',
-    direction: 'horizontal',
     width: 'small',
     type: 'solid',
+    direction: 'horizontal',
     align: 'center',
     className: '',
+    children: '分隔線',
   },
   render(args) {
     return (
@@ -145,11 +166,11 @@ export const Width: Story = {
 export const Align: Story = {
   name: '文字對齊',
   args: {
-    children: '分隔線',
-    direction: 'horizontal',
     width: 'small',
     type: 'solid',
+    direction: 'horizontal',
     className: '',
+    children: '分隔線',
   },
   render(args) {
     return (
@@ -165,11 +186,11 @@ export const Align: Story = {
 export const Direction: Story = {
   name: '線條方向',
   args: {
-    children: '分隔線',
-    direction: 'vertical',
     width: 'small',
     type: 'solid',
+    direction: 'vertical',
     className: '',
+    children: '分隔線',
   },
   render(args) {
     return (
@@ -185,12 +206,12 @@ export const Direction: Story = {
 export const ThemeColor: Story = {
   name: '線條顏色',
   args: {
-    children: '分隔線',
-    direction: 'horizontal',
     width: 'small',
     type: 'solid',
+    direction: 'horizontal',
     align: 'center',
     className: '',
+    children: '分隔線',
   },
   render(args) {
     return (

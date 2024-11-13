@@ -45,24 +45,10 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
 /**
  * `BreadcrumbProps` 是麵包屑導航元件的屬性接口。
  *
- * @property {'top-left' | 'top' | 'top-right' | 'right-top' | 'right' | 'right-bottom' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left-bottom' | 'left' | 'left-top'} placement - 指定麵包屑導航的位置。
  * @property {{ label: string; href?: string }[]} dataSource - 包含麵包屑導航項目的數據源，每個項目包含一個標籤和一個可選的鏈接。
  * @property {string} [className] - 可選的CSS類名，用於自定義樣式。
  */
 interface BreadcrumbProps {
-  placement:
-    | 'top-left'
-    | 'top'
-    | 'top-right'
-    | 'right-top'
-    | 'right'
-    | 'right-bottom'
-    | 'bottom-right'
-    | 'bottom'
-    | 'bottom-left'
-    | 'left-bottom'
-    | 'left'
-    | 'left-top';
   dataSource: { label: string; href?: string }[];
   className?: string;
 }
@@ -72,7 +58,6 @@ interface BreadcrumbProps {
  *
  * @param {BreadcrumbProps} props - 元件的屬性。
  * @param {Array} props.dataSource - 導航路徑的資料來源。
- * @param {string} [props.placement='bottom-left'] - 下拉選單的位置。
  * @param {string} [props.className=''] - 自訂的 CSS 類別名稱。
  *
  * @returns {JSX.Element} - 渲染的 `Breadcrumb` 元件。
@@ -80,7 +65,6 @@ interface BreadcrumbProps {
  */
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   dataSource = [],
-  placement = 'bottom-left',
   className = '',
 }: BreadcrumbProps): JSX.Element => {
   const breadcrumbRef = useRef<HTMLDivElement>(null);
@@ -126,7 +110,12 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
         {isVisible && (
           <div
             ref={menuRef}
-            style={getTargetPosition(position, childrenSize, placement, '6px')}
+            style={getTargetPosition(
+              position,
+              childrenSize,
+              'bottom-left',
+              '6px'
+            )}
             className={`ded-dropdown-menu ${className}`}
           >
             <ul className="ded-rest-dropdown-menu">

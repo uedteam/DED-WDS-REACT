@@ -5,18 +5,19 @@ import { getThemeClass } from './styled';
  * 滑桿元件的屬性介面。
  *
  * @interface SliderProps
- * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
- * @property {boolean} [isDisabled] - 是否禁用滑桿。
+ * @property {'none' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
  * @property {number} min - 最小值。
  * @property {number} max - 最大值。
  * @property {number} [step] - 每次變動的步長。
+ * @property {boolean} [isDisabled] - 是否禁用滑桿。
  * @property {string} [unit] - 值的單位。
  * @property {number} [initValue] - 初始值。
- * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  * @property {string} [className] - 自訂樣式類名。
+ * @property {(value: number) => void} [onChange] - 當值變動時的回調函數。
  */
 export interface SliderProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -24,12 +25,12 @@ export interface SliderProps {
     | 'warning'
     | 'error'
     | 'info';
-  isDisabled?: boolean;
   min: number;
   max: number;
   step?: number;
   unit?: string;
   initValue?: number;
+  isDisabled?: boolean;
   className?: string;
   onChange?: (value: number) => void;
 }

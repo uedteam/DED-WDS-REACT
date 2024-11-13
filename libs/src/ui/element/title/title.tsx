@@ -6,7 +6,7 @@ import { getTitleClass } from './styled';
  *
  * @interface TitleProps
  *
- * @property {('primary' | 'secondary' | 'tertiary'  | 'info' | 'success' | 'warning' | 'error')} [themeColor]
+ * @property {('none' | 'primary' | 'secondary' | 'tertiary'  | 'info' | 'success' | 'warning' | 'error')} [themeColor]
  * 可選的主題顏色。可以是 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 或 'info'。
  *
  * @property {0 | 1 | 2 | 3 | 4 | 5 | 6} [level]
@@ -20,6 +20,7 @@ import { getTitleClass } from './styled';
  */
 export interface TitleProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -28,8 +29,8 @@ export interface TitleProps {
     | 'warning'
     | 'error';
   level?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  children: ReactNode;
   className?: string;
+  children: ReactNode;
 }
 
 /**
@@ -39,15 +40,15 @@ export interface TitleProps {
  * @param {TitleProps} props - Title 組件的屬性。
  * @param {string} props.themeColor - 標題的主題顏色。
  * @param {number} props.level - 標題的層級。
- * @param {ReactNode} props.children - 標題的內容。
  * @param {string} props.className - 標題的附加 class 名稱。
+ * @param {ReactNode} props.children - 標題的內容。
  * @returns {JSX.Element} 渲染的 Title 組件。
  */
 export const Title: React.FC<TitleProps> = ({
-  themeColor = 'primary',
+  themeColor = 'none',
   level = 0,
-  children,
   className = '',
+  children,
 }: TitleProps): JSX.Element => {
   return (
     <div

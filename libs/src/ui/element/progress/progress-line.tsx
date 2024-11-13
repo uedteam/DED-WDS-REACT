@@ -7,11 +7,12 @@ import { getThemeClass } from './styled';
  * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 進度條的主題顏色。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
- * @property {number} [height] - 進度條的高度，預設大小為 100。
+ * @property {number} [strokeWidth] - 進度條的高度，預設大小為 100。
  * @property {string} [className] - 自訂的 CSS 類名。
  */
 export interface LineProgressProps {
   themeColor?:
+    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -21,7 +22,7 @@ export interface LineProgressProps {
     | 'info';
   label?: string;
   percent: number; // 0 to 100
-  height?: number; // default size is 100
+  strokeWidth?: number; // default size is 100
   className?: string;
 }
 
@@ -33,16 +34,17 @@ export interface LineProgressProps {
  * @param {string} [props.themeColor='primary'] - 主題顏色
  * @param {string} [props.label=''] - 標籤
  * @param {number} props.percent - 進度百分比
- * @param {number} [props.height=10] - 線條寬度
+ * @param {number} [props.strokeWidth=10] - 線條寬度
+ * @param {string} [props.className=''] - 自訂的 CSS 類名
  * @returns {JSX.Element} - LineProgress 組件
  */
 export const LineProgress: React.FC<LineProgressProps> = ({
   themeColor = 'primary',
   label = '',
   percent = 0,
-  height = 10,
+  strokeWidth = 10,
   className = '',
-}) => {
+}: LineProgressProps): JSX.Element => {
   // 確保進度在0到100之間
   const normalizedProgress = Math.min(Math.max(percent, 0), 100);
 
@@ -50,7 +52,10 @@ export const LineProgress: React.FC<LineProgressProps> = ({
     <div className={className}>
       {label && <div className="ded-progress-line-label">{label}</div>}
       <div className="ded-progress-line">
-        <div className="ded-progress-line-track" style={{ height }}>
+        <div
+          className="ded-progress-line-track"
+          style={{ height: strokeWidth }}
+        >
           <div
             className={`${getThemeClass('line', themeColor)}`}
             style={{ width: `${normalizedProgress}%` }}

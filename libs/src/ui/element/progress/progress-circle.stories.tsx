@@ -20,8 +20,16 @@ export default {
           'info',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-
+    label: {
+      description: '進度指示標籤',
+      table: {
+        category: 'PROPS',
+      },
+    },
     percent: {
       description: '進度',
       control: {
@@ -29,6 +37,9 @@ export default {
         min: 0,
         max: 100,
         step: 1,
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     size: {
@@ -39,6 +50,9 @@ export default {
         max: 200,
         step: 1,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     strokeWidth: {
       description: '線條寬度',
@@ -48,20 +62,23 @@ export default {
         max: 10,
         step: 1,
       },
-    },
-    label: {
-      description: '進度指示標籤',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   args: {
     themeColor: 'primary',
+    label: 'Saving',
     percent: 50,
     size: 100,
     strokeWidth: 10,
-    label: '',
     className: '',
   },
   parameters: {

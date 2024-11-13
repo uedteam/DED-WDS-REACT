@@ -13,10 +13,27 @@ export default {
   component: Tag,
   tags: ['autodocs'],
   argTypes: {
-    isDisabled: {
-      description: '是否禁用',
+    themeColor: {
+      description: '主題顏色',
+      options: [
+        'none',
+        'primary',
+        'secondary',
+        'tertiary',
+        'success',
+        'warning',
+        'error',
+        'info',
+      ],
+      control: {
+        type: 'select',
+      },
+      table: {
+        category: 'PROPS',
+      },
     },
-    icon: {
+
+    prefix: {
       description: '圖示',
       options: ['None', 'Account', 'Search', 'Visibility', 'VisibilityOff'],
       mapping: {
@@ -26,26 +43,41 @@ export default {
         Visibility: <VisibilityIcon />,
         VisibilityOff: <VisibilityOffIcon />,
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     closable: {
       description: '是否可關閉',
+      table: {
+        category: 'PROPS',
+      },
     },
-    closeIcon: {
-      description: '關閉圖示',
+    isDisabled: {
+      description: '是否禁用',
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     onClose: {
       description: '關閉事件',
       action: 'closed',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
+    themeColor: 'primary',
     isDisabled: false,
-    icon: 'None',
+    prefix: 'None',
     closable: true,
-    closeIcon: null,
     className: '',
     onClose: action('closed'),
   },
@@ -64,12 +96,52 @@ export const Default: Story = {
   name: '預設項目',
   args: {},
   render(args) {
-    const forMap = [111, 222, 333, 444, 555];
+    return <Tag {...args}>Photography</Tag>;
+  },
+};
+
+export const ThemeColor: Story = {
+  name: '主題色彩',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Tag {...args} themeColor="primary">Photography</Tag>
+<Tag {...args} themeColor="secondary">Cooking</Tag>
+<Tag {...args} themeColor="tertiary">Reading</Tag>
+<Tag {...args} themeColor="info">Dancing</Tag>
+<Tag {...args} themeColor="success">Dancing</Tag>
+<Tag {...args} themeColor="warning">Dancing</Tag>
+<Tag {...args} themeColor="error">Dancing</Tag>
+`,
+      },
+    },
+  },
+  render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        {forMap.map((item) => (
-          <Tag {...args}>{item}</Tag>
-        ))}
+        <Tag {...args} themeColor="primary">
+          Photography
+        </Tag>
+        <Tag {...args} themeColor="secondary">
+          Cooking
+        </Tag>
+        <Tag {...args} themeColor="tertiary">
+          Reading
+        </Tag>
+        <Tag {...args} themeColor="info">
+          Dancing
+        </Tag>
+        <Tag {...args} themeColor="success">
+          Dancing
+        </Tag>
+        <Tag {...args} themeColor="warning">
+          Dancing
+        </Tag>
+        <Tag {...args} themeColor="error">
+          Dancing
+        </Tag>
       </div>
     );
   },

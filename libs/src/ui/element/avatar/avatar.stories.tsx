@@ -6,14 +6,14 @@ export default {
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {
-    userName: {
-      description: '沒有設定頭像時，所顯示的登入者名稱',
-    },
-    status: {
-      description: '登入者目前狀態',
+    shape: {
+      description: '頭像形狀',
       control: {
         type: 'select',
-        options: ['none', 'online', 'idle', 'busy', 'offline'],
+        options: ['circle', 'square'],
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     size: {
@@ -22,22 +22,44 @@ export default {
         type: 'select',
         options: ['xsmall', 'small', 'medium', 'large'],
       },
-    },
-    shape: {
-      description: '頭像形狀',
-      control: {
-        type: 'select',
-        options: ['circle', 'square'],
+      table: {
+        category: 'PROPS',
       },
     },
-    imgSrc: {
+    status: {
+      description: '登入者目前狀態',
+      control: {
+        type: 'select',
+        options: ['none', 'online', 'idle', 'busy', 'offline'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    src: {
       description: '頭像圖片連結',
+      table: {
+        category: 'PROPS',
+      },
     },
     alt: {
       description: '頭像圖片描述',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    userName: {
+      description: '沒有設定頭像時，所顯示的登入者名稱',
+      table: {
+        category: 'PROPS',
+      },
+      required: true,
     },
     className: {
       description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
   },
   parameters: {
@@ -49,12 +71,12 @@ export default {
     },
   },
   args: {
-    userName: 'default',
-    status: 'none',
-    size: 'medium',
     shape: 'circle',
-    imgSrc: '',
+    size: 'medium',
+    status: 'none',
+    src: '',
     alt: '無圖顯示',
+    userName: 'Kevin',
     className: '',
   },
 } as Meta;
@@ -71,8 +93,7 @@ export const Default: Story = {
 export const AvatarShape: Story = {
   name: '頭像形狀',
   args: {
-    userName: 'Kevin',
-    imgSrc: 'https://picsum.photos/320/240',
+    src: 'https://picsum.photos/320/240',
   },
   parameters: {
     docs: {
@@ -87,8 +108,20 @@ export const AvatarShape: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-end' }}>
-        <Avatar {...args} size="large" shape="circle" status="online" />
-        <Avatar {...args} size="large" shape="square" status="idle" />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=1"
+          size="large"
+          shape="circle"
+          status="online"
+        />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=2"
+          size="large"
+          shape="square"
+          status="idle"
+        />
       </div>
     );
   },
@@ -97,9 +130,9 @@ export const AvatarShape: Story = {
 export const AvatarStatus: Story = {
   name: '頭像狀態',
   args: {
-    userName: 'Kevin',
-    imgSrc: 'https://picsum.photos/320/240',
-    className: '',
+    shape: 'circle',
+    size: 'large',
+    src: 'https://picsum.photos/320/240',
   },
   parameters: {
     docs: {
@@ -116,10 +149,30 @@ export const AvatarStatus: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-end' }}>
-        <Avatar {...args} size="large" shape="circle" status="online" />
-        <Avatar {...args} size="large" shape="circle" status="idle" />
-        <Avatar {...args} size="large" shape="circle" status="busy" />
-        <Avatar {...args} size="large" shape="circle" status="offline" />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=1"
+          shape="circle"
+          status="online"
+        />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=2"
+          shape="circle"
+          status="idle"
+        />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=3"
+          shape="circle"
+          status="busy"
+        />
+        <Avatar
+          {...args}
+          src="https://picsum.photos/200/300?random=4"
+          shape="circle"
+          status="offline"
+        />
       </div>
     );
   },
