@@ -13,7 +13,6 @@ export default {
       control: {
         type: 'select',
         options: [
-          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -46,14 +45,14 @@ export default {
         category: 'PROPS',
       },
     },
-    unit: {
-      description: '單位',
+    initValue: {
+      description: '初始值',
       table: {
         category: 'PROPS',
       },
     },
-    initValue: {
-      description: '初始值',
+    label: {
+      description: '單位',
       table: {
         category: 'PROPS',
       },
@@ -121,8 +120,8 @@ export default {
     min: -100,
     max: 100,
     step: 1,
-    unit: '℃',
     initValue: 50,
+    label: '℃',
     prefix: 'Decrease',
     suffix: 'Increase',
     isDisabled: false,
@@ -149,7 +148,7 @@ export const ThemeColor: Story = {
     min: 0,
     max: 100,
     step: 1,
-    unit: '%',
+    label: '%',
     initValue: 50,
     onClick: action('onClick'),
     onChange: action('onChange'),

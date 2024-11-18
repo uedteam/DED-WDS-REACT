@@ -7,12 +7,11 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
-      description: '分隔線主題顏色',
+      description: '主題顏色',
       control: {
         type: 'select',
       },
       options: [
-        'none',
         'primary',
         'secondary',
         'tertiary',
@@ -26,7 +25,7 @@ export default {
       },
     },
     width: {
-      description: '分隔線寬度',
+      description: '線條寬度',
       control: {
         type: 'select',
       },
@@ -36,7 +35,7 @@ export default {
       },
     },
     type: {
-      description: '分隔線樣式',
+      description: '線條樣式',
       control: {
         type: 'select',
       },
@@ -46,7 +45,7 @@ export default {
       },
     },
     direction: {
-      description: '分隔線方向',
+      description: '線條方向',
       control: {
         type: 'select',
       },
@@ -56,7 +55,7 @@ export default {
       },
     },
     align: {
-      description: '分隔線對齊方式',
+      description: '文字位置',
       control: {
         type: 'select',
       },
@@ -83,7 +82,7 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    width: 'small',
+    width: 'xsmall',
     type: 'solid',
     direction: 'horizontal',
     align: 'center',
@@ -107,6 +106,26 @@ export const Default: Story = {
   args: {},
   render(args) {
     return <Divider {...args} />;
+  },
+};
+
+export const Align: Story = {
+  name: '文字對齊',
+  args: {
+    width: 'small',
+    type: 'solid',
+    direction: 'horizontal',
+    className: '',
+    children: '分隔線',
+  },
+  render(args) {
+    return (
+      <div>
+        <Divider {...args} align="start" />
+        <Divider {...args} align="center" />
+        <Divider {...args} align="end" />
+      </div>
+    );
   },
 };
 
@@ -158,26 +177,6 @@ export const Width: Story = {
         <Divider {...args} type="solid" />
         <Divider {...args} type="dotted" />
         <Divider {...args} type="dashed" />
-      </div>
-    );
-  },
-};
-
-export const Align: Story = {
-  name: '文字對齊',
-  args: {
-    width: 'small',
-    type: 'solid',
-    direction: 'horizontal',
-    className: '',
-    children: '分隔線',
-  },
-  render(args) {
-    return (
-      <div>
-        <Divider {...args} align="start" />
-        <Divider {...args} align="center" />
-        <Divider {...args} align="end" />
       </div>
     );
   },

@@ -126,7 +126,7 @@ export interface MenuProps {
  *
  */
 export const Menu: React.FC<MenuProps> = ({
-  dataSource = [],
+  dataSource,
   isCollapsed = false,
   color = '#000000',
 }: MenuProps) => {

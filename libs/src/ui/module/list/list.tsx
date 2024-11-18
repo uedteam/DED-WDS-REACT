@@ -30,7 +30,7 @@ export interface ListProps {
  */
 export const List: React.FC<ListProps> = ({
   isMenu = false,
-  dataSource = [],
+  dataSource,
   onSelect = () => ({}),
   className = '',
 }: ListProps) => {

@@ -6,7 +6,7 @@ import { getTitleClass } from './styled';
  *
  * @interface TitleProps
  *
- * @property {('none' | 'primary' | 'secondary' | 'tertiary'  | 'info' | 'success' | 'warning' | 'error')} [themeColor]
+ * @property {('primary' | 'secondary' | 'tertiary'  | 'info' | 'success' | 'warning' | 'error')} [themeColor]
  * 可選的主題顏色。可以是 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 或 'info'。
  *
  * @property {0 | 1 | 2 | 3 | 4 | 5 | 6} [level]
@@ -20,7 +20,6 @@ import { getTitleClass } from './styled';
  */
 export interface TitleProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -45,7 +44,7 @@ export interface TitleProps {
  * @returns {JSX.Element} 渲染的 Title 組件。
  */
 export const Title: React.FC<TitleProps> = ({
-  themeColor = 'none',
+  themeColor = 'primary',
   level = 0,
   className = '',
   children,

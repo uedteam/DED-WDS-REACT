@@ -18,7 +18,6 @@ export default {
       control: {
         type: 'select',
         options: [
-          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -89,7 +88,8 @@ export default {
     width: {
       description: '按鈕寬度',
       control: {
-        type: 'text',
+        type: 'select',
+        options: ['fit', 'fluid'],
       },
       table: {
         category: 'PROPS',
@@ -102,6 +102,7 @@ export default {
       },
     },
     children: {
+      control: {},
       description: '按鈕內容',
       options: ['標題按鈕', '客製化按鈕'],
       table: {
@@ -114,19 +115,20 @@ export default {
       table: {
         category: 'EVENTS',
       },
+      required: true,
     },
   },
 
   args: {
     themeColor: 'primary',
     variant: 'contained',
-    size: 'medium',
     prefix: null,
     suffix: null,
-    children: '送出訂單',
-    width: 'auto',
+    size: 'medium',
+    width: 'fit',
     isDisabled: false,
     className: '',
+    children: '送出訂單',
     onClick: action('onClick'),
   },
   parameters: {

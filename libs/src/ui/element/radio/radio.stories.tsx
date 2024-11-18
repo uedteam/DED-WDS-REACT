@@ -3,9 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Radio } from './radio';
 
 const options = [
-  { label: '選項一', value: 'option1' },
-  { label: '選項二', value: 'option2' },
-  { label: '選項三', value: 'option3' },
+  { label: 'Option1', value: 'option1' },
+  { label: 'Option2', value: 'option2' },
+  { label: 'Option3', value: 'option3' },
 ];
 
 export default {
@@ -18,7 +18,6 @@ export default {
       control: {
         type: 'select',
         options: [
-          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -38,18 +37,18 @@ export default {
         category: 'PROPS',
       },
     },
+    initValue: {
+      description: '預設值',
+      table: {
+        category: 'PROPS',
+      },
+    },
     direction: {
       description: '排列方向',
       control: {
         type: 'select',
         options: ['row', 'column'],
       },
-      table: {
-        category: 'PROPS',
-      },
-    },
-    initValue: {
-      description: '預設值',
       table: {
         category: 'PROPS',
       },
@@ -71,8 +70,8 @@ export default {
   args: {
     themeColor: 'primary',
     dataSource: options,
-    direction: 'row',
     initValue: 'option1',
+    direction: 'row',
     className: '',
     onChange: action('onChange'),
   },

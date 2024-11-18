@@ -7,7 +7,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     shape: {
-      description: '頭像形狀',
+      description: '形狀',
       control: {
         type: 'select',
         options: ['circle', 'square'],
@@ -17,7 +17,7 @@ export default {
       },
     },
     size: {
-      description: '頭像尺寸',
+      description: '尺寸',
       control: {
         type: 'select',
         options: ['xsmall', 'small', 'medium', 'large'],
@@ -27,7 +27,7 @@ export default {
       },
     },
     status: {
-      description: '登入者目前狀態',
+      description: '狀態',
       control: {
         type: 'select',
         options: ['none', 'online', 'idle', 'busy', 'offline'],
@@ -37,23 +37,22 @@ export default {
       },
     },
     src: {
-      description: '頭像圖片連結',
+      description: '圖片連結',
       table: {
         category: 'PROPS',
       },
     },
     alt: {
-      description: '頭像圖片描述',
+      description: '圖片描述',
       table: {
         category: 'PROPS',
       },
     },
     userName: {
-      description: '沒有設定頭像時，所顯示的登入者名稱',
+      description: '使用者名稱',
       table: {
         category: 'PROPS',
       },
-      required: true,
     },
     className: {
       description: '客製化樣式',
@@ -72,9 +71,9 @@ export default {
   },
   args: {
     shape: 'circle',
-    size: 'medium',
+    size: 'large',
     status: 'none',
-    src: '',
+    src: 'https://picsum.photos/200/300',
     alt: '無圖顯示',
     userName: 'Kevin',
     className: '',

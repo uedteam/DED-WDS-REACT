@@ -7,7 +7,6 @@ import {
   VisibilityIcon,
   VisibilityOffIcon,
 } from '@src/assets';
-import { last } from 'lodash';
 
 export default {
   title: 'Component/Tag',
@@ -17,7 +16,6 @@ export default {
     themeColor: {
       description: '主題顏色',
       options: [
-        'none',
         'primary',
         'secondary',
         'tertiary',
@@ -34,7 +32,7 @@ export default {
       },
     },
     label: {
-      description: '標籤名稱',
+      description: '標籤文字',
       table: {
         category: 'PROPS',
       },
@@ -81,7 +79,7 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    label: 'default',
+    label: 'Tag',
     prefix: 'None',
     closable: true,
     isDisabled: false,

@@ -59,7 +59,7 @@ export default {
     themeColor: 'primary',
     level: 1,
     className: '',
-    children: '標題',
+    children: 'Title',
   },
 } as Meta;
 type Story = StoryObj<typeof Title>;

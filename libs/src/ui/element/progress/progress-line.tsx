@@ -12,7 +12,6 @@ import { getThemeClass } from './styled';
  */
 export interface LineProgressProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'

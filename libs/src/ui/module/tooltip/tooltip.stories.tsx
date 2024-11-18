@@ -7,12 +7,6 @@ export default {
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {
-    children: {
-      description: '顯示內容',
-      table: {
-        category: 'SLOTS',
-      },
-    },
     content: {
       description: '提示內容',
       table: {
@@ -54,13 +48,28 @@ export default {
         category: 'PROPS',
       },
     },
+    children: {
+      description: '顯示內容',
+      table: {
+        category: 'SLOTS',
+      },
+    },
   },
   args: {
-    content: '提示內容',
-    children: 'hover me',
+    content: 'good day',
     placement: 'top',
     showArrow: true,
     className: '',
+    children: (
+      <Button
+        prefix={<AccountIcon />}
+        themeColor="primary"
+        variant="contained"
+        onClick={() => ({})}
+      >
+        Hover Me
+      </Button>
+    ),
   },
   parameters: {
     docs: {
@@ -78,15 +87,9 @@ export const Default: Story = {
   args: {},
   render(args) {
     return (
-      <Tooltip {...args}>
-        <Button
-          prefix={<AccountIcon />}
-          themeColor="primary"
-          variant="contained"
-        >
-          {args.children}
-        </Button>
-      </Tooltip>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Tooltip {...args}></Tooltip>
+      </div>
     );
   },
 };

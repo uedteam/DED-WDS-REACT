@@ -14,7 +14,6 @@ import { getThemeClass } from './styled';
  */
 export interface CheckboxProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -23,7 +22,7 @@ export interface CheckboxProps {
     | 'error'
     | 'info';
   dataSource: { label: string; value: string }[];
-  initValue?: string[];
+  initValue: string[];
   direction?: 'row' | 'column';
   className?: string;
   onChange?: (value: string[]) => void;
@@ -33,7 +32,7 @@ export interface CheckboxProps {
  * Checkbox 元件
  *
  * @param {CheckboxProps} props - Checkbox 元件的屬性
- * @param {string} [props.themeColor='none'] - 主題顏色
+ * @param {string} [props.themeColor='primary'] - 主題顏色
  * @param {Array} props.dataSource - 選項資料來源
  * @param {Array} [props.initValue=[]] - 初始選中的值
  * @param {string} [props.direction='row'] - 排列方向 ('row' 或 'column')
@@ -43,9 +42,9 @@ export interface CheckboxProps {
  * @returns {JSX.Element} Checkbox 元件的 JSX
  */
 export const Checkbox: React.FC<CheckboxProps> = ({
-  themeColor = 'none',
+  themeColor = 'primary',
   dataSource,
-  initValue = [],
+  initValue,
   direction = 'row',
   className,
   onChange,

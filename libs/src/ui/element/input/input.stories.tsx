@@ -40,16 +40,6 @@ export default {
         category: 'PROPS',
       },
     },
-    size: {
-      description: '輸入框尺寸',
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
     initValue: {
       description: '初始值',
       table: {
@@ -75,6 +65,16 @@ export default {
         VisibilityOff: <VisibilityOffIcon />,
         Close: <CloseIcon />,
         Lock: <LockIcon />,
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    size: {
+      description: '輸入框尺寸',
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
       },
       table: {
         category: 'PROPS',
@@ -115,13 +115,13 @@ export default {
     },
   },
   args: {
-    label: '帳號',
+    label: 'Label',
     type: 'text',
-    placeholder: '請輸入帳號...',
-    size: 'medium',
+    placeholder: 'Placeholder...',
     prefix: <AccountIcon />,
+    size: 'medium',
     initValue: '',
-    hint: { error: '', description: '描述提示信息' },
+    hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
     className: '',
     onChange: (e: string) => action('changed')(e),
