@@ -12,7 +12,6 @@ export default {
       control: {
         type: 'select',
         options: [
-          'none',
           'primary',
           'secondary',
           'tertiary',
@@ -38,7 +37,7 @@ export default {
         category: 'PROPS',
       },
     },
-    unit: {
+    label: {
       description: '顯示單位',
       table: {
         category: 'PROPS',
@@ -90,7 +89,7 @@ export default {
     max: 100,
     step: 1,
     initValue: 0,
-    unit: '℃',
+    label: '℃',
     isDisabled: false,
     onChange: action('onChange'),
     className: '',
@@ -113,7 +112,7 @@ export const ThemeColor: Story = {
     max: 100,
     step: 1,
     initValue: 10,
-    unit: '%',
+    label: '%',
   },
   parameters: {
     docs: {

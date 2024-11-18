@@ -3,9 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from './checkbox';
 
 const options = [
-  { label: '選項一', value: 'option1' },
-  { label: '選項二', value: 'option2' },
-  { label: '選項三', value: 'option3' },
+  { label: 'Option1', value: 'option1' },
+  { label: 'Option2', value: 'option2' },
+  { label: 'Option3', value: 'option3' },
 ];
 
 export default {
@@ -16,7 +16,6 @@ export default {
     themeColor: {
       description: '主題顏色',
       options: [
-        'none',
         'primary',
         'secondary',
         'tertiary',
@@ -81,7 +80,7 @@ export default {
   args: {
     themeColor: 'primary',
     dataSource: options,
-    initValue: ['option1'],
+    initValue: ['option1', 'option3'],
     direction: 'row',
     className: '',
     onChange: (e: string[]) => action('onChange')(e),

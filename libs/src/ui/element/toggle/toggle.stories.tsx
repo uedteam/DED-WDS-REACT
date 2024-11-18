@@ -7,7 +7,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
-      description: '標題顏色',
+      description: '主題顏色',
       control: {
         type: 'select',
         options: [

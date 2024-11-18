@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Avatar, AvatarProps } from '@src/ui/element/avatar';
+import { Avatar } from '@src/ui/element/avatar';
 import { List, Button } from '@src/ui';
 import { splitArray } from '@src/utils';
 import { ItemProps } from '../list/item';
@@ -12,12 +12,14 @@ import { useClickOutside } from '@src/hooks';
 /**
  * AvatarGroupProps 介面定義了 Avatar 群組的屬性。
  *
- * @param {AvatarProps[]} dataSource - Avatar 的使用者陣列。
+ * @param {{ userName: string; src: string }[]} dataSource - Avatar 的使用者陣列。
+ * @property {'xsmall' | 'small' | 'medium' | 'large'} [size] - Avatar 的大小，可選值為 'xsmall'、'small'、'medium'、'large'。
  * @param {number} limit - Avatar 顯示的最大數量。
  * @param {string} [className] - 自訂的 CSS 類名。
  */
 export interface AvatarGroupProps {
-  dataSource: AvatarProps[];
+  dataSource: { userName: string; src: string }[];
+  size?: 'xsmall' | 'small' | 'medium' | 'large';
   limit: number;
   className?: string;
 }
@@ -36,7 +38,8 @@ export interface AvatarGroupProps {
  *
  */
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
-  dataSource = [],
+  dataSource,
+  size = 'large',
   limit = 1,
   className = '',
 }: AvatarGroupProps): JSX.Element => {
@@ -62,7 +65,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         return {
           prefix: (
             <Avatar
-              size="xsmall"
+              size={size}
               shape="circle"
               userName={user.userName}
               src={user.imgSrc || ''}
@@ -83,11 +86,11 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
     <>
       <div className="ded-avatar-group">
         {result.currList.map((user, index) => {
-          const { shape, size, userName, status, src } = user;
+          const { userName, status, src } = user;
           return (
             <Avatar
               key={index}
-              shape={shape}
+              shape="circle"
               size={size}
               userName={userName}
               status={status}
@@ -99,7 +102,6 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         {result.restList.map((user, index) => {
           // eslint-disable-next-line array-callback-return
           if (index !== 0) return;
-          const { shape, size } = user;
           return (
             <div
               ref={avatarRef}
@@ -112,7 +114,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
                 onClick={() => setIsVisible((prev) => !prev)}
               >
                 <Avatar
-                  shape={shape}
+                  shape="circle"
                   size={size}
                   userName={`+${restCount}`}
                 ></Avatar>

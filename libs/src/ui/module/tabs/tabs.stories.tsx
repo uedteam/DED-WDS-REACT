@@ -3,9 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Tabs } from './tabs';
 
 const tabs = [
-  { title: '頁籤 1', content: '內容一' },
-  { title: '頁籤 2', content: '內容二' },
-  { title: '頁籤 3', content: '內容三' },
+  { title: 'Tab 1', content: 'Content 1' },
+  { title: 'Tab 2', content: 'Content 2' },
+  { title: 'Tab 3', content: 'Content 3' },
 ];
 
 export default {
@@ -14,7 +14,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     themeColor: {
-      description: '頁籤顏色',
+      description: '主題顏色',
       control: {
         type: 'select',
         options: [
@@ -52,7 +52,7 @@ export default {
       description: '頁籤樣式',
       control: {
         type: 'select',
-        options: ['card', 'default'],
+        options: ['default', 'card'],
       },
       table: {
         category: 'PROPS',

@@ -5,7 +5,6 @@ const linkList = [
   { label: '首頁', href: '/' },
   { label: '第一層', href: '/first' },
   { label: '第二層', href: 'https://tw.yahoo.com' },
-  { label: '第三層', href: '/first/second/third' },
   { label: '第n層', href: '/first/second/third/n' },
   { label: '當前頁' },
 ];

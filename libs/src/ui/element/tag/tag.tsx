@@ -5,7 +5,6 @@ import { getDisableClass, getThemeClass } from './styled';
 
 export interface TagProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -23,13 +22,13 @@ export interface TagProps {
 }
 
 export const Tag: React.FC<TagProps> = ({
-  themeColor = 'none',
+  themeColor = 'primary',
   label,
   prefix,
-  closable = false,
+  closable = true,
   isDisabled = false,
   className,
-  onClose,
+  onClose = () => ({}),
 }) => {
   return (
     <div

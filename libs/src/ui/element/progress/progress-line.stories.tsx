@@ -38,7 +38,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 10,
+        max: 20,
         step: 1,
       },
     },
@@ -48,8 +48,8 @@ export default {
   },
   args: {
     themeColor: 'primary',
-    label: 'Saving',
-    percent: 50,
+    label: 'Label',
+    percent: 65,
     strokeWidth: 10,
     className: '',
   },

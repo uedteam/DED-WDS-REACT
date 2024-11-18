@@ -4,22 +4,21 @@ import { Slider, Button } from '@src/ui';
 /**
  * SliderControlProps 介面定義了 SliderControl 組件的屬性。
  *
- * @property {('none' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
- * @property {number} initValue - 初始值。
- * @property {boolean} [isDisabled] - 是否禁用。
- * @property {React.ReactNode} [prefix] - 前綴內容。
- * @property {React.ReactNode} [suffix] - 後綴內容。
+ * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
  * @property {number} [min] - 最小值。
  * @property {number} [max] - 最大值。
  * @property {number} [step] - 步長。
+ * @property {number} initValue - 初始值。
  * @property {string} [unit] - 單位。
+ * @property {React.ReactNode} [prefix] - 前綴內容。
+ * @property {React.ReactNode} [suffix] - 後綴內容。
+ * @property {boolean} [isDisabled] - 是否禁用。
  * @property {string} [className] - 自定義樣式類名。
  * @property {() => void} [onClick] - 點擊事件處理函數。
  * @property {(value: number) => void} [onChange] - 值變更事件處理函數。
  */
 export interface SliderControlProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -30,8 +29,8 @@ export interface SliderControlProps {
   min?: number;
   max?: number;
   step?: number;
-  unit?: string;
   initValue: number;
+  label?: string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   isDisabled?: boolean;
@@ -48,8 +47,8 @@ export interface SliderControlProps {
  * @param {number} [props.min=0] - 最小值
  * @param {number} [props.max=100] - 最大值
  * @param {number} [props.step=1] - 步長
- * @param {string} [props.unit] - 單位
  * @param {number} [props.initValue] - 初始值
+ * @param {string} [props.unit] - 單位
  * @param {React.ReactNode} [props.prefix] - 前綴
  * @param {React.ReactNode} [props.suffix] - 後綴
  * @param {boolean} [props.isDisabled] - 是否禁用
@@ -60,14 +59,14 @@ export interface SliderControlProps {
  * @returns {JSX.Element} SliderControl 組件
  */
 export const SliderControl: React.FC<SliderControlProps> = ({
-  themeColor = 'none',
+  themeColor = 'primary',
   prefix = '',
   suffix = '',
   min = 0,
   max = 100,
   step = 1,
-  unit = '',
   initValue = 0,
+  label = '',
   isDisabled = false,
   className = '',
   onClick = () => ({}),
@@ -108,7 +107,7 @@ export const SliderControl: React.FC<SliderControlProps> = ({
         themeColor={themeColor}
         min={0}
         max={100}
-        unit={unit}
+        label={label}
         step={step}
         isDisabled={isDisabled}
         initValue={value}

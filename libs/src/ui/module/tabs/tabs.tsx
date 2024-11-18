@@ -3,25 +3,12 @@ import { Button } from '@src/ui';
 import { getActiveClass, getThemeClass } from './styled';
 
 /**
- * 代表一個標籤頁的介面。
- *
- * @interface Tab
- * @property {string} title - 標籤頁的標題。
- * @property {string} content - 標籤頁的內容。
- */
-export interface Tab {
-  title: string;
-  content: string;
-}
-
-/**
  * TabItemProps 介面定義了標籤項目的屬性。
  *
  * @property { 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info' } [themeColor] - 標籤的主題顏色。
  * @property { 'card' | 'default' } [type] - 標籤的類型，可以是卡片或預設。
  * @property {string} title - 標籤的標題。
  * @property {number} index - 標籤的索引。
- * @property {number} [activeIndex] - 當前活動標籤的索引。
  * @property {boolean} isActive - 標籤是否處於活動狀態。
  * @property {boolean} [isDisabled] - 標籤是否被禁用。
  * @property {(event: MouseEvent<HTMLButtonElement>) => void} onClick - 點擊標籤時的回調函數。
@@ -36,9 +23,8 @@ export interface TabItemProps {
     | 'warning'
     | 'error'
     | 'info';
-  type?: 'card' | 'default';
+  type?: 'default' | 'card';
   title: string;
-  activeIndex?: number;
   isActive: boolean;
   isDisabled?: boolean;
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -96,9 +82,12 @@ export interface TabsProps {
     | 'warning'
     | 'error'
     | 'info';
-  dataSource: Tab[];
-  activeIndex?: number;
-  type?: 'card' | 'default';
+  dataSource: {
+    title: string;
+    content: string;
+  }[];
+  activeIndex: number;
+  type?: 'default' | 'card';
   isDisabled?: boolean;
   className?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -118,7 +107,7 @@ export interface TabsProps {
  */
 export const Tabs: React.FC<TabsProps> = ({
   themeColor = 'primary',
-  dataSource = [],
+  dataSource,
   activeIndex = 0,
   type = 'default',
   isDisabled = false,

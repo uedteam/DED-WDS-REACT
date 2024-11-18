@@ -5,7 +5,7 @@ import { getThemeClass } from './styled';
  * 滑桿元件的屬性介面。
  *
  * @interface SliderProps
- * @property {'none' | 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
+ * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
  * @property {number} min - 最小值。
  * @property {number} max - 最大值。
  * @property {number} [step] - 每次變動的步長。
@@ -17,7 +17,6 @@ import { getThemeClass } from './styled';
  */
 export interface SliderProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -28,8 +27,8 @@ export interface SliderProps {
   min: number;
   max: number;
   step?: number;
-  unit?: string;
-  initValue?: number;
+  label?: string;
+  initValue: number;
   isDisabled?: boolean;
   className?: string;
   onChange?: (value: number) => void;
@@ -58,7 +57,7 @@ export const Slider: React.FC<SliderProps> = ({
   min = 0,
   max = 100,
   step = 1,
-  unit = '',
+  label = '',
   initValue = 0,
   onChange,
   className,
@@ -157,7 +156,7 @@ export const Slider: React.FC<SliderProps> = ({
         }}
       >
         <span>{value}</span>
-        {unit && <span>{unit}</span>}
+        {label && <span>{label}</span>}
       </div>
     </div>
   );

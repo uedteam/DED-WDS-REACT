@@ -20,11 +20,11 @@ import { isEmpty } from 'lodash';
  * @property {string} [className] - 自訂的 CSS 類名。
  */
 export interface InputProps {
-  label?: ReactNode;
+  label?: string;
   type: 'text' | 'password' | 'email' | 'number';
   placeholder?: string;
-  size?: 'small' | 'medium' | 'large';
   prefix?: ReactNode;
+  size?: 'small' | 'medium' | 'large';
   initValue: string;
   hint?: { error: string; description: string };
   isDisabled?: boolean;
@@ -39,8 +39,8 @@ export interface InputProps {
  * @param {string} props.label - 輸入框的標籤。
  * @param {string} [props.type='text'] - 輸入框的類型。
  * @param {string} [props.placeholder='請輸入...'] - 輸入框的佔位符。
- * @param {string} [props.size='medium'] - 輸入框的大小。
  * @param {React.ReactNode} [props.prefix] - 輸入框前綴圖標。
+ * @param {string} [props.size='medium'] - 輸入框的大小。
  * @param {string} props.initValue - 輸入框的值。
  * @param {Object} [props.hint={ error: '', description: '' }] - 提示信息。
  * @param {string} props.hint.error - 錯誤提示信息。
@@ -52,10 +52,10 @@ export interface InputProps {
 export const Input: React.FC<InputProps> = ({
   label = '',
   type = 'text',
-  placeholder = '請輸入...',
-  size = 'medium',
+  placeholder = 'Placeholder...',
   prefix = '',
-  initValue = '',
+  size = 'medium',
+  initValue,
   hint = { error: '', description: '' },
   isDisabled = false,
   className = '',

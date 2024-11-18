@@ -21,7 +21,7 @@ export interface TextareaProps {
   isDisabled?: boolean;
   limit?: number;
   hint?: { error: string; description: string };
-  initValue?: string;
+  initValue: string;
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
@@ -41,9 +41,9 @@ export interface TextareaProps {
  */
 export const Textarea: React.FC<TextareaProps> = ({
   label,
-  placeholder = '請輸入...',
+  placeholder = 'Placeholder...',
   limit = 0,
-  initValue = '',
+  initValue,
   hint = { error: '', description: '' },
   isDisabled = false,
   className = '',

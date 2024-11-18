@@ -64,7 +64,7 @@ interface BreadcrumbProps {
  *
  */
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
-  dataSource = [],
+  dataSource,
   className = '',
 }: BreadcrumbProps): JSX.Element => {
   const breadcrumbRef = useRef<HTMLDivElement>(null);

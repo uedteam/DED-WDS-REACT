@@ -13,7 +13,6 @@ import { getThemeClass } from './styled';
  */
 export interface CircleProgressProps {
   themeColor?:
-    | 'none'
     | 'primary'
     | 'secondary'
     | 'tertiary'

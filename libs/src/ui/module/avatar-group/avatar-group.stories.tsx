@@ -1,28 +1,25 @@
 import { Meta, StoryObj } from '@storybook/react';
 import AvatarGroup from './avatar-group';
 import { AvatarProps } from '@src/ui/element/avatar';
+import { size } from 'lodash';
 
 const users: AvatarProps[] = [
   {
     userName: 'eason',
-    shape: 'circle',
-    size: 'medium',
   },
   {
     userName: 'KevinYang',
-    shape: 'circle',
-    size: 'medium',
   },
   {
     userName: 'AmosLee',
-    shape: 'circle',
-    size: 'medium',
     src: 'https://picsum.photos/320/240',
   },
   {
     userName: 'JohnWu',
-    shape: 'circle',
-    size: 'medium',
+    src: 'https://picsum.photos/320/340',
+  },
+  {
+    userName: 'Peter',
     src: 'https://picsum.photos/320/340',
   },
 ];
@@ -38,8 +35,18 @@ export default {
         category: 'PROPS',
       },
     },
+    size: {
+      description: '尺寸',
+      control: {
+        type: 'select',
+        options: ['xsmall', 'small', 'medium', 'large'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     limit: {
-      description: '限制顯示數量',
+      description: '展開數量上限',
       control: {
         type: 'number',
         min: 1,
@@ -57,7 +64,8 @@ export default {
   },
   args: {
     dataSource: users,
-    limit: 1,
+    size: 'large',
+    limit: 2,
     className: '',
   },
   parameters: {
