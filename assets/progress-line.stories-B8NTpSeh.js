@@ -1,4 +1,4 @@
-import{j as r}from"./jsx-runtime-CkxqCPlQ.js";import{L as s}from"./progress-line-BVFq94bo.js";import"./index-DJO9vBfz.js";import"./styled-7_Fd9YFd.js";const y={title:"Component/Progress-Line",component:s,tags:["autodocs"],argTypes:{themeColor:{description:"主題顏色",control:{type:"select",options:["primary","secondary","tertiary","success","warning","error","info"]}},label:{description:"進度指示標籤"},percent:{description:"進度",control:{type:"range",min:0,max:100,step:1}},strokeWidth:{description:"線條寬度",control:{type:"range",min:1,max:20,step:1}},className:{description:"客製化樣式"}},args:{themeColor:"primary",label:"Label",percent:65,strokeWidth:10,className:""},parameters:{docs:{title:"長條進度指示",description:{component:"長條進度指示組件的呈現及說明。"}}}},o={name:"預設項目",args:{},render(e){return r.jsx(s,{...e})}},t={name:"顯示標籤",args:{},render(e){return r.jsx(s,{...e,label:"測試"})}},n={name:"主題色彩",args:{},parameters:{docs:{source:{code:`
+import{j as r}from"./jsx-runtime-CkxqCPlQ.js";import{L as s}from"./progress-line-BVFq94bo.js";import"./index-DJO9vBfz.js";import"./styled-7_Fd9YFd.js";const y={title:"Component/Progress-Line",component:s,tags:["autodocs"],argTypes:{themeColor:{description:"主題顏色",control:{type:"select",options:["primary","secondary","tertiary","success","warning","error","info"]}},label:{description:"進度指示標籤"},percent:{description:"進度",control:{type:"range",min:0,max:100,step:1}},strokeWidth:{description:"線條寬度",control:{type:"range",min:1,max:20,step:1}},className:{description:"客製化樣式"}},args:{themeColor:"primary",label:"Label",percent:65,strokeWidth:10,className:""},parameters:{docs:{title:"長條進度指示",description:{component:"長條進度指示組件的呈現及說明。"}}}},o={name:"預設項目",args:{},render(e){return r.jsx(s,{...e})}},t={name:"顯示標籤",args:{},render(e){return r.jsx(s,{...e,label:"Label"})}},n={name:"主題色彩",args:{},parameters:{docs:{source:{code:`
 <LineProgress {...args} percent={40} themeColor="primary" />
 <LineProgress {...args} percent={50} themeColor="secondary" />
 <LineProgress {...args} percent={60} themeColor="tertiary" />
@@ -12,13 +12,13 @@ import{j as r}from"./jsx-runtime-CkxqCPlQ.js";import{L as s}from"./progress-line
   render(args) {
     return <LineProgress {...args} />;
   }
-}`,...(i=(c=o.parameters)==null?void 0:c.docs)==null?void 0:i.source}}};var p,m,g;t.parameters={...t.parameters,docs:{...(p=t.parameters)==null?void 0:p.docs,source:{originalSource:`{
+}`,...(i=(c=o.parameters)==null?void 0:c.docs)==null?void 0:i.source}}};var p,m,l;t.parameters={...t.parameters,docs:{...(p=t.parameters)==null?void 0:p.docs,source:{originalSource:`{
   name: '顯示標籤',
   args: {},
   render(args) {
-    return <LineProgress {...args} label="測試" />;
+    return <LineProgress {...args} label="Label" />;
   }
-}`,...(g=(m=t.parameters)==null?void 0:m.docs)==null?void 0:g.source}}};var l,d,h;n.parameters={...n.parameters,docs:{...(l=n.parameters)==null?void 0:l.docs,source:{originalSource:`{
+}`,...(l=(m=t.parameters)==null?void 0:m.docs)==null?void 0:l.source}}};var g,d,h;n.parameters={...n.parameters,docs:{...(g=n.parameters)==null?void 0:g.docs,source:{originalSource:`{
   name: '主題色彩',
   args: {},
   parameters: {
