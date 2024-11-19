@@ -107,8 +107,8 @@ export const Label: Story = {
     docs: {
       source: {
         code: `
-<CircleProgress {...args} label="測試" size={70} />
-<CircleProgress {...args} label="測試" size={100} />
+<CircleProgress {...args} label="Label" size={70} />
+<CircleProgress {...args} label="Label" size={100} />
 `,
       },
     },
@@ -116,8 +116,8 @@ export const Label: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <CircleProgress {...args} label="測試" size={70} />
-        <CircleProgress {...args} label="測試" size={100} />
+        <CircleProgress {...args} label="Label" size={70} />
+        <CircleProgress {...args} label="Label" size={100} />
       </div>
     );
   },

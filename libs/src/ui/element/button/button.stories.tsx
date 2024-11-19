@@ -128,7 +128,7 @@ export default {
     width: 'fit',
     isDisabled: false,
     className: '',
-    children: '送出訂單',
+    children: 'Button',
     onClick: action('onClick'),
   },
   parameters: {

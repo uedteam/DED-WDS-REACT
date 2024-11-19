@@ -87,7 +87,7 @@ export default {
     direction: 'horizontal',
     align: 'center',
     className: '',
-    children: '分隔線',
+    children: 'Divider',
   },
   parameters: {
     docs: {
@@ -116,14 +116,19 @@ export const Align: Story = {
     type: 'solid',
     direction: 'horizontal',
     className: '',
-    children: '分隔線',
   },
   render(args) {
     return (
       <div>
-        <Divider {...args} align="start" />
-        <Divider {...args} align="center" />
-        <Divider {...args} align="end" />
+        <Divider {...args} align="start">
+          Start
+        </Divider>
+        <Divider {...args} align="center">
+          Center
+        </Divider>
+        <Divider {...args} align="end">
+          End
+        </Divider>
       </div>
     );
   },
@@ -169,14 +174,19 @@ export const Width: Story = {
     direction: 'horizontal',
     align: 'center',
     className: '',
-    children: '分隔線',
   },
   render(args) {
     return (
       <div>
-        <Divider {...args} type="solid" />
-        <Divider {...args} type="dotted" />
-        <Divider {...args} type="dashed" />
+        <Divider {...args} type="solid">
+          Solid
+        </Divider>
+        <Divider {...args} type="dotted">
+          Dotted
+        </Divider>
+        <Divider {...args} type="dashed">
+          Dashed
+        </Divider>
       </div>
     );
   },
@@ -189,14 +199,19 @@ export const Direction: Story = {
     type: 'solid',
     direction: 'vertical',
     className: '',
-    children: '分隔線',
   },
   render(args) {
     return (
       <div style={{ display: 'flex', height: '100px' }}>
-        <Divider {...args} align="start" />
-        <Divider {...args} align="center" />
-        <Divider {...args} align="end" />
+        <Divider {...args} align="start">
+          Start
+        </Divider>
+        <Divider {...args} align="center">
+          Center
+        </Divider>
+        <Divider {...args} align="end">
+          End
+        </Divider>
       </div>
     );
   },
@@ -210,19 +225,31 @@ export const ThemeColor: Story = {
     direction: 'horizontal',
     align: 'center',
     className: '',
-    children: '分隔線',
   },
   render(args) {
     return (
       <div>
-        <Divider {...args} />
-        <Divider {...args} themeColor="primary" />
-        <Divider {...args} themeColor="secondary" />
-        <Divider {...args} themeColor="tertiary" />
-        <Divider {...args} themeColor="info" />
-        <Divider {...args} themeColor="success" />
-        <Divider {...args} themeColor="warning" />
-        <Divider {...args} themeColor="error" />
+        <Divider {...args} themeColor="primary">
+          Primary
+        </Divider>
+        <Divider {...args} themeColor="secondary">
+          Secondary
+        </Divider>
+        <Divider {...args} themeColor="tertiary">
+          Tertiary
+        </Divider>
+        <Divider {...args} themeColor="info">
+          Info
+        </Divider>
+        <Divider {...args} themeColor="success">
+          Success
+        </Divider>
+        <Divider {...args} themeColor="warning">
+          Warning
+        </Divider>
+        <Divider {...args} themeColor="error">
+          Error
+        </Divider>
       </div>
     );
   },

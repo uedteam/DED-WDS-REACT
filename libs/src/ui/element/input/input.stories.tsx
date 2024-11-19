@@ -141,16 +141,16 @@ export const InputWithStatus: Story = {
   name: '輸入框狀態',
   args: {
     prefix: <AccountIcon />,
-    placeholder: '請輸入帳號 ...',
+    placeholder: 'Placeholder...',
   },
   parameters: {
     docs: {
       source: {
         code: `
-<Input {...args} label="帳號" />
-<Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
-<Input {...args} label="帳號" hint={{ error: '錯誤訊息', description: '' }} />
-<Input {...args} label="帳號" hint={{ error: '', description: '描述' }} />
+<Input {...args} label="Account" />
+<Input {...args} label="Password" type={'password'} prefix={<LockIcon />} />
+<Input {...args} label="Account" hint={{ error: 'Error message', description: '' }} />
+<Input {...args} label="Account" hint={{ error: '', description: 'Prompt message' }} />
 `,
       },
     },
@@ -158,17 +158,22 @@ export const InputWithStatus: Story = {
   render(args) {
     return (
       <div>
-        <Input {...args} label="帳號" />
-        <Input {...args} label="密碼" type={'password'} prefix={<LockIcon />} />
+        <Input {...args} label="Account" />
         <Input
           {...args}
-          label="帳號"
-          hint={{ error: '錯誤訊息', description: '' }}
+          label="Password"
+          type={'password'}
+          prefix={<LockIcon />}
         />
         <Input
           {...args}
-          label="帳號"
-          hint={{ error: '', description: '描述' }}
+          label="Account"
+          hint={{ error: 'Error message', description: '' }}
+        />
+        <Input
+          {...args}
+          label="Account"
+          hint={{ error: '', description: 'Prompt message' }}
         />
       </div>
     );

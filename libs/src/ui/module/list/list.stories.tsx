@@ -6,21 +6,21 @@ import { AccountIcon } from '@src/assets';
 const options = [
   {
     content: {
-      label: '選項一',
+      label: 'Option1',
       value: 'option1',
       prefix: <AccountIcon />,
     },
   },
   {
     content: {
-      label: '選項二',
+      label: 'Option2',
       value: 'option2',
       prefix: <AccountIcon />,
     },
   },
   {
     content: {
-      label: '選項三',
+      label: 'Option3',
       value: 'option3',
       prefix: <AccountIcon />,
     },

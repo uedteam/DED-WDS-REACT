@@ -76,7 +76,7 @@ export const Label: Story = {
   name: '顯示標籤',
   args: {},
   render(args) {
-    return <LineProgress {...args} label="測試" />;
+    return <LineProgress {...args} label="Label" />;
   },
 };
 
