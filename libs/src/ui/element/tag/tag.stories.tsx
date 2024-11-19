@@ -126,13 +126,13 @@ export const ThemeColor: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Tag {...args} themeColor="primary" label="primary" />
-        <Tag {...args} themeColor="secondary" label="secondary" />
-        <Tag {...args} themeColor="tertiary" label="tertiary" />
-        <Tag {...args} themeColor="info" label="info" />
-        <Tag {...args} themeColor="success" label="success" />
-        <Tag {...args} themeColor="warning" label="warning" />
-        <Tag {...args} themeColor="error" label="error" />
+        <Tag {...args} themeColor="primary" label="Primary" />
+        <Tag {...args} themeColor="secondary" label="Secondary" />
+        <Tag {...args} themeColor="tertiary" label="Tertiary" />
+        <Tag {...args} themeColor="info" label="Info" />
+        <Tag {...args} themeColor="success" label="Success" />
+        <Tag {...args} themeColor="warning" label="Warning" />
+        <Tag {...args} themeColor="error" label="Error" />
       </div>
     );
   },
