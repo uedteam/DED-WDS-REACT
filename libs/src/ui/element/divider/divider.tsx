@@ -52,9 +52,9 @@ export const Divider: React.FC<DividerProps> = ({
 }) => {
   return (
     <div
-      className={`divider divider-${direction} divider-width-${width} divider-${type} divider-${themeColor} divider-${align} ${className}`}
+      className={`ded-divider ded-divider-${direction} ded-divider-width-${width} ded-divider-${type} ded-divider-${themeColor} ded-divider-${align} ${className}`}
     >
-      {children && <div className="divider-content">{children}</div>}
+      {children && <div className="ded-divider-content">{children}</div>}
     </div>
   );
 };

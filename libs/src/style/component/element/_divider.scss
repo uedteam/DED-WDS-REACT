@@ -1,181 +1,119 @@
 @use "sass:color";
 
-/*--- Divider layout ---*/
-.divider-horizontal {
+/*--- Divider ---*/
+.ded-divider {
+  --line-weight: 2px;
+  --line-style: solid;
   display: flex;
-  width: 100%;
-  position: relative;
+}
+
+/*--- Divider 方向 ---*/
+.ded-divider-horizontal {
   align-items: center;
 }
 
-.divider-horizontal:before {
-  position: absolute;
-  display: block;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  width: 100%;
-  content: "";
+.ded-divider-vertical {
+  flex-direction: column;
+  align-items: center;
 }
 
-.divider-vertical {
-  min-height: 100%;
-  margin: 0 1rem;
-  display: flex;
-  position: relative;
-  justify-content: center;
+.ded-divider-horizontal.ded-divider::before,
+.ded-divider-horizontal.ded-divider::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: var(--line-weight) var(--line-style) $color-gray20;
+  flex-grow: 1;
 }
 
-.divider-vertical:before {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
+.ded-divider-vertical.ded-divider::before,
+.ded-divider-vertical.ded-divider::after {
   content: "";
+  width: 0;
+  height: 0;
+  border-left: var(--line-weight) var(--line-style) $color-gray20;
+  flex-grow: 1;
+}
+
+
+/*--- Divider 線條粗細 ---*/
+.ded-divider-width-xsmall {
+  --line-weight: 1px;
+}
+
+.ded-divider-width-small {
+  --line-weight: 2px;
+}
+
+.ded-divider-width-medium {
+  --line-weight: 4px;
+}
+
+.ded-divider-width-large {
+  --line-weight: 6px;
+}
+
+.ded-divider-width-xlarge {
+  --line-weight: 8px;
+}
+
+/*--- Divider 線條樣式 ---*/
+.ded-divider-solid {
+  --line-style: solid;
+}
+
+.ded-divider-dashed {
+  --line-style: dashed;
+}
+
+.ded-divider-dotted {
+  --line-style: dotted;
 }
 
 /*--- Divider content ---*/
-.divider-content {
+.ded-divider-content {
   z-index: 1;
+  padding: 0.5em;
 }
 
-.divider .divider-content {
-  background-color: $color-white;
+/*--- Divider 對齊位置 - Horizontal ---*/
+.ded-divider-start.ded-divider-horizontal::before {
+  flex-grow: 0;
+  width: 1rem;
 }
 
-.divider.divider-horizontal .divider-content {
-  padding: 0 0.5rem;
+.ded-divider-end.ded-divider-horizontal::after {
+  flex-grow: 0;
+  width: 1rem;
 }
 
-.divider.divider-vertical .divider-content {
-  padding: 0.5rem 0;
+/*--- Divider 對齊位置 - vertical ---*/
+.ded-divider-start.ded-divider-vertical::before {
+  flex-grow: 0;
+  height: 1rem;
 }
 
-/*--- Divider border type ---*/
-.divider.divider-solid.divider-horizontal:before {
-  border-top-style: solid;
-}
-
-.divider.divider-solid.divider-vertical:before {
-  border-left-style: solid;
-}
-
-.divider.divider-dashed.divider-horizontal:before {
-  border-top-style: dashed;
-}
-
-.divider.divider-dashed.divider-vertical:before {
-  border-left-style: dashed;
-}
-
-.divider.divider-dotted.divider-horizontal:before {
-  border-top-style: dotted;
-}
-
-.divider.divider-dotted.divider-vertical:before {
-  border-left-style: dotted;
-}
-
-/*--- Divider horizontal border width ---*/
-.divider.divider-horizontal {
-  // margin: 1rem 0;
-  padding: 0 1rem;
-}
-
-.divider.divider-horizontal:before {
-  // border-top-width: 1px;
-  border-top-color: $color-gray20;
+.ded-divider-end.ded-divider-vertical::after {
+  flex-grow: 0;
+  height: 1rem;
 }
 
 @each $theme in $themes {
-  .divider.divider-#{$theme}.divider-horizontal:before {
-    // border-top-width: 1px;
-    border-top-color: getThemeColor($mode, $theme, "default");
+  .ded-divider-#{$theme}.ded-divider-vertical::before {
+    border-left-color: getThemeColor($mode, $theme, "default");
   }
-}
 
-.divider.divider-width-xsmall.divider-horizontal:before {
-  border-top-width: 1px;
-}
-
-.divider.divider-width-small.divider-horizontal:before {
-  border-top-width: 2px;
-}
-
-.divider.divider-width-medium.divider-horizontal:before {
-  border-top-width: 4px;
-}
-
-.divider.divider-width-large.divider-horizontal:before {
-  border-top-width: 6px;
-}
-
-.divider.divider-width-xlarge.divider-horizontal:before {
-  border-top-width: 8px;
-}
-
-/*--- Divider vertical border width ---*/
-.divider.divider-vertical {
-  margin: 0 1rem;
-  padding: 1rem 0;
-}
-
-.divider.divider-vertical:before {
-  // border-left-width: 1px;
-  border-left-color: $color-gray20;
-}
-
-@each $theme in $themes {
-  .divider.divider-#{$theme}.divider-vertical:before {
-    // border-left-width: 1px;
+  .ded-divider-#{$theme}.ded-divider-vertical::after {
     border-left-color: getThemeColor($mode, $theme, "default");
   }
 }
 
-.divider.divider-width-xsmall.divider-vertical:before {
-  border-left-width: 1px;
-}
+@each $theme in $themes {
+  .ded-divider-#{$theme}.ded-divider-horizontal::before {
+    border-top-color: getThemeColor($mode, $theme, "default");
+  }
 
-.divider.divider-width-small.divider-vertical:before {
-  border-left-width: 2px;
-}
-
-.divider.divider-width-medium.divider-vertical:before {
-  border-left-width: 4px;
-}
-
-.divider.divider-width-large.divider-vertical:before {
-  border-left-width: 6px;
-}
-
-.divider.divider-width-xlarge.divider-vertical:before {
-  border-left-width: 8px;
-}
-
-/*--- Divider horizontal align ---*/
-.divider-start.divider-horizontal {
-  justify-content: flex-start;
-}
-
-.divider-center.divider-horizontal {
-  justify-content: center;
-}
-
-.divider-end.divider-horizontal {
-  justify-content: flex-end;
-}
-
-/*--- Divider vertical align ---*/
-.divider-start.divider-vertical {
-  align-items: flex-start;
-}
-
-.divider-center.divider-vertical {
-  align-items: center;
-}
-
-.divider-end.divider-vertical {
-  align-items: flex-end;
+  .ded-divider-#{$theme}.ded-divider-horizontal::after {
+    border-top-color: getThemeColor($mode, $theme, "default");
+  }
 }
