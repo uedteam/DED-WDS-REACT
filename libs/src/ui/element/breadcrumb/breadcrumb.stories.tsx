@@ -2,11 +2,11 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Breadcrumb } from './breadcrumb';
 
 const linkList = [
-  { label: '首頁', href: '/' },
-  { label: '第一層', href: '/first' },
-  { label: '第二層', href: 'https://tw.yahoo.com' },
-  { label: '第n層', href: '/first/second/third/n' },
-  { label: '當前頁' },
+  { label: 'Home', href: '/' },
+  { label: 'Level1', href: '/first' },
+  { label: 'Level2', href: 'https://tw.yahoo.com' },
+  { label: 'Level3', href: '/first/second/third/n' },
+  { label: 'Current' },
 ];
 
 export default {
