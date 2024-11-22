@@ -15,6 +15,7 @@ const options = [
     content: {
       label: 'Option2',
       value: 'option2',
+      href: '#',
       prefix: <AccountIcon />,
     },
   },
@@ -22,6 +23,7 @@ const options = [
     content: {
       label: 'Option3',
       value: 'option3',
+      href: '#',
       prefix: <AccountIcon />,
     },
   },
@@ -92,11 +94,7 @@ export const Default: Story = {
     },
   },
   render(args) {
-    return (
-      <div style={{ width: '200px' }}>
-        <List {...args} />
-      </div>
-    );
+    return <List {...args} />;
   },
 };
 
@@ -112,10 +110,6 @@ export const Menu: Story = {
     },
   },
   render(args) {
-    return (
-      <div style={{ width: '200px' }}>
-        <List {...args} isMenu />
-      </div>
-    );
+    return <List {...args} isMenu />;
   },
 };
