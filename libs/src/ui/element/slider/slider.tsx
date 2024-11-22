@@ -63,11 +63,11 @@ export const Slider: React.FC<SliderProps> = ({
   className,
 }: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number>(initValue || min);
+  const [labelPosition, setLabelPosition] = useState<number>(0);
   const [thumbPosition, setThumbPosition] = useState<number>(0);
   const rangeRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const thumbWidth = 20;
-  const tooltipWidth = 40;
 
   const updateThumbPosition = (val: number) => {
     if (!rangeRef.current) return;
@@ -114,6 +114,10 @@ export const Slider: React.FC<SliderProps> = ({
     };
   }, [value, min, max]);
 
+  useEffect(() => {
+    setLabelPosition(thumbPosition + 10);
+  }, [label, thumbPosition, value]);
+
   return (
     <div className="ded-slider-container" ref={containerRef}>
       <div
@@ -143,20 +147,22 @@ export const Slider: React.FC<SliderProps> = ({
       </div>
 
       <div
-        className={`ded-tooltip 
+        id="tooltip"
+        className={`ded-slider-tooltip 
         ${
           isDisabled
-            ? 'ded-tooltip-disable'
-            : className || getThemeClass(themeColor, 'ded-tooltip')
+            ? 'ded-slider-tooltip-disable'
+            : className || getThemeClass(themeColor, 'ded-slider-tooltip')
         }`}
         style={{
-          left: `calc(${thumbPosition}px + ${thumbWidth / 2}px - ${
-            tooltipWidth / 2
-          }px)`,
+          left: `${labelPosition}px`,
+          transform: `translateX(-50%)`,
         }}
       >
-        <span>{value}</span>
-        {label && <span>{label}</span>}
+        <span>
+          {value}
+          {label && <span>{label}</span>}
+        </span>
       </div>
     </div>
   );
