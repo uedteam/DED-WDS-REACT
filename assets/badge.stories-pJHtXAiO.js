@@ -1,9 +1,0 @@
-import{j as r}from"./jsx-runtime-DEdD30eg.js";import"./index-RYns6xqu.js";const s=({children:e,isDot:d,value:o,limit:m,className:c})=>r.jsxs("div",{className:"ded-badge__container",children:[e,r.jsx("span",{className:"ded-badge__content",children:d?"":"computedValue"})]}),l=s;try{s.displayName="Badge",s.__docgenInfo={description:"",displayName:"Badge",props:{isDot:{defaultValue:null,description:"",name:"isDot",required:!1,type:{name:"boolean"}},value:{defaultValue:null,description:"",name:"value",required:!1,type:{name:"number"}},limit:{defaultValue:null,description:"",name:"limit",required:!1,type:{name:"number"}},className:{defaultValue:null,description:"",name:"className",required:!1,type:{name:"string"}}}}}catch{}try{badge.displayName="badge",badge.__docgenInfo={description:"",displayName:"badge",props:{isDot:{defaultValue:null,description:"",name:"isDot",required:!1,type:{name:"boolean"}},value:{defaultValue:null,description:"",name:"value",required:!1,type:{name:"number"}},limit:{defaultValue:null,description:"",name:"limit",required:!1,type:{name:"number"}},className:{defaultValue:null,description:"",name:"className",required:!1,type:{name:"string"}}}}}catch{}const g={title:"Component/Badge",component:l,tags:["autodocs"],argTypes:{isDot:{description:"是否顯示圓點"},value:{description:"徽章數值"},limit:{description:"限制數值"},className:{description:"客製化樣式"}},parameters:{docs:{title:"徽章",description:{component:"徽章的呈現及說明。"}}}},a={name:"預設項目",args:{className:""},render(e){return r.jsx(l,{...e})}};var n,t,i;a.parameters={...a.parameters,docs:{...(n=a.parameters)==null?void 0:n.docs,source:{originalSource:`{
-  name: '預設項目',
-  args: {
-    className: ''
-  },
-  render(args) {
-    return <Badge {...args} />;
-  }
-}`,...(i=(t=a.parameters)==null?void 0:t.docs)==null?void 0:i.source}}};const _=["Primary"];export{a as Primary,_ as __namedExportsOrder,g as default};
