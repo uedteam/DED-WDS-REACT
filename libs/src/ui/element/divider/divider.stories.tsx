@@ -81,7 +81,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: '',
     width: 'xsmall',
     type: 'solid',
     direction: 'horizontal',
