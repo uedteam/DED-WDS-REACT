@@ -91,9 +91,7 @@ export const Radio: React.FC<RadioProps> = ({
                 'checked',
                 themeColor
               )}`}
-            >
-              <CheckIcon></CheckIcon>
-            </div>
+            ></div>
           ) : (
             <div
               className={`ded-radio-icon ${getThemeClass(
