@@ -60,7 +60,7 @@ export const Slider: React.FC<SliderProps> = ({
   label = '',
   initValue = 0,
   onChange,
-  className,
+  className = '',
 }: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number>(initValue || min);
   const [labelPosition, setLabelPosition] = useState<number>(0);
@@ -120,14 +120,7 @@ export const Slider: React.FC<SliderProps> = ({
 
   return (
     <div className="ded-slider-container" ref={containerRef}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '8px',
-        }}
-      >
+      <div className="ded-slider-wrapper">
         <input
           ref={rangeRef}
           type="range"

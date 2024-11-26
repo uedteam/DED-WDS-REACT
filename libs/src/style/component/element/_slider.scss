@@ -9,6 +9,13 @@
   margin-block: 16px;
 }
 
+.ded-slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
 .ded-slider {
   position: relative;
   width: 100%;

@@ -50,13 +50,10 @@ export const Item: React.FC<ItemProps> = ({
   };
 
   return (
-    <div
-      className={`ded-item ${href ? 'ded-item-link' : ''} ${className}`}
-      onClick={handleClick}
-    >
+    <li className={`ded-item ded-item-link ${className}`} onClick={handleClick}>
       {prefix && <div className="ded-icon">{prefix}</div>}
       <div className="ded-item-label">{label}</div>
-    </div>
+    </li>
   );
 };
 export default Item;

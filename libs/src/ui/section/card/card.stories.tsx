@@ -1,7 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import Card from './card';
-import { Title, Button, LineProgress, List, SliderControl } from '@src/ui';
+import { Title, Button } from '@src/ui';
+import { SliderControl } from '../../module/slider-control';
 import {
   LockIcon,
   PlusIcon,
@@ -118,7 +119,7 @@ export const Default: Story = {
               <Title className="ded-card-title" themeColor="primary">
                 空調
               </Title>
-              <Button variant="text">
+              <Button onClick={() => ({})} variant="text">
                 <div
                   style={{
                     display: 'flex',
@@ -138,6 +139,7 @@ export const Default: Story = {
           cardFooter={
             <div style={{ display: 'flex', gap: '8px' }}>
               <Button
+                onClick={() => ({})}
                 className="ded-card-button ded-card-button-active"
                 variant="contained"
                 themeColor="warning"
@@ -148,6 +150,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
+                onClick={() => ({})}
                 className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
@@ -161,6 +164,7 @@ export const Default: Story = {
               <div className="ded-card-button ded-card-button-empty"></div>
 
               <Button
+                onClick={() => ({})}
                 className="ded-card-button ded-card-button-active"
                 variant="contained"
                 themeColor="warning"
@@ -170,6 +174,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
+                onClick={() => ({})}
                 className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
@@ -179,6 +184,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
+                onClick={() => ({})}
                 className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
@@ -188,6 +194,7 @@ export const Default: Story = {
                 </div>
               </Button>
               <Button
+                onClick={() => ({})}
                 className="ded-card-button"
                 variant="contained"
                 themeColor="warning"
@@ -211,7 +218,7 @@ export const Default: Story = {
             <SliderControl
               initValue={0}
               themeColor="warning"
-              unit="℃"
+              label="℃"
               prefix={<MinusIcon fill="#fff" width={24} height={24} />}
               suffix={<PlusIcon fill="#fff" width={24} height={24} />}
             />
@@ -263,7 +270,11 @@ export const Default: Story = {
                 <Title className="ded-card-title" themeColor="primary">
                   {device.label}
                 </Title>
-                <Button variant="text" themeColor="primary">
+                <Button
+                  onClick={() => ({})}
+                  variant="text"
+                  themeColor="primary"
+                >
                   <div
                     style={{
                       display: 'flex',

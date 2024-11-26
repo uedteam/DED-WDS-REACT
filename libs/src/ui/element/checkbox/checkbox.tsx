@@ -46,7 +46,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   dataSource,
   initValue,
   direction = 'row',
-  className,
+  className = '',
   onChange,
 }: CheckboxProps) => {
   const [currOptions, setCurrOptions] = useState<string[]>(initValue);

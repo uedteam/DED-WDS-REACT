@@ -48,7 +48,7 @@ export const LineProgress: React.FC<LineProgressProps> = ({
   const normalizedProgress = Math.min(Math.max(percent, 0), 100);
 
   return (
-    <div className={className}>
+    <div className={`ded-progress-line-container ${className}`}>
       {label && <div className="ded-progress-line-label">{label}</div>}
       <div className="ded-progress-line">
         <div

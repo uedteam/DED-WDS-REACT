@@ -27,7 +27,7 @@ export const Tag: React.FC<TagProps> = ({
   prefix,
   closable = true,
   isDisabled = false,
-  className,
+  className = '',
   onClose = () => ({}),
 }) => {
   return (

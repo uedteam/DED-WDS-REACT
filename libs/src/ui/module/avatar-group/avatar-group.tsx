@@ -72,7 +72,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             />
           ),
           content: {
-            prefix: <AccountIcon />,
+            prefix: (
+              <Avatar
+                size="xsmall"
+                shape="circle"
+                userName={user.userName}
+                src={user.imgSrc || ''}
+              />
+            ),
             label: user.userName,
             value: user.userName,
             href: '',
@@ -130,12 +137,12 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             style={getTargetPosition(
               position,
               childrenSize,
-              'right-top',
+              'bottom-left',
               '6px'
             )}
             className={`ded-dropdown-menu ${className}`}
           >
-            <List dataSource={menu} isMenu />
+            <List dataSource={menu} hasOutline />
           </div>
         )}
       </Portal>

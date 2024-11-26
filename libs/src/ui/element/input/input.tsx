@@ -80,8 +80,7 @@ export const Input: React.FC<InputProps> = ({
         className={` 
           ded-input-group
           ${getSizeClass('ded-component', size)} 
-          ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}
-          ${className ? className : ''}`}
+          ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}`}
       >
         {prefix && (
           <div className={getSizeClass('ded-icon', size)}>{prefix}</div>

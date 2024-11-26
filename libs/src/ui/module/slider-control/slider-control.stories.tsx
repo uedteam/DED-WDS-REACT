@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { SliderControl } from '@src/ui';
+import { SliderControl } from '../../module/slider-control';
 import { PlusIcon, MinusIcon } from '@src/assets';
 
 export default {

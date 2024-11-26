@@ -15,6 +15,8 @@ import { Slider } from './element/slider';
 import { SliderControl } from './module/slider-control';
 import { Card } from './section/card';
 import { Menu } from './module/menu';
+import { Image } from './element/image';
+import { Dialog } from './module/dialog';
 
 export {
   Title,
@@ -36,4 +38,6 @@ export {
   SliderControl,
   Card,
   Menu,
+  Image,
+  Dialog,
 };

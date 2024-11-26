@@ -46,7 +46,7 @@ const TabItem: React.FC<TabItemProps> = ({
   title = '',
   isActive,
   isDisabled = false,
-  className,
+  className = '',
   onClick,
 }: TabItemProps) => (
   <Button

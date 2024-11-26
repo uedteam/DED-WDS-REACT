@@ -40,8 +40,8 @@ export default {
         category: 'PROPS',
       },
     },
-    isMenu: {
-      description: '是否為選單',
+    hasOutline: {
+      description: '是否有外框',
       control: {
         type: 'boolean',
       },
@@ -67,7 +67,7 @@ export default {
   },
   args: {
     dataSource: options,
-    isMenu: false,
+    hasOutline: false,
     className: '',
     onSelect: action('onSelect'),
   },
@@ -105,11 +105,11 @@ export const Menu: Story = {
     docs: {
       source: {
         code: `
-<List {...args} isMenu />`,
+<List {...args} hasOutline />`,
       },
     },
   },
   render(args) {
-    return <List {...args} isMenu />;
+    return <List {...args} hasOutline />;
   },
 };

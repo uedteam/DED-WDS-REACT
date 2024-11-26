@@ -14,14 +14,14 @@ export const Image: React.FC<ImageProps> = ({
   alt,
   ratio,
   objectFit,
-  className,
+  className = '',
 }) => {
   const [containerClass, setContainerClass] = useState('');
   const [imageClass, setImageClass] = useState('');
 
   useEffect(() => {
     setContainerClass(
-      cva('ded-image-container', {
+      cva('ded-image-cover-container', {
         variants: {
           ratio: {
             11: 'ratio-1x1',
@@ -38,7 +38,7 @@ export const Image: React.FC<ImageProps> = ({
 
   useEffect(() => {
     setImageClass(
-      cva('ded-image', {
+      cva('ded-image-cover', {
         variants: {
           objectFit: {
             cover: 'cover',

@@ -1,20 +1,45 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Dialog } from './dialog';
-import { useDialog } from '../../../hooks/useDialog';
+import { Dialog } from '@src/ui';
+import { useDialog } from '@src/hooks';
 import { Button } from '@src/ui';
 
 export default {
-  /* 定義組件路徑及匯入名稱: Element/Component */
   title: 'Component/Dialog',
-  /* 設定對應的組件名稱: Component */
   component: Dialog,
   tags: ['autodocs'],
   argTypes: {
+    isOpen: {
+      description: '是否開啟',
+    },
+    hasClose: {
+      description: '是否有關閉按鈕',
+    },
+    title: {
+      description: '標題',
+      table: {
+        category: 'SLOTS',
+      },
+    },
+    content: {
+      description: '內容',
+      table: {
+        category: 'SLOTS',
+      },
+    },
+    footer: {
+      description: '底部',
+      table: {
+        category: 'SLOTS',
+      },
+    },
+    onClose: {
+      description: '關閉事件',
+      table: {
+        category: 'EVENTS',
+      },
+    },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
-      },
     },
   },
   parameters: {
@@ -23,19 +48,53 @@ export default {
       description: {
         component: 'Dialog 的呈現及說明。',
       },
+      source: {
+        code: `<Dialog
+  isOpen={isOpen}
+  onClose={closeDialog}
+  title={title}
+  content={content}
+  footer={
+    <>
+      <Button
+        onClick={handleCancel}
+        variant="contained"
+        className="cancel-btn"
+      >
+        Cancel
+      </Button>
+      <Button
+        onClick={handleOK}
+        variant="contained"
+      >
+        OK
+      </Button>
+    </>
+  }
+/>`,
+      },
     },
+  },
+  args: {
+    isOpen: false,
+    hasClose: false,
+    title: 'Title',
+    content: <p>Content</p>,
+    className: '',
   },
 } as Meta;
 type Story = StoryObj<typeof Dialog>;
 
 const DefaultWithHook = (args: Story['args']) => {
-  const { isOpen, title, content, openDialog, closeDialog } = useDialog();
+  const { isOpen, content, openDialog, closeDialog } = useDialog();
 
-  const handleConfirm = () => {
+  const handleOK = () => {
+    window.alert('ok');
     closeDialog();
   };
 
   const handleCancel = () => {
+    window.alert('cancel');
     closeDialog();
   };
 
@@ -43,10 +102,7 @@ const DefaultWithHook = (args: Story['args']) => {
     <>
       <Button
         onClick={() => {
-          openDialog(
-            '標題',
-            <p>點擊「全部覆蓋」，即所有名稱相同的檔案皆以新檔案覆蓋</p>
-          );
+          openDialog('Title', <p>Content</p>);
         }}
         variant="contained"
       >
@@ -55,19 +111,29 @@ const DefaultWithHook = (args: Story['args']) => {
       <Dialog
         isOpen={isOpen}
         onClose={closeDialog}
-        onConfirm={handleConfirm}
-        onCancel={handleCancel}
-        title={title}
+        title={<div>123</div>}
         content={content}
-        confirmText="確認删除"
-        cancelText="取消"
+        footer={
+          <>
+            <Button
+              onClick={handleCancel}
+              variant="contained"
+              className="cancel-btn"
+            >
+              Cancel
+            </Button>
+            <Button onClick={handleOK} variant="contained">
+              OK
+            </Button>
+          </>
+        }
       />
     </>
   );
 };
 
 export const Default: Story = {
-  name: '搜尋輸入框',
+  name: '預設項目',
   args: {
     className: '',
   },

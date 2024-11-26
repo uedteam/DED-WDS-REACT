@@ -61,14 +61,14 @@ export const Button: React.FC<ButtonProps> = ({
   suffix,
   size = 'medium',
   width = 'fit',
-  className,
+  className = '',
   children,
   onClick,
 }: ButtonProps) => {
   return (
     <button
-      style={{ width: `${width === 'fit' ? 'fit-content' : '100%'}` }}
       className={`ded-button 
+        ${width === 'fit' ? 'ded-button-fit' : 'ded-button-fluid'}
         ${getSizeClass('ded-component', size)}
         ${
           isDisabled

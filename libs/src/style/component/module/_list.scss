@@ -6,7 +6,7 @@
   list-style: none;
 }
 
-.ded-menu {
+.ded-outline {
   box-shadow: $shadow-light2;
   list-style: none;
   background-color: $color-white;
@@ -20,7 +20,7 @@
   padding: 8px;
 
   &-label {
-    margin-right: auto;
+    width: 100%;
   }
 }
 

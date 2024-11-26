@@ -41,19 +41,19 @@ const MenuItem: React.FC<MenuItemProps> = ({
 
   return (
     <li>
-      <div className="ded-menu-item">
+      <div className="ded-nav-item">
         <div
           style={{ color: color }}
-          className="ded-menu-item-content"
+          className="ded-nav-item-content"
           onClick={() => {
             if (item.path) {
               console.log('go to', item.path);
             }
           }}
         >
-          <div className="ded-menu-item-content-icon">{item.prefix}</div>
+          <div className="ded-nav-item-content-icon">{item.prefix}</div>
           <span
-            className="ded-menu-item-content-title"
+            className="ded-nav-item-content-title"
             style={{
               opacity: isCollapsed ? 0 : 1,
             }}
@@ -80,7 +80,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
 
       <ul
         ref={contentRef}
-        className="ded-menu-subitem"
+        className="ded-nav-subitem"
         style={{
           maxHeight: maxHeight,
         }}
@@ -139,7 +139,7 @@ export const Menu: React.FC<MenuProps> = ({
   }, [isCollapsed]);
 
   return (
-    <div className="ded-menu-container">
+    <div className="ded-nav-container">
       <nav
         ref={menuRef}
         className="ded-nav"
@@ -147,7 +147,7 @@ export const Menu: React.FC<MenuProps> = ({
           width: isCollapsed ? '60px' : '100%',
         }}
       >
-        <ul className="ded-nav-menu">
+        <ul className="ded-nav-list">
           {dataSource.map((item, index) => (
             <MenuItem
               key={index}
