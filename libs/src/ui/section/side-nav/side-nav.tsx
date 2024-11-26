@@ -42,7 +42,7 @@ export const SideNav: React.FC<SideNavProps> = ({
   logo = '',
   themeColor = THEME_COLOR.Blue,
   dataSource,
-  className,
+  className = '',
 }: SideNavProps) => {
   const [color, setColor] = useState(THEME_COLOR.White);
   const [isCollapsed, setIsCollapsed] = useState(false);

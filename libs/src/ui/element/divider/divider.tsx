@@ -42,7 +42,7 @@ export interface DividerProps {
  * @returns {JSX.Element} 分隔線元件
  */
 export const Divider: React.FC<DividerProps> = ({
-  themeColor = 'primary',
+  themeColor = '',
   width = 'xsmall',
   type = 'solid',
   direction = 'horizontal',
