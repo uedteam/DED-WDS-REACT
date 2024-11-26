@@ -1,14 +1,26 @@
-## V1.2.5 (2024/11/13)
+## V1.2.6 (2024/11/26)
 
 ✨ New Feature
+
+- add dropdown component
+- add badge component (WIP)
 
 ---
 
 🆙 Update
 
-- Modify all component order by
-- Sync all component parameter name
-- Category all component parameter
+- use avatar component to avatar group
+- modify compute position function
+- change img element to image component
+- add introduction path
+- modify component index
+- change class name
+- remove useless svg
+- remove inline style
+- modify dialog component parameter
+- modify list outline parameter
+- update component className default
+- modify brand url and style
 
 ---
 
