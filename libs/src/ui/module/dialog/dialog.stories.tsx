@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Dialog } from '@src/ui';
 import { useDialog } from '@src/hooks';
-import { Button } from '@src/ui';
+import { Button, Title } from '@src/ui';
 
 export default {
   title: 'Component/Dialog',
@@ -78,15 +78,13 @@ export default {
   args: {
     isOpen: false,
     hasClose: false,
-    title: 'Title',
-    content: <p>Content</p>,
     className: '',
   },
 } as Meta;
 type Story = StoryObj<typeof Dialog>;
 
 const DefaultWithHook = (args: Story['args']) => {
-  const { isOpen, content, openDialog, closeDialog } = useDialog();
+  const { isOpen, title, content, openDialog, closeDialog } = useDialog();
 
   const handleOK = () => {
     window.alert('ok');
@@ -102,7 +100,7 @@ const DefaultWithHook = (args: Story['args']) => {
     <>
       <Button
         onClick={() => {
-          openDialog('Title', <p>Content</p>);
+          openDialog(<Title level={3}>Title</Title>, <p>Content</p>);
         }}
         variant="contained"
       >
@@ -111,7 +109,7 @@ const DefaultWithHook = (args: Story['args']) => {
       <Dialog
         isOpen={isOpen}
         onClose={closeDialog}
-        title={<div>123</div>}
+        title={title}
         content={content}
         footer={
           <>

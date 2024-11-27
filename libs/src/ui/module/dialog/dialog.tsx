@@ -36,7 +36,7 @@ export const Dialog: React.FC<DialogProps> = ({
                 X
               </button>
             )}
-            <h2 className="dialog-title">{title}</h2>
+            <div className="dialog-header">{title}</div>
             <div className="dialog-body">{content}</div>
             <div className="dialog-footer">{footer}</div>
           </div>

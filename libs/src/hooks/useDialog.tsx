@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 
 interface DialogState {
   isOpen: boolean;
-  title: string;
+  title: React.ReactNode;
   content: React.ReactNode;
 }
 
@@ -13,13 +13,16 @@ export const useDialog = () => {
     content: null,
   });
 
-  const openDialog = useCallback((title: string, content: React.ReactNode) => {
-    setDialogState({
-      isOpen: true,
-      title,
-      content,
-    });
-  }, []);
+  const openDialog = useCallback(
+    (title: React.ReactNode, content: React.ReactNode) => {
+      setDialogState({
+        isOpen: true,
+        title,
+        content,
+      });
+    },
+    []
+  );
 
   const closeDialog = useCallback(() => {
     setDialogState((prev) => ({

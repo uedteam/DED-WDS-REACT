@@ -69,7 +69,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <Portal>
         {isVisible && (
           <div
-            style={getTargetPosition(position, childrenSize, 'bottom', '8px')}
+            style={getTargetPosition(
+              position,
+              childrenSize,
+              'bottom',
+              '8px',
+              true
+            )}
             className={`ded-tooltip ${className}`}
           >
             <List {...rest} hasOutline onSelect={handleSelected} />
