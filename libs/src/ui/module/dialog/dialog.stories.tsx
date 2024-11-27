@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Dialog } from '@src/ui';
 import { useDialog } from '@src/hooks';
 import { Button, Title } from '@src/ui';
+import { StoryContext } from 'storybook/internal/types';
 
 export default {
   title: 'Component/Dialog',
@@ -42,6 +43,11 @@ export default {
       description: '客製化樣式',
     },
   },
+  args: {
+    isOpen: false,
+    hasClose: false,
+    className: '',
+  },
   parameters: {
     docs: {
       title: 'Dialog',
@@ -49,42 +55,15 @@ export default {
         component: 'Dialog 的呈現及說明。',
       },
       source: {
-        code: `<Dialog
-  isOpen={isOpen}
-  onClose={closeDialog}
-  title={title}
-  content={content}
-  footer={
-    <>
-      <Button
-        onClick={handleCancel}
-        variant="contained"
-        className="cancel-btn"
-      >
-        Cancel
-      </Button>
-      <Button
-        onClick={handleOK}
-        variant="contained"
-      >
-        OK
-      </Button>
-    </>
-  }
-/>`,
-      },
-    },
-  },
-  args: {
-    isOpen: false,
-    hasClose: false,
-    className: '',
-  },
-} as Meta;
-type Story = StoryObj<typeof Dialog>;
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
 
-const DefaultWithHook = (args: Story['args']) => {
-  const { isOpen, title, content, openDialog, closeDialog } = useDialog();
+          return `
+const { isOpen, title, content, openDialog, closeDialog } = useDialog({
+    isOpen: ${args?.isOpen || false},
+    title: <Title level={3}>Title</Title>,
+    content: <p>Content</p>,
+  });
 
   const handleOK = () => {
     window.alert('ok');
@@ -98,16 +77,64 @@ const DefaultWithHook = (args: Story['args']) => {
 
   return (
     <>
-      <Button
-        onClick={() => {
-          openDialog(<Title level={3}>Title</Title>, <p>Content</p>);
-        }}
-        variant="contained"
-      >
+      <Button onClick={openDialog} variant="contained">
         Open Dialog
       </Button>
       <Dialog
         isOpen={isOpen}
+        hasClose={args?.hasClose || false}
+        onClose={closeDialog}
+        title={title}
+        content={content}
+        footer={
+          <>
+            <Button
+              onClick={handleCancel}
+              variant="contained"
+              className="cancel-btn"
+            >
+              Cancel
+            </Button>
+            <Button onClick={handleOK} variant="contained">
+              OK
+            </Button>
+          </>
+        }
+      />
+    </>
+  )`;
+        },
+      },
+    },
+  },
+} as Meta;
+type Story = StoryObj<typeof Dialog>;
+
+const DefaultWithHook = (args: Story['args']) => {
+  const { isOpen, title, content, openDialog, closeDialog } = useDialog({
+    isOpen: args?.isOpen || false,
+    title: <Title level={3}>Title</Title>,
+    content: <p>Content</p>,
+  });
+
+  const handleOK = () => {
+    window.alert('ok');
+    closeDialog();
+  };
+
+  const handleCancel = () => {
+    window.alert('cancel');
+    closeDialog();
+  };
+
+  return (
+    <>
+      <Button onClick={openDialog} variant="contained">
+        Open Dialog
+      </Button>
+      <Dialog
+        isOpen={isOpen}
+        hasClose={args?.hasClose || false}
         onClose={closeDialog}
         title={title}
         content={content}

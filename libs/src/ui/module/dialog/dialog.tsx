@@ -1,6 +1,7 @@
 import React from 'react';
 import { Portal } from '../../portal';
 import './style.scss';
+import { CloseIcon } from '@src/assets';
 
 interface DialogProps {
   isOpen: boolean;
@@ -18,8 +19,8 @@ export const Dialog: React.FC<DialogProps> = ({
   isOpen = false,
   hasClose = false,
   onClose,
-  title,
-  content,
+  title = 'Title',
+  content = 'Content',
   footer,
   className = '',
 }) => {
@@ -33,7 +34,7 @@ export const Dialog: React.FC<DialogProps> = ({
           >
             {onClose && hasClose && (
               <button className="dialog-close-btn" onClick={onClose}>
-                X
+                <CloseIcon width={20} height={20} />
               </button>
             )}
             <div className="dialog-header">{title}</div>
