@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { getTitleClass } from './styled';
+import { getThemeClass, getLevelClass } from './styled';
 
 /**
  * 標題組件的屬性介面。
@@ -26,7 +26,8 @@ export interface TitleProps {
     | 'info'
     | 'success'
     | 'warning'
-    | 'error';
+    | 'error'
+    | 'none';
   level?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   className?: string;
   children: ReactNode;
@@ -44,14 +45,16 @@ export interface TitleProps {
  * @returns {JSX.Element} 渲染的 Title 組件。
  */
 export const Title: React.FC<TitleProps> = ({
-  themeColor = 'primary',
+  themeColor = 'none',
   level = 0,
   className = '',
   children,
 }: TitleProps): JSX.Element => {
   return (
     <div
-      className={`ded-title ${className || getTitleClass(themeColor, level)}`}
+      className={`ded-title ${className} ${
+        themeColor !== 'none' && getThemeClass(themeColor)
+      } ${getLevelClass(level)} ${className}`}
     >
       {children}
     </div>

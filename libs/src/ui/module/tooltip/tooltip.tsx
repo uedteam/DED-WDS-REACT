@@ -70,7 +70,13 @@ export const Tooltip: React.FC<TooltipProps> = ({
       <Portal>
         {isVisible && (
           <div
-            style={getTargetPosition(position, childrenSize, placement, '6px')}
+            style={getTargetPosition(
+              position,
+              childrenSize,
+              placement,
+              '6px',
+              false
+            )}
             className={`ded-tooltip ${className}`}
           >
             <div className="ded-tooltip-content">

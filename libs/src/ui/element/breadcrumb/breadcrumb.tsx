@@ -114,7 +114,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
               position,
               childrenSize,
               'bottom-left',
-              '6px'
+              '6px',
+              false
             )}
             className={`ded-dropdown-menu ${className}`}
           >

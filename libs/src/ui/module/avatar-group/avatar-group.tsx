@@ -138,7 +138,8 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
               position,
               childrenSize,
               'bottom-left',
-              '6px'
+              '6px',
+              false
             )}
             className={`ded-dropdown-menu ${className}`}
           >
