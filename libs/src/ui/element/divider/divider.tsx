@@ -19,7 +19,8 @@ export interface DividerProps {
     | 'success'
     | 'warning'
     | 'error'
-    | 'info';
+    | 'info'
+    | string;
   type?: 'solid' | 'dashed' | 'dotted';
   width?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   direction?: 'horizontal' | 'vertical';
