@@ -1,28 +1,34 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, ReactNode } from 'react';
 
 interface DialogState {
   isOpen: boolean;
+  hasClose?: boolean;
   title: React.ReactNode;
   content: React.ReactNode;
 }
 
-export const useDialog = () => {
+export const useDialog = ({
+  isOpen,
+  title,
+  content,
+}: {
+  isOpen: boolean;
+  title: ReactNode;
+  content: ReactNode;
+}) => {
   const [dialogState, setDialogState] = useState<DialogState>({
-    isOpen: false,
-    title: '',
-    content: null,
+    isOpen,
+    title,
+    content,
   });
 
-  const openDialog = useCallback(
-    (title: React.ReactNode, content: React.ReactNode) => {
-      setDialogState({
-        isOpen: true,
-        title,
-        content,
-      });
-    },
-    []
-  );
+  const openDialog = useCallback(() => {
+    setDialogState({
+      isOpen: true,
+      title,
+      content,
+    });
+  }, [content, title]);
 
   const closeDialog = useCallback(() => {
     setDialogState((prev) => ({

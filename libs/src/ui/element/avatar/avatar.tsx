@@ -82,7 +82,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     >
       <div className={`ded-avatar ${getShapeClass('ded-avatar', shape)}`}>
         {src ? (
-          <Image src={src} alt={alt} ratio={11} objectFit="cover" />
+          <Image src={src} alt={alt} ratio="1x1" objectFit="cover" />
         ) : (
           <span className={`ded-avatar-text ${getSizeClass('ded-text', size)}`}>
             {getAbbrFullName(userName, 2)}

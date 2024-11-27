@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import Image from './image';
+import { Grid, Row, Column } from '@src/ui/section/grid';
 
 export default {
   title: 'Component/Image',
@@ -53,14 +54,23 @@ type Story = StoryObj<typeof Image>;
 export const Default: Story = {
   name: '預設項目',
   args: {
-    src: 'https://picsum.photos/300/300',
+    src: 'https://picsum.photos/300/300?random=1',
     alt: 'placeholder',
-    ratio: 169,
-    objectFit: 'contain',
+    ratio: '1x1',
+    objectFit: 'cover',
     className: '',
   },
   render(args) {
-    return <Image {...args} />;
+    return (
+      <Grid fluid>
+        <Row hasGap>
+          <Column xs={12} sm={6} md={3}>
+            <Image {...args} />
+            <div style={{ textAlign: 'right' }}>1x1</div>
+          </Column>
+        </Row>
+      </Grid>
+    );
   },
 };
 
@@ -68,17 +78,47 @@ export const Ratio: Story = {
   name: '比例項目',
   args: {
     alt: 'placeholder',
-    objectFit: 'contain',
+    objectFit: 'none',
     className: '',
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-        <Image {...args} src="https://picsum.photos/300/300" ratio={11} />
-        <Image {...args} src="https://picsum.photos/300/300" ratio={43} />
-        <Image {...args} src="https://picsum.photos/300/300" ratio={54} />
-        <Image {...args} src="https://picsum.photos/300/300" ratio={169} />
-      </div>
+      <Grid fluid>
+        <Row hasGap>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=2"
+              ratio="1x1"
+            />
+            <div style={{ textAlign: 'right' }}>1x1</div>
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=2"
+              ratio="4x3"
+            />
+            <div style={{ textAlign: 'right' }}>4x3</div>
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=2"
+              ratio="5x4"
+            />
+            <div style={{ textAlign: 'right' }}>5x4</div>
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=2"
+              ratio="16x9"
+            />
+            <div style={{ textAlign: 'right' }}>16x9</div>
+          </Column>
+        </Row>
+      </Grid>
     );
   },
 };
@@ -87,25 +127,47 @@ export const Fit: Story = {
   name: '比例項目',
   args: {
     alt: 'placeholder',
-    ratio: 169,
+    ratio: '16x9',
     className: '',
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-        <Image {...args} src="https://picsum.photos/300/300" objectFit="none" />
-        <Image
-          {...args}
-          src="https://picsum.photos/300/300"
-          objectFit="contain"
-        />
-        <Image {...args} src="https://picsum.photos/300/300" objectFit="fill" />
-        <Image
-          {...args}
-          src="https://picsum.photos/300/300"
-          objectFit="cover"
-        />
-      </div>
+      <Grid fluid>
+        <Row hasGap>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=3"
+              objectFit="none"
+            />
+            <div style={{ textAlign: 'right' }}>none</div>
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=3"
+              objectFit="contain"
+            />
+            <div style={{ textAlign: 'right' }}>contain</div>
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=3"
+              objectFit="fill"
+            />
+            <div style={{ textAlign: 'right' }}>fill</div>
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            <Image
+              {...args}
+              src="https://picsum.photos/300/300?random=3"
+              objectFit="cover"
+            />
+            <div style={{ textAlign: 'right' }}>cover</div>
+          </Column>
+        </Row>
+      </Grid>
     );
   },
 };
