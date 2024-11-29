@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import AvatarGroup from './avatar-group';
 import { AvatarProps } from '@src/ui/element/avatar';
-import { size } from 'lodash';
 
 const users: AvatarProps[] = [
   {
