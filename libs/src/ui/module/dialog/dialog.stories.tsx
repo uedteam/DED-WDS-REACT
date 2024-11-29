@@ -3,6 +3,7 @@ import { Dialog } from '@src/ui';
 import { useDialog } from '@src/hooks';
 import { Button, Title } from '@src/ui';
 import { StoryContext } from 'storybook/internal/types';
+import { CloseIcon } from '@src/assets';
 
 export default {
   title: 'Component/Dialog',
@@ -11,9 +12,21 @@ export default {
   argTypes: {
     isOpen: {
       description: '是否開啟',
+      table: {
+        category: 'PROPS',
+      },
     },
     hasClose: {
       description: '是否有關閉按鈕',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    className: {
+      description: '客製化樣式',
+      table: {
+        category: 'PROPS',
+      },
     },
     title: {
       description: '標題',
@@ -39,9 +52,6 @@ export default {
         category: 'EVENTS',
       },
     },
-    className: {
-      description: '客製化樣式',
-    },
   },
   args: {
     isOpen: false,
@@ -59,50 +69,27 @@ export default {
           const { args } = storyContext;
 
           return `
-const { isOpen, title, content, openDialog, closeDialog } = useDialog({
-    isOpen: ${args?.isOpen || false},
-    title: <Title level={3}>Title</Title>,
-    content: <p>Content</p>,
-  });
-
-  const handleOK = () => {
-    window.alert('ok');
-    closeDialog();
-  };
-
-  const handleCancel = () => {
-    window.alert('cancel');
-    closeDialog();
-  };
-
-  return (
+<Dialog
+  isOpen=${args?.isOpen || false}
+  hasClose=${args?.hasClose || false}
+  onClose={closeDialog}
+  title="${args?.title}"
+  content="${args?.content}"
+  footer={
     <>
-      <Button onClick={openDialog} variant="contained">
-        Open Dialog
+      <Button
+        onClick={handleCancel}
+        variant="contained"
+        className="cancel-btn"
+      >
+        Cancel
       </Button>
-      <Dialog
-        isOpen={isOpen}
-        hasClose={args?.hasClose || false}
-        onClose={closeDialog}
-        title={title}
-        content={content}
-        footer={
-          <>
-            <Button
-              onClick={handleCancel}
-              variant="contained"
-              className="cancel-btn"
-            >
-              Cancel
-            </Button>
-            <Button onClick={handleOK} variant="contained">
-              OK
-            </Button>
-          </>
-        }
-      />
+      <Button onClick={handleOK} variant="contained">
+        OK
+      </Button>
     </>
-  )`;
+  }
+/>`;
         },
       },
     },
@@ -110,7 +97,7 @@ const { isOpen, title, content, openDialog, closeDialog } = useDialog({
 } as Meta;
 type Story = StoryObj<typeof Dialog>;
 
-const DefaultWithHook = (args: Story['args']) => {
+const DemoWithHook = (args: Story['args']) => {
   const { isOpen, title, content, openDialog, closeDialog } = useDialog({
     isOpen: args?.isOpen || false,
     title: <Title level={3}>Title</Title>,
@@ -160,9 +147,49 @@ const DefaultWithHook = (args: Story['args']) => {
 export const Default: Story = {
   name: '預設項目',
   args: {
+    isOpen: true,
+    hasClose: false,
+    title: 'Title',
+    content: 'Content',
+    onClose: () => window.alert('close'),
+  },
+  render(args) {
+    const { hasClose, title, content, onClose, className } = args;
+    return (
+      <div
+        className={`dialog-content ${className}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {onClose && hasClose && (
+          <button className="dialog-close-btn" onClick={onClose}>
+            <CloseIcon width={20} height={20} />
+          </button>
+        )}
+        <div className="dialog-header">{title}</div>
+        <div className="dialog-body">{content}</div>
+        <div className="dialog-footer">
+          <Button
+            onClick={() => window.alert('cancel')}
+            variant="contained"
+            className="cancel-btn"
+          >
+            Cancel
+          </Button>
+          <Button onClick={() => window.alert('ok')} variant="contained">
+            OK
+          </Button>
+        </div>
+      </div>
+    );
+  },
+};
+
+export const Demo: Story = {
+  name: 'Demo',
+  args: {
     className: '',
   },
   render(args) {
-    return <DefaultWithHook {...args} />;
+    return <DemoWithHook {...args} />;
   },
 };

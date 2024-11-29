@@ -2,8 +2,9 @@ import React from 'react';
 import { Portal } from '../../portal';
 import './style.scss';
 import { CloseIcon } from '@src/assets';
+import { Mask } from '../../mask';
 
-interface DialogProps {
+export interface DialogProps {
   isOpen: boolean;
   hasClose?: boolean;
   onClose?: () => void;
@@ -27,7 +28,7 @@ export const Dialog: React.FC<DialogProps> = ({
   return (
     <Portal>
       {isOpen && (
-        <div className={`dialog-overlay ${className}`} onClick={onClose}>
+        <Mask onClose={onClose}>
           <div
             className={`dialog-content ${className}`}
             onClick={(e) => e.stopPropagation()}
@@ -41,7 +42,7 @@ export const Dialog: React.FC<DialogProps> = ({
             <div className="dialog-body">{content}</div>
             <div className="dialog-footer">{footer}</div>
           </div>
-        </div>
+        </Mask>
       )}
     </Portal>
   );
