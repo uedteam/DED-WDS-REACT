@@ -249,3 +249,6 @@ $arrow-position: (
   'right': ('top': 50%, 'left': calc(0% - 8px), 'transform': translateY(-50%) rotate(90deg)),
   'right-bottom': ('top': 50%, 'left': calc(0% - 8px), 'transform': translateY(-50%) rotate(90deg)),
 );
+
+// accordion 狀態
+$accordion-colors: blend-rgba($dark-color-primary, $lightness80)

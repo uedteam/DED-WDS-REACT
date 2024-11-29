@@ -1,0 +1,50 @@
+.accordion {
+  list-style: none;
+
+  &-item {
+    padding: 8px 12px;
+    background-color: $color-white;
+    border-bottom: 1px solid #ccc;
+
+    &:hover {
+      background-color: $accordion-colors;
+    }
+
+    &:focus {
+      border: 2px solid $accordion-colors;
+    }
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+
+      &::marker {
+        content: '';
+      }
+    }
+
+    &-open {
+      transition: transform .3s;
+      transform: rotate(180deg);
+    }
+
+    &-close {
+      transition: transform .3s;
+      transform: rotate(0deg);
+    }
+
+    p {
+      overflow: hidden;
+      font-size: 14px;
+      max-height: 0;
+      transition: max-height 1s ease;
+    }
+
+    &[open] p {
+      max-height: 200px;
+    }
+  }
+}

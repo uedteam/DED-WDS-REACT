@@ -17,6 +17,7 @@ import { Card } from './section/card';
 import { Menu } from './module/menu';
 import { Image } from './element/image';
 import { Dialog } from './module/dialog';
+import { Accordion } from './element/accordion';
 
 export {
   Title,
@@ -40,4 +41,5 @@ export {
   Menu,
   Image,
   Dialog,
+  Accordion,
 };
