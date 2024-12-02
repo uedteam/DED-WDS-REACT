@@ -55,7 +55,8 @@ const qaList = [
   {
     id: '4',
     label: 'Q4. React 的優點有哪些？',
-    detail: 'React 的優點有：組件化、單向數據流、虛擬 DOM。',
+    detail:
+      'React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。',
   },
 ];
 

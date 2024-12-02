@@ -12,32 +12,22 @@
   background-color: $color-white;
 }
 
-.ded-item {
+.ded-list-item-text {
   position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px;
 
-  &-label {
+  .ded-list-item-label {
     width: 100%;
   }
 }
 
-.ded-list-link {
-  cursor: pointer;
 
-  &:hover {
-    color: $color-gray10;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px inset $color-gray60;
-  }
-}
-
-.ded-item-link {
-  cursor: pointer;
+.ded-list-item-link {
+  text-decoration: none;
+  color: $color-gray80;
 
   &:hover {
     background-color: $color-gray10;
@@ -48,7 +38,15 @@
   }
 }
 
-.ded-item-link-disabled {
+.ded-list-item-link-disabled {
   cursor: not-allowed;
   color: $color-gray40;
+}
+
+.ded-list-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

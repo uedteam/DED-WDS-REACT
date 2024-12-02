@@ -29,6 +29,7 @@ import DragonballIcon from '@assets/dragonball.svg?react';
 import GoogleIcon from '@assets/google.svg?react';
 import FacebookIcon from '@assets/facebook.svg?react';
 import MailIcon from '@assets/mail.svg?react';
+import NotificationIcon from '@assets/notification.svg?react';
 
 export {
   AccountIcon,
@@ -62,4 +63,5 @@ export {
   GoogleIcon,
   FacebookIcon,
   MailIcon,
+  NotificationIcon,
 };

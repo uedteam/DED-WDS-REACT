@@ -14,13 +14,12 @@ export const Accordion: React.FC<AccordionProps> = ({
   return (
     <ul className={`accordion ${className}`}>
       {dataSource.map((item) => (
-        <li key={item.id}>
-          <AccordionItem
-            label={item.label}
-            content={item.detail}
-            isOpenAll={isOpenAll}
-          />
-        </li>
+        <AccordionItem
+          key={item.id}
+          label={item.label}
+          content={item.detail}
+          isOpenAll={isOpenAll}
+        />
       ))}
     </ul>
   );
