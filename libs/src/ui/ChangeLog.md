@@ -1,17 +1,15 @@
-## V1.2.7 (2024/12/2)
+## V1.2.8 (2024/12/2)
 
 ✨ New Feature
-
-- add badge component
 
 ---
 
 🆙 Update
 
-- refactor list component
-- refactor menu component
-- modify side nav component
-- modify accordion component
+- sort storybook side feature
+- modify use outside hook
+- modify parameter ref to ref array
+- refactor avatar group component and use outside hook
 
 ---
 
