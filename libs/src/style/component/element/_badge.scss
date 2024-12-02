@@ -7,7 +7,7 @@
 
 // 基礎設定
 .ded-badge__content {
-  min-width: 18px;
+  min-width: calc(1em + 4px);
   margin: auto 0;
   background-color: #FF4C51;
   border-radius: 999px;
@@ -16,7 +16,7 @@
   white-space: nowrap;
   font-size: 12px;
   line-height: 1;
-  padding: 0 4px;
+  padding: 2px 4px;
   z-index: 5;
 }
 
@@ -25,6 +25,11 @@
   position: absolute;
   bottom: calc(100% - 20%);
   left: calc(100% - 10%);
+
+  .ded-badge-text {
+    line-height: 1;
+    font-size: 12px;
+  }
 }
 
 // position-top-right - 顯示點點
@@ -35,7 +40,7 @@
   margin-left: 4px;
   padding: 0;
   bottom: calc(100% - 20%);
-  left: calc(100% - 10%);
+  left: calc(100% - 30%);
 }
 
 @each $theme in $themes {

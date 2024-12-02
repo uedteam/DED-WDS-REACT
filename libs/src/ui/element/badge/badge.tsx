@@ -17,7 +17,7 @@ interface BadgeProps {
 }
 
 export const Badge: React.FC<BadgeProps> = ({
-  themeColor,
+  themeColor = 'error',
   children,
   type,
   value = 0,
@@ -42,10 +42,10 @@ export const Badge: React.FC<BadgeProps> = ({
           type === 'dot' ? 'ded-badge__content-isDot' : ''
         }`}
       >
-        {type === 'number' && (
+        {type === 'number' && value > 0 && (
           <>
-            <span>{msgCount}</span>
-            {value > limit && <span>+</span>}
+            <span className="ded-badge-text">{msgCount}</span>
+            {value > limit && <span className="ded-badge-text">+</span>}
           </>
         )}
       </div>
