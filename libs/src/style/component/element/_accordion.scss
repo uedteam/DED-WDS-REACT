@@ -2,7 +2,6 @@
   list-style: none;
 
   &-item {
-    padding: 8px 12px;
     background-color: $color-white;
     border-bottom: 1px solid #ccc;
 
@@ -14,18 +13,6 @@
       border: 2px solid $accordion-colors;
     }
 
-    summary {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 700;
-
-      &::marker {
-        content: '';
-      }
-    }
-
     &-open {
       transition: transform .3s;
       transform: rotate(180deg);
@@ -35,16 +22,30 @@
       transition: transform .3s;
       transform: rotate(0deg);
     }
+  }
 
-    p {
-      overflow: hidden;
-      font-size: 14px;
-      max-height: 0;
-      transition: max-height 1s ease;
+  details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px 0;
+      cursor: pointer;
+      font-weight: 700;
+
+      &::marker {
+        content: '';
+      }
     }
 
-    &[open] p {
-      max-height: 200px;
+    p {
+      padding: 0 12px 8px;
+      overflow: hidden;
+      font-size: 14px;
     }
   }
 }
