@@ -50,9 +50,18 @@ export const Item: React.FC<ItemProps> = ({
   };
 
   return (
-    <li className={`ded-item ded-item-link ${className}`} onClick={handleClick}>
-      {prefix && <div className="ded-icon">{prefix}</div>}
-      <div className="ded-item-label">{label}</div>
+    <li className={`ded-list-item ${className}`} onClick={handleClick}>
+      {href ? (
+        <a className="ded-list-item-text ded-list-item-link" href={href}>
+          {prefix && <div className="ded-list-icon">{prefix}</div>}
+          <div className="ded-list-item-label">{label}</div>
+        </a>
+      ) : (
+        <div className="ded-list-item-text">
+          {prefix && <div className="ded-list-icon">{prefix}</div>}
+          <div className="ded-list-item-label">{label}</div>
+        </div>
+      )}
     </li>
   );
 };
