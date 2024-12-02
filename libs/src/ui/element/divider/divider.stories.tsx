@@ -12,6 +12,7 @@ export default {
         type: 'select',
       },
       options: [
+        'none',
         'primary',
         'secondary',
         'tertiary',
@@ -81,7 +82,7 @@ export default {
     },
   },
   args: {
-    themeColor: '',
+    themeColor: 'none',
     width: 'xsmall',
     type: 'solid',
     direction: 'horizontal',

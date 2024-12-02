@@ -14,7 +14,7 @@ export default {
       },
     },
     alt: {
-      description: '圖片說明',
+      description: '圖片替代文字',
       control: {
         type: 'text',
       },
@@ -66,7 +66,6 @@ export const Default: Story = {
         <Row hasGap>
           <Column xs={12} sm={6} md={3}>
             <Image {...args} />
-            <div style={{ textAlign: 'right' }}>1x1</div>
           </Column>
         </Row>
       </Grid>
