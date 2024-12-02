@@ -1,0 +1,45 @@
+@use "sass:color";
+
+.ded-badge__container {
+  position: relative;
+  display: inline-flex;
+}
+
+// 基礎設定
+.ded-badge__content {
+  min-width: 18px;
+  margin: auto 0;
+  background-color: #FF4C51;
+  border-radius: 999px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0 4px;
+  z-index: 5;
+}
+
+// position-top-right - 顯示數字
+.ded-badge__content.ded-badge__position-top-right {
+  position: absolute;
+  bottom: calc(100% - 20%);
+  left: calc(100% - 10%);
+}
+
+// position-top-right - 顯示點點
+.ded-badge__content.ded-badge__position-top-right.ded-badge__content-isDot {
+  min-width: 0px;
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  padding: 0;
+  bottom: calc(100% - 20%);
+  left: calc(100% - 10%);
+}
+
+@each $theme in $themes {
+  .ded-badge__content.ded-badge-color-#{$theme} {
+    background: getThemeColor($mode, $theme, "default");
+  }
+}
