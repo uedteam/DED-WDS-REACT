@@ -83,7 +83,7 @@ export default {
   },
   args: {
     themeColor: 'none',
-    width: 'xsmall',
+    width: 'small',
     type: 'solid',
     direction: 'horizontal',
     align: 'center',
