@@ -1,3 +1,7 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
 .accordion {
   list-style: none;
 
@@ -25,15 +29,11 @@
   }
 
   details {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    summary {
+    .detail-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 12px 0;
+      padding: 8px 12px 8px;
       cursor: pointer;
       font-weight: 700;
 
@@ -48,4 +48,17 @@
       font-size: 14px;
     }
   }
+}
+
+/* Animation */
+::details-content {
+  transition: height 0.5s ease, content-visibility 0.5s ease allow-discrete;
+  height: 0;
+  overflow: clip;
+  content-visibility: visible !important;
+}
+
+[open]::details-content {
+  height: auto;
+  height: calc-size(auto);
 }
