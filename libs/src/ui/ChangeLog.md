@@ -1,4 +1,4 @@
-## V1.2.8 (2024/12/2)
+## V1.2.9 (2024/12/4)
 
 ✨ New Feature
 
@@ -6,10 +6,12 @@
 
 🆙 Update
 
-- sort storybook side feature
-- modify use outside hook
-- modify parameter ref to ref array
-- refactor avatar group component and use outside hook
+- add toast component
+- remove comment
+- modify divider storybook default
+- modify list component style
+- modify accordion animation
+- refactor input and dropdown component
 
 ---
 
