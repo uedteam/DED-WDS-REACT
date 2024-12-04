@@ -14,8 +14,6 @@ export interface DialogProps {
   className?: string;
 }
 
-/* 定義組件 */
-/* 修改組件定義名稱 Component */
 export const Dialog: React.FC<DialogProps> = ({
   isOpen = false,
   hasClose = false,

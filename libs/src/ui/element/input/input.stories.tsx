@@ -92,6 +92,12 @@ export default {
         category: 'PROPS',
       },
     },
+    isOpen: {
+      description: '是否使用選單並開啟',
+      table: {
+        disable: true,
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {

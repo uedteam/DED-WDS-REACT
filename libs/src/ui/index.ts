@@ -18,6 +18,7 @@ import { Menu } from './module/menu';
 import { Image } from './element/image';
 import { Dialog } from './module/dialog';
 import { Accordion } from './element/accordion';
+import { Toast } from './module/toast';
 
 export {
   Title,
@@ -42,4 +43,5 @@ export {
   Image,
   Dialog,
   Accordion,
+  Toast,
 };

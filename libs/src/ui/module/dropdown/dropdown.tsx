@@ -59,12 +59,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
         ref={dropdownRef}
         onClick={handleClick}
       >
-        <Input initValue={value} type="text" className="ded-dropdown-input" />
-        <ArrowDownIcon
-          width={20}
-          height={20}
-          className={isVisible ? 'ded-dropdown-open' : 'ded-dropdown-close'}
-        ></ArrowDownIcon>
+        <Input
+          initValue={value}
+          isOpen={isVisible}
+          type="text"
+          className="ded-dropdown-input"
+        />
       </div>
       <Portal>
         {isVisible && (

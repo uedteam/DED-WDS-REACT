@@ -69,9 +69,9 @@ export const AccordionItem: React.FC<AccordionProps> = ({
           setIsOpen((e.target as HTMLDetailsElement).open);
         }}
         open={isOpen}
-        className={className}
+        className={`detail ${className}`}
       >
-        <summary>
+        <summary className="detail-title">
           <span>{label}</span>
           <div
             className={`${
@@ -81,7 +81,9 @@ export const AccordionItem: React.FC<AccordionProps> = ({
             <ArrowDownIcon width={20} height={20} />
           </div>
         </summary>
-        <p>{content}</p>
+        <div className="detail-content">
+          <p>{content}</p>
+        </div>
       </details>
     </li>
   );
