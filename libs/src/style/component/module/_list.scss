@@ -2,14 +2,15 @@
   display: inline-flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 8px;
   list-style: none;
+  overflow: hidden;
 }
 
 .ded-outline {
   box-shadow: $shadow-light2;
   list-style: none;
   background-color: $color-white;
+  border-radius: 8px;
 }
 
 .ded-list-item-text {
