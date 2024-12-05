@@ -52,6 +52,7 @@
   "dependencies": {
     "@nrwl/cli": "^15.9.3",
     "@storybook/builder-vite": "^8.2.8",
+    "@storybook/client-api": "^7.6.17",
     "@storybook/react": "^8.2.8",
     "ded-wds": "^1.0.8",
     "gh-pages": "^6.1.1",
