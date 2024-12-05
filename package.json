@@ -1,6 +1,6 @@
 {
   "name": "ded-wds-kevin",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "Web Design System",
   "license": "MIT",
   "homepage": "https://uedteam.github.io/DED-WDS",
@@ -52,6 +52,7 @@
   "dependencies": {
     "@nrwl/cli": "^15.9.3",
     "@storybook/builder-vite": "^8.2.8",
+    "@storybook/client-api": "^7.6.17",
     "@storybook/react": "^8.2.8",
     "ded-wds": "^1.0.8",
     "gh-pages": "^6.1.1",
