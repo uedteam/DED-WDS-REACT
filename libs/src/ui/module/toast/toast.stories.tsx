@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Toast } from '@src/ui';
-import { Button } from '@src/ui';
+import { Toast, Button } from '@src/ui';
 import { StoryContext } from 'storybook/internal/types';
 import { CloseIcon, CheckIcon, InfoIcon, WarningIcon } from '@src/assets';
 import { useToast } from '@src/hooks';
@@ -89,9 +88,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: 'Dialog',
+      title: 'Toast',
       description: {
-        component: 'Dialog 的呈現及說明。',
+        component: '通知訊息組件的呈現及說明。',
       },
       source: {
         transform(code: string, storyContext: StoryContext) {
@@ -106,29 +105,6 @@ export default {
   },
 } as Meta;
 type Story = StoryObj<typeof Toast>;
-
-const DemoWithHook = (args: Story['args']) => {
-  const { addToast, ToastContainer } = useToast();
-
-  const handleShowToast = () => {
-    addToast({
-      themeColor: args?.themeColor || 'success',
-      title: args?.title || 'Title',
-      content: args?.content || 'Content',
-      prefix: args?.prefix || <CheckIcon />,
-      duration: args?.duration,
-    });
-  };
-
-  return (
-    <>
-      <Button onClick={handleShowToast} variant="contained">
-        Open Dialog
-      </Button>
-      <ToastContainer />
-    </>
-  );
-};
 
 export const Default: Story = {
   name: '預設項目',
@@ -155,7 +131,7 @@ export const Default: Story = {
 };
 
 export const Type: Story = {
-  name: 'Toast 類型',
+  name: '通知訊息類型',
   args: {},
   render(args) {
     const { title, content, prefix, onClose, className } = args;
@@ -226,7 +202,7 @@ export const Type: Story = {
 };
 
 export const Demo: Story = {
-  name: '點擊顯示',
+  name: '互動模式',
   args: {
     themeColor: 'success',
     onClose: () => window.alert('close'),
@@ -236,7 +212,26 @@ export const Demo: Story = {
     duration: 1000,
     className: '',
   },
-  render(args) {
-    return <DemoWithHook {...args} />;
+  render: function Render(args) {
+    const { addToast, ToastContainer } = useToast();
+
+    const handleShowToast = () => {
+      addToast({
+        themeColor: args?.themeColor || 'success',
+        title: args?.title || 'Title',
+        content: args?.content || 'Content',
+        prefix: args?.prefix || <CheckIcon />,
+        duration: args?.duration,
+      });
+    };
+
+    return (
+      <>
+        <Button onClick={handleShowToast} variant="contained">
+          Open Dialog
+        </Button>
+        <ToastContainer />
+      </>
+    );
   },
 };

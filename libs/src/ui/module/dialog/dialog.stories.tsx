@@ -62,7 +62,7 @@ export default {
     docs: {
       title: 'Dialog',
       description: {
-        component: 'Dialog 的呈現及說明。',
+        component: '彈窗組件的呈現及說明。',
       },
       source: {
         transform(code: string, storyContext: StoryContext) {
@@ -185,7 +185,7 @@ export const Default: Story = {
 };
 
 export const Demo: Story = {
-  name: 'Demo',
+  name: '互動模式',
   args: {
     className: '',
   },
