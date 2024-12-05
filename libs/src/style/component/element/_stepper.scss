@@ -1,0 +1,114 @@
+.stepper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &.horizontal {
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      .stepper-step {
+        text-align: center;
+        flex: 1;
+        position: relative;
+
+        .step-title {
+          margin-top: 0.5rem;
+          font-size: 0.875rem;
+          color: #333;
+        }
+
+        &:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          top: 22%;
+          left: calc(50% + 32px);
+          transform: translateY(-50%);
+          width: 80%;
+          height: 2px;
+          background-color: #ccc;
+          z-index: -1;
+        }
+
+        &.completed:not(:last-child)::after {
+          background-color: #28a745;
+        }
+      }
+    }
+  }
+
+  &.vertical {
+    flex-direction: row;
+
+    .stepper-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 1rem;
+
+      .stepper-step {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 3rem;
+
+        .step-circle {
+          margin-right: 1rem;
+        }
+
+        .step-title {
+          flex-grow: 1;
+        }
+
+        .step-connector {
+          width: 2px;
+          height: 3rem;
+          background-color: #ccc;
+          position: absolute;
+          left: 20px;
+          top: 100%;
+        }
+
+        &.completed .step-connector {
+          background-color: #28a745;
+        }
+      }
+    }
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  & .active .step-circle {
+    background-color: #007bff;
+  }
+
+  & .completed .step-circle {
+    background-color: #28a745;
+  }
+
+  & .completed.stepper-step .step-group .step-title {
+    color: #28a745;
+  }
+
+  .stepper-content {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+}

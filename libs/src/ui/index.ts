@@ -19,6 +19,7 @@ import { Image } from './element/image';
 import { Dialog } from './module/dialog';
 import { Accordion } from './element/accordion';
 import { Toast } from './module/toast';
+import { Stepper } from './module/stepper/stepper';
 
 export {
   Title,
@@ -44,4 +45,5 @@ export {
   Dialog,
   Accordion,
   Toast,
+  Stepper,
 };
