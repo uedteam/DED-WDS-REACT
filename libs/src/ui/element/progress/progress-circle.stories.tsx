@@ -83,7 +83,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '圓形進度指示',
+      title: 'Circle Progress',
       description: {
         component: '圓形進度指示組件的呈現及說明。',
       },

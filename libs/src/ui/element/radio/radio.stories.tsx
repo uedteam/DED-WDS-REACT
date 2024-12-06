@@ -79,7 +79,7 @@ export default {
     docs: {
       title: 'Radio Button',
       description: {
-        component: 'Radio Button 組件的呈現及說明。',
+        component: '單選按鈕組件的呈現及說明。',
       },
     },
   },

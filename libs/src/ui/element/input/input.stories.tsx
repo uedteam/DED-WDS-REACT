@@ -114,7 +114,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '輸入框',
+      title: 'Input',
       description: {
         component: '輸入框組件的呈現及說明。',
       },

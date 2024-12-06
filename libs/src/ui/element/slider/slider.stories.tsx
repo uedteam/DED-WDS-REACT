@@ -77,9 +77,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '滑桿',
+      title: 'Slider',
       description: {
-        component: '滑桿的呈現及說明。',
+        component: '滑桿組件的呈現及說明。',
       },
     },
   },

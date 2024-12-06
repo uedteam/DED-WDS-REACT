@@ -72,7 +72,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '開關按鈕',
+      title: 'Toggle',
       description: {
         component: '開關按鈕組件的呈現及說明。',
       },

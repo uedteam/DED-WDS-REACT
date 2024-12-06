@@ -29,7 +29,7 @@ export default {
     docs: {
       title: 'Accordion',
       description: {
-        component: 'Accordion 的呈現及說明。',
+        component: '折疊選單組件的呈現及說明。',
       },
     },
   },
@@ -39,24 +39,25 @@ type Story = StoryObj<typeof Accordion>;
 const qaList = [
   {
     id: '1',
-    label: 'Q1. 什麼是 React？',
-    detail: 'React 是一個用於構建用戶界面的 JavaScript 函數庫。',
+    label: 'Q1. What is React?',
+    detail: 'React is a JavaScript library for building user interfaces.',
   },
   {
     id: '2',
-    label: 'Q2. React 的特點有哪些？',
-    detail: 'React 的特點有：組件化、單向數據流、虛擬 DOM。',
+    label: 'Q2. What are the features of React?',
+    detail:
+      'The features of React include component-based architecture, unidirectional data flow, and virtual DOM.',
   },
   {
     id: '3',
-    label: 'Q3. React 的生態系統有哪些？',
-    detail: 'React 的生態系統有：React Router、Redux、Axios。',
+    label: 'Q3. What is included in the React ecosystem?',
+    detail: 'The React ecosystem includes React Router, Redux, and Axios.',
   },
   {
     id: '4',
-    label: 'Q4. React 的優點有哪些？',
+    label: 'Q4. What are the advantages of React?',
     detail:
-      'React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。React 的優點有：組件化、單向數據流、虛擬 DOM。',
+      'The advantages of React include component-based architecture, unidirectional data flow, and virtual DOM. These features provide efficiency, reusability, and better performance.',
   },
 ];
 

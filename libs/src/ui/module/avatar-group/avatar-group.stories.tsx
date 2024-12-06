@@ -69,7 +69,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '個人頭像群組',
+      title: 'Avatar Group',
       description: {
         component: '個人頭像群組的呈現及說明。',
       },

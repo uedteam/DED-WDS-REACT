@@ -109,7 +109,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '按鈕滑桿',
+      title: 'Slider Control',
       description: {
         component: '按鈕滑桿輸入的呈現及說明。',
       },

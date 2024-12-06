@@ -49,7 +49,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '標題',
+      title: 'Title',
       description: {
         component: '標題組件的呈現及說明。',
       },

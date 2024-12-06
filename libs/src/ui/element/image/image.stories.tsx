@@ -42,9 +42,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '圖片',
+      title: 'Image',
       description: {
-        component: '圖片的呈現及說明。',
+        component: '圖片組件的呈現及說明。',
       },
     },
   },

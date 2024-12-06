@@ -94,7 +94,7 @@ export default {
     docs: {
       title: '分隔線',
       description: {
-        component: '分隔線的呈現及說明。',
+        component: '分隔線組件的呈現及說明。',
       },
     },
   },

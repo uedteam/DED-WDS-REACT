@@ -73,9 +73,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '清單',
+      title: 'List',
       description: {
-        component: '清單的呈現及說明。',
+        component: '清單組件的呈現及說明。',
       },
     },
   },

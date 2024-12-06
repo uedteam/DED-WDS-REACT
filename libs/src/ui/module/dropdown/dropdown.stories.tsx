@@ -22,35 +22,33 @@ export default {
   },
   parameters: {
     docs: {
-      title: '搜尋',
+      title: 'Dropdown',
       description: {
-        /* 組件描述 */
-        component: '組件的呈現及說明。',
+        component: '下拉選單組件的呈現及說明。',
       },
     },
   },
 } as Meta;
-/* 設定組件類型 */
 type Story = StoryObj<typeof Dropdown>;
 
 const options = [
   {
     content: {
-      label: '選項一',
+      label: 'Option1',
       value: 'option1',
       // href: '#',
     },
   },
   {
     content: {
-      label: '選項二',
+      label: 'Option2',
       value: 'option2',
       // href: '#',
     },
   },
   {
     content: {
-      label: '選項三',
+      label: 'Option3',
       value: 'option3',
       // href: '#',
     },
@@ -58,7 +56,7 @@ const options = [
 ];
 
 export const Default: Story = {
-  name: '搜尋輸入框',
+  name: '預設項目',
   args: {
     dataSource: options,
     label: 'Label',

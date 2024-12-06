@@ -88,9 +88,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '標籤',
+      title: 'Tag',
       description: {
-        component: '標籤的呈現及說明。',
+        component: '標籤組件的呈現及說明。',
       },
     },
   },

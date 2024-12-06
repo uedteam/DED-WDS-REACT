@@ -55,7 +55,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '長條進度指示',
+      title: 'Line Progress',
       description: {
         component: '長條進度指示組件的呈現及說明。',
       },
