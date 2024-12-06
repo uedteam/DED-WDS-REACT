@@ -133,7 +133,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '按鈕',
+      title: 'Button',
       description: {
         component: '按鈕組件的呈現及說明。',
       },

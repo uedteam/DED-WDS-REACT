@@ -102,7 +102,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '頁籤',
+      title: 'Tabs',
       description: {
         component: '頁籤組件的呈現及說明。',
       },

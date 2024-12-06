@@ -58,7 +58,7 @@ export default {
     docs: {
       title: '徽章',
       description: {
-        component: '徽章的呈現及說明。',
+        component: '徽章組件的呈現及說明。',
       },
     },
   },

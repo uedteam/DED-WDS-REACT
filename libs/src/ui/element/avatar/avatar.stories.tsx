@@ -65,7 +65,7 @@ export default {
     docs: {
       title: 'Avatar',
       description: {
-        component: '個人頭像的呈現及說明。',
+        component: '個人頭像組件的呈現及說明。',
       },
     },
   },

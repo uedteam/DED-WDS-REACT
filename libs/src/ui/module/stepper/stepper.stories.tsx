@@ -42,7 +42,7 @@ export default {
   },
   parameters: {
     docs: {
-      title: '元件/步驟導航',
+      title: 'Stepper',
       description: {
         component: '步驟導航組件的呈現及說明。',
       },

@@ -73,9 +73,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '卡片',
+      title: 'Card',
       description: {
-        component: '卡片的呈現及說明。',
+        component: '卡片組件的呈現及說明。',
       },
     },
   },

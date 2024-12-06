@@ -104,9 +104,9 @@ export default {
   },
   parameters: {
     docs: {
-      title: '側邊導覽',
+      title: 'Side Nav',
       description: {
-        component: '側邊導覽的呈現及說明。',
+        component: '側邊導覽組件的呈現及說明。',
       },
     },
   },
