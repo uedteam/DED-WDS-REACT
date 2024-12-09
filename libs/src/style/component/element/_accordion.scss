@@ -2,7 +2,7 @@
   interpolate-size: allow-keywords;
 }
 
-.accordion {
+.ded-accordion {
   list-style: none;
 
   &-item {
@@ -28,8 +28,8 @@
     }
   }
 
-  details {
-    .detail-title {
+  .ded-accordion-detail {
+    .ded-accordion-title {
       display: flex;
       justify-content: space-between;
       align-items: center;

@@ -12,16 +12,18 @@ export const Accordion: React.FC<AccordionProps> = ({
   className = '',
 }) => {
   return (
-    <ul className={`accordion ${className}`}>
-      {dataSource.map((item) => (
-        <AccordionItem
-          key={item.id}
-          label={item.label}
-          content={item.detail}
-          isOpenAll={isOpenAll}
-        />
-      ))}
-    </ul>
+    <div className="ded-accordion-container">
+      <ul className={`ded-accordion ${className}`}>
+        {dataSource.map((item) => (
+          <AccordionItem
+            key={item.id}
+            label={item.label}
+            content={item.detail}
+            isOpenAll={isOpenAll}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };
 export default Accordion;

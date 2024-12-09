@@ -41,7 +41,7 @@ export default {
       },
     },
     footer: {
-      description: '底部',
+      description: '附註',
       table: {
         category: 'SLOTS',
       },
@@ -98,9 +98,9 @@ export default {
 type Story = StoryObj<typeof Dialog>;
 
 const DemoWithHook = (args: Story['args']) => {
-  const { isOpen, title, content, openDialog, closeDialog } = useDialog({
+  const { isOpen, header, content, openDialog, closeDialog } = useDialog({
     isOpen: args?.isOpen || false,
-    title: <Title level={3}>Title</Title>,
+    header: <Title level={3}>Title</Title>,
     content: <p>Content</p>,
   });
 
@@ -123,7 +123,7 @@ const DemoWithHook = (args: Story['args']) => {
         isOpen={isOpen}
         hasClose={args?.hasClose || false}
         onClose={closeDialog}
-        title={title}
+        header={header}
         content={content}
         footer={
           <>
@@ -149,12 +149,12 @@ export const Default: Story = {
   args: {
     isOpen: true,
     hasClose: false,
-    title: 'Title',
+    header: 'Title',
     content: 'Content',
     onClose: () => window.alert('close'),
   },
   render(args) {
-    const { hasClose, title, content, onClose, className } = args;
+    const { hasClose, header, content, onClose, className } = args;
     return (
       <div
         className={`dialog-content ${className}`}
@@ -165,7 +165,7 @@ export const Default: Story = {
             <CloseIcon width={20} height={20} />
           </button>
         )}
-        <div className="dialog-header">{title}</div>
+        <div className="dialog-header">{header}</div>
         <div className="dialog-body">{content}</div>
         <div className="dialog-footer">
           <Button
@@ -186,9 +186,7 @@ export const Default: Story = {
 
 export const Demo: Story = {
   name: '互動模式',
-  args: {
-    className: '',
-  },
+  args: {},
   render(args) {
     return <DemoWithHook {...args} />;
   },

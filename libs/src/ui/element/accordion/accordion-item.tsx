@@ -63,25 +63,25 @@ export const AccordionItem: React.FC<AccordionProps> = ({
   }, []);
 
   return (
-    <li className="accordion-item">
+    <li className="ded-accordion-item">
       <details
         onToggle={(e) => {
           setIsOpen((e.target as HTMLDetailsElement).open);
         }}
         open={isOpen}
-        className={`detail ${className}`}
+        className={`ded-accordion-detail ${className}`}
       >
-        <summary className="detail-title">
+        <summary className="ded-accordion-title">
           <span>{label}</span>
           <div
-            className={`${
-              isOpen ? 'accordion-item-open' : 'accordion-item-close'
+            className={`ded-icon-medium ${
+              isOpen ? 'ded-accordion-item-open' : 'ded-accordion-item-close'
             }`}
           >
             <ArrowDownIcon width={20} height={20} />
           </div>
         </summary>
-        <div className="detail-content">
+        <div className="ded-detail-content">
           <p>{content}</p>
         </div>
       </details>
