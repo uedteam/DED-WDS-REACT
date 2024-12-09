@@ -1,6 +1,6 @@
 {
   "name": "ded-wds-kevin",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Web Design System",
   "license": "MIT",
   "homepage": "https://uedteam.github.io/DED-WDS",
@@ -56,6 +56,7 @@
     "@storybook/react": "^8.2.8",
     "ded-wds": "^1.0.8",
     "gh-pages": "^6.1.1",
+    "highcharts-react-official": "^3.2.1",
     "lodash": "^4.17.21",
     "react": "18.3.1",
     "react-dom": "18.3.1",
