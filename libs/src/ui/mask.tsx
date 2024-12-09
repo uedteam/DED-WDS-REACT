@@ -6,7 +6,11 @@ export interface MaskProps {
   children: ReactNode;
 }
 
-export const Mask: React.FC<MaskProps> = ({ className, onClose, children }) => {
+export const Mask: React.FC<MaskProps> = ({
+  className = '',
+  onClose,
+  children,
+}) => {
   return (
     <div className={`mask-overlay ${className}`} onClick={onClose}>
       {children}/

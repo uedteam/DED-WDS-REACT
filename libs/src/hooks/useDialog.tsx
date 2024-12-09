@@ -3,7 +3,7 @@ import { useState, useCallback, ReactNode } from 'react';
 
 interface DialogState {
   isOpen: boolean;
-  title: React.ReactNode;
+  header: React.ReactNode;
   content: React.ReactNode;
   onOpen?: () => void;
   onClose?: () => void;
@@ -11,31 +11,31 @@ interface DialogState {
 
 export const useDialog = ({
   isOpen,
-  title,
+  header,
   content,
   onOpen,
   onClose,
 }: {
   isOpen: boolean;
-  title: ReactNode;
+  header: ReactNode;
   content: ReactNode;
   onOpen?: () => void;
   onClose?: () => void;
 }) => {
   const [dialogState, setDialogState] = useState<DialogState>({
     isOpen,
-    title,
+    header,
     content,
   });
 
   const openDialog = useCallback(() => {
     setDialogState({
       isOpen: true,
-      title,
+      header,
       content,
     });
     onOpen && onOpen();
-  }, [content, title]);
+  }, [content, header]);
 
   const closeDialog = useCallback(() => {
     setDialogState((prev) => ({
@@ -46,7 +46,7 @@ export const useDialog = ({
   }, []);
 
   return {
-    ...dialogState, // 包含 isOpen, title, content
+    ...dialogState, // 包含 isOpen, header, content
     openDialog,
     closeDialog,
   };

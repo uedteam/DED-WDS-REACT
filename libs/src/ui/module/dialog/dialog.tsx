@@ -8,7 +8,7 @@ export interface DialogProps {
   isOpen: boolean;
   hasClose?: boolean;
   onClose?: () => void;
-  title?: React.ReactNode;
+  header?: React.ReactNode;
   content: React.ReactNode;
   footer?: React.ReactNode;
   className?: string;
@@ -18,7 +18,7 @@ export const Dialog: React.FC<DialogProps> = ({
   isOpen = false,
   hasClose = false,
   onClose,
-  title = 'Title',
+  header = 'Title',
   content = 'Content',
   footer,
   className = '',
@@ -36,7 +36,7 @@ export const Dialog: React.FC<DialogProps> = ({
                 <CloseIcon width={20} height={20} />
               </button>
             )}
-            <div className="dialog-header">{title}</div>
+            <div className="dialog-header">{header}</div>
             <div className="dialog-body">{content}</div>
             <div className="dialog-footer">{footer}</div>
           </div>
