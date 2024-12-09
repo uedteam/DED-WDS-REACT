@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as r}from"./index-CcnH5Kt0.js";import{ae as i,am as s}from"./index-CwcYNex4.js";import"./index-RYns6xqu.js";import"./iframe-DYqxAB0Q.js";import"../sb-preview/runtime.js";import"./index-sbqOYYIm.js";import"./index-BwO1pRjM.js";import"./index-DrFu-skq.js";const a=`## V1.2.10 (2024/12/5)
+import{j as e}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as r}from"./index-CcnH5Kt0.js";import{ae as i,am as s}from"./index-BpnbM1sR.js";import"./index-RYns6xqu.js";import"./iframe-BJW4VwEb.js";import"../sb-preview/runtime.js";import"./index-sbqOYYIm.js";import"./index-BwO1pRjM.js";import"./index-DrFu-skq.js";const a=`## V1.2.10 (2024/12/5)
 
 ✨ New Feature
 
