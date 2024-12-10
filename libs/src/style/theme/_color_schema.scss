@@ -1,0 +1,45 @@
+$theme-color: ['AUO-BLUE', 'AUO-DARK', 'AUO-PURPLE', 'AUO-YELLOW'];
+
+// AUO-Reshape
+$auo-blue: #005087;
+$auo-light-blue: #84D9ED;
+$auo-yellow: #FFE664;
+$auo-green: #9BDA73;
+$auo-purple: #AE92D2;
+
+// AUO-Button
+$button-primary-default: nth($theme-color, 1);
+$button-primary-hover: blend-rgba(nth($theme-color, 1), $alpha-light-40);
+$button-primary-focus: blend-rgba(nth($theme-color, 1), $alpha-light-10);
+$button-primary-active: blend-rgba(nth($theme-color, 1), $alpha-light-90);
+$button-primary-outline: blend-rgba(nth($theme-color, 1), $alpha-light-80);
+
+// $button-secondary-default: $secondary[$AUO-DARK];
+// $button-secondary-hover: blend-rgba($secondary[$AUO-DARK], $alpha-light-40);
+// $button-secondary-focus: blend-rgba($secondary[$AUO-DARK], $alpha-light-10);
+// $button-secondary-active: blend-rgba($secondary[$AUO-DARK], $alpha-light-90);
+// $button-secondary-outline: blend-rgba($secondary[$AUO-DARK], $alpha-light-80);
+
+// $button-tertiary-default: $tertiary[$AUO-Purple];
+// $button-tertiary-hover: blend-rgba($tertiary[$AUO-Purple], $alpha-light-40);
+// $button-tertiary-focus: blend-rgba($tertiary[$AUO-Purple], $alpha-light-10);
+// $button-tertiary-active: blend-rgba($tertiary[$AUO-Purple], $alpha-light-90);
+// $button-tertiary-outline: blend-rgba($tertiary[$AUO-Purple], $alpha-light-80);
+
+// AUO-Icon
+$icon-primary: nth($primary, 1);
+$icon-secondary: nth($secondary, 1);
+$icon-disabled: nth($neutral-50, 1);
+
+// AUO-Support
+$support-info: #00BAD1;
+$support-success: #28C76F;
+$support-warning: #FF9F43;
+$support-error: #FF4C51;
+
+// AUO-Share
+$share-blue: #64DCF0;
+$share-yellow: #FFD94D;
+$share-purple: #AF6AC3;
+$share-green: #A9E240;
+$share-orange: #FF8542;
