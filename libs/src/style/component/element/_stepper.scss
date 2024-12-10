@@ -6,13 +6,26 @@
   &.horizontal {
     .stepper-header {
       display: flex;
-      justify-content: space-between;
       margin-bottom: 1rem;
 
       .stepper-step {
+        width: 0;
         text-align: center;
-        flex: 1;
+        justify-content: center;
+        flex-grow: 1;
         position: relative;
+        display: grid;
+        position: relative;
+
+        .step-circle {
+          width: 40px;
+          height: 40px;
+          color: #fff;
+          background-color: #ccc;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+        }
 
         .step-title {
           margin-top: 0.5rem;
@@ -20,20 +33,41 @@
           color: #333;
         }
 
-        &:not(:last-child)::after {
+        &::before,
+        &::after {
           content: '';
           position: absolute;
-          top: 22%;
-          left: calc(50% + 32px);
-          transform: translateY(-50%);
-          width: 80%;
-          height: 2px;
+          top: 18px;
+          height: 4px;
           background-color: #ccc;
-          z-index: -1;
         }
 
-        &.completed:not(:last-child)::after {
+        &::before {
+          left: 0%;
+          right: 50%;
+          margin-right: 24px;
+        }
+
+        &::after {
+          left: 50%;
+          right: 0;
+          margin-left: 24px;
+        }
+
+        &.completed .step-circle,
+        &.completed:before,
+        &.completed:after,
+        &.active::before {
           background-color: #28a745;
+        }
+
+        &.active .step-circle {
+          background-color: #007bff;
+        }
+
+        &:first-child::before,
+        &:last-child::after {
+          display: none;
         }
       }
     }
@@ -45,7 +79,6 @@
     .stepper-header {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       margin-right: 1rem;
 
       .stepper-step {
