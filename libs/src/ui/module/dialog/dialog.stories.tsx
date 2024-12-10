@@ -28,7 +28,7 @@ export default {
         category: 'PROPS',
       },
     },
-    title: {
+    header: {
       description: '標題',
       table: {
         category: 'SLOTS',
