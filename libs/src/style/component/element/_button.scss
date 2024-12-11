@@ -1,10 +1,12 @@
+@use 'sass:list';
+
 .ded-button {
   display: inline-flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: $radius;
   cursor: pointer;
   transition: background-color 0.3s;
 
@@ -24,18 +26,18 @@
     box-shadow: unset;
   }
 
-  &-contained {
+  &-filled {
     background-color: $color-black;
     color: #fff;
   }
 
-  &-outlined {
+  &-ghost {
     background-color: transparent;
     border-width: $btn-border-width;
     border-style: solid;
 
     &:focus {
-      box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, 'primary', 'default'), $lightness50);
+      box-shadow: 0 0 0 3px blend-rgba(getNewThemeColor('primary', 'default'), $lightness50);
     }
 
     &:active {
@@ -54,52 +56,53 @@
     }
   }
 
+  // 主題色與樣式回圈
   @each $variant in $variants {
     @each $theme in $themes {
       &-#{$variant}-#{$theme} {
 
-        @if($variant =='contained') {
-          background-color: getThemeColor($mode, $theme, 'default');
+        @if($variant =='filled') {
+          background-color: getNewThemeColor($theme, 'default');
         }
 
         @else {
-          border-color: getThemeColor($mode, $theme, 'default');
-          color: getThemeColor($mode, $theme, 'default');
+          border-color: getNewThemeColor($theme, 'default');
+          color: getNewThemeColor($theme, 'default');
         }
 
         &:hover {
 
-          @if($variant =='contained') {
-            background-color: getThemeColor($mode, $theme, 'hover');
+          @if($variant =='filled') {
+            background-color: getNewThemeColor($theme, 'hover');
           }
 
           @else {
-            border-color: getThemeColor($mode, $theme, 'hover');
-            color: getThemeColor($mode, $theme, 'hover');
+            border-color: getNewThemeColor($theme, 'hover');
+            color: getNewThemeColor($theme, 'hover');
           }
         }
 
         &:focus {
 
-          @if($variant =='contained') {
-            background-color: getThemeColor($mode, $theme, 'focus');
+          @if($variant =='filled') {
+            background-color: getNewThemeColor($theme, 'focus');
           }
 
           @else {
-            border-color: getThemeColor($mode, $theme, 'focus');
-            color: getThemeColor($mode, $theme, 'focus');
+            border-color: getNewThemeColor($theme, 'focus');
+            color: getNewThemeColor($theme, 'focus');
           }
         }
 
         &:active {
 
-          @if($variant =='contained') {
-            background-color: getThemeColor($mode, $theme, 'active');
+          @if($variant =='filled') {
+            background-color: getNewThemeColor($theme, 'active');
           }
 
           @else {
-            border-color: getThemeColor($mode, $theme, 'active');
-            color: getThemeColor($mode, $theme, 'active');
+            border-color: getNewThemeColor($theme, 'active');
+            color: getNewThemeColor($theme, 'active');
           }
         }
       }
@@ -109,20 +112,21 @@
 
 .ded-button-container-disable {
   pointer-events: none !important;
-  color: $color-gray20 !important;
-  background-color: $color-gray20 !important;
-  color: $color-white !important;
+  background-color: list.nth($disabled-background, $site) !important;
+  color: list.nth($disabled-text, $site) !important;
 }
 
-.ded-button-outline-disable {
+.ded-button-ghost-disable {
   pointer-events: none !important;
-  color: $color-gray20 !important;
+  color: list.nth($disabled-text, $site) !important;
   background-color: transparent !important;
-  border: $btn-border-width solid $color-gray20 !important;
+  border-width: $border !important;
+  border-style: solid !important;
+  border-color: list.nth($disabled-border, $site) !important;
 }
 
 .ded-button-text-disable {
   pointer-events: none !important;
-  color: $color-gray20 !important;
+  color: list.nth($disabled-text, $site) !important;
   background-color: transparent !important;
 }

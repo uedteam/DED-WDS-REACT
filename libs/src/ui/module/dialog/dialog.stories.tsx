@@ -79,12 +79,12 @@ export default {
     <>
       <Button
         onClick={handleCancel}
-        variant="contained"
+        variant="filled"
         className="cancel-btn"
       >
         Cancel
       </Button>
-      <Button onClick={handleOK} variant="contained">
+      <Button onClick={handleOK} variant="filled">
         OK
       </Button>
     </>
@@ -116,7 +116,7 @@ const DemoWithHook = (args: Story['args']) => {
 
   return (
     <>
-      <Button onClick={openDialog} variant="contained">
+      <Button onClick={openDialog} variant="filled">
         Open Dialog
       </Button>
       <Dialog
@@ -129,12 +129,12 @@ const DemoWithHook = (args: Story['args']) => {
           <>
             <Button
               onClick={handleCancel}
-              variant="contained"
+              variant="filled"
               className="cancel-btn"
             >
               Cancel
             </Button>
-            <Button onClick={handleOK} variant="contained">
+            <Button onClick={handleOK} variant="filled">
               OK
             </Button>
           </>
@@ -170,12 +170,12 @@ export const Default: Story = {
         <div className="dialog-footer">
           <Button
             onClick={() => window.alert('cancel')}
-            variant="contained"
+            variant="filled"
             className="cancel-btn"
           >
             Cancel
           </Button>
-          <Button onClick={() => window.alert('ok')} variant="contained">
+          <Button onClick={() => window.alert('ok')} variant="filled">
             OK
           </Button>
         </div>

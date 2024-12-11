@@ -15,11 +15,11 @@ export const getThemeClass = (variant: string, themeColor: string) => {
  * @returns 按鈕變體的禁用類。
  */
 export const getDisableClass = (variant: string) => {
-  if (variant === 'contained') {
+  if (variant === 'filled') {
     return 'ded-button-container-disable';
   }
 
-  if (variant === 'outlined') {
+  if (variant === 'ghost') {
     return 'ded-button-outline-disable';
   }
 

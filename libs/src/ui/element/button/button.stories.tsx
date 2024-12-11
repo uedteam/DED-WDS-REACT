@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Button } from '@src/ui';
 import {
   AccountIcon,
@@ -21,10 +21,10 @@ export default {
           'primary',
           'secondary',
           'tertiary',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -32,10 +32,10 @@ export default {
       },
     },
     variant: {
-      description: '按鈕樣式',
+      description: '外觀樣式',
       control: {
         type: 'select',
-        options: ['contained', 'outlined', 'text'],
+        options: ['filled', 'ghost', 'text'],
       },
       table: {
         category: 'PROPS',
@@ -121,7 +121,7 @@ export default {
 
   args: {
     themeColor: 'primary',
-    variant: 'contained',
+    variant: 'filled',
     prefix: null,
     suffix: null,
     size: 'medium',
@@ -153,17 +153,20 @@ export const Default: Story = {
 export const Additional: Story = {
   name: '附加元素',
   args: {
-    variant: 'outlined',
+    variant: 'ghost',
     onClick: () => action('onClick')('點擊事件'),
     className: '',
   },
   parameters: {
     docs: {
       source: {
-        code: `
-<Button {...args} prefix={<AccountIcon />}>{args.children}</Button>
-<Button {...args} suffix={<SearchIcon />}>{args.children}</Button>
-`,
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Button {...args} prefix={<AccountIcon />}>${args.children}</Button>
+<Button {...args} suffix={<SearchIcon />}>${args.children}</Button>
+`;
+        },
       },
     },
   },
@@ -182,9 +185,9 @@ export const Additional: Story = {
 };
 
 export const Shape: Story = {
-  name: '按鈕樣式',
+  name: '外觀樣式',
   args: {
-    variant: 'outlined',
+    variant: 'ghost',
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),
     className: '',
@@ -192,21 +195,24 @@ export const Shape: Story = {
   parameters: {
     docs: {
       source: {
-        code: `
-<Button {...args} variant="contained">{args.children}</Button>
-<Button {...args} variant="outlined">{args.children}</Button>
-<Button {...args} variant="text">{args.children}</Button>
-`,
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Button {...args} variant="filled">${args.children}</Button>
+<Button {...args} variant="ghost">${args.children}</Button>
+<Button {...args} variant="text">${args.children}</Button>
+`;
+        },
       },
     },
   },
   render(args) {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-        <Button {...args} variant="contained">
+        <Button {...args} variant="filled">
           {args.children}
         </Button>
-        <Button {...args} variant="outlined">
+        <Button {...args} variant="ghost">
           {args.children}
         </Button>
         <Button {...args} variant="text">
@@ -220,7 +226,7 @@ export const Shape: Story = {
 export const Theme: Story = {
   name: '主題色彩',
   args: {
-    variant: 'outlined',
+    variant: 'filled',
     prefix: <AccountIcon />,
     suffix: null,
     onClick: () => action('onClick')('點擊事件'),
@@ -229,15 +235,18 @@ export const Theme: Story = {
   parameters: {
     docs: {
       source: {
-        code: `
-<Button {...args} themeColor="primary">{args.children}</Button>
-<Button {...args} themeColor="secondary">{args.children}</Button>
-<Button {...args} themeColor="tertiary">{args.children}</Button>
-<Button {...args} themeColor="info">{args.children}</Button>
-<Button {...args} themeColor="success">{args.children}</Button>
-<Button {...args} themeColor="warning">{args.children}</Button>
-<Button {...args} themeColor="error">{args.children}</Button>
-`,
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Button { ...args } themeColor="primary">${args.children}</Button>
+<Button { ...args } themeColor="secondary">${args.children}</Button>
+<Button { ...args } themeColor="tertiary">${args.children}</Button>
+<Button { ...args } themeColor="info">${args.children}</Button>
+<Button { ...args } themeColor="success">${args.children}</Button>
+<Button { ...args } themeColor="warning">${args.children}</Button>
+<Button { ...args } themeColor="error">${args.children}</Button>
+`;
+        },
       },
     },
   },

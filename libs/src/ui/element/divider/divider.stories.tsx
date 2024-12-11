@@ -219,7 +219,7 @@ export const Direction: Story = {
 };
 
 export const ThemeColor: Story = {
-  name: '線條顏色',
+  name: '主題色彩',
   args: {
     width: 'small',
     type: 'solid',

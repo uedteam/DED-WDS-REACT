@@ -64,7 +64,7 @@ export default {
       <Button
         prefix={<AccountIcon />}
         themeColor="primary"
-        variant="contained"
+        variant="filled"
         onClick={() => ({})}
       >
         Hover Me
