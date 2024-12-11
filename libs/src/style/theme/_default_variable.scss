@@ -7,7 +7,7 @@ $radius-12: 12px;
 $radius-16: 16px;
 $radius-24: 24px;
 $radius-32: 32px;
-$radius: $radius-0 ;
+$radius: $radius-8;
 
 // 外框線
 $border-0: 0px;
@@ -16,7 +16,7 @@ $border-2: 2px;
 $border-3: 3px;
 $border-4: 4px;
 $border-5: 5px;
-$border: $border-0;
+$border: $border-1;
 
 // 間距
 $spacing-0: 0px;
@@ -31,7 +31,7 @@ $spacing-24: 24px;
 $spacing-36: 36px;
 $spacing-48: 48px;
 $spacing-60: 60px;
-$spacing: $spacing-0;
+$spacing: $spacing-8;
 
 // 字級
 $font-size-12: 12px;
@@ -47,9 +47,10 @@ $font-size-40: 40px;
 $font-size: $font-size-16;
 
 // Theme-Variables
-$primary: [#2420AD, #999999, #B491D7, #FFE664];
-$secondary: [#5B53FE, #EEEEEE, #B491D7, #FFE664];
-$tertiary: [#14C2CA, #FFFFFF, #B491D7, #FFE664];
+$primary: [#184CBC, #999999, #B491D7, #FFE664];
+$secondary: [#36A1E9, #EEEEEE, #B491D7, #FFE664];
+$tertiary: [#967FEF, #FFFFFF, #B491D7, #FFE664];
+
 // Theme-Layout
 $sidebar: [#005087, #222222, #B491D7, #FFE664];
 $header: [#FFFFFF, #020202, #FFFFFF, #FFFFFF];
@@ -89,16 +90,30 @@ $form-active: [#E8EFFE, #FFFFFF, #E8EFFE, #E8EFFE];
 $form-outline: [#D2DFFB, #FFFFFF, #D2DFFB, #D2DFFB];
 
 // Theme-Button
-$button-primary: [#2420AD, #999999, #B491D7, #FFE664];
-$button-secondary: [#5B53FE, #EEEEEE, #B491D7, #FFE664];
-$button-tertiary: [#14C2CA, #FFFFFF, #B491D7, #FFE664];
+$button-primary: [#184CBC, #999999, #B491D7, #FFE664];
+$button-secondary: [#36A1E9, #EEEEEE, #B491D7, #FFE664];
+$button-tertiary: [#967FEF, #FFFFFF, #B491D7, #FFE664];
 
 // Theme-Disabled
-$disabled-text: [#C0C0C5, #666666, #C0C0C5, #C0C0C5];
-$disabled-background: [#F4F4F5, #666666, #F4F4F5, #F4F4F5];
-$disabled-border: [#C0C0C5, #666666, #C0C0C5, #C0C0C5];
+$disabled-text: [#C0C0C5, #707074, #C0C0C5, #C0C0C5];
+$disabled-background: [#F4F4F5, #C0C0C5, #F4F4F5, #F4F4F5];
+$disabled-border: [#C0C0C5, #707074, #C0C0C5, #C0C0C5];
 
-// 不透明度設定-light
+// Shadow-light
+$shadow-light-100: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+$shadow-light-200: 0px 1px 4px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+$shadow-light-300: 0px 4px 6px -1px rgba(0, 0, 0, 0.10), 0px 2px 4px -1px rgba(0, 0, 0, 0.15);
+$shadow-light-400: 0px 3px 20px -5px rgba(0, 0, 0, 0.15), 0px 4px 6px -2px rgba(0, 0, 0, 0.10);
+$shadow-light-500: 0px 2px 6px -2px rgba(0, 0, 0, 0.10), 0px 10px 25px -5px rgba(0, 0, 0, 0.15);
+// Shadow-dark
+$shadow-dark-100: 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+$shadow-dark-200: 0px 1px 4px 0px rgba(0, 0, 0, 0.40), 0px 1px 2px 0px rgba(0, 0, 0, 0.20);
+$shadow-dark-300: 0px 4px 6px -1px rgba(0, 0, 0, 0.10), 0px 2px 4px -1px rgba(0, 0, 0, 0.30);
+$shadow-dark-400: 0px 4px 6px -2px rgba(0, 0, 0, 0.20), 0px 3px 20px -5px rgba(0, 0, 0, 0.30);
+$shadow-dark-500: 0px 2px 6px -2px rgba(0, 0, 0, 0.25), 0px 10px 25px -5px rgba(0, 0, 0, 0.30);
+$shadow: $shadow-light-100;
+
+// alpha-light
 $alpha-light-0: #FFFFFF00;
 $alpha-light-05: #FFFFFF0D;
 $alpha-light-10: #FFFFFF1A;
@@ -121,7 +136,7 @@ $alpha-light-90: #FFFFFFE6;
 $alpha-light-95: #FFFFFFF2;
 $alpha-light-100: #FFFFFFFF;
 
-// 不透明度設定-dark
+// alpha-dark
 $alpha-dark-0: #00000000;
 $alpha-dark-05: #0000000D;
 $alpha-dark-10: #0000001A;

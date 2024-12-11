@@ -7,6 +7,11 @@
   @return map.get(map.get(map.get($theme-colors, $theme), $mode), $state);
 }
 
+// 動態獲取新主題顏色
+@function getNewThemeColor($theme, $state) {
+  @return map.get(map.get($new-theme-colors, $theme), $state);
+}
+
 // 動態獲取文字顏色
 @function getTextColor($mode, $type) {
   @return map.get(map.get($text-colors, $type), $mode);
