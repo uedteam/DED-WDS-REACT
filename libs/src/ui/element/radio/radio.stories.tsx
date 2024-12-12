@@ -18,9 +18,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -103,9 +103,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Radio {...args} themeColor="neutral" />
         <Radio {...args} themeColor="primary" />
         <Radio {...args} themeColor="secondary" />
-        <Radio {...args} themeColor="tertiary" />
         <Radio {...args} themeColor="info" />
         <Radio {...args} themeColor="success" />
         <Radio {...args} themeColor="warning" />

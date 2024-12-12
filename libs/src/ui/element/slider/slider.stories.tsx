@@ -12,9 +12,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -118,9 +118,9 @@ export const ThemeColor: Story = {
     docs: {
       source: {
         code: `
+<Slider {...args} initValue={60} themeColor="neutral" />
 <Slider {...args} initValue={40} themeColor="primary" />
 <Slider {...args} initValue={50} themeColor="secondary" />
-<Slider {...args} initValue={60} themeColor="tertiary" />
 <Slider {...args} initValue={70} themeColor="info" />
 <Slider {...args} initValue={80} themeColor="success" />
 <Slider {...args} initValue={90} themeColor="warning" />
@@ -132,9 +132,9 @@ export const ThemeColor: Story = {
   render(args) {
     return (
       <div>
+        <Slider {...args} initValue={60} themeColor="neutral" />
         <Slider {...args} initValue={40} themeColor="primary" />
         <Slider {...args} initValue={50} themeColor="secondary" />
-        <Slider {...args} initValue={60} themeColor="tertiary" />
         <Slider {...args} initValue={70} themeColor="info" />
         <Slider {...args} initValue={80} themeColor="success" />
         <Slider {...args} initValue={90} themeColor="warning" />

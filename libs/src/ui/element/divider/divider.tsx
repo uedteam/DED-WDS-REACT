@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 /**
  * 分隔線組件的屬性介面。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色。
  * @property {('solid' | 'dashed' | 'dotted')} [type] - 分隔線類型。
  * @property {('xsmall' | 'small' | 'medium' | 'large' | 'xlarge')} [width] - 分隔線寬度。
  * @property {('horizontal' | 'vertical')} [direction] - 分隔線方向。
@@ -13,9 +13,9 @@ import React, { ReactNode } from 'react';
  */
 export interface DividerProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

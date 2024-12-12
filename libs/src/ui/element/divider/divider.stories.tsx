@@ -12,10 +12,9 @@ export default {
         type: 'select',
       },
       options: [
-        'none',
+        'neutral',
         'primary',
         'secondary',
-        'tertiary',
         'success',
         'warning',
         'error',
@@ -230,14 +229,14 @@ export const ThemeColor: Story = {
   render(args) {
     return (
       <div>
+        <Divider {...args} themeColor="neutral">
+          Tertiary
+        </Divider>
         <Divider {...args} themeColor="primary">
           Primary
         </Divider>
         <Divider {...args} themeColor="secondary">
           Secondary
-        </Divider>
-        <Divider {...args} themeColor="tertiary">
-          Tertiary
         </Divider>
         <Divider {...args} themeColor="info">
           Info

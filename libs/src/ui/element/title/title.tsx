@@ -6,8 +6,8 @@ import { getThemeClass, getLevelClass } from './styled';
  *
  * @interface TitleProps
  *
- * @property {('primary' | 'secondary' | 'tertiary'  | 'info' | 'success' | 'warning' | 'error')} [themeColor]
- * 可選的主題顏色。可以是 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 或 'info'。
+ * @property {('neutral' | 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error')} [themeColor]
+ * 可選的主題顏色。可以是 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 或 'info'。
  *
  * @property {0 | 1 | 2 | 3 | 4 | 5 | 6} [level]
  * 可選的標題層級。可以是 0 到 6 之間的數字。
@@ -20,9 +20,9 @@ import { getThemeClass, getLevelClass } from './styled';
  */
 export interface TitleProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'info'
     | 'success'
     | 'warning'

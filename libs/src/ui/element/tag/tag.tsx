@@ -4,9 +4,9 @@ import { getDisableClass, getThemeClass } from './styled';
 
 export interface TagProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'info'
     | 'success'
     | 'warning'

@@ -11,9 +11,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -87,9 +87,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
+<LineProgress {...args} percent={60} themeColor="neutral" />
 <LineProgress {...args} percent={40} themeColor="primary" />
 <LineProgress {...args} percent={50} themeColor="secondary" />
-<LineProgress {...args} percent={60} themeColor="tertiary" />
 <LineProgress {...args} percent={70} themeColor="info" />
 <LineProgress {...args} percent={80} themeColor="success" />
 <LineProgress {...args} percent={90} themeColor="warning" />
@@ -101,9 +101,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <LineProgress {...args} percent={60} themeColor="neutral" />
         <LineProgress {...args} percent={40} themeColor="primary" />
         <LineProgress {...args} percent={50} themeColor="secondary" />
-        <LineProgress {...args} percent={60} themeColor="tertiary" />
         <LineProgress {...args} percent={70} themeColor="info" />
         <LineProgress {...args} percent={80} themeColor="success" />
         <LineProgress {...args} percent={90} themeColor="warning" />

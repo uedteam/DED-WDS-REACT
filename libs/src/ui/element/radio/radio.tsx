@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { CheckIcon } from '@src/assets';
 import { getThemeClass } from './styled';
 
 /**
  * 定義 Radio 元件的屬性介面。
  *
  * @interface InputProps
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'tertiary'、'success'、'warning'、'error' 和 'info'。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 主題顏色，可選值包括 'primary'、'secondary'、'neutral'、'success'、'warning'、'error' 和 'info'。
  * @property {string} [className] - 自訂樣式類別名稱。
  * @property {{ label: string; value: string }[]} [dataSource] - 選項列表，每個選項包含標籤和值。
  * @property {('row' | 'column')} [direction] - 排列方向，可選值包括 'row' 和 'column'。
@@ -15,9 +14,9 @@ import { getThemeClass } from './styled';
  */
 export interface RadioProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

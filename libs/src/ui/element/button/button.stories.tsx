@@ -18,9 +18,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'info',
           'success',
           'warning',
@@ -240,7 +240,7 @@ export const Theme: Story = {
           return `
 <Button { ...args } themeColor="primary">${args.children}</Button>
 <Button { ...args } themeColor="secondary">${args.children}</Button>
-<Button { ...args } themeColor="tertiary">${args.children}</Button>
+<Button { ...args } themeColor="neutral">${args.children}</Button>
 <Button { ...args } themeColor="info">${args.children}</Button>
 <Button { ...args } themeColor="success">${args.children}</Button>
 <Button { ...args } themeColor="warning">${args.children}</Button>
@@ -253,13 +253,13 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        <Button {...args} themeColor="neutral">
+          {args.children}
+        </Button>
         <Button {...args} themeColor="primary">
           {args.children}
         </Button>
         <Button {...args} themeColor="secondary">
-          {args.children}
-        </Button>
-        <Button {...args} themeColor="tertiary">
           {args.children}
         </Button>
         <Button {...args} themeColor="info">

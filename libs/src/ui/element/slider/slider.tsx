@@ -5,7 +5,7 @@ import { getThemeClass } from './styled';
  * 滑桿元件的屬性介面。
  *
  * @interface SliderProps
- * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
+ * @property {'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
  * @property {number} min - 最小值。
  * @property {number} max - 最大值。
  * @property {number} [step] - 每次變動的步長。
@@ -17,9 +17,9 @@ import { getThemeClass } from './styled';
  */
 export interface SliderProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'
