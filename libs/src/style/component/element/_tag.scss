@@ -16,7 +16,6 @@
     padding-inline: $spacing;
     font-size: 14px;
     text-decoration: none;
-    color: $color-white;
   }
 
   &-icon {
@@ -46,7 +45,7 @@
   }
 
   &-filled {
-    color: $color-white;
+    color: list.nth($neutral-0, $site);
   }
 
   &-ghost {
