@@ -4,7 +4,7 @@ import { TabItem } from './tab-item';
 /**
  * TabsProps 介面定義了 Tabs 組件的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇 Tabs 的主題顏色。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇 Tabs 的主題顏色。
  * @property {Tab[]} dataSource - Tabs 的數據陣列，每個 Tab 包含標題和內容。
  * @property {number} [activeIndex] - 設定當前活躍的 Tab 索引。
  * @property {('card' | 'default')} [type] - 設定 Tabs 的類型，可以是卡片樣式或預設樣式。
@@ -14,9 +14,9 @@ import { TabItem } from './tab-item';
  */
 export interface TabsProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

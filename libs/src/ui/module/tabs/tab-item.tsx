@@ -5,7 +5,7 @@ import { ReactNode, MouseEvent } from 'react';
 /**
  * TabItemProps 介面定義了標籤項目的屬性。
  *
- * @property { 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info' } [themeColor] - 標籤的主題顏色。
+ * @property {'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info' } [themeColor] - 標籤的主題顏色。
  * @property { 'card' | 'default' } [type] - 標籤的類型，可以是卡片或預設。
  * @property {string} title - 標籤的標題。
  * @property {number} index - 標籤的索引。
@@ -16,9 +16,9 @@ import { ReactNode, MouseEvent } from 'react';
  */
 export interface TabItemProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'
