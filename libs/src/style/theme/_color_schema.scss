@@ -20,6 +20,21 @@ $share-purple: #AF6AC3;
 $share-green: #A9E240;
 $share-orange: #FF8542;
 
+$primary-default: list.nth($primary, $site);
+$primary-dark: blend-rgba($primary-default, $alpha-light-10);
+$primary-light: blend-rgba($primary-default, $alpha-light-80);
+$primary-soft: blend-rgba($primary-default, $alpha-light-40);
+
+$secondary-default: list.nth($secondary, $site);
+$secondary-dark: blend-rgba($secondary-default, $alpha-light-10);
+$secondary-light: blend-rgba($secondary-default, $alpha-light-80);
+$secondary-soft: blend-rgba($secondary-default, $alpha-light-40);
+
+$neutral-default: list.nth($neutral-600, $site);
+$neutral-dark: blend-rgba($neutral-default, $alpha-light-10);
+$neutral-light: blend-rgba($neutral-default, $alpha-light-80);
+$neutral-soft: blend-rgba($neutral-default, $alpha-light-40);
+
 // AUO-Button
 $button-primary-default: list.nth($button-primary, $site);
 $button-primary-hover: blend-rgba($button-primary-default, $alpha-light-40);
@@ -33,11 +48,11 @@ $button-secondary-focus: blend-rgba($button-secondary-default, $alpha-light-10);
 $button-secondary-active: blend-rgba($button-secondary-default, $alpha-light-90);
 $button-secondary-outline: blend-rgba($button-secondary-default, $alpha-light-80);
 
-$button-tertiary-default: list.nth($button-tertiary, $site);
-$button-tertiary-hover: blend-rgba($button-tertiary-default, $alpha-light-40);
-$button-tertiary-focus: blend-rgba($button-tertiary-default, $alpha-light-10);
-$button-tertiary-active: blend-rgba($button-tertiary-default, $alpha-light-90);
-$button-tertiary-outline: blend-rgba($button-tertiary-default, $alpha-light-80);
+$button-neutral-default: list.nth($neutral-600, $site);
+$button-neutral-hover: blend-rgba($button-neutral-default, $alpha-light-40);
+$button-neutral-focus: blend-rgba($button-neutral-default, $alpha-light-10);
+$button-neutral-active: blend-rgba($button-neutral-default, $alpha-light-90);
+$button-neutral-outline: blend-rgba($button-neutral-default, $alpha-light-80);
 
 $button-info-default: $support-info;
 $button-info-hover: blend-rgba($button-info-default, $alpha-light-40);

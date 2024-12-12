@@ -4,9 +4,9 @@ import { CloseIcon } from '@src/assets';
 
 export interface ToastProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'info'
     | 'success'
     | 'warning'
