@@ -24,13 +24,13 @@
 @each $style in $borderStyles {
   .#{$style}-border {
     @if($style =='line') {
-      border-width: getBorderStyle($mode, $style, 'width');
-      border-style: getBorderStyle($mode, $style, 'style');
-      border-color: getBorderStyle($mode, $style, 'color');
+      border-width: getBorderStyle($style, 'width');
+      border-style: getBorderStyle($style, 'style');
+      border-color: getBorderStyle($style, 'color');
     }
 
     @else {
-      box-shadow: getBorderStyle($mode, $style, 'fill');
+      box-shadow: getBorderStyle($style, 'fill');
     }
   }
 }

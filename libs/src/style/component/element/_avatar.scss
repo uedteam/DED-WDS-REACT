@@ -49,12 +49,12 @@
 
 @each $status in $avatarStatus {
   .ded-avatar-icon-#{$status} {
-    color: getAvatarStatusColor($mode, $status);
+    color: getAvatarStatusColor($status);
   }
 }
 
 @each $shape in $avatarShape {
   .ded-avatar-#{$shape} {
-    border-radius: getAvatarShape($mode, $shape);
+    border-radius: getAvatarShape($shape);
   }
 }

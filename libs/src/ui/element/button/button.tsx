@@ -6,8 +6,8 @@ import { getSizeClass } from '@src/utils/style';
  * 按鈕屬性介面。
  *
  * @interface ButtonProps
- * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 按鈕的主題顏色。
- * @property {'contained' | 'outlined' | 'text'} variant - 按鈕的樣式變體。
+ * @property {'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 按鈕的主題顏色。
+ * @property {'filled' | 'ghost' | 'text'} variant - 按鈕的樣式變體。
  * @property {ReactNode} [prefix] - 按鈕前綴的圖標或元素。
  * @property {ReactNode} [suffix] - 按鈕後綴的圖標或元素。
  * @property {'small' | 'medium' | 'large'} [size] - 按鈕的大小。
@@ -19,14 +19,14 @@ import { getSizeClass } from '@src/utils/style';
  */
 export interface ButtonProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
-  variant: 'contained' | 'outlined' | 'text';
+    | 'error';
+  variant: 'filled' | 'ghost' | 'text';
   isDisabled?: boolean;
   prefix?: ReactNode;
   suffix?: ReactNode;
@@ -42,8 +42,8 @@ export interface ButtonProps {
  *
  * @component
  * @param {Object} props - 按鈕的屬性
- * @param {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [props.themeColor] - 按鈕的主題顏色
- * @param {'contained' | 'outlined' | 'text'} props.variant - 按鈕的樣式變體
+ * @param {'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'} [props.themeColor] - 按鈕的主題顏色
+ * @param {'filled' | 'ghost' | 'text'} props.variant - 按鈕的樣式變體
  * @param {boolean} [props.isDisabled] - 按鈕是否禁用
  * @param {ReactNode} [props.prefix] - 按鈕前綴圖標
  * @param {ReactNode} [props.suffix] - 按鈕後綴圖標

@@ -45,6 +45,6 @@
 
 @each $theme in $themes {
   .ded-badge__content.ded-badge-color-#{$theme} {
-    background: getThemeColor($mode, $theme, "default");
+    background: getThemeColor($theme, "default");
   }
 }

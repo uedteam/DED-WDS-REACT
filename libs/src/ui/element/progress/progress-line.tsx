@@ -4,7 +4,7 @@ import { getThemeClass } from './styled';
 /**
  * LineProgressProps 介面定義了進度條元件的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 進度條的主題顏色。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 進度條的主題顏色。
  * @property {string} [label] - 進度條的標籤。
  * @property {number} percent - 進度百分比，範圍從 0 到 100。
  * @property {number} [strokeWidth] - 進度條的高度，預設大小為 100。
@@ -12,9 +12,9 @@ import { getThemeClass } from './styled';
  */
 export interface LineProgressProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

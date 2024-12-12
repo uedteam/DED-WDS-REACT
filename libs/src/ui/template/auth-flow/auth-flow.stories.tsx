@@ -147,7 +147,7 @@ export const Default: Story = {
             </Column>
 
             <Column md={12}>
-              <Button onClick={() => ({})} variant="contained" width="fluid">
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Login
               </Button>
             </Column>
@@ -162,7 +162,7 @@ export const Default: Story = {
             <Button
               onClick={() => ({})}
               className="social-button"
-              variant="contained"
+              variant="filled"
               width="fluid"
               prefix={<GoogleIcon />}
             >
@@ -174,7 +174,7 @@ export const Default: Story = {
             <Button
               onClick={() => ({})}
               className="social-button"
-              variant="contained"
+              variant="filled"
               width="fluid"
               prefix={<FacebookIcon />}
             >
@@ -303,13 +303,13 @@ export const SignUp: Story = {
         <Grid fluid>
           <Row justify="flex-end">
             <Column md={4}>
-              <Button onClick={() => ({})} variant="contained" width="fluid">
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Back
               </Button>
             </Column>
 
             <Column md={4}>
-              <Button onClick={() => ({})} variant="contained" width="fluid">
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Sign Up
               </Button>
             </Column>
@@ -324,7 +324,7 @@ export const SignUp: Story = {
             <Button
               onClick={() => ({})}
               className="social-button"
-              variant="contained"
+              variant="filled"
               width="fluid"
               prefix={<GoogleIcon />}
             >
@@ -336,7 +336,7 @@ export const SignUp: Story = {
             <Button
               onClick={() => ({})}
               className="social-button"
-              variant="contained"
+              variant="filled"
               width="fluid"
               prefix={<FacebookIcon />}
             >
@@ -389,7 +389,7 @@ export const Forgot: Story = {
             <Column md={3} lg={5} align="end">
               <Button
                 onClick={() => ({})}
-                variant="contained"
+                variant="filled"
                 prefix={<MailIcon />}
               >
                 Submit
@@ -428,7 +428,7 @@ export const Verify: Story = {
             </Column>
 
             <Column md={3} lg={5} align="end">
-              <Button onClick={() => ({})} variant="contained">
+              <Button onClick={() => ({})} variant="filled">
                 Verify
               </Button>
             </Column>
@@ -476,13 +476,13 @@ export const Password: Story = {
             </Column>
 
             <Column md={2} lg={4} align="end">
-              <Button onClick={() => ({})} variant="contained">
+              <Button onClick={() => ({})} variant="filled">
                 Reset
               </Button>
             </Column>
 
             <Column md={2} lg={4} align="end">
-              <Button onClick={() => ({})} variant="contained">
+              <Button onClick={() => ({})} variant="filled">
                 Confirm
               </Button>
             </Column>

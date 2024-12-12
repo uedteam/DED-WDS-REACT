@@ -11,9 +11,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -63,7 +63,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     checkLabel: 'on',
     unCheckLabel: 'off',
     isChecked: true,
@@ -98,9 +98,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
+<Toggle {...args} themeColor="neutral" />
 <Toggle {...args} themeColor="primary" />
 <Toggle {...args} themeColor="secondary" />
-<Toggle {...args} themeColor="tertiary" />
 <Toggle {...args} themeColor="info" />
 <Toggle {...args} themeColor="success" />
 <Toggle {...args} themeColor="warning" />
@@ -112,9 +112,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
+        <Toggle {...args} themeColor="neutral" />
         <Toggle {...args} themeColor="primary" />
         <Toggle {...args} themeColor="secondary" />
-        <Toggle {...args} themeColor="tertiary" />
         <Toggle {...args} themeColor="info" />
         <Toggle {...args} themeColor="success" />
         <Toggle {...args} themeColor="warning" />

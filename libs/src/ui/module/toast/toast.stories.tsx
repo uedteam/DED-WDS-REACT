@@ -14,9 +14,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'info',
           'success',
           'warning',
@@ -227,7 +227,7 @@ export const Demo: Story = {
 
     return (
       <>
-        <Button onClick={handleShowToast} variant="contained">
+        <Button onClick={handleShowToast} variant="filled">
           Open Dialog
         </Button>
         <ToastContainer />

@@ -10,7 +10,7 @@ import {
  * 切換按鈕的屬性介面。
  *
  * @interface ToggleProps
- * @property {'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
+ * @property {'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'} [themeColor] - 主題顏色。
  * @property {string} [checkLabel] - 當切換按鈕被選中時顯示的子元素。
  * @property {string} [unCheckLabel] - 當切換按鈕未被選中時顯示的子元素。
  * @property {boolean} isChecked - 切換按鈕的選中狀態。
@@ -20,9 +20,9 @@ import {
  */
 export interface ToggleProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 interface BadgeProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

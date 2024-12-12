@@ -17,31 +17,31 @@ export const Stepper: React.FC<StepperProps> = ({
   direction = 'horizontal',
 }) => {
   return (
-    <div className={`stepper ${direction}`}>
-      <div className="stepper-header">
+    <div className={`ded-stepper ded-stepper-${direction}`}>
+      <div className="ded-stepper-header">
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`stepper-step ${
+            className={`ded-step ${
               index === currentStep
-                ? 'active'
+                ? 'ded-step-active'
                 : index < currentStep
-                ? 'completed'
+                ? 'ded-step-completed'
                 : ''
             }`}
           >
-            <div className="step-circle">{index + 1}</div>
-            <div className="step-group">
-              <div className="step-title">{step.title}</div>
-              <div className="step-description">{step.desc}</div>
+            <div className="ded-step-circle">{index + 1}</div>
+            <div className="ded-step-group">
+              <div className="ded-step-title">{step.title}</div>
+              <div className="ded-step-description">{step.desc}</div>
             </div>
             {direction === 'vertical' && index !== steps.length - 1 && (
-              <div className="step-connector" />
+              <div className="ded-step-connector" />
             )}
           </div>
         ))}
       </div>
-      <div className="stepper-content">
+      <div className="ded-stepper-content">
         {steps[currentStep]?.content || 'No content available for this step.'}
       </div>
     </div>

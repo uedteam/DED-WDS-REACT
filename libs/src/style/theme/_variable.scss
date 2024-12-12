@@ -1,4 +1,14 @@
 @use 'sass:math';
+@use 'sass:list';
+
+// 主題色名稱
+$theme-color: ['AUO-BLUE', 'AUO-DARK', 'AUO-PURPLE', 'AUO-YELLOW'];
+// 主題色索引
+$site: list.index($theme-color, 'AUO-BLUE');
+
+$font-family: 'Mabry Pro', Verdana, 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Microsoft JhengHei', 'sans-serif',
+  '新細明體', '細明體';
+//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 // 模式
 $mode: 'light';
@@ -6,9 +16,9 @@ $mode: 'light';
 $separate: '/';
 
 // 按鈕樣式清單
-$variants: ['contained', 'outlined', 'text'];
+$variants: [filled, 'ghost', 'soft', 'outlined', 'text'];
 // 主題清單
-$themes: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'info'];
+$themes: ['neutral', 'primary', 'secondary', 'success', 'warning', 'error', 'info'];
 // 尺寸清單
 $sizes: ['xsmall', 'small', 'medium', 'large'];
 // 形狀清單

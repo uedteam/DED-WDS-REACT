@@ -93,7 +93,7 @@ export const HorizontalDemo: Story = {
             onClick={() => {
               updateArgs({ currentStep: Math.max(0, (currentStep || 0) - 1) });
             }}
-            variant="contained"
+            variant="filled"
             isDisabled={currentStep <= 0}
           >
             Previous
@@ -107,7 +107,7 @@ export const HorizontalDemo: Story = {
                 ),
               });
             }}
-            variant="contained"
+            variant="filled"
             isDisabled={currentStep >= steps.length - 1}
           >
             Next
@@ -144,7 +144,7 @@ export const VerticalDemo: Story = {
             onClick={() => {
               updateArgs({ currentStep: Math.max(0, (currentStep || 0) - 1) });
             }}
-            variant="contained"
+            variant="filled"
             isDisabled={currentStep <= 0}
           >
             Previous
@@ -158,7 +158,7 @@ export const VerticalDemo: Story = {
                 ),
               });
             }}
-            variant="contained"
+            variant="filled"
             isDisabled={currentStep >= steps.length - 1}
           >
             Next

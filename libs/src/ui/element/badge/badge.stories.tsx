@@ -12,9 +12,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -140,13 +140,13 @@ export const Theme: Story = {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
+          <Badge {...args} type="dot" themeColor="neutral">
+            <NotificationIcon width={26} height={26} />
+          </Badge>
           <Badge {...args} type="dot" themeColor="primary">
             <NotificationIcon width={26} height={26} />
           </Badge>
           <Badge {...args} type="dot" themeColor="secondary">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="tertiary">
             <NotificationIcon width={26} height={26} />
           </Badge>
           <Badge {...args} type="dot" themeColor="info">
@@ -163,13 +163,13 @@ export const Theme: Story = {
           </Badge>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
+          <Badge {...args} themeColor="neutral">
+            <NotificationIcon width={26} height={26} />
+          </Badge>
           <Badge {...args} themeColor="primary">
             <NotificationIcon width={26} height={26} />
           </Badge>
           <Badge {...args} themeColor="secondary">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="tertiary">
             <NotificationIcon width={26} height={26} />
           </Badge>
           <Badge {...args} themeColor="info">

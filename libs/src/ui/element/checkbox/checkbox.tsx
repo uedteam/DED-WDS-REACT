@@ -5,7 +5,7 @@ import { getThemeClass } from './styled';
 /**
  * CheckboxProps 介面定義了 Checkbox 元件的屬性。
  *
- * @property {('primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇框的主題顏色。
+ * @property {('neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info')} [themeColor] - 選擇框的主題顏色。
  * @property {{ label: string; value: string }[]} [dataSource] - 選項的陣列，每個選項包含標籤和值。
  * @property {string[]} [initValue] - 初始選中的值。
  * @property {('row' | 'column')} [direction] - 選項排列的方向，可以是 'row' 或 'column'。
@@ -14,9 +14,9 @@ import { getThemeClass } from './styled';
  */
 export interface CheckboxProps {
   themeColor?:
+    | 'neutral'
     | 'primary'
     | 'secondary'
-    | 'tertiary'
     | 'success'
     | 'warning'
     | 'error'

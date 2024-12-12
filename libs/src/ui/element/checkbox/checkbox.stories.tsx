@@ -16,9 +16,9 @@ export default {
     themeColor: {
       description: '主題顏色',
       options: [
+        'neutral',
         'primary',
         'secondary',
-        'tertiary',
         'success',
         'warning',
         'error',
@@ -27,9 +27,9 @@ export default {
       control: {
         type: 'select',
         options: [
+          'neutral',
           'primary',
           'secondary',
-          'tertiary',
           'success',
           'warning',
           'error',
@@ -78,7 +78,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     dataSource: options,
     initValue: ['option1', 'option3'],
     direction: 'row',
@@ -116,9 +116,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
+<Checkbox {...args} themeColor="neutral" />
 <Checkbox {...args} themeColor="primary" />
 <Checkbox {...args} themeColor="secondary" />
-<Checkbox {...args} themeColor="tertiary" />
 <Checkbox {...args} themeColor="info" />
 <Checkbox {...args} themeColor="success" />
 <Checkbox {...args} themeColor="warning" />
@@ -130,9 +130,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Checkbox {...args} themeColor="neutral" />
         <Checkbox {...args} themeColor="primary" />
         <Checkbox {...args} themeColor="secondary" />
-        <Checkbox {...args} themeColor="tertiary" />
         <Checkbox {...args} themeColor="info" />
         <Checkbox {...args} themeColor="success" />
         <Checkbox {...args} themeColor="warning" />

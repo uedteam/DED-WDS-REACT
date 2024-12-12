@@ -141,7 +141,7 @@ export const Default: Story = {
               <Button
                 onClick={() => ({})}
                 className="ded-card-button ded-card-button-active"
-                variant="contained"
+                variant="filled"
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -152,7 +152,7 @@ export const Default: Story = {
               <Button
                 onClick={() => ({})}
                 className="ded-card-button"
-                variant="contained"
+                variant="filled"
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -166,7 +166,7 @@ export const Default: Story = {
               <Button
                 onClick={() => ({})}
                 className="ded-card-button ded-card-button-active"
-                variant="contained"
+                variant="filled"
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -176,7 +176,7 @@ export const Default: Story = {
               <Button
                 onClick={() => ({})}
                 className="ded-card-button"
-                variant="contained"
+                variant="filled"
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -186,7 +186,7 @@ export const Default: Story = {
               <Button
                 onClick={() => ({})}
                 className="ded-card-button"
-                variant="contained"
+                variant="filled"
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -196,7 +196,7 @@ export const Default: Story = {
               <Button
                 onClick={() => ({})}
                 className="ded-card-button"
-                variant="contained"
+                variant="filled"
                 themeColor="warning"
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>

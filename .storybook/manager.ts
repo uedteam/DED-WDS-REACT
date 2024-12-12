@@ -14,5 +14,8 @@ addons.setConfig({
     brandTarget: '_self',
     colorPrimary: '#00467c',
     colorSecondary: '#00467c',
+    fontBase:
+      "'Mabry Pro', Verdana, 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Microsoft JhengHei', 'sans-serif','新細明體', '細明體'",
+    fontCode: 'monospace',
   }),
 });
