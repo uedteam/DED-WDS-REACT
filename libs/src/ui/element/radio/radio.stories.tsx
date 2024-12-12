@@ -68,7 +68,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     dataSource: options,
     initValue: 'option1',
     direction: 'row',

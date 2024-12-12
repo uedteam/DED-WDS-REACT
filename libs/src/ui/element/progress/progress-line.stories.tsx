@@ -47,7 +47,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     label: 'Label',
     percent: 65,
     strokeWidth: 10,

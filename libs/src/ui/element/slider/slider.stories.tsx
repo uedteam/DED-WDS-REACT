@@ -84,7 +84,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     min: -100,
     max: 100,
     step: 1,

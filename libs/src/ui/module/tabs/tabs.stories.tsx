@@ -91,7 +91,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     dataSource: tabs,
     activeIndex: 0,
     type: 'default',

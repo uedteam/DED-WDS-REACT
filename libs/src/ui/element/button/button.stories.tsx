@@ -120,7 +120,7 @@ export default {
   },
 
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     variant: 'filled',
     prefix: null,
     suffix: null,

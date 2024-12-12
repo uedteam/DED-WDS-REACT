@@ -94,7 +94,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     variable: 'filled',
     label: 'Tag',
     href: '',

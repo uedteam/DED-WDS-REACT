@@ -56,7 +56,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     level: 1,
     className: '',
     children: 'Title',

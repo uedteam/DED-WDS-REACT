@@ -63,7 +63,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
+    themeColor: 'neutral',
     checkLabel: 'on',
     unCheckLabel: 'off',
     isChecked: true,
