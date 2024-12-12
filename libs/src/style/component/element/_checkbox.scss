@@ -40,16 +40,16 @@
 
   @each $theme in $themes {
     &-checked-#{$theme} {
-      background-color: getThemeColor($mode, $theme, 'default');
-      border-color: getThemeColor($mode, $theme, 'default');
+      background-color: getThemeColor($theme, 'default');
+      border-color: getThemeColor($theme, 'default');
       color: $color-white;
 
       &:hover {
-        border-color: getThemeColor($mode, $theme, 'default');
+        border-color: getThemeColor($theme, 'default');
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, $theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($theme, 'default'), $lightness80);
       }
     }
 
@@ -57,11 +57,11 @@
       background-color: transparent;
 
       &:hover {
-        border-color: getThemeColor($mode, $theme, 'default');
+        border-color: getThemeColor($theme, 'default');
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($mode, $theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($theme, 'default'), $lightness80);
       }
     }
   }

@@ -21,34 +21,34 @@
     @each $theme in $themes {
       &-#{$theme} {
         &:hover {
-          border-bottom: 2px solid getThemeColor($mode, $theme, 'default');
-          background-color: getBorderColor($mode, $theme, 'hover');
-          color: getThemeColor($mode, $theme, 'default');
+          border-bottom: 2px solid getThemeColor($theme, 'default');
+          background-color: getBorderColor($theme, 'hover');
+          color: getThemeColor($theme, 'default');
         }
 
         &:focus {
-          box-shadow: 0 0 0 2px getBorderColor($mode, $theme, 'focus') inset;
+          box-shadow: 0 0 0 2px getBorderColor($theme, 'focus') inset;
         }
       }
 
       &-card-#{$theme} {
         &:hover {
-          background-color: getBorderColor($mode, $theme, 'hover');
-          color: getThemeColor($mode, $theme, 'default');
+          background-color: getBorderColor($theme, 'hover');
+          color: getThemeColor($theme, 'default');
         }
 
         &:focus {
-          box-shadow: 0 0 0 2px getBorderColor($mode, $theme, 'focus') inset;
+          box-shadow: 0 0 0 2px getBorderColor($theme, 'focus') inset;
         }
       }
 
       &-#{$theme}-active {
-        color: getThemeColor($mode, $theme, 'default');
-        border-bottom: 2px solid getThemeColor($mode, $theme, 'default');
+        color: getThemeColor($theme, 'default');
+        border-bottom: 2px solid getThemeColor($theme, 'default');
       }
 
       &-card-#{$theme}-active {
-        color: getThemeColor($mode, $theme, 'default');
+        color: getThemeColor($theme, 'default');
         border: 1px solid $color-gray20;
         border-bottom-width: 0px;
       }

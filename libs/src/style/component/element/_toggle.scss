@@ -9,7 +9,7 @@
   border-radius: 15px;
 
   &:focus {
-    box-shadow: 0 0 1px 2px $color-white, 0 0 1px 4px blend-rgba(getThemeColor($mode, 'primary', 'default'), $lightness50);
+    box-shadow: 0 0 1px 2px $color-white, 0 0 1px 4px blend-rgba(getThemeColor('primary', 'default'), $lightness50);
   }
 
   &-thumb {
@@ -65,7 +65,7 @@
 
   &-on {
     // flex-direction: row-reverse;
-    background-color: getThemeColor($mode, 'success', 'default');
+    background-color: getThemeColor('success', 'default');
   }
 
   &-off {
@@ -81,7 +81,7 @@
 
   @each $theme in $themes {
     &-#{$theme} {
-      background-color: getThemeColor($mode, $theme, 'default');
+      background-color: getThemeColor($theme, 'default');
     }
   }
 }

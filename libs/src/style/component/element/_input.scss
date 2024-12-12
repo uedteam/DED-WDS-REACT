@@ -13,14 +13,14 @@
   overflow: hidden;
 
   &:hover {
-    border: 1px solid getBorderColor($mode, 'primary', 'hover');
-    box-shadow: 0 0 0 2px getBorderColor($mode, 'primary', 'hover');
+    border: 1px solid getBorderColor('primary', 'hover');
+    box-shadow: 0 0 0 2px getBorderColor('primary', 'hover');
   }
 
 
   &:focus-within {
-    border: 1px solid getBorderColor($mode, 'primary', 'focus');
-    box-shadow: 0 0 0 3px getBorderColor($mode, 'primary', 'focus');
+    border: 1px solid getBorderColor('primary', 'focus');
+    box-shadow: 0 0 0 3px getBorderColor('primary', 'focus');
   }
 
   &::placeholder {
@@ -87,7 +87,7 @@
 
 
 .ded-input-border-error {
-  border-color: getBorderColor($mode, 'error', 'default') !important;
+  border-color: getBorderColor('error', 'default') !important;
 }
 
 .ded-input-label {

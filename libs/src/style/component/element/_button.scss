@@ -37,7 +37,7 @@
     border-style: solid;
 
     &:focus {
-      box-shadow: 0 0 0 3px blend-rgba(getNewThemeColor('primary', 'default'), $lightness50);
+      box-shadow: 0 0 0 3px blend-rgba(getThemeColor('primary', 'default'), $lightness50);
     }
 
     &:active {
@@ -62,47 +62,47 @@
       &-#{$variant}-#{$theme} {
 
         @if($variant =='filled') {
-          background-color: getNewThemeColor($theme, 'default');
+          background-color: getThemeColor($theme, 'default');
         }
 
         @else {
-          border-color: getNewThemeColor($theme, 'default');
-          color: getNewThemeColor($theme, 'default');
+          border-color: getThemeColor($theme, 'default');
+          color: getThemeColor($theme, 'default');
         }
 
         &:hover {
 
           @if($variant =='filled') {
-            background-color: getNewThemeColor($theme, 'hover');
+            background-color: getThemeColor($theme, 'hover');
           }
 
           @else {
-            border-color: getNewThemeColor($theme, 'hover');
-            color: getNewThemeColor($theme, 'hover');
+            border-color: getThemeColor($theme, 'hover');
+            color: getThemeColor($theme, 'hover');
           }
         }
 
         &:focus {
 
           @if($variant =='filled') {
-            background-color: getNewThemeColor($theme, 'focus');
+            background-color: getThemeColor($theme, 'focus');
           }
 
           @else {
-            border-color: getNewThemeColor($theme, 'focus');
-            color: getNewThemeColor($theme, 'focus');
+            border-color: getThemeColor($theme, 'focus');
+            color: getThemeColor($theme, 'focus');
           }
         }
 
         &:active {
 
           @if($variant =='filled') {
-            background-color: getNewThemeColor($theme, 'active');
+            background-color: getThemeColor($theme, 'active');
           }
 
           @else {
-            border-color: getNewThemeColor($theme, 'active');
-            color: getNewThemeColor($theme, 'active');
+            border-color: getThemeColor($theme, 'active');
+            color: getThemeColor($theme, 'active');
           }
         }
       }

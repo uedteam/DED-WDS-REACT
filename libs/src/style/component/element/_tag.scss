@@ -75,29 +75,29 @@
       &-#{$variant}-#{$theme} {
 
         @if($variant =='filled') {
-          border-color: getNewThemeColor($theme, 'default');
-          background-color: getNewThemeColor($theme, 'default');
+          border-color: getThemeColor($theme, 'default');
+          background-color: getThemeColor($theme, 'default');
         }
 
         @else {
-          border-color: getNewThemeColor($theme, 'default');
-          color: getNewThemeColor($theme, 'default');
+          border-color: getThemeColor($theme, 'default');
+          color: getThemeColor($theme, 'default');
         }
 
         &:focus {
 
           @if($variant =='ghost') {
-            box-shadow: 0 0 0 3px getNewThemeColor($theme, 'outline');
+            box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
           }
 
           @else if($variant =='filled') {
-            border-color: getNewThemeColor($theme, 'focus');
-            background-color: getNewThemeColor($theme, 'focus');
+            border-color: getThemeColor($theme, 'focus');
+            background-color: getThemeColor($theme, 'focus');
           }
 
           @else {
-            border-color: getNewThemeColor($theme, 'focus');
-            color: getNewThemeColor($theme, 'focus');
+            border-color: getThemeColor($theme, 'focus');
+            color: getThemeColor($theme, 'focus');
           }
         }
       }
