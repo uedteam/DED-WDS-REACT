@@ -7,16 +7,17 @@ $radius-12: 12px;
 $radius-16: 16px;
 $radius-24: 24px;
 $radius-32: 32px;
+$radius-999: 999px;
 $radius: $radius-8;
 
 // 外框線
-$border-0: 0px;
-$border-1: 1px;
-$border-2: 2px;
-$border-3: 3px;
-$border-4: 4px;
-$border-5: 5px;
-$border: $border-1;
+$border-width-0: 0px;
+$border-width-1: 1px;
+$border-width-2: 2px;
+$border-width-3: 3px;
+$border-width-4: 4px;
+$border-width-5: 5px;
+$border-width: $border-width-1;
 
 // 間距
 $spacing-0: 0px;

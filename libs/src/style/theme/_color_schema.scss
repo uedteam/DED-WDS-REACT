@@ -78,6 +78,23 @@ $button-error-focus: blend-rgba($button-error-default, $alpha-light-10);
 $button-error-active: blend-rgba($button-error-default, $alpha-light-90);
 $button-error-outline: blend-rgba($button-error-default, $alpha-light-80);
 
+// AUO-Link
+$Link-default: list.nth($link-default, $site);
+$Link-hover: blend-rgba($link-default, $alpha-light-40);
+$Link-focus: blend-rgba($link-default, $alpha-light-20);
+$Link-active: blend-rgba($link-default, $alpha-light-90);
+$Link-outline: blend-rgba($link-default, $alpha-light-80);
+
+// AUO-From
+$Form-default: list.nth($form-default, $site);
+$Form-hover: blend-rgba($form-default, $alpha-light-40);
+$Form-focus: blend-rgba($form-default, $alpha-light-20);
+$Form-active: blend-rgba($form-default, $alpha-light-90);
+$Form-outline: blend-rgba($form-default, $alpha-light-80);
+
+$Form-border: list.nth($neutral-300, $site);
+$Form-background: list.nth($neutral-0, $site);
+
 // AUO-Icon
 $icon-primary: list.nth($primary, $site);
 $icon-secondary: list.nth($secondary, $site);
