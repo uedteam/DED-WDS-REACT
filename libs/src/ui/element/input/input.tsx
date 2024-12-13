@@ -90,7 +90,10 @@ export const Input: React.FC<InputProps> = ({
         {prefix && (
           <label
             htmlFor="ded-input"
-            className={`${getSizeClass('ded-icon', size)} ded-input-icon`}
+            className={`ded-input-icon 
+              ${getSizeClass('ded-icon', size)}
+              ${isDisabled ? 'ded-input-icon-disable' : ''}
+              ${hint.error.length > 0 ? 'ded-input-icon-error' : ''}`}
           >
             {prefix}
           </label>

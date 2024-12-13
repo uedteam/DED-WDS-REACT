@@ -63,7 +63,6 @@ export default {
     },
   },
   args: {
-    themeColor: 'none',
     width: 'small',
     type: 'solid',
     direction: 'horizontal',

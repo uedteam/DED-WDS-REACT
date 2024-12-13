@@ -11,15 +11,15 @@ import React, { ReactNode } from 'react';
  * @property {ReactNode} [children] - 子元素。
  */
 export interface DividerProps {
-  themeColor?:
-    | 'primary'
-    | 'secondary'
-    | 'neutral'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'info'
-    | string;
+  // themeColor?:
+  //   | 'primary'
+  //   | 'secondary'
+  //   | 'neutral'
+  //   | 'success'
+  //   | 'warning'
+  //   | 'error'
+  //   | 'info'
+  //   | string;
   type?: 'solid' | 'dashed' | 'dotted';
   width?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   direction?: 'horizontal' | 'vertical';
