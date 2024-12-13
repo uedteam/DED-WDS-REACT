@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Portal from '@src/ui/portal';
 import { getTargetPosition } from '@src/utils/position';
-import { getArrowPositionClass } from './styled';
+import { getCombinedClassName } from '@src/utils/string';
 import { usePosition } from '@src/hooks/usePosition';
 
 /**
@@ -83,9 +83,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
               {content}
               {showArrow && (
                 <div
-                  className={`ded-tooltip-arrow ${getArrowPositionClass(
-                    placement
-                  )}`}
+                  className={`ded-tooltip-arrow 
+                    ${getCombinedClassName('ded-tooltip-arrow', placement)}`}
                 >
                   <div className="ded-tooltip-arrow-shape" />
                 </div>

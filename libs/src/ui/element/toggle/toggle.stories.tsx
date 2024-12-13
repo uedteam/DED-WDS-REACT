@@ -112,9 +112,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Toggle {...args} themeColor="neutral" />
         <Toggle {...args} themeColor="primary" />
         <Toggle {...args} themeColor="secondary" />
+        <Toggle {...args} themeColor="neutral" />
         <Toggle {...args} themeColor="info" />
         <Toggle {...args} themeColor="success" />
         <Toggle {...args} themeColor="warning" />
