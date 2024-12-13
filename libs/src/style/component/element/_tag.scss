@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  border-width: $border;
+  border-width: $border-width;
   border-style: solid;
   border-radius: $radius;
 
@@ -50,7 +50,7 @@
 
   &-ghost {
     background-color: transparent;
-    border-width: $border;
+    border-width: $border-width;
     border-style: solid;
   }
 
