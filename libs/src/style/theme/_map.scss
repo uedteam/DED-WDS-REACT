@@ -25,15 +25,10 @@ $avatar-size: (
 
 // 定義 avatar 狀態
 $avatar-status-colors: (
-  'light': ('online': $light-color-success,
-    'idle': $light-color-warning,
-    'busy': $light-color-error,
-    'offline': $color-gray20, ),
-  'dark': ('online': $light-color-success,
-    'idle': $light-color-warning,
-    'busy': $light-color-error,
-    'offline': $color-gray20,
-  )
+  'online': $light-color-success,
+  'idle': $light-color-warning,
+  'busy': $light-color-error,
+  'offline': $color-gray20,
 );
 
 // 定義 avatar 形狀
