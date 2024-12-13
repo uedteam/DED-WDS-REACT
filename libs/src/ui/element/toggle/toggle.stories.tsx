@@ -11,13 +11,13 @@ export default {
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -63,7 +63,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'neutral',
+    themeColor: 'primary',
     checkLabel: 'on',
     unCheckLabel: 'off',
     isChecked: true,
