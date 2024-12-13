@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:list";
 
 /*--- Divider ---*/
 .ded-divider {
@@ -23,7 +24,7 @@
   content: "";
   width: 0;
   height: 0;
-  border-top: var(--line-weight) var(--line-style) $color-gray20;
+  border-top: var(--line-weight) var(--line-style) list.nth($neutral-700, $site);
   flex-grow: 1;
 }
 
@@ -32,7 +33,7 @@
   content: "";
   width: 0;
   height: 0;
-  border-left: var(--line-weight) var(--line-style) $color-gray20;
+  border-left: var(--line-weight) var(--line-style) list.nth($neutral-700, $site);
   flex-grow: 1;
 }
 

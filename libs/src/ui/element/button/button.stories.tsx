@@ -18,9 +18,9 @@ export default {
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
           'info',
           'success',
           'warning',
@@ -95,6 +95,26 @@ export default {
         category: 'PROPS',
       },
     },
+    borderWidth: {
+      description: '按鈕邊框寬度',
+      control: {
+        type: 'select',
+        options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    radius: {
+      description: '按鈕圓角大小',
+      control: {
+        type: 'select',
+        options: ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'],
+      },
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       table: {
@@ -120,12 +140,14 @@ export default {
   },
 
   args: {
-    themeColor: 'neutral',
+    themeColor: 'primary',
     variant: 'filled',
     prefix: null,
     suffix: null,
     size: 'medium',
     width: 'fit',
+    borderWidth: 'sm',
+    radius: 'sm',
     isDisabled: false,
     className: '',
     children: 'Button',
@@ -253,13 +275,13 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-        <Button {...args} themeColor="neutral">
-          {args.children}
-        </Button>
         <Button {...args} themeColor="primary">
           {args.children}
         </Button>
         <Button {...args} themeColor="secondary">
+          {args.children}
+        </Button>
+        <Button {...args} themeColor="neutral">
           {args.children}
         </Button>
         <Button {...args} themeColor="info">

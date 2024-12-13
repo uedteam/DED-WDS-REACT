@@ -16,14 +16,14 @@ export const getThemeClass = (variant: string, themeColor: string) => {
  */
 export const getDisableClass = (variant: string) => {
   if (variant === 'filled') {
-    return 'ded-button-container-disable';
+    return 'ded-button-filled-disabled';
   }
 
   if (variant === 'ghost') {
-    return 'ded-button-outline-disable';
+    return 'ded-button-ghost-disabled';
   }
 
   if (variant === 'text') {
-    return 'ded-button-text-disable';
+    return 'ded-button-text-disabled';
   }
 };
