@@ -1,6 +1,5 @@
 import React from 'react';
 import { Portal } from '../../portal';
-import './style.scss';
 import { CloseIcon } from '@src/assets';
 import { Mask } from '../../mask';
 

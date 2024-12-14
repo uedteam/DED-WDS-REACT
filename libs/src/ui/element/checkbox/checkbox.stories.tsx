@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Checkbox } from './checkbox';
 
 const options = [
-  { label: 'Option1', value: 'option1' },
-  { label: 'Option2', value: 'option2' },
-  { label: 'Option3', value: 'option3' },
+  { label: 'Option1', value: 'option1', isDisabled: false },
+  { label: 'Option2', value: 'option2', isDisabled: false },
+  { label: 'Option3', value: 'option3', isDisabled: false },
 ];
 
 export default {
@@ -15,25 +15,16 @@ export default {
   argTypes: {
     themeColor: {
       description: '主題顏色',
-      options: [
-        'neutral',
-        'primary',
-        'secondary',
-        'success',
-        'warning',
-        'error',
-        'info',
-      ],
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
@@ -78,7 +69,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'neutral',
+    themeColor: 'primary',
     dataSource: options,
     initValue: ['option1', 'option3'],
     direction: 'row',
@@ -96,9 +87,36 @@ export default {
 } as Meta;
 type Story = StoryObj<typeof Checkbox>;
 
+const defaultOptions = [
+  { label: 'Option1', value: 'option1', isDisabled: false },
+  { label: 'Option2', value: 'option2', isDisabled: false },
+  { label: 'Option3', value: 'option3', isDisabled: true },
+];
 export const Default: Story = {
   name: '預設項目',
+  args: {
+    dataSource: defaultOptions,
+  },
+  render(args) {
+    return <Checkbox {...args} />;
+  },
+};
+
+export const Direction: Story = {
+  name: '排列方向',
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Radio {...args} direction=${args.direction}/>
+`;
+        },
+      },
+    },
+  },
   render(args) {
     return <Checkbox {...args} />;
   },
@@ -130,9 +148,9 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <Checkbox {...args} themeColor="neutral" />
         <Checkbox {...args} themeColor="primary" />
         <Checkbox {...args} themeColor="secondary" />
+        <Checkbox {...args} themeColor="neutral" />
         <Checkbox {...args} themeColor="info" />
         <Checkbox {...args} themeColor="success" />
         <Checkbox {...args} themeColor="warning" />

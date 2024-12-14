@@ -65,9 +65,9 @@ export const Radio: React.FC<RadioProps> = ({
         <label
           key={option.value}
           htmlFor={option.value}
-          className={`ded-radio ${
-            option.isDisabled ? 'ded-radio-input-disabled' : ''
-          } ${className}`}
+          className={`ded-radio 
+            ${option.isDisabled ? 'ded-radio-input-disabled' : ''} 
+            ${className}`}
         >
           <input
             className={`ded-radio-input`}
@@ -101,9 +101,8 @@ export const Radio: React.FC<RadioProps> = ({
           )}
 
           <span
-            className={`ded-radio-text ${
-              option.isDisabled ? 'ded-radio-text-disabled' : ''
-            }`}
+            className={`ded-radio-text 
+              ${option.isDisabled ? 'ded-radio-text-disabled' : ''}`}
           >
             {option.label}
           </span>

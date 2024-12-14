@@ -66,7 +66,7 @@
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px blend-rgba(getThemeColor($theme, 'default'), $lightness80);
+        box-shadow: 0 0 0 3px getThemeColor($theme, 'outline');
       }
     }
   }

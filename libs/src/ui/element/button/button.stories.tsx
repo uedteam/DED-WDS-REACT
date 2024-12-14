@@ -35,7 +35,7 @@ export default {
       description: '外觀樣式',
       control: {
         type: 'select',
-        options: ['filled', 'ghost', 'text'],
+        options: ['filled', 'soft', 'ghost', 'text'],
       },
       table: {
         category: 'PROPS',

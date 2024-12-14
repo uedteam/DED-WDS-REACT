@@ -1,4 +1,5 @@
 @use 'sass:list';
+@use 'sass:color';
 
 .ded-button {
   display: inline-flex;
@@ -8,6 +9,10 @@
   padding: 0.5em 1em;
   cursor: pointer;
   transition: background-color 0.3s;
+
+  &-only-icon {
+    padding: 0.5em;
+  }
 
   &-fit {
     width: fit-content;
@@ -77,7 +82,8 @@
     box-shadow: unset;
   }
 
-  &-filled {
+  &-filled,
+  &-soft {
     color: list.nth($neutral-0, $site);
   }
 
@@ -92,7 +98,7 @@
 
   &-text {
     // padding: 0;
-    height: auto;
+    // height: auto;
     background-color: transparent;
     color: list.nth($text-primary, $site);
 
@@ -110,6 +116,11 @@
           background-color: getThemeColor($theme, 'default');
         }
 
+        @else if($variant =='soft') {
+          background-color: getThemeColor($theme, 'active');
+          color: getThemeColor($theme, 'default');
+        }
+
         @else {
           border-color: getThemeColor($theme, 'default');
           color: getThemeColor($theme, 'default');
@@ -119,6 +130,11 @@
 
           @if($variant =='filled') {
             background-color: getThemeColor($theme, 'hover');
+          }
+
+          @else if($variant =='soft') {
+            background-color: blend-rgba($button-primary-default, $alpha-light-40);
+            color: list.nth($neutral-0, $site);
           }
 
           @else {
@@ -134,6 +150,12 @@
             background-color: getThemeColor($theme, 'focus');
           }
 
+          @else if($variant =='soft') {
+            background-color: getThemeColor($theme, 'active');
+            color: list.nth($neutral-0, $site);
+            background-color: getThemeColor($theme, 'focus');
+          }
+
           @else {
             border-color: getThemeColor($theme, 'focus');
             color: getThemeColor($theme, 'focus');
@@ -144,6 +166,17 @@
 
           @if($variant =='filled') {
             background-color: getThemeColor($theme, 'active');
+            color: getThemeColor($theme, 'default');
+          }
+
+          @else if($variant =='soft') {
+            background-color: getThemeColor($theme, 'default');
+            color: getThemeColor($theme, 'active');
+          }
+
+          @else if ($variant =='text') {
+            background-color: getThemeColor($theme, 'active');
+            color: getThemeColor($theme, 'default');
           }
 
           @else {
@@ -162,6 +195,12 @@
   color: list.nth($disabled-text, $site) !important;
 }
 
+.ded-button-soft-disabled {
+  pointer-events: none !important;
+  background-color: list.nth($disabled-background, $site) !important;
+  color: list.nth($disabled-text, $site) !important;
+}
+
 .ded-button-ghost-disabled {
   pointer-events: none !important;
   color: list.nth($disabled-text, $site) !important;
@@ -174,5 +213,5 @@
 .ded-button-text-disabled {
   pointer-events: none !important;
   color: list.nth($disabled-text, $site) !important;
-  background-color: transparent !important;
+  background-color: list.nth($disabled-background, $site) !important;
 }

@@ -1,5 +1,5 @@
 import { MouseEventHandler, ReactNode } from 'react';
-import { getDisableClass, getThemeClass } from './styled';
+import { getThemeClass } from './styled';
 import { getCombinedClassName } from '@src/utils/string';
 
 /**
@@ -7,7 +7,7 @@ import { getCombinedClassName } from '@src/utils/string';
  *
  * @interface ButtonProps
  * @property {'primary' | 'secondary' |'neutral' | 'info' | 'success' | 'warning' | 'error'} [themeColor] - 按鈕的主題顏色。
- * @property {'filled' | 'ghost' | 'text'} variant - 按鈕的樣式變體。
+ * @property {'filled' | 'soft' | 'ghost' | 'text'} variant - 按鈕的樣式變體。
  * @property {ReactNode} [prefix] - 按鈕前綴的圖標或元素。
  * @property {ReactNode} [suffix] - 按鈕後綴的圖標或元素。
  * @property {'small' | 'medium' | 'large'} [size] - 按鈕的大小。
@@ -26,7 +26,7 @@ export interface ButtonProps {
     | 'success'
     | 'warning'
     | 'error';
-  variant: 'filled' | 'ghost' | 'text';
+  variant: 'filled' | 'soft' | 'ghost' | 'text';
   isDisabled?: boolean;
   prefix?: ReactNode;
   suffix?: ReactNode;
@@ -45,7 +45,7 @@ export interface ButtonProps {
  * @component
  * @param {Object} props - 按鈕的屬性
  * @param {'primary' | 'secondary' | 'neutral' | 'info' | 'success' | 'warning' | 'error'} [props.themeColor] - 按鈕的主題顏色
- * @param {'filled' | 'ghost' | 'text'} props.variant - 按鈕的樣式變體
+ * @param {'filled' | 'soft' | 'ghost' | 'text'} props.variant - 按鈕的樣式變體
  * @param {boolean} [props.isDisabled] - 按鈕是否禁用
  * @param {ReactNode} [props.prefix] - 按鈕前綴圖標
  * @param {ReactNode} [props.suffix] - 按鈕後綴圖標
@@ -74,7 +74,13 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={`ded-button 
-        ${width === 'fit' ? 'ded-button-fit' : 'ded-button-fluid'}
+        ${
+          children
+            ? width === 'fit'
+              ? 'ded-button-fit'
+              : 'ded-button-fluid'
+            : ''
+        }
         ${getCombinedClassName('ded-component', size)}
         ${
           isDisabled
@@ -83,6 +89,7 @@ export const Button: React.FC<ButtonProps> = ({
         } 
         ${getCombinedClassName('ded-button-border-width', borderWidth)}
         ${getCombinedClassName('ded-button-radius', radius)}
+        ${children ? '' : 'ded-button-only-icon'}
         ${className}`}
       onClick={onClick}
     >

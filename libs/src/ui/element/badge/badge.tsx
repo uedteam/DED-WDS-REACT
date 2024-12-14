@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
+import { getCombinedClassName } from '@src/utils/string';
 
 interface BadgeProps {
   themeColor?:
-    | 'neutral'
     | 'primary'
     | 'secondary'
+    | 'neutral'
+    | 'info'
     | 'success'
     | 'warning'
-    | 'error'
-    | 'info';
-  type: 'dot' | 'number';
+    | 'error';
+  isShowDot?: boolean;
   children: React.ReactNode;
   value?: number;
   limit?: number;
@@ -19,7 +20,7 @@ interface BadgeProps {
 export const Badge: React.FC<BadgeProps> = ({
   themeColor = 'error',
   children,
-  type,
+  isShowDot = false,
   value = 0,
   limit = 0,
   className = '',
@@ -35,18 +36,18 @@ export const Badge: React.FC<BadgeProps> = ({
   }, [value, limit]);
 
   return (
-    <div className={`ded-badge__container ${className}`}>
+    <div className={`ded-badge-container ${className}`}>
       {children}
       <div
-        className={`ded-badge__content ded-badge__position-top-right ded-badge-color-${themeColor} ${
-          type === 'dot' ? 'ded-badge__content-isDot' : ''
-        }`}
+        className={`ded-badge 
+          ${getCombinedClassName('ded-badge-color', themeColor)}
+          ${isShowDot ? 'ded-badge-dot' : ''}`}
       >
-        {type === 'number' && value > 0 && (
-          <>
-            <span className="ded-badge-text">{msgCount}</span>
-            {value > limit && <span className="ded-badge-text">+</span>}
-          </>
+        {!isShowDot && value > 0 && (
+          <div className="ded-badge-content">
+            <span className="ded-badge-content-text">{msgCount}</span>
+            {value > limit && <span className="ded-badge-content-text">+</span>}
+          </div>
         )}
       </div>
     </div>

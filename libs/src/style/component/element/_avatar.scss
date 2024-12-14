@@ -49,8 +49,6 @@
 }
 
 @each $status in $avatarStatus {
-  @debug $status;
-
   .ded-avatar-icon-#{$status} {
     color: getAvatarStatusColor($status);
   }

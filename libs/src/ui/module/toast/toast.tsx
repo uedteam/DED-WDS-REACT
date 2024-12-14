@@ -1,5 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
-import './style.scss';
+import React, { ReactNode } from 'react';
 import { CloseIcon } from '@src/assets';
 
 export interface ToastProps {

@@ -2,6 +2,12 @@ import { action } from '@storybook/addon-actions';
 import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import { Radio } from './radio';
 
+const options = [
+  { label: 'Option1', value: 'option1', isDisabled: false },
+  { label: 'Option2', value: 'option2', isDisabled: false },
+  { label: 'Option3', value: 'option3', isDisabled: true },
+];
+
 export default {
   title: 'Component/Radio',
   component: Radio,
@@ -63,6 +69,7 @@ export default {
   },
   args: {
     themeColor: 'primary',
+    dataSource: options,
     direction: 'row',
     initValue: 'option1',
     className: '',

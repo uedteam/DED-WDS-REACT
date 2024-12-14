@@ -35,7 +35,11 @@ export const List: React.FC<ListProps> = ({
   className = '',
 }: ListProps) => {
   return (
-    <ul className={`ded-list ${hasOutline && 'ded-outline'} ${className}`}>
+    <ul
+      className={`ded-list 
+      ${hasOutline && 'ded-outline'} 
+      ${className}`}
+    >
       {dataSource.map((option, index) => {
         return <Item {...option} onClick={onSelect} key={index}></Item>;
       })}
