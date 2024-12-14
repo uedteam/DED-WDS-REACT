@@ -17,6 +17,7 @@
 
   .ded-component-#{$size} {
     height: map.get($component-size, $size);
+    width: map.get($component-size, $size);
   }
 }
 

@@ -111,6 +111,7 @@ $form-border: list.nth($neutral-300, $site);
 $form-background: list.nth($neutral-0, $site);
 
 // AUO-Icon
-$icon-primary: list.nth($primary, $site);
-$icon-secondary: list.nth($secondary, $site);
-$icon-neutral: list.nth($neutral-500, $site);
+$icon-default: list.nth($neutral-700, $site);
+$icon-dark: blend-rgba($icon-default, $alpha-dark-20);
+$icon-light: blend-rgba($icon-default, $alpha-light-20);
+$icon-soft: blend-rgba($icon-default, $alpha-light-80);

@@ -20,11 +20,11 @@
 
   &:hover {
     // box-shadow: 0 0 0 2px getBorderColor('primary', 'hover');
-    border: 1px solid list.nth($form-hover, $site);
+    border: 1px solid $form-hover;
   }
 
   &:focus-within {
-    box-shadow: 0 0 0 3px list.nth($form-hover, $site);
+    box-shadow: 0 0 0 3px $form-hover;
     // border: 1px solid getBorderColor('primary', 'focus');
   }
 

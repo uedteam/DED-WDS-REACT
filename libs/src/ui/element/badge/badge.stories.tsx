@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryContext, StoryObj } from '@storybook/react';
 import Badge from './badge';
 import { NotificationIcon } from '@src/assets';
 
@@ -12,25 +12,21 @@ export default {
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
+          'info',
           'success',
           'warning',
           'error',
-          'info',
         ],
       },
       table: {
         category: 'PROPS',
       },
     },
-    type: {
+    isShowDot: {
       description: '是否顯示圓點',
-      control: {
-        type: 'select',
-        options: ['dot', 'number'],
-      },
       table: {
         category: 'PROPS',
       },
@@ -62,18 +58,19 @@ export default {
       },
     },
   },
+  args: {
+    themeColor: 'error',
+    isShowDot: false,
+    value: 100,
+    limit: 99,
+    className: '',
+  },
 } as Meta;
 type Story = StoryObj<typeof Badge>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    themeColor: 'error',
-    type: 'number',
-    value: 100,
-    limit: 99,
-    className: '',
-  },
+  args: {},
   render(args) {
     return (
       <Badge {...args}>
@@ -85,19 +82,30 @@ export const Default: Story = {
 
 export const Type: Story = {
   name: '類型選擇',
-  args: {
-    themeColor: 'error',
-    value: 100,
-    limit: 99,
-    className: '',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          return `
+<Badge {...args} isShowDot>
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args}>
+  <NotificationIcon width={26} height={26} />
+</Badge>
+`;
+        },
+      },
+    },
   },
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '32px' }}>
-        <Badge {...args} type="dot">
+        <Badge {...args} isShowDot>
           <NotificationIcon width={26} height={26} />
         </Badge>
-        <Badge {...args} type="number">
+        <Badge {...args}>
           <NotificationIcon width={26} height={26} />
         </Badge>
       </div>
@@ -107,11 +115,22 @@ export const Type: Story = {
 
 export const Max: Story = {
   name: '最大值設定',
-  args: {
-    themeColor: 'error',
-    type: 'number',
-    limit: 99,
-    className: '',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          return `
+<Badge {...args} value={99}>
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} value={100}>
+  <NotificationIcon width={26} height={26} />
+</Badge>
+`;
+        },
+      },
+    },
   },
   render(args) {
     return (
@@ -129,62 +148,83 @@ export const Max: Story = {
 
 export const Theme: Story = {
   name: '主題色彩',
-  args: {
-    themeColor: 'error',
-    type: 'number',
-    value: 100,
-    limit: 99,
-    className: '',
+  args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          return `
+<Badge {...args} isShowDot themeColor="primary">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} isShowDot themeColor="secondary">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} isShowDot themeColor="neutral">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} isShowDot themeColor="info">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} isShowDot themeColor="success">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} isShowDot themeColor="warning">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} isShowDot themeColor="error">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="primary">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="secondary">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="neutral">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="info">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="success">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="warning">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+<Badge {...args} themeColor="error">
+  <NotificationIcon width={26} height={26} />
+</Badge>
+`;
+        },
+      },
+    },
   },
   render(args) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
-          <Badge {...args} type="dot" themeColor="neutral">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="primary">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="secondary">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="info">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="success">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="warning">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} type="dot" themeColor="error">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
-          <Badge {...args} themeColor="neutral">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="primary">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="secondary">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="info">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="success">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="warning">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-          <Badge {...args} themeColor="error">
-            <NotificationIcon width={26} height={26} />
-          </Badge>
-        </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
+        <Badge {...args} themeColor="primary">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
+        <Badge {...args} themeColor="secondary">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
+        <Badge {...args} themeColor="neutral">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
+        <Badge {...args} themeColor="info">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
+        <Badge {...args} themeColor="success">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
+        <Badge {...args} themeColor="warning">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
+        <Badge {...args} themeColor="error">
+          <NotificationIcon width={26} height={26} />
+        </Badge>
       </div>
     );
   },

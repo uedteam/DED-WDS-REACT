@@ -55,7 +55,7 @@ export default {
   },
   args: {
     isOpen: false,
-    hasClose: false,
+    hasClose: true,
     className: '',
   },
   parameters: {
@@ -80,11 +80,12 @@ export default {
       <Button
         onClick={handleCancel}
         variant="filled"
+        radius="md"
         className="cancel-btn"
       >
         Cancel
       </Button>
-      <Button onClick={handleOK} variant="filled">
+      <Button onClick={handleOK} variant="filled" radius="md">
         OK
       </Button>
     </>
@@ -100,8 +101,19 @@ type Story = StoryObj<typeof Dialog>;
 const DemoWithHook = (args: Story['args']) => {
   const { isOpen, header, content, openDialog, closeDialog } = useDialog({
     isOpen: args?.isOpen || false,
-    header: <Title level={3}>Title</Title>,
-    content: <p>Content</p>,
+    header: (
+      <Title themeColor="primary" level={2}>
+        Title
+      </Title>
+    ),
+    content: (
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard Lorem Ipsum is
+        simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard
+      </p>
+    ),
   });
 
   const handleOK = () => {
@@ -116,7 +128,7 @@ const DemoWithHook = (args: Story['args']) => {
 
   return (
     <>
-      <Button onClick={openDialog} variant="filled">
+      <Button onClick={openDialog} variant="filled" radius="md">
         Open Dialog
       </Button>
       <Dialog
@@ -127,15 +139,16 @@ const DemoWithHook = (args: Story['args']) => {
         content={content}
         footer={
           <>
+            <Button onClick={handleOK} variant="filled" radius="md">
+              OK
+            </Button>
             <Button
               onClick={handleCancel}
               variant="filled"
+              radius="md"
               className="cancel-btn"
             >
               Cancel
-            </Button>
-            <Button onClick={handleOK} variant="filled">
-              OK
             </Button>
           </>
         }
@@ -148,9 +161,20 @@ export const Default: Story = {
   name: '預設項目',
   args: {
     isOpen: true,
-    hasClose: false,
-    header: 'Title',
-    content: 'Content',
+    hasClose: true,
+    header: (
+      <Title themeColor="primary" level={2}>
+        Title
+      </Title>
+    ),
+    content: (
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard Lorem Ipsum is
+        simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard
+      </p>
+    ),
     onClose: () => window.alert('close'),
   },
   render(args) {
@@ -169,14 +193,19 @@ export const Default: Story = {
         <div className="dialog-body">{content}</div>
         <div className="dialog-footer">
           <Button
+            onClick={() => window.alert('ok')}
+            variant="filled"
+            radius="md"
+          >
+            OK
+          </Button>
+          <Button
             onClick={() => window.alert('cancel')}
             variant="filled"
+            radius="md"
             className="cancel-btn"
           >
             Cancel
-          </Button>
-          <Button onClick={() => window.alert('ok')} variant="filled">
-            OK
           </Button>
         </div>
       </div>
