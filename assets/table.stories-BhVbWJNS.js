@@ -1,0 +1,13 @@
+import{j as o}from"./jsx-runtime-DEdD30eg.js";import{a as r}from"./chunk-454WOBUV-CM0pFb8Z.js";import"./title-B6FjmO7v.js";import{B as p}from"./toast-pTIqXw8I.js";import"./checkbox-gHzG2Us7.js";import"./input-47lKdKbE.js";import"./textarea-CO8Z8fZG.js";import"./toggle-B_GFje5b.js";import"./radio-BhGOQQ7m.js";import{T as i,b as e}from"./styled-IOKniPMJ.js";import"./breadcrumb-C8k9_Tpo.js";import"./progress-circle-ReGt0b-K.js";import"./progress-line-DHphvmbz.js";import"./styled-7_Fd9YFd.js";import"./menu-3Z-Smywu.js";import"./image-CZs88QCg.js";import"./status-indicator-C0euK5S5.js";import"./index-RYns6xqu.js";import"./v4-CQkTLCs1.js";import"./lodash-CcdATr5u.js";import"./disable-circle-Qt9C8lli.js";import"./string-ECkTvc_B.js";import"./check-BnJBHFpS.js";import"./index-sbqOYYIm.js";import"./offline-Ddz6ifNG.js";const s=[{key:"head",title:"TH",width:"50px"},{key:"column1",title:"TH",width:"100px",render:t=>o.jsx(e,{content:t.column1,placement:"top",children:t.column1})},{key:"column2",title:"TH",width:"100px",render:t=>o.jsx(e,{content:t.column2,placement:"top",children:t.column2})},{key:"column3",title:"TH",width:"100px",render:t=>o.jsx(e,{content:t.column3,placement:"top",children:t.column3})},{key:"column4",title:"TH",width:"50px",render:t=>o.jsx(e,{content:t.column4,placement:"top",children:t.column4})},{key:"column5",title:"TH",width:"50px",align:"center",render:t=>o.jsx(p,{themeColor:"primary",variant:"filled",size:"small",onClick:()=>alert(t.column5),children:"View"})}],d=Array(7).fill(null).map((t,m)=>({head:`Head-${m+1}`,column1:"td1",column2:"td2",column3:"td3",column4:"td4",column5:"td5"})),A={title:"Component/Table",component:i,tags:["autodocs"],argTypes:{dataSource:{description:"資料來源",table:{category:"PROPS"}},columns:{description:"欄位",table:{category:"PROPS"}},className:{description:"客製化樣式",control:{type:"text"},table:{category:"PROPS"}},onRowClick:{description:"點擊事件",table:{category:"EVENTS"}}},parameters:{docs:{title:"Table",description:{component:"Table 組件的呈現及說明。"}}}},n={name:"預設項目",args:{dataSource:d,columns:s,className:"",onRowClick:r("onClick"),onSelect:r("onSelect")},render(t){return o.jsx(i,{...t})}};var c,l,a;n.parameters={...n.parameters,docs:{...(c=n.parameters)==null?void 0:c.docs,source:{originalSource:`{
+  name: '預設項目',
+  args: {
+    dataSource,
+    columns,
+    className: '',
+    onRowClick: action('onClick'),
+    onSelect: action('onSelect')
+  },
+  render(args) {
+    return <Table {...args} />;
+  }
+}`,...(a=(l=n.parameters)==null?void 0:l.docs)==null?void 0:a.source}}};const $=["Default"];export{n as Default,$ as __namedExportsOrder,A as default};
