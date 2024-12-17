@@ -20,6 +20,7 @@ import { Dialog } from './module/dialog';
 import { Accordion } from './element/accordion';
 import { Toast } from './module/toast';
 import { Stepper } from './module/stepper/stepper';
+import { StatusIndicator } from './module/status-indicator';
 
 export {
   Title,
@@ -46,4 +47,5 @@ export {
   Accordion,
   Toast,
   Stepper,
+  StatusIndicator,
 };
