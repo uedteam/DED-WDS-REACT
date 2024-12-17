@@ -1,9 +1,0 @@
-import{j as e}from"./jsx-runtime-DEdD30eg.js";import{S as c}from"./status-indicator-DcO8m1Ar.js";import{c as o,d as a,W as l,E as d,Q as p,D as m}from"./disable-circle-Qt9C8lli.js";import"./index-RYns6xqu.js";import"./string-bv4IUxbB.js";const x={title:"Component/Status-Indicator",component:c,tags:["autodocs"],argTypes:{themeColor:{description:"主題顏色",control:{type:"select",options:["primary","secondary","neutral","info","success","warning","error"]}},variant:{description:"樣式變體",control:{type:"select",options:["filled","text"]}},prefix:{description:"前綴元素",options:["InfoCircleIcon","SuccessCircleIcon","WarningCircleIcon","ErrorCircleIcon","QuestionCircleIcon","DisableCircleIcon"],mapping:{InfoCircleIcon:e.jsx(o,{width:20,height:20}),SuccessCircleIcon:e.jsx(a,{width:20,height:20}),WarningCircleIcon:e.jsx(l,{width:20,height:20}),ErrorCircleIcon:e.jsx(d,{width:20,height:20}),QuestionCircleIcon:e.jsx(p,{width:20,height:20}),DisableCircleIcon:e.jsx(m,{width:20,height:20})},control:{type:"select"}},children:{description:"內容",control:{type:"text"}},size:{description:"尺寸",control:{type:"select",options:["small","medium","large"]}},className:{description:"客製化樣式",control:{type:"text"}}},args:{themeColor:"primary",variant:"text",children:"123",prefix:e.jsx(o,{width:20,height:20}),size:"medium",className:""},parameters:{docs:{title:"StatusIndicator",description:{component:"狀態指示組件的呈現及說明。"}}}},r={name:"預設項目",args:{className:""},render(t){return e.jsx(c,{...t,children:t.children})}};var i,s,n;r.parameters={...r.parameters,docs:{...(i=r.parameters)==null?void 0:i.docs,source:{originalSource:`{
-  name: '預設項目',
-  args: {
-    className: ''
-  },
-  render(args) {
-    return <StatusIndicator {...args}>{args.children}</StatusIndicator>;
-  }
-}`,...(n=(s=r.parameters)==null?void 0:s.docs)==null?void 0:n.source}}};const f=["Default"];export{r as Default,f as __namedExportsOrder,x as default};
