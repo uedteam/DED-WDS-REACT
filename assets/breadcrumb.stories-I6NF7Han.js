@@ -1,0 +1,7 @@
+import{j as m}from"./jsx-runtime-DEdD30eg.js";import{b as a}from"./styled-BY8k0-uY.js";import"./index-RYns6xqu.js";import"./disable-circle-Qt9C8lli.js";import"./index-sbqOYYIm.js";import"./title-CD8xfGAz.js";import"./string-bv4IUxbB.js";import"./checkbox-gHzG2Us7.js";import"./check-BnJBHFpS.js";import"./textarea-CO8Z8fZG.js";import"./toggle-BVqMcImG.js";import"./radio-BhGOQQ7m.js";import"./offline-Ddz6ifNG.js";import"./progress-circle-ReGt0b-K.js";import"./styled-7_Fd9YFd.js";import"./progress-line-DHphvmbz.js";import"./image-BUf_2wZ-.js";import"./status-indicator-DcO8m1Ar.js";const i=[{label:"Home",href:"/"},{label:"Level1",href:"/first"},{label:"Level2",href:"https://tw.yahoo.com"},{label:"Level3",href:"/first/second/third/n"},{label:"Current"}],O={title:"Component/Breadcrumb",component:a,tags:["autodocs"],argTypes:{dataSource:{description:"資料來源",table:{category:"PROPS"}},className:{description:"客製化樣式",control:{type:"text"},table:{category:"PROPS"}}},args:{dataSource:i,className:""},parameters:{docs:{title:"麵包屑",description:{component:"麵包屑組件的呈現及說明。"}}}},r={name:"預設項目",args:{},render(s){return m.jsx(a,{...s})}};var e,t,o;r.parameters={...r.parameters,docs:{...(e=r.parameters)==null?void 0:e.docs,source:{originalSource:`{
+  name: '預設項目',
+  args: {},
+  render(args) {
+    return <Breadcrumb {...args} />;
+  }
+}`,...(o=(t=r.parameters)==null?void 0:t.docs)==null?void 0:o.source}}};const R=["Default"];export{r as Default,R as __namedExportsOrder,O as default};
