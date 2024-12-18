@@ -20,9 +20,9 @@ import { getThemeClass, getLevelClass } from './styled';
  */
 export interface TitleProps {
   themeColor?:
-    | 'neutral'
     | 'primary'
     | 'secondary'
+    | 'neutral'
     | 'info'
     | 'success'
     | 'warning'
@@ -52,9 +52,11 @@ export const Title: React.FC<TitleProps> = ({
 }: TitleProps): JSX.Element => {
   return (
     <div
-      className={`ded-title ${className} ${
-        themeColor !== 'none' && getThemeClass(themeColor)
-      } ${getLevelClass(level)} ${className}`}
+      className={`ded-title 
+        ${themeColor !== 'none' && getThemeClass(themeColor)}
+        ${getLevelClass(level)} 
+        ${className}
+      `}
     >
       {children}
     </div>

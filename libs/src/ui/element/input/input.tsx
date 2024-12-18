@@ -85,7 +85,8 @@ export const Input: React.FC<InputProps> = ({
         className={` 
           ded-input-group
           ${getSizeClass('ded-component', size)} 
-          ${isDisabled ? 'ded-input-disable' : getBorderClass(hint)}`}
+          ${getBorderClass(hint)}
+          ${isDisabled ? 'ded-input-disable' : ''}`}
       >
         {prefix && (
           <label
@@ -103,16 +104,15 @@ export const Input: React.FC<InputProps> = ({
           value={value}
           onChange={handleInputChange}
           type={inputType}
-          className={`${
-            isDisabled
-              ? 'ded-input-disable'
-              : `ded-input ${getSizeClass('ded-text', size)}`
-          } ${prefix ? 'ded-input-prefix' : ''}`}
+          className={`ded-input 
+            ${getSizeClass('ded-text', size)} 
+            ${isDisabled ? 'ded-input-disable' : ``} 
+            ${prefix ? 'ded-input-prefix' : ''}`}
           placeholder={placeholder}
         />
 
         <div className="ded-input-feat-icon">
-          {!isEmpty(value) && (
+          {!isDisabled && !isEmpty(value) && (
             <div
               onClick={onClear}
               style={{ cursor: 'pointer' }}

@@ -11,13 +11,14 @@ export default {
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
           'info',
           'success',
           'warning',
           'error',
+          'none',
         ],
       },
       table: {
@@ -56,7 +57,7 @@ export default {
     },
   },
   args: {
-    themeColor: 'neutral',
+    themeColor: 'primary',
     level: 1,
     className: '',
     children: 'Title',
@@ -114,9 +115,9 @@ export const Theme: Story = {
     docs: {
       source: {
         code: `
-<Title level={args.level} themeColor="neutral">{args.children}</Title>
 <Title level={args.level} themeColor="primary">{args.children}</Title>
 <Title level={args.level} themeColor="secondary">{args.children}</Title>
+<Title level={args.level} themeColor="neutral">{args.children}</Title>
 <Title level={args.level} themeColor="info">{args.children}</Title>
 <Title level={args.level} themeColor="success">{args.children}</Title>
 <Title level={args.level} themeColor="warning">{args.children}</Title>
@@ -128,13 +129,13 @@ export const Theme: Story = {
   render(args) {
     return (
       <div style={{ display: 'flex', gap: '8px' }}>
-        <Title level={args.level} themeColor="neutral">
-          {args.children}
-        </Title>
         <Title level={args.level} themeColor="primary">
           {args.children}
         </Title>
         <Title level={args.level} themeColor="secondary">
+          {args.children}
+        </Title>
+        <Title level={args.level} themeColor="neutral">
           {args.children}
         </Title>
         <Title level={args.level} themeColor="info">
