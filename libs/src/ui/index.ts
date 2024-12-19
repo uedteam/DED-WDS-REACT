@@ -23,6 +23,8 @@ import { Stepper } from './module/stepper/stepper';
 import { StatusIndicator } from './module/status-indicator';
 import { Search } from './module/search';
 import { Table } from './element/table';
+import { Select } from './element/select';
+import { Pagination } from './element/pagination';
 
 export {
   Title,
@@ -52,4 +54,6 @@ export {
   StatusIndicator,
   Search,
   Table,
+  Select,
+  Pagination,
 };

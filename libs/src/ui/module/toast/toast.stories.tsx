@@ -1,7 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Toast, Button } from '@src/ui';
+import { Toast, Button, StatusIndicator } from '@src/ui';
 import { StoryContext } from 'storybook/internal/types';
-import { CloseIcon, CheckIcon, InfoIcon, WarningIcon } from '@src/assets';
+import { getCombinedClassName } from '@src/utils/string';
+import {
+  CloseIcon,
+  InfoCircleIcon,
+  SuccessCircleIcon,
+  WarningTriIcon,
+  ErrorCircleIcon,
+  QuestionCircleIcon,
+} from '@src/assets';
 import { useToast } from '@src/hooks';
 
 export default {
@@ -14,9 +22,9 @@ export default {
       control: {
         type: 'select',
         options: [
-          'neutral',
           'primary',
           'secondary',
+          'neutral',
           'info',
           'success',
           'warning',
@@ -41,12 +49,17 @@ export default {
     },
     prefix: {
       description: '前綴',
-      options: ['CheckIcon', 'CloseIcon', 'InfoIcon', 'WarningIcon'],
+      options: [
+        'InfoCircleIcon',
+        'SuccessCircleIcon',
+        'WarningTriIcon',
+        'ErrorCircleIcon',
+      ],
       mapping: {
-        CheckIcon: <CheckIcon />,
-        CloseIcon: <CloseIcon />,
-        InfoIcon: <InfoIcon />,
-        WarningIcon: <WarningIcon />,
+        InfoCircleIcon: <InfoCircleIcon />,
+        SuccessCircleIcon: <SuccessCircleIcon />,
+        WarningTriIcon: <WarningTriIcon />,
+        ErrorCircleIcon: <ErrorCircleIcon />,
       },
       table: {
         category: 'PROPS',
@@ -82,7 +95,7 @@ export default {
     onClose: () => window.alert('close'),
     title: 'Title',
     content: 'Content',
-    prefix: <CheckIcon />,
+    prefix: <SuccessCircleIcon width={20} height={20} />,
     duration: 500,
     className: '',
   },
@@ -110,19 +123,36 @@ export const Default: Story = {
   name: '預設項目',
   args: {},
   render(args) {
-    const { themeColor, title, content, prefix, onClose, className } = args;
+    const {
+      themeColor,
+      title,
+      content,
+      prefix,
+      onClose = () => ({}),
+      className,
+    } = args;
     return (
-      <div className={`ded-toast ded-toast-border-${themeColor} ${className}`}>
-        <button className="ded-close-button">
+      <div
+        className={`ded-toast 
+        ${getCombinedClassName('ded-toast', `border-${themeColor}`)} 
+        ${className}`}
+      >
+        <Button
+          variant="text"
+          onClick={onClose}
+          themeColor="neutral"
+          className="ded-close-button"
+        >
           <CloseIcon width={20} height={20} onClick={onClose} />
-        </button>
+        </Button>
         <div className="ded-message">
-          {prefix && (
-            <div className={`ded-icon-wrapper ded-toast-${themeColor}`}>
-              {prefix}
-            </div>
-          )}
-          <span>{title}</span>
+          <StatusIndicator
+            variant="text"
+            themeColor={themeColor}
+            prefix={prefix}
+          >
+            Title
+          </StatusIndicator>
         </div>
         <p className="ded-description">{content}</p>
       </div>
@@ -134,65 +164,105 @@ export const Type: Story = {
   name: '通知訊息類型',
   args: {},
   render(args) {
-    const { title, content, prefix, onClose, className } = args;
+    const { title, content, prefix, onClose = () => ({}), className } = args;
     return (
       <>
-        <div className={`ded-toast ded-toast-border-success ${className}`}>
-          <button className="ded-close-button">
+        <div
+          className={`ded-toast 
+        ${getCombinedClassName('ded-toast', `border-success`)} 
+        ${className}`}
+        >
+          <Button
+            variant="text"
+            onClick={onClose}
+            themeColor="neutral"
+            className="ded-close-button"
+          >
             <CloseIcon width={20} height={20} onClick={onClose} />
-          </button>
+          </Button>
           <div className="ded-message">
-            {prefix && (
-              <div className={`ded-icon-wrapper ded-toast-success`}>
-                {prefix}
-              </div>
-            )}
-            <span>{title}</span>
+            <StatusIndicator
+              variant="text"
+              themeColor="success"
+              prefix={<SuccessCircleIcon width={20} height={20} />}
+            >
+              Title
+            </StatusIndicator>
           </div>
           <p className="ded-description">{content}</p>
         </div>
 
-        <div className={`ded-toast ded-toast-border-warning ${className}`}>
-          <button className="ded-close-button">
+        <div
+          className={`ded-toast 
+            ${getCombinedClassName('ded-toast', `border-warning`)}  
+            ${className}`}
+        >
+          <Button
+            variant="text"
+            onClick={onClose}
+            themeColor="neutral"
+            className="ded-close-button"
+          >
             <CloseIcon width={20} height={20} onClick={onClose} />
-          </button>
+          </Button>
           <div className="ded-message">
-            {prefix && (
-              <div className={`ded-icon-wrapper ded-toast-warning`}>
-                <WarningIcon />
-              </div>
-            )}
-            <span>{title}</span>
+            <StatusIndicator
+              variant="text"
+              themeColor="warning"
+              prefix={<WarningTriIcon width={20} height={20} />}
+            >
+              Title
+            </StatusIndicator>
           </div>
           <p className="ded-description">{content}</p>
         </div>
 
-        <div className={`ded-toast ded-toast-border-error ${className}`}>
-          <button className="ded-close-button">
+        <div
+          className={`ded-toast
+            ${getCombinedClassName('ded-toast', `border-error`)}  
+            ${className}`}
+        >
+          <Button
+            variant="text"
+            onClick={onClose}
+            themeColor="neutral"
+            className="ded-close-button"
+          >
             <CloseIcon width={20} height={20} onClick={onClose} />
-          </button>
+          </Button>
           <div className="ded-message">
-            {prefix && (
-              <div className={`ded-icon-wrapper ded-toast-error`}>
-                <CloseIcon />
-              </div>
-            )}
-            <span>{title}</span>
+            <StatusIndicator
+              variant="text"
+              themeColor="error"
+              prefix={<ErrorCircleIcon width={20} height={20} />}
+            >
+              Title
+            </StatusIndicator>
           </div>
           <p className="ded-description">{content}</p>
         </div>
 
-        <div className={`ded-toast ded-toast-border-info ${className}`}>
-          <button className="ded-close-button">
+        <div
+          className={`ded-toast
+            ${getCombinedClassName('ded-toast', `border-info`)}
+            ${className}`}
+        >
+          <Button
+            variant="text"
+            onClick={onClose}
+            themeColor="neutral"
+            className="ded-close-button"
+          >
             <CloseIcon width={20} height={20} onClick={onClose} />
-          </button>
+          </Button>
           <div className="ded-message">
-            {prefix && (
-              <div className={`ded-icon-wrapper ded-toast-info`}>
-                <InfoIcon />
-              </div>
-            )}
-            <span>{title}</span>
+            <StatusIndicator
+              variant="text"
+              themeColor="info"
+              prefix={<InfoCircleIcon width={20} height={20} />}
+            >
+              Title
+            </StatusIndicator>
           </div>
           <p className="ded-description">{content}</p>
         </div>
@@ -208,7 +278,7 @@ export const Demo: Story = {
     onClose: () => window.alert('close'),
     title: 'Title',
     content: 'Content',
-    prefix: <CheckIcon></CheckIcon>,
+    prefix: <SuccessCircleIcon width={20} height={20} />,
     duration: 1000,
     className: '',
   },
@@ -220,7 +290,7 @@ export const Demo: Story = {
         themeColor: args?.themeColor || 'success',
         title: args?.title || 'Title',
         content: args?.content || 'Content',
-        prefix: args?.prefix || <CheckIcon />,
+        prefix: args?.prefix || <ErrorCircleIcon width={20} height={20} />,
         duration: args?.duration,
       });
     };

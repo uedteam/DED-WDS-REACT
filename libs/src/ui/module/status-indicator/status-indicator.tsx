@@ -12,7 +12,7 @@ interface StatusIndicatorProps {
     | 'error';
   variant: 'filled' | 'text';
   prefix: ReactNode;
-  children?: string;
+  children?: ReactNode;
   size?: 'small' | 'medium' | 'large';
   className?: string;
 }
@@ -35,23 +35,24 @@ export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       `}
       role="status"
     >
-      {variant === 'filled' ? (
-        <span
-          className={`status-indicator-dot 
-        ${getCombinedClassName('status-indicator', themeColor)}
-      `}
-        ></span>
-      ) : (
-        <div style={{ lineHeight: '1' }}>{prefix}</div>
-      )}
-      {children && (
-        <div
-          className={`status-indicator-text 
-            ${getCombinedClassName('status-indicator-text', variant)}`}
-        >
-          {children}
-        </div>
-      )}
+      <div className="status-indicator-content">
+        {prefix ? (
+          <div className="status-indicator-prefix">{prefix}</div>
+        ) : (
+          <div
+            className={`${!prefix ? 'status-indicator-dot' : ''}
+          ${
+            !prefix && variant === 'text'
+              ? getCombinedClassName('status-indicator-dot', themeColor)
+              : ''
+          }
+          ${
+            !prefix && variant === 'filled' ? 'status-indicator-dot-white' : ''
+          }`}
+          ></div>
+        )}
+        {children && <div className={`status-indicator-text`}>{children}</div>}
+      </div>
     </div>
   );
 };
