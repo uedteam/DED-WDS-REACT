@@ -39,6 +39,7 @@ export default {
     prefix: {
       description: '前綴元素',
       options: [
+        'None',
         'InfoCircleIcon',
         'SuccessCircleIcon',
         'WarningCircleIcon',
@@ -47,6 +48,7 @@ export default {
         'DisableCircleIcon',
       ],
       mapping: {
+        None: null,
         InfoCircleIcon: <InfoCircleIcon width={20} height={20} />,
         SuccessCircleIcon: <SuccessCircleIcon width={20} height={20} />,
         WarningCircleIcon: <WarningTriIcon width={20} height={20} />,
@@ -79,10 +81,10 @@ export default {
     },
   },
   args: {
-    themeColor: 'primary',
-    variant: 'text',
-    children: '123',
-    prefix: <InfoCircleIcon width={20} height={20} />,
+    themeColor: 'success',
+    variant: 'filled',
+    children: 'Success',
+    prefix: 'None',
     size: 'medium',
     className: '',
   },
@@ -99,10 +101,136 @@ type Story = StoryObj<typeof StatusIndicator>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {
-    className: '',
-  },
+  args: {},
   render(args) {
     return <StatusIndicator {...args}>{args.children}</StatusIndicator>;
+  },
+};
+
+export const Theme: Story = {
+  name: '主題色彩',
+  args: {},
+  render(args) {
+    return (
+      <div
+        style={{
+          width: '600px',
+          display: 'flex',
+          gap: '10px',
+          flexWrap: 'wrap',
+        }}
+      >
+        <StatusIndicator {...args} variant="filled" themeColor="info">
+          Information
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="filled" themeColor="success">
+          Success
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="filled" themeColor="warning">
+          Warning
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="filled" themeColor="error">
+          Error
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="filled" themeColor="neutral">
+          Disable
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="text" themeColor="info">
+          Information{' '}
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="text" themeColor="success">
+          Success
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="text" themeColor="warning">
+          Warning
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="text" themeColor="error">
+          Error
+        </StatusIndicator>
+        <StatusIndicator {...args} variant="text" themeColor="neutral">
+          Disable
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="filled"
+          themeColor="info"
+          prefix={<InfoCircleIcon width={20} height={20} />}
+        >
+          Information
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="filled"
+          themeColor="success"
+          prefix={<SuccessCircleIcon width={20} height={20} />}
+        >
+          Success
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="filled"
+          themeColor="warning"
+          prefix={<WarningTriIcon width={20} height={20} />}
+        >
+          Warning
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="filled"
+          themeColor="error"
+          prefix={<ErrorCircleIcon width={20} height={20} />}
+        >
+          Error
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="filled"
+          themeColor="neutral"
+          prefix={<DisableCircleIcon width={20} height={20} />}
+        >
+          Disable
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="text"
+          themeColor="info"
+          prefix={<InfoCircleIcon width={20} height={20} />}
+        >
+          Information
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="text"
+          themeColor="success"
+          prefix={<SuccessCircleIcon width={20} height={20} />}
+        >
+          Success
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="text"
+          themeColor="warning"
+          prefix={<WarningTriIcon width={20} height={20} />}
+        >
+          Warning
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="text"
+          themeColor="error"
+          prefix={<ErrorCircleIcon width={20} height={20} />}
+        >
+          Error
+        </StatusIndicator>
+        <StatusIndicator
+          {...args}
+          variant="text"
+          themeColor="neutral"
+          prefix={<DisableCircleIcon width={20} height={20} />}
+        >
+          Disable
+        </StatusIndicator>
+      </div>
+    );
   },
 };
