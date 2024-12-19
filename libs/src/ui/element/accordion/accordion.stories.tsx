@@ -18,7 +18,6 @@ const qaList = [
           variant="soft"
           onClick={() => ({})}
           size="small"
-          radius="sm"
           suffix={<ArrowDownIcon width={20} height={20} />}
         >
           Button
@@ -167,7 +166,6 @@ const smallQaList = [
           variant="soft"
           onClick={() => ({})}
           size="small"
-          radius="sm"
           suffix={<ArrowDownIcon width={20} height={20} />}
         >
           Button

@@ -99,7 +99,7 @@ export default {
       description: '按鈕邊框寬度',
       control: {
         type: 'select',
-        options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
+        options: ['none', '1px', '2px', '3px', '4px', '5px'],
       },
       table: {
         category: 'PROPS',
@@ -109,7 +109,7 @@ export default {
       description: '按鈕圓角大小',
       control: {
         type: 'select',
-        options: ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'],
+        options: ['none', '2px', '4px', '8px', '12px', '16px', '32px', 'full'],
       },
       table: {
         category: 'PROPS',
@@ -146,8 +146,8 @@ export default {
     suffix: null,
     size: 'medium',
     width: 'fit',
-    borderWidth: 'sm',
-    radius: 'sm',
+    borderWidth: '1px',
+    radius: '4px',
     isDisabled: false,
     className: '',
     children: 'Button',
