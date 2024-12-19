@@ -38,6 +38,8 @@ import WarningTriIcon from '@assets/warning-tri.svg?react';
 import ErrorCircleIcon from '@assets/error-circle.svg?react';
 import QuestionCircleIcon from '@assets/question-circle.svg?react';
 import DisableCircleIcon from '@assets/disable-circle.svg?react';
+import FirstLastPageIcon from '@assets/first-last-page.svg?react';
+import NavigateArrowIcon from '@assets/navigate-arrow.svg?react';
 
 export {
   AccountIcon,
@@ -80,4 +82,6 @@ export {
   ErrorCircleIcon,
   QuestionCircleIcon,
   DisableCircleIcon,
+  FirstLastPageIcon,
+  NavigateArrowIcon,
 };

@@ -1,11 +1,15 @@
 import React, { ReactNode } from 'react';
 import { CloseIcon } from '@src/assets';
+import { StatusIndicator } from '@src/ui/module/status-indicator';
+import { Button } from '@src/ui/element/button';
+import { Title } from '@src/ui/element/title';
+import { getCombinedClassName } from '@src/utils/string';
 
 export interface ToastProps {
   themeColor?:
-    | 'neutral'
     | 'primary'
     | 'secondary'
+    | 'neutral'
     | 'info'
     | 'success'
     | 'warning'
@@ -20,7 +24,7 @@ export interface ToastProps {
 
 export const Toast: React.FC<ToastProps> = ({
   themeColor = 'primary',
-  onClose,
+  onClose = () => ({}),
   title = 'Title',
   content = 'Content',
   prefix = '',
@@ -28,15 +32,23 @@ export const Toast: React.FC<ToastProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`ded-toast ded-toast-border-${themeColor} ${className}`}>
-      <button className="ded-close-button">
+    <div
+      className={`ded-toast 
+        ${getCombinedClassName('ded-toast', `border-${themeColor}`)} 
+        ${className}`}
+    >
+      <Button
+        variant="text"
+        onClick={onClose}
+        themeColor="neutral"
+        className="ded-close-button"
+      >
         <CloseIcon width={20} height={20} onClick={onClose} />
-      </button>
+      </Button>
       <div className="ded-message">
-        <span className={`ded-icon-wrapper ded-toast-${themeColor}`}>
-          {prefix && <div>{prefix}</div>}
-        </span>
-        <span>{title}</span>
+        <StatusIndicator variant="text" themeColor={themeColor} prefix={prefix}>
+          <Title>title</Title>
+        </StatusIndicator>
       </div>
       <p className="ded-description">{content}</p>
     </div>
