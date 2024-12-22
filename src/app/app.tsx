@@ -1,11 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import '@style/globals.scss';
+import 'vanillajs-datepicker/css/datepicker-foundation.css';
 
 import NxWelcome from './nx-welcome';
 import { range } from 'lodash';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { Switch } from 'ded-wds';
 import { Radio, Input, Button, Tooltip } from '@src/ui';
+import { Datepicker } from 'vanillajs-datepicker';
 
 export function App() {
   const [value, setValue] = useState('option3');
@@ -14,6 +16,12 @@ export function App() {
     setValue(e);
     console.log(e);
   };
+
+  useEffect(() => {
+    const elem = document.querySelector('input[name="foo"]');
+    if (!elem) return;
+    const datepicker = new Datepicker(elem as HTMLElement, {});
+  }, []);
 
   return (
     <div>
@@ -136,6 +144,8 @@ export function App() {
             initValue="option3"
           />
           {/* <Input value={value} /> */}
+
+          <input style={{ border: '1px solid #ccc' }} type="text" name="foo" />
         </div>
       </div>
 
