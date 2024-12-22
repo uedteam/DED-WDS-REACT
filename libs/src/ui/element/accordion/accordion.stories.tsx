@@ -114,6 +114,9 @@ export default {
   args: {
     dataSource: qaList,
     prefix: <InfoIcon width={20} height={20} />,
+    borderStyle: 'highlight',
+    isSmallSize: false,
+    isOpenAll: false,
     className: '',
   },
   parameters: {

@@ -28,12 +28,18 @@ export default {
           'error',
         ],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     variant: {
       description: '樣式變體',
       control: {
         type: 'select',
         options: ['filled', 'text'],
+      },
+      table: {
+        category: 'PROPS',
       },
     },
     prefix: {
@@ -59,11 +65,14 @@ export default {
       control: {
         type: 'select',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     children: {
       description: '內容',
-      control: {
-        type: 'text',
+      table: {
+        category: 'PROPS',
       },
     },
     size: {
@@ -72,11 +81,14 @@ export default {
         type: 'select',
         options: ['small', 'medium', 'large'],
       },
+      table: {
+        category: 'PROPS',
+      },
     },
     className: {
       description: '客製化樣式',
-      control: {
-        type: 'text',
+      table: {
+        category: 'PROPS',
       },
     },
   },
