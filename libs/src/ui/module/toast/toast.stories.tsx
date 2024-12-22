@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Toast, Button, StatusIndicator } from '@src/ui';
+import { Toast, Button, Title } from '@src/ui';
 import { StoryContext } from 'storybook/internal/types';
 import { getCombinedClassName } from '@src/utils/string';
 import {
@@ -93,9 +93,10 @@ export default {
   args: {
     themeColor: 'success',
     onClose: () => window.alert('close'),
-    title: 'Title',
+    title: 'Notification Title ',
     content: 'Content',
-    prefix: <SuccessCircleIcon width={20} height={20} />,
+    action: <div onClick={() => window.alert('action')}>Action</div>,
+    prefix: <SuccessCircleIcon width={18} height={18} />,
     duration: 500,
     className: '',
   },
@@ -121,12 +122,15 @@ type Story = StoryObj<typeof Toast>;
 
 export const Default: Story = {
   name: '預設項目',
-  args: {},
+  args: {
+    action: <div onClick={() => window.alert('action')}>Action</div>,
+  },
   render(args) {
     const {
       themeColor,
       title,
       content,
+      action,
       prefix,
       onClose = () => ({}),
       className,
@@ -143,16 +147,17 @@ export const Default: Story = {
           themeColor="neutral"
           className="ded-close-button"
         >
-          <CloseIcon width={20} height={20} onClick={onClose} />
+          <CloseIcon width={18} height={18} onClick={onClose} />
         </Button>
-        <div className="ded-message">
-          <StatusIndicator
-            variant="text"
-            themeColor={themeColor}
-            prefix={prefix}
-          >
-            Title
-          </StatusIndicator>
+
+        <div className={`ded-toast-header`}>
+          <div className="ded-toast-header-message">
+            <SuccessCircleIcon width={18} height={18} />
+            <Title level={5} themeColor={themeColor}>
+              {title}
+            </Title>
+          </div>
+          {action && <div className="ded-toast-header-action">{action}</div>}
         </div>
         <p className="ded-description">{content}</p>
       </div>
@@ -162,9 +167,18 @@ export const Default: Story = {
 
 export const Type: Story = {
   name: '通知訊息類型',
-  args: {},
+  args: {
+    action: <div onClick={() => window.alert('action')}>Action</div>,
+  },
   render(args) {
-    const { title, content, prefix, onClose = () => ({}), className } = args;
+    const {
+      title,
+      content,
+      action,
+      prefix,
+      onClose = () => ({}),
+      className,
+    } = args;
     return (
       <>
         <div
@@ -178,16 +192,16 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={20} height={20} onClick={onClose} />
+            <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
-          <div className="ded-message">
-            <StatusIndicator
-              variant="text"
-              themeColor="success"
-              prefix={<SuccessCircleIcon width={20} height={20} />}
-            >
-              Title
-            </StatusIndicator>
+          <div className={`ded-toast-header`}>
+            <div className="ded-toast-header-message">
+              <SuccessCircleIcon width={18} height={18} />
+              <Title level={5} themeColor="success">
+                {title}
+              </Title>
+            </div>
+            {action && <div className="ded-toast-header-action">{action}</div>}
           </div>
           <p className="ded-description">{content}</p>
         </div>
@@ -203,16 +217,16 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={20} height={20} onClick={onClose} />
+            <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
-          <div className="ded-message">
-            <StatusIndicator
-              variant="text"
-              themeColor="warning"
-              prefix={<WarningTriIcon width={20} height={20} />}
-            >
-              Title
-            </StatusIndicator>
+          <div className={`ded-toast-header`}>
+            <div className="ded-toast-header-message">
+              <SuccessCircleIcon width={18} height={18} />
+              <Title level={5} themeColor="warning">
+                {title}
+              </Title>
+            </div>
+            {action && <div className="ded-toast-header-action">{action}</div>}
           </div>
           <p className="ded-description">{content}</p>
         </div>
@@ -228,16 +242,16 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={20} height={20} onClick={onClose} />
+            <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
-          <div className="ded-message">
-            <StatusIndicator
-              variant="text"
-              themeColor="error"
-              prefix={<ErrorCircleIcon width={20} height={20} />}
-            >
-              Title
-            </StatusIndicator>
+          <div className={`ded-toast-header`}>
+            <div className="ded-toast-header-message">
+              <SuccessCircleIcon width={18} height={18} />
+              <Title level={5} themeColor="error">
+                {title}
+              </Title>
+            </div>
+            {action && <div className="ded-toast-header-action">{action}</div>}
           </div>
           <p className="ded-description">{content}</p>
         </div>
@@ -253,17 +267,18 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={20} height={20} onClick={onClose} />
+            <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
-          <div className="ded-message">
-            <StatusIndicator
-              variant="text"
-              themeColor="info"
-              prefix={<InfoCircleIcon width={20} height={20} />}
-            >
-              Title
-            </StatusIndicator>
+          <div className={`ded-toast-header`}>
+            <div className="ded-toast-header-message">
+              <SuccessCircleIcon width={18} height={18} />
+              <Title level={5} themeColor="info">
+                {title}
+              </Title>
+            </div>
+            {action && <div className="ded-toast-header-action">{action}</div>}
           </div>
+
           <p className="ded-description">{content}</p>
         </div>
       </>
@@ -276,9 +291,10 @@ export const Demo: Story = {
   args: {
     themeColor: 'success',
     onClose: () => window.alert('close'),
-    title: 'Title',
+    title: 'Notification title ',
     content: 'Content',
-    prefix: <SuccessCircleIcon width={20} height={20} />,
+    action: <div onClick={() => window.alert('action')}>Action</div>,
+    prefix: <SuccessCircleIcon width={18} height={18} />,
     duration: 1000,
     className: '',
   },
@@ -290,7 +306,8 @@ export const Demo: Story = {
         themeColor: args?.themeColor || 'success',
         title: args?.title || 'Title',
         content: args?.content || 'Content',
-        prefix: args?.prefix || <ErrorCircleIcon width={20} height={20} />,
+        action: args?.action || <div>Action</div>,
+        prefix: args?.prefix || <ErrorCircleIcon width={18} height={18} />,
         duration: args?.duration,
       });
     };
