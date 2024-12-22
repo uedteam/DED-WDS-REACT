@@ -81,7 +81,7 @@ export const Button: React.FC<ButtonProps> = ({
               : 'ded-button-fluid'
             : ''
         }
-        ${getCombinedClassName('ded-component', size)}
+        ${getCombinedClassName('ded-text', size)}
         ${
           isDisabled
             ? getCombinedClassName('ded-button', `${variant}-disabled`)
@@ -99,9 +99,7 @@ export const Button: React.FC<ButtonProps> = ({
       {prefix && (
         <div className={getCombinedClassName('ded-icon', size)}>{prefix}</div>
       )}
-      {children && (
-        <div className={getCombinedClassName('ded-text', size)}>{children}</div>
-      )}
+      {children && <div className="ded-button-content">{children}</div>}
       {suffix && (
         <div className={getCombinedClassName('ded-icon', size)}>{suffix}</div>
       )}
