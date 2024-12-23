@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { CloseIcon } from '@src/assets';
-import { StatusIndicator } from '@src/ui/module/status-indicator';
 import { Button } from '@src/ui/element/button';
 import { Title } from '@src/ui/element/title';
 import { getCombinedClassName } from '@src/utils/string';
+import { SuccessCircleIcon } from '@src/assets';
 
 export interface ToastProps {
   themeColor?:
@@ -17,6 +17,7 @@ export interface ToastProps {
   onClose?: () => void;
   title?: string;
   content: string;
+  action?: ReactNode;
   prefix?: ReactNode;
   duration?: number;
   className?: string;
@@ -27,6 +28,7 @@ export const Toast: React.FC<ToastProps> = ({
   onClose = () => ({}),
   title = 'Title',
   content = 'Content',
+  action,
   prefix = '',
   duration = 1000,
   className = '',
@@ -45,10 +47,21 @@ export const Toast: React.FC<ToastProps> = ({
       >
         <CloseIcon width={20} height={20} onClick={onClose} />
       </Button>
-      <div className="ded-message">
-        <StatusIndicator variant="text" themeColor={themeColor} prefix={prefix}>
-          <Title>title</Title>
-        </StatusIndicator>
+      <div className={`ded-toast-header`}>
+        <div
+          className={`ded-toast-header-message 
+          ${getCombinedClassName(
+            'ded-toast-header-message',
+            `text-${themeColor}`
+          )}
+        `}
+        >
+          <SuccessCircleIcon width={20} height={20} />
+          <Title level={5} themeColor={themeColor}>
+            {title}
+          </Title>
+        </div>
+        <div className="ded-toast-header-action">{action}</div>
       </div>
       <p className="ded-description">{content}</p>
     </div>

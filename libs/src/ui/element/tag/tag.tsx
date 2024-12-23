@@ -72,7 +72,6 @@ export const Tag: React.FC<TagProps> = ({
             ? getDisableClass(variable)
             : getThemeClass(variable, themeColor)
         } 
-        ${getCombinedClassName('ded-tag', closable ? 'closable' : '')}
         ${className}`}
     >
       {href ? (

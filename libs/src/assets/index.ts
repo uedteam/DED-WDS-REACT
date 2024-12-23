@@ -40,6 +40,7 @@ import QuestionCircleIcon from '@assets/question-circle.svg?react';
 import DisableCircleIcon from '@assets/disable-circle.svg?react';
 import FirstLastPageIcon from '@assets/first-last-page.svg?react';
 import NavigateArrowIcon from '@assets/navigate-arrow.svg?react';
+import CalendarIcon from '@assets/calendar.svg?react';
 
 export {
   AccountIcon,
@@ -84,4 +85,5 @@ export {
   DisableCircleIcon,
   FirstLastPageIcon,
   NavigateArrowIcon,
+  CalendarIcon,
 };
