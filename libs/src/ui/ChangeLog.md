@@ -2,7 +2,7 @@
 
 ✨ New Feature
 
-feat: implement date picker component using Vanillajs
+- feat: implement date picker component using Vanillajs
 
 ---
 
