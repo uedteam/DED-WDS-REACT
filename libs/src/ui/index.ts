@@ -25,6 +25,9 @@ import { Search } from './module/search';
 import { Table } from './element/table';
 import { Select } from './element/select';
 import { Pagination } from './element/pagination';
+import { CardSimple } from './section/card-simple';
+import { Navbar } from './section/navbar';
+import { Badge } from './element/badge';
 
 export {
   Title,
@@ -56,4 +59,7 @@ export {
   Table,
   Select,
   Pagination,
+  CardSimple,
+  Navbar,
+  Badge,
 };
