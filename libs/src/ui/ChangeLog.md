@@ -1,17 +1,14 @@
-## V1.2.14 (2024/12/23)
+## V1.2.15 (2024/12/25)
 
 ✨ New Feature
 
-- feat: implement date picker component using Vanillajs
-
----
+- feat: refactor styling and add new UI components
+- feat: refactor date picker and table components
+- feat: refactor menu and navbar components
 
 🆙 Update
 
-- refactor: standardize styling across components
-- style: refactor checkbox styles in ded-checkbox component
-- style: refactor slider component styling and props
-- style: implement design updates for UI elements
-- refactor: enhance styling and functionality of toast components
+- style: update styles and components for better consistency
+- refactor: refactor progress circle and line CSS classes
 
 🪲 Bug Fix
