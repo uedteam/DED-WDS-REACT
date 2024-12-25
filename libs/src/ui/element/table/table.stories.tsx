@@ -127,6 +127,18 @@ export default {
         category: 'PROPS',
       },
     },
+    showVerticalBorders: {
+      description: '是否顯示垂直邊框',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    isSprite: {
+      description: '是否為 Sprite',
+      table: {
+        category: 'PROPS',
+      },
+    },
     className: {
       description: '客製化樣式',
       control: {

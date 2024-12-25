@@ -1,6 +1,7 @@
 import 'vanillajs-datepicker/css/datepicker-foundation.css';
 import React, { useEffect, useRef, forwardRef } from 'react';
 import { DatepickerOptions } from 'vanillajs-datepicker/Datepicker';
+import { DateRangePickerOptions } from 'vanillajs-datepicker/DateRangePicker';
 import { Datepicker, DateRangePicker } from 'vanillajs-datepicker';
 import { Input } from '@src/ui';
 import { CalendarIcon } from '@src/assets';
@@ -8,42 +9,56 @@ import { CalendarIcon } from '@src/assets';
 interface DatePickerProps {
   value?: string;
   placeholder?: string;
-  range?: boolean;
-  options?: Partial<DatepickerOptions>;
+  isRange?: boolean;
+  options?: Partial<DatepickerOptions | DateRangePickerOptions>;
   className?: string;
   onChange?: (date: string) => void;
 }
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
   (
-    { value = '', placeholder = '', range, options, className = '', onChange },
+    {
+      value = '',
+      placeholder = '',
+      isRange,
+      options,
+      className = '',
+      onChange,
+    },
     ref
   ) => {
     const datepickerRef = useRef<Datepicker | DateRangePicker | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const divRangeRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
       const inputElement =
         (ref as React.RefObject<HTMLInputElement>)?.current || inputRef.current;
 
-      if (inputElement) {
-        if (range) {
-          console.log('range');
+      const divRangeElement =
+        (ref as React.RefObject<HTMLDivElement>)?.current ||
+        divRangeRef.current;
 
-          datepickerRef.current = new DateRangePicker(inputElement, {
-            ...options,
-            container: document.body,
-          });
-        } else {
-          console.log('single');
-
-          datepickerRef.current = new Datepicker(inputElement, {
-            ...options,
-            container: document.body,
-          });
-        }
+      if (inputElement && !isRange) {
+        datepickerRef.current = new Datepicker(inputElement, {
+          ...options,
+          container: document.body,
+        });
 
         inputElement.addEventListener('changeDate', (e: any) => {
+          if (onChange) {
+            onChange(e.target.value);
+          }
+        });
+      }
+
+      if (divRangeElement && isRange) {
+        datepickerRef.current = new DateRangePicker(divRangeElement, {
+          ...options,
+          container: document.body,
+        });
+
+        divRangeElement.addEventListener('changeDate', (e: any) => {
           if (onChange) {
             onChange(e.target.value);
           }
@@ -53,18 +68,41 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       return () => {
         datepickerRef.current?.destroy();
       };
-    }, [options, onChange, ref, range]);
+    }, [options, onChange, ref, isRange]);
 
     return (
-      <Input
-        ref={ref || inputRef}
-        placeholder={placeholder}
-        initValue={value}
-        prefix={<CalendarIcon />}
-        type="text"
-        onChange={() => ({})}
-        className={className}
-      />
+      <div style={{ width: '100%' }}>
+        {isRange ? (
+          <div className="ded-date-pick-range" ref={ref || divRangeRef}>
+            <Input
+              placeholder="Start Date"
+              initValue={value}
+              prefix={<CalendarIcon />}
+              type="text"
+              onChange={() => ({})}
+              className={className}
+            />
+            <Input
+              placeholder="End Date"
+              initValue={value}
+              prefix={<CalendarIcon />}
+              type="text"
+              onChange={() => ({})}
+              className={className}
+            />
+          </div>
+        ) : (
+          <Input
+            ref={ref || inputRef}
+            placeholder={placeholder}
+            initValue={value}
+            prefix={<CalendarIcon />}
+            type="text"
+            onChange={() => ({})}
+            className={className}
+          />
+        )}
+      </div>
     );
   }
 );
