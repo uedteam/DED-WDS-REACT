@@ -45,7 +45,6 @@ export interface TitleProps {
  * @returns {JSX.Element} 渲染的 Title 組件。
  */
 export const Title: React.FC<TitleProps> = ({
-  themeColor = 'none',
   level = 0,
   className = '',
   children,
@@ -53,7 +52,6 @@ export const Title: React.FC<TitleProps> = ({
   return (
     <div
       className={`ded-title 
-        ${themeColor !== 'none' && getThemeClass(themeColor)}
         ${getLevelClass(level)} 
         ${className}
       `}

@@ -20,6 +20,7 @@ interface TableProps<T> {
   dataSource: RowData[];
   showCheckbox?: boolean;
   showVerticalBorders?: boolean;
+  isSprite: boolean;
   className?: string;
   onRowClick?: (record: T) => void;
   onSelect?: (selectedRowKeys: string[]) => void;
@@ -30,6 +31,7 @@ export const Table: React.FC<TableProps<any>> = ({
   dataSource,
   showCheckbox = false,
   showVerticalBorders = false,
+  isSprite = false,
   className = '',
   onRowClick,
   onSelect,
@@ -108,7 +110,9 @@ export const Table: React.FC<TableProps<any>> = ({
           {dataSource.map((item, rowIndex) => (
             <tr
               key={rowIndex}
-              className="ded-table-tbody-tr"
+              className={`ded-table-tbody-tr ${
+                isSprite ? 'ded-table-tbody-tr-sprite' : ''
+              }`}
               onClick={() => handleClick(item)}
             >
               {showCheckbox && (
