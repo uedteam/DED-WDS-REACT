@@ -2,29 +2,10 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Title } from './title';
 
 export default {
-  title: 'Component/Title',
+  title: 'Component/Typgraphy/Title',
   component: Title,
   tags: ['autodocs'],
   argTypes: {
-    themeColor: {
-      description: '主題顏色',
-      control: {
-        type: 'select',
-        options: [
-          'primary',
-          'secondary',
-          'neutral',
-          'info',
-          'success',
-          'warning',
-          'error',
-          'none',
-        ],
-      },
-      table: {
-        category: 'PROPS',
-      },
-    },
     level: {
       description: '標題等級',
       control: {

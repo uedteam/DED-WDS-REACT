@@ -9,6 +9,7 @@ import {
   WarningTriIcon,
   ErrorCircleIcon,
   QuestionCircleIcon,
+  DisableCircleIcon,
 } from '@src/assets';
 import { useToast } from '@src/hooks';
 
@@ -151,8 +152,15 @@ export const Default: Story = {
         </Button>
 
         <div className={`ded-toast-header`}>
-          <div className="ded-toast-header-message">
-            <SuccessCircleIcon width={18} height={18} />
+          <div
+            className={`ded-toast-header-message 
+          ${getCombinedClassName(
+            'ded-toast-header-message',
+            themeColor || 'primary'
+          )}
+        `}
+          >
+            {prefix}
             <Title level={5} themeColor={themeColor}>
               {title}
             </Title>
@@ -195,7 +203,7 @@ export const Type: Story = {
             <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
-            <div className="ded-toast-header-message">
+            <div className="ded-toast-header-message ded-toast-header-message-success">
               <SuccessCircleIcon width={18} height={18} />
               <Title level={5} themeColor="success">
                 {title}
@@ -220,8 +228,8 @@ export const Type: Story = {
             <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
-            <div className="ded-toast-header-message">
-              <SuccessCircleIcon width={18} height={18} />
+            <div className="ded-toast-header-message ded-toast-header-message-warning">
+              <WarningTriIcon width={18} height={18} />
               <Title level={5} themeColor="warning">
                 {title}
               </Title>
@@ -245,8 +253,8 @@ export const Type: Story = {
             <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
-            <div className="ded-toast-header-message">
-              <SuccessCircleIcon width={18} height={18} />
+            <div className="ded-toast-header-message ded-toast-header-message-error">
+              <ErrorCircleIcon width={18} height={18} />
               <Title level={5} themeColor="error">
                 {title}
               </Title>
@@ -270,8 +278,34 @@ export const Type: Story = {
             <CloseIcon width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
-            <div className="ded-toast-header-message">
-              <SuccessCircleIcon width={18} height={18} />
+            <div className="ded-toast-header-message ded-toast-header-message-info">
+              <InfoCircleIcon width={18} height={18} />
+              <Title level={5} themeColor="info">
+                {title}
+              </Title>
+            </div>
+            {action && <div className="ded-toast-header-action">{action}</div>}
+          </div>
+
+          <p className="ded-description">{content}</p>
+        </div>
+
+        <div
+          className={`ded-toast
+            ${getCombinedClassName('ded-toast', `border-neutral`)}
+            ${className}`}
+        >
+          <Button
+            variant="text"
+            onClick={onClose}
+            themeColor="neutral"
+            className="ded-close-button"
+          >
+            <CloseIcon width={18} height={18} onClick={onClose} />
+          </Button>
+          <div className={`ded-toast-header`}>
+            <div className="ded-toast-header-message ded-toast-header-message-neutral">
+              <DisableCircleIcon width={18} height={18} />
               <Title level={5} themeColor="info">
                 {title}
               </Title>
@@ -294,7 +328,7 @@ export const Demo: Story = {
     title: 'Notification title ',
     content: 'Content',
     action: <div onClick={() => window.alert('action')}>Action</div>,
-    prefix: <SuccessCircleIcon width={18} height={18} />,
+    prefix: <InfoCircleIcon width={18} height={18} />,
     duration: 1000,
     className: '',
   },

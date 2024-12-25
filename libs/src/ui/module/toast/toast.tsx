@@ -3,7 +3,6 @@ import { CloseIcon } from '@src/assets';
 import { Button } from '@src/ui/element/button';
 import { Title } from '@src/ui/element/title';
 import { getCombinedClassName } from '@src/utils/string';
-import { SuccessCircleIcon } from '@src/assets';
 
 export interface ToastProps {
   themeColor?:
@@ -50,13 +49,10 @@ export const Toast: React.FC<ToastProps> = ({
       <div className={`ded-toast-header`}>
         <div
           className={`ded-toast-header-message 
-          ${getCombinedClassName(
-            'ded-toast-header-message',
-            `text-${themeColor}`
-          )}
+          ${getCombinedClassName('ded-toast-header-message', themeColor)}
         `}
         >
-          <SuccessCircleIcon width={20} height={20} />
+          {prefix}
           <Title level={5} themeColor={themeColor}>
             {title}
           </Title>
