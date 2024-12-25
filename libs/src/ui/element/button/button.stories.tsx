@@ -300,3 +300,40 @@ export const Theme: Story = {
     );
   },
 };
+
+export const Size: Story = {
+  name: '尺寸',
+  args: {
+    variant: 'ghost',
+    onClick: () => action('onClick')('點擊事件'),
+    className: '',
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform(code: string, storyContext: StoryContext) {
+          const { args } = storyContext;
+          return `
+<Button {...args} prefix={<AccountIcon />}>${args.children}</Button>
+<Button {...args} suffix={<SearchIcon />}>${args.children}</Button>
+`;
+        },
+      },
+    },
+  },
+  render(args) {
+    return (
+      <>
+        <Button {...args} size="large" prefix={<AccountIcon />}>
+          {args.children}
+        </Button>
+        <Button {...args} size="medium" suffix={<SearchIcon />}>
+          {args.children}
+        </Button>
+        <Button {...args} size="small" suffix={<SearchIcon />}>
+          {args.children}
+        </Button>
+      </>
+    );
+  },
+};
