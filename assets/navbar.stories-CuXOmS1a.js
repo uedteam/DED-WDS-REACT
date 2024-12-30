@@ -1,0 +1,9 @@
+import{j as i}from"./jsx-runtime-DEdD30eg.js";import{N as s}from"./pagination-BcWBc1p5.js";import"./index-RYns6xqu.js";import"./disable-circle-np6-bHDN.js";import"./string-BqrfsRv8.js";import"./logout-Cs4pFqLv.js";import"./badge-vsbKzH_B.js";import"./breadcrumb-BeC0CIbY.js";import"./toast-DIhnouBr.js";import"./title-JGunjryD.js";import"./index-sbqOYYIm.js";import"./checkbox-BBF5yrDs.js";import"./check-BnJBHFpS.js";import"./progress-circle-wFm81-mr.js";import"./progress-line-DG1O7uhi.js";import"./divider-ChKDBDeF.js";import"./image-CZs88QCg.js";import"./input-DoUPnDdK.js";import"./radio-CMOPLxLt.js";import"./textarea-CO8Z8fZG.js";import"./toggle-Ck5Sa1oo.js";import"./menu-Burl5-s8.js";import"./status-indicator-BDww4a8h.js";import"./layout-DbUmifqy.js";import"./tag-zODciKoh.js";import"./notification-NM2mg_B2.js";const p=[{label:"Solutions",href:"#solutions",order:2},{label:"Products",href:"#products",order:1},{label:"Technologies",href:"#technologies",order:4},{label:"About",href:"#about",order:3}],T={title:"Component/Navbar",component:s,tags:["autodocs"],argTypes:{dataSource:{description:"連結清單",table:{category:"PROPS"}},logoSrc:{description:"Logo 圖片連結",table:{category:"PROPS"}},className:{description:"客製化樣式",control:{type:"text"}},onClick:{description:"點擊事件"}},args:{dataSource:p,logoSrc:"https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO.svg",onSearch:o=>{console.log(o)}},parameters:{docs:{title:"Navbar",description:{component:"Navbar 組件的呈現及說明。"}}}},r={name:"預設項目",args:{className:""},render(o){return i.jsx(s,{...o})}};var t,e,a;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  name: '預設項目',
+  args: {
+    className: ''
+  },
+  render(args) {
+    return <Navbar {...args} />;
+  }
+}`,...(a=(e=r.parameters)==null?void 0:e.docs)==null?void 0:a.source}}};const w=["Default"];export{r as Default,w as __namedExportsOrder,T as default};
