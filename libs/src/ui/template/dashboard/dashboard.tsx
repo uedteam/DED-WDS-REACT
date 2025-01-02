@@ -1,5 +1,5 @@
 import {
-  SvgAUO,
+  SvgAuo,
   SvgHome,
   SvgBarChart,
   SvgCalendar,
@@ -141,7 +141,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                       },
                     ]}
                     hasSearch
-                    logo={<SvgAUO height={30} width={90} />}
+                    logo={<SvgAuo height={30} width={90} />}
                     logoLink="https://www.auo.com"
                     themeColor="#00467C"
                   />
@@ -275,7 +275,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               },
             ]}
             hasSearch
-            logo={<SvgAUO height={30} width={90} />}
+            logo={<SvgAuo height={30} width={90} />}
             logoLink="https://www.auo.com"
             themeColor="#00467C"
           />

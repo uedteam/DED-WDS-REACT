@@ -109,9 +109,9 @@ export default {
     logo: {
       description: 'Logo 圖示',
       mapping: {
-        SvgAUO: <SvgAuo width={90} height={30} />,
+        SvgAuo: <SvgAuo width={90} height={30} />,
       },
-      options: ['SvgAUO'],
+      options: ['SvgAuo'],
       control: {
         type: 'select',
       },

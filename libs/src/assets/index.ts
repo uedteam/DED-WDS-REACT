@@ -1,4 +1,5 @@
 import SvgAccount from '@assets/account_circle.svg?react';
+import SvgArrowDown from '@assets/arrow-down.svg?react';
 import SvgAdd from '@assets/add.svg?react';
 import SvgAir from '@assets/air-condition.svg?react';
 import SvgAuo from '@assets/auo.svg?react';
@@ -53,6 +54,7 @@ export {
   SvgAccount,
   SvgAdd,
   SvgAir,
+  SvgArrowDown,
   SvgAuo,
   SvgBarChart,
   SvgBusy,
