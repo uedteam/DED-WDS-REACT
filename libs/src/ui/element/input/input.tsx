@@ -3,10 +3,10 @@ import { getSizeClass } from '@src/utils/style';
 import { ChangeEventHandler, ReactNode, forwardRef } from 'react';
 import { useInput } from '@src/hooks';
 import {
-  VisibilityIcon,
-  VisibilityOffIcon,
-  CloseIcon,
-  ArrowDownIcon,
+  SvgVisibility,
+  SvgVisibilityOff,
+  SvgClose,
+  SvgArrowDown,
 } from '@src/assets';
 import { isEmpty } from 'lodash';
 import { getCombinedClassName } from '@src/utils/string';
@@ -125,7 +125,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 style={{ cursor: 'pointer' }}
                 className={`${getSizeClass('ded-icon', size)}`}
               >
-                <CloseIcon />
+                <SvgClose />
               </div>
             )}
 
@@ -136,9 +136,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 className={`${getSizeClass('ded-icon', size)}`}
               >
                 {inputType === 'password' ? (
-                  <VisibilityOffIcon />
+                  <SvgVisibilityOff />
                 ) : (
-                  <VisibilityIcon />
+                  <SvgVisibility />
                 )}
               </div>
             )}
@@ -149,13 +149,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 style={{ cursor: 'pointer' }}
                 className={`${getSizeClass('ded-icon', size)}`}
               >
-                <ArrowDownIcon
+                <SvgArrowDown
                   width={20}
                   height={20}
                   className={
                     isOpen ? 'ded-dropdown-open' : 'ded-dropdown-close'
                   }
-                ></ArrowDownIcon>
+                />
               </div>
             )}
           </div>
