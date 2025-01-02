@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { CardSimple } from '@src/ui';
+import { CardSimple } from './card-simple';
 import { Column, Grid, Row } from '@src/ui/section/grid';
 
 export default {
-  title: 'Component/Card Simple',
+  title: 'Component/Card-Simple',
   component: CardSimple,
   tags: ['autodocs'],
   argTypes: {

@@ -49,12 +49,12 @@ export const AuthFLow: React.FC<LoginProps> = ({
             <Column md={12} lg={5}>
               <div
                 style={{
-                  backgroundImage: `url(${bgColorSrc})`,
+                  backgroundImage: `url(${bgImgSrc})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
                 }}
                 className="ded-login-bg"
-              >
-                <img style={{ width: '100%' }} src={bgImgSrc} alt="bg" />
-              </div>
+              />
             </Column>
 
             <Column md={12} lg={7}>

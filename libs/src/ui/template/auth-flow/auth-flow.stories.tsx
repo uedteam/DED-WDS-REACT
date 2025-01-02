@@ -5,15 +5,16 @@ import { Row } from '@src/ui/section/grid/row';
 import { Column } from '@src/ui/section/grid/column';
 import { Button } from '@src/ui/element/button';
 import { Input } from '@src/ui/element/input';
+import { Title } from '@src/ui/element/title';
 import { Checkbox } from '@src/ui/element/checkbox';
 import loginBgColor from '@src/assets/login-bg-color.png';
-import loginBgImg from '@src/assets/login-bg-image.png';
+import authBgImg from '@src/assets/auth-bg.png';
 import {
-  AccountIcon,
-  LockIcon,
-  GoogleIcon,
-  FacebookIcon,
-  MailIcon,
+  SvgAccount,
+  SvgLock,
+  SvgGoogle,
+  SvgFacebook,
+  SvgMail,
 } from '@src/assets';
 
 export default {
@@ -100,7 +101,7 @@ export const Default: Story = {
   name: '登入',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Welcome Back',
     description: `Today is a new day. It's your day. You shape it. Sign in to start managing your projects.`,
     form: (
@@ -110,7 +111,7 @@ export const Default: Story = {
             <Column md={12}>
               <Input
                 type="text"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
                 initValue=""
                 label="Email"
                 placeholder="Email"
@@ -121,7 +122,7 @@ export const Default: Story = {
             <Column md={12}>
               <Input
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password"
                 placeholder="Password"
@@ -166,7 +167,7 @@ export const Default: Story = {
               className="social-button"
               variant="filled"
               width="fluid"
-              prefix={<GoogleIcon />}
+              prefix={<SvgGoogle />}
             >
               Sign in with Google
             </Button>
@@ -178,7 +179,7 @@ export const Default: Story = {
               className="social-button"
               variant="filled"
               width="fluid"
-              prefix={<FacebookIcon />}
+              prefix={<SvgFacebook />}
             >
               Sign in with Facebook
             </Button>
@@ -208,7 +209,7 @@ export const SignUp: Story = {
   name: '註冊',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Sign Up',
     form: (
       <>
@@ -217,7 +218,7 @@ export const SignUp: Story = {
             <Column md={6}>
               <Input
                 type="text"
-                prefix={<AccountIcon />}
+                prefix={<SvgAccount />}
                 initValue=""
                 label="First Name"
                 placeholder="type first name"
@@ -228,7 +229,7 @@ export const SignUp: Story = {
             <Column md={6}>
               <Input
                 type="text"
-                prefix={<AccountIcon />}
+                prefix={<SvgAccount />}
                 initValue=""
                 label="Last Name"
                 placeholder="type last name"
@@ -239,7 +240,7 @@ export const SignUp: Story = {
             <Column md={12}>
               <Input
                 type="text"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
                 initValue=""
                 label="Email"
                 placeholder="type email"
@@ -250,7 +251,7 @@ export const SignUp: Story = {
             <Column md={12}>
               <Input
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password"
                 placeholder="type password"
@@ -261,7 +262,7 @@ export const SignUp: Story = {
             <Column md={12}>
               <Input
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password Confirm"
                 placeholder="type password"
@@ -304,13 +305,13 @@ export const SignUp: Story = {
 
         <Grid fluid>
           <Row justify="flex-end">
-            <Column md={4}>
-              <Button onClick={() => ({})} variant="filled" width="fluid">
+            <Column md={6}>
+              <Button onClick={() => ({})} variant="soft" width="fluid">
                 Back
               </Button>
             </Column>
 
-            <Column md={4}>
+            <Column md={6}>
               <Button onClick={() => ({})} variant="filled" width="fluid">
                 Sign Up
               </Button>
@@ -328,7 +329,7 @@ export const SignUp: Story = {
               className="social-button"
               variant="filled"
               width="fluid"
-              prefix={<GoogleIcon />}
+              prefix={<SvgGoogle />}
             >
               Sign in with Google
             </Button>
@@ -340,7 +341,7 @@ export const SignUp: Story = {
               className="social-button"
               variant="filled"
               width="fluid"
-              prefix={<FacebookIcon />}
+              prefix={<SvgFacebook />}
             >
               Sign in with Facebook
             </Button>
@@ -370,7 +371,7 @@ export const Forgot: Story = {
   name: '忘記密碼',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Forgot Your Password?',
     description: 'Type in your registered email address to reset password',
     form: (
@@ -380,19 +381,21 @@ export const Forgot: Story = {
             <Column md={12}>
               <Input
                 type="text"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
                 initValue=""
                 label="Email Address"
                 placeholder="type email"
+                hint={{ description: 'Description', error: '' }}
                 className="mb-3"
               />
             </Column>
 
-            <Column md={3} lg={5} align="end">
+            <Column sm={12}>
               <Button
                 onClick={() => ({})}
+                width="fluid"
                 variant="filled"
-                prefix={<MailIcon />}
+                prefix={<SvgMail />}
               >
                 Submit
               </Button>
@@ -411,7 +414,7 @@ export const Verify: Story = {
   name: '驗證代碼',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Verify Code',
     description: 'An authentication code has been sent to your email.',
     form: (
@@ -419,18 +422,62 @@ export const Verify: Story = {
         <Grid fluid>
           <Row justify="flex-end">
             <Column md={12}>
-              <Input
-                type="password"
-                prefix={<LockIcon />}
-                initValue=""
-                label="Entercode"
-                placeholder="Entercode"
-                className="mb-3"
-              />
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}
+              >
+                <Title level={3}>A-</Title>
+                <Input
+                  type="text"
+                  initValue=""
+                  className="mb-3"
+                  placeholder=""
+                />
+                <Input
+                  type="password"
+                  initValue=""
+                  className="mb-3"
+                  placeholder=""
+                />
+                <Input
+                  type="password"
+                  initValue=""
+                  className="mb-3"
+                  placeholder=""
+                />
+                <Input
+                  type="password"
+                  initValue=""
+                  className="mb-3"
+                  placeholder=""
+                />
+                <Input
+                  type="password"
+                  initValue=""
+                  className="mb-3"
+                  placeholder=""
+                />
+
+                <Input
+                  type="password"
+                  initValue=""
+                  className="mb-3"
+                  placeholder=""
+                />
+              </div>
             </Column>
 
-            <Column md={3} lg={5} align="end">
-              <Button onClick={() => ({})} variant="filled">
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="soft" width="fluid">
+                Resend
+              </Button>
+            </Column>
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Verify
               </Button>
             </Column>
@@ -448,7 +495,7 @@ export const Password: Story = {
   name: '設定密碼',
   args: {
     bgColorSrc: loginBgColor,
-    bgImgSrc: loginBgImg,
+    bgImgSrc: authBgImg,
     title: 'Set a Password',
     description: 'Please set a new password for your account.',
     form: (
@@ -458,7 +505,7 @@ export const Password: Story = {
             <Column md={12}>
               <Input
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password"
                 placeholder="type password"
@@ -469,7 +516,7 @@ export const Password: Story = {
             <Column md={12}>
               <Input
                 type="password"
-                prefix={<LockIcon />}
+                prefix={<SvgLock />}
                 initValue=""
                 label="Password Confirm"
                 placeholder="type password"
@@ -477,14 +524,14 @@ export const Password: Story = {
               />
             </Column>
 
-            <Column md={2} lg={4} align="end">
-              <Button onClick={() => ({})} variant="filled">
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="soft" width="fluid">
                 Reset
               </Button>
             </Column>
 
-            <Column md={2} lg={4} align="end">
-              <Button onClick={() => ({})} variant="filled">
+            <Column sm={6}>
+              <Button onClick={() => ({})} variant="filled" width="fluid">
                 Confirm
               </Button>
             </Column>
