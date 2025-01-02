@@ -3,13 +3,13 @@ import { Toast, Button, Title } from '@src/ui';
 import { StoryContext } from 'storybook/internal/types';
 import { getCombinedClassName } from '@src/utils/string';
 import {
-  CloseIcon,
-  InfoCircleIcon,
-  SuccessCircleIcon,
-  WarningTriIcon,
-  ErrorCircleIcon,
-  QuestionCircleIcon,
-  DisableCircleIcon,
+  SvgClose,
+  SvgInfoCircle,
+  SvgSuccessCircle,
+  SvgWarningTri,
+  SvgErrorCircle,
+  SvgQuestionCircle,
+  SvgDisableCircle,
 } from '@src/assets';
 import { useToast } from '@src/hooks';
 
@@ -51,16 +51,16 @@ export default {
     prefix: {
       description: '前綴',
       options: [
-        'InfoCircleIcon',
-        'SuccessCircleIcon',
-        'WarningTriIcon',
-        'ErrorCircleIcon',
+        'SvgInfoCircle',
+        'SvgSuccessCircle',
+        'SvgWarningTri',
+        'SvgErrorCircle',
       ],
       mapping: {
-        InfoCircleIcon: <InfoCircleIcon />,
-        SuccessCircleIcon: <SuccessCircleIcon />,
-        WarningTriIcon: <WarningTriIcon />,
-        ErrorCircleIcon: <ErrorCircleIcon />,
+        SvgInfoCircle: <SvgInfoCircle />,
+        SvgSuccessCircle: <SvgSuccessCircle />,
+        SvgWarningTri: <SvgWarningTri />,
+        SvgErrorCircle: <SvgErrorCircle />,
       },
       table: {
         category: 'PROPS',
@@ -97,7 +97,7 @@ export default {
     title: 'Notification Title ',
     content: 'Content',
     action: <div onClick={() => window.alert('action')}>Action</div>,
-    prefix: <SuccessCircleIcon width={18} height={18} />,
+    prefix: <SvgSuccessCircle width={18} height={18} />,
     duration: 500,
     className: '',
   },
@@ -148,7 +148,7 @@ export const Default: Story = {
           themeColor="neutral"
           className="ded-close-button"
         >
-          <CloseIcon width={18} height={18} onClick={onClose} />
+          <SvgClose width={18} height={18} onClick={onClose} />
         </Button>
 
         <div className={`ded-toast-header`}>
@@ -200,11 +200,11 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={18} height={18} onClick={onClose} />
+            <SvgClose width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
             <div className="ded-toast-header-message ded-toast-header-message-success">
-              <SuccessCircleIcon width={18} height={18} />
+              <SvgSuccessCircle width={18} height={18} />
               <Title level={5} themeColor="success">
                 {title}
               </Title>
@@ -225,11 +225,11 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={18} height={18} onClick={onClose} />
+            <SvgClose width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
             <div className="ded-toast-header-message ded-toast-header-message-warning">
-              <WarningTriIcon width={18} height={18} />
+              <SvgWarningTri width={18} height={18} />
               <Title level={5} themeColor="warning">
                 {title}
               </Title>
@@ -250,11 +250,11 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={18} height={18} onClick={onClose} />
+            <SvgClose width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
             <div className="ded-toast-header-message ded-toast-header-message-error">
-              <ErrorCircleIcon width={18} height={18} />
+              <SvgErrorCircle width={18} height={18} />
               <Title level={5} themeColor="error">
                 {title}
               </Title>
@@ -275,11 +275,11 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={18} height={18} onClick={onClose} />
+            <SvgClose width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
             <div className="ded-toast-header-message ded-toast-header-message-info">
-              <InfoCircleIcon width={18} height={18} />
+              <SvgInfoCircle width={18} height={18} />
               <Title level={5} themeColor="info">
                 {title}
               </Title>
@@ -301,11 +301,11 @@ export const Type: Story = {
             themeColor="neutral"
             className="ded-close-button"
           >
-            <CloseIcon width={18} height={18} onClick={onClose} />
+            <SvgClose width={18} height={18} onClick={onClose} />
           </Button>
           <div className={`ded-toast-header`}>
             <div className="ded-toast-header-message ded-toast-header-message-neutral">
-              <DisableCircleIcon width={18} height={18} />
+              <SvgDisableCircle width={18} height={18} />
               <Title level={5} themeColor="info">
                 {title}
               </Title>
@@ -328,7 +328,7 @@ export const Demo: Story = {
     title: 'Notification title ',
     content: 'Content',
     action: <div onClick={() => window.alert('action')}>Action</div>,
-    prefix: <InfoCircleIcon width={18} height={18} />,
+    prefix: <SvgInfoCircle width={18} height={18} />,
     duration: 1000,
     className: '',
   },
@@ -341,7 +341,7 @@ export const Demo: Story = {
         title: args?.title || 'Title',
         content: args?.content || 'Content',
         action: args?.action || <div>Action</div>,
-        prefix: args?.prefix || <ErrorCircleIcon width={18} height={18} />,
+        prefix: args?.prefix || <SvgErrorCircle width={18} height={18} />,
         duration: args?.duration,
       });
     };
