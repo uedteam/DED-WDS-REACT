@@ -18,6 +18,8 @@ $text-levels: (
 );
 
 .ded-title {
+  display: flex;
+  align-items: center;
   font-size: inherit;
   font-weight: $text-regular;
   color: currentColor;
