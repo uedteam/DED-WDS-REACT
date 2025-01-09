@@ -9,6 +9,7 @@ import {
   SvgClose,
   SvgLock,
 } from '@src/assets';
+import { has } from 'lodash';
 
 export default {
   title: 'Component/Input',
@@ -27,6 +28,12 @@ export default {
         type: 'select',
         options: ['text', 'password', 'number', 'email'],
       },
+      table: {
+        category: 'PROPS',
+      },
+    },
+    hasClear: {
+      description: '是否顯示清除按鈕',
       table: {
         category: 'PROPS',
       },
@@ -123,6 +130,7 @@ export default {
   args: {
     label: 'Label',
     type: 'text',
+    hasClear: true,
     placeholder: 'Placeholder...',
     prefix: <SvgAccount />,
     size: 'medium',

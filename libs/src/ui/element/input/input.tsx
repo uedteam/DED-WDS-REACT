@@ -17,6 +17,7 @@ import { getCombinedClassName } from '@src/utils/string';
  * @property {ReactNode} [label] - 輸入框的標籤。
  * @property {string} [initValue] - 輸入框的值。
  * @property {'text' | 'password' | 'email' | 'number'} type - 輸入框的類型。
+ * @property {boolean} [hasClear] - 是否顯示清除按鈕。
  * @property {string} [placeholder] - 輸入框的佔位符。
  * @property {ReactNode} [prefix] - 輸入框前綴的圖示或文字。
  * @property {'small' | 'medium' | 'large'} [size] - 輸入框的大小。
@@ -28,10 +29,12 @@ import { getCombinedClassName } from '@src/utils/string';
 export interface InputProps {
   label?: string;
   type: 'text' | 'password' | 'email' | 'number';
+  hasClear?: boolean;
   placeholder?: string;
   prefix?: ReactNode;
   size?: 'small' | 'medium' | 'large';
   initValue: string;
+  maxLimit?: number | undefined;
   hint?: { error: string; description: string };
   isDisabled?: boolean;
   isOpen?: boolean | undefined;
@@ -61,10 +64,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     {
       label = '',
       type = 'text',
+      hasClear = true,
       placeholder = 'Placeholder...',
       prefix = '',
       size = 'medium',
       initValue,
+      maxLimit = undefined,
       hint = { error: '', description: '' },
       isDisabled = false,
       isOpen = undefined,
@@ -90,9 +95,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         <div
           className={`ded-input-group
-          ${getCombinedClassName('ded-text', size)} 
-          ${getBorderClass(hint)}
-          ${isDisabled ? 'ded-input-disable' : ''}`}
+            ${getCombinedClassName('ded-text', size)} 
+            ${getBorderClass(hint)}
+            ${isDisabled ? 'ded-input-disable' : ''}
+          `}
         >
           {prefix && (
             <label
@@ -115,11 +121,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ${getSizeClass('ded-text', size)} 
             ${isDisabled ? 'ded-input-disable' : ``} 
             ${prefix ? 'ded-input-prefix' : ''}`}
+            maxLength={maxLimit}
             placeholder={placeholder}
           />
 
           <div className="ded-input-feat-icon">
-            {!isDisabled && !isEmpty(value) && (
+            {!isDisabled && hasClear && !isEmpty(value) && (
               <div
                 onClick={onClear}
                 style={{ cursor: 'pointer' }}

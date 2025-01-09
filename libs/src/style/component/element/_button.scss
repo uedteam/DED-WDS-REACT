@@ -87,9 +87,9 @@
     border-width: $border-width-5;
   }
 
-  &:hover {
-    box-shadow: $shadow-dark-100;
-  }
+  // &:hover {
+  //   box-shadow: $shadow-dark-100;
+  // }
 
   &:active {
     box-shadow: unset;

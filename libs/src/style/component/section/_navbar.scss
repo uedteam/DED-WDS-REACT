@@ -7,6 +7,7 @@
   padding-inline: 20px;
   background-color: list.nth($header, $site);
   box-shadow: $shadow-light-400;
+  height: 100%;
 
   .navbar-menu {
     display: flex;
