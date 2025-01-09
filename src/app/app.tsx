@@ -1,21 +1,20 @@
 // 初始化匯入
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import '@style/globals.scss';
+import 'vanillajs-datepicker/css/datepicker-foundation.css';
+import '../../index.css';
+import './app.scss';
 
-// Icon 匯入
-
-// 客製化匯入
-
-// Chart 匯入
-
-// Number Animation Hook 匯入
-
-// Fake Data
+import { Routes, Route } from 'react-router';
+import { Demo, Finished } from '../views';
 
 export function App() {
-  // layout 解構
-
-  // 使用 counter animation hook
-
-  return;
+  return (
+    <Routes>
+      <Route index element={<Demo />} />
+      <Route path="/finished" element={<Finished />} />
+    </Routes>
+  );
 }
 
 export default App;
