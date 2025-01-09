@@ -1,3 +1,5 @@
+const { link } = require('fs');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -17,6 +19,7 @@ module.exports = {
           dark: '#28C76F',
         },
         hover: '#79A1F6',
+        link: '#0D64FB',
       },
       boxShadow: {
         card: '0px 1px 4px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.15)',
