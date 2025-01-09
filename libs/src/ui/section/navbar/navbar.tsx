@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Badge, Input, Button } from '@src/ui';
-import { SvgNotification, SvgSearch, SvgAUO } from '@src/assets';
+import { SvgNotification, SvgSearch } from '@src/assets';
 
 interface NavbarProps {
   dataSource: { label: string; href: string; order: number }[];
@@ -30,7 +30,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     const curr = dataSource.sort((a, b) => {
       return a.order - b.order;
     });
-    console.log(curr);
 
     setCurrLinks(curr);
   }, [dataSource]);
@@ -46,7 +45,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             // <li key={link.href}>
             //   <a href={link.href}>{link.label}</a>
             // </li>
-            <Button themeColor="primary" variant="text" onClick={() => ({})}>
+            <Button
+              key={link.label}
+              themeColor="primary"
+              variant="text"
+              onClick={() => ({})}
+            >
               {link.label}
             </Button>
           ))}

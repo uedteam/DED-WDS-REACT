@@ -17,6 +17,12 @@ export default {
         category: 'PROPS',
       },
     },
+    hasBorder: {
+      description: '是否有邊框',
+      table: {
+        category: 'PROPS',
+      },
+    },
     imgSrc: {
       description: '圖片來源',
       table: {
@@ -68,7 +74,8 @@ export default {
   },
   args: {
     layout: 'vertical',
-    imgSrc: 'libs/src/assets/card_bg.png',
+    hasBorder: true,
+    imgSrc: 'https://storage.googleapis.com/ded-wds-bucket/card_bg.png',
     buttonName: 'Button',
     align: 'left',
     title: 'Card Title',

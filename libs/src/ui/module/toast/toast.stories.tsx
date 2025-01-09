@@ -12,6 +12,7 @@ import {
   SvgDisableCircle,
 } from '@src/assets';
 import { useToast } from '@src/hooks';
+import { ac } from 'react-router/dist/development/route-data-aSUFWnQ6';
 
 export default {
   title: 'Component/Toast',
@@ -44,6 +45,12 @@ export default {
     },
     content: {
       description: '內容',
+      table: {
+        category: 'PROPS',
+      },
+    },
+    action: {
+      description: '操作',
       table: {
         category: 'PROPS',
       },

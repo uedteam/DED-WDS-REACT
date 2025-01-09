@@ -30,14 +30,22 @@ export default {
       control: {
         type: 'text',
       },
+      table: {
+        category: 'PROPS',
+      },
     },
-    onClick: {
-      description: '點擊事件',
+    onSearch: {
+      description: '搜尋事件',
+      action: 'search',
+      table: {
+        category: 'EVENTS',
+      },
     },
   },
   args: {
     dataSource: links,
     logoSrc: 'https://storage.googleapis.com/ded-wds-bucket/AUO_LOGO.svg',
+    className: '',
     onSearch: (query: string) => {
       console.log(query);
     },

@@ -179,7 +179,7 @@ export const SideNav: React.FC<SideNavProps> = ({
         <Input
           initValue={searchValue}
           onChange={() => ({})}
-          placeholder="請輸項目..."
+          placeholder="Search..."
           prefix={<SvgSearch />}
           size="medium"
           type="text"
