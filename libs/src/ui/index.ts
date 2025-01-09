@@ -32,6 +32,7 @@ import { Navbar } from './section/navbar';
 import { SideNav } from './section/side-nav';
 import { Pagination } from './element/pagination';
 import { Tag } from './element/tag';
+import { Grid } from './section/grid';
 
 export {
   Accordion,
@@ -70,4 +71,5 @@ export {
   Toggle,
   Tooltip,
   Tag,
+  Grid,
 };
