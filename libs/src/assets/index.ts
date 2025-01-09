@@ -49,6 +49,8 @@ import SvgVisibilityOff from '@assets/visibility_off.svg?react';
 import SvgWarning from '@assets/warning.svg?react';
 import SvgWarningTri from '@assets/warning-tri.svg?react';
 import SvgWindow from '@assets/window.svg?react';
+import SvgLine from '@assets/line.svg?react';
+import SvgClock from '@assets/clock.svg?react';
 
 export {
   SvgAccount,
@@ -102,4 +104,6 @@ export {
   SvgWarning,
   SvgWarningTri,
   SvgWindow,
+  SvgLine,
+  SvgClock,
 };
