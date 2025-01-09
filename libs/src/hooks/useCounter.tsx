@@ -1,6 +1,18 @@
 import { useEffect, useState } from 'react';
 
-export const useCounter = (initialValue: number, limit: number) => {
+interface CounterProps {
+  initialValue: number;
+  step: number;
+  delay: number;
+  limit: number;
+}
+
+export const useCounter = ({
+  initialValue = 0,
+  step = 1,
+  delay = 0,
+  limit,
+}: CounterProps) => {
   const [count, setCount] = useState(initialValue);
 
   useEffect(() => {
@@ -10,9 +22,9 @@ export const useCounter = (initialValue: number, limit: number) => {
           clearInterval(interval);
           return prev;
         }
-        return prev + 1;
+        return prev + step;
       });
-    }, 0);
+    }, delay);
     return () => clearInterval(interval);
   }, []);
 
