@@ -1,5 +1,5 @@
 {
-  "name": "ded-wds-kevin",
+  "name": "ded-wds-react",
   "version": "1.2.15",
   "description": "Web Design System",
   "license": "MIT",
@@ -50,17 +50,17 @@
     "ds"
   ],
   "dependencies": {
+    "@ded-wds/ui": "^1.2.15",
     "@nrwl/cli": "^15.9.3",
     "@storybook/builder-vite": "^8.2.8",
     "@storybook/client-api": "^7.6.17",
     "@storybook/react": "^8.2.8",
-    "ded-wds": "^1.0.8",
     "gh-pages": "^6.1.1",
     "highcharts": "^12.1.2",
     "highcharts-react-official": "^3.2.1",
     "lodash": "^4.17.21",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router": "^7.1.1",
     "telejson": "^7.2.0"
   },

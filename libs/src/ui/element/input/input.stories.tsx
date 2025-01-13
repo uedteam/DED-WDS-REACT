@@ -53,6 +53,12 @@ export default {
         category: 'PROPS',
       },
     },
+    maxLimit: {
+      description: '最長輸入限制',
+      table: {
+        category: 'PROPS',
+      },
+    },
     prefix: {
       description: '前置元素',
       options: [
@@ -135,6 +141,7 @@ export default {
     prefix: <SvgAccount />,
     size: 'medium',
     initValue: '',
+    maxLimit: undefined,
     hint: { error: '', description: 'Prompt message' },
     isDisabled: false,
     className: '',
