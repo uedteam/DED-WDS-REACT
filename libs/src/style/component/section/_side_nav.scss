@@ -2,13 +2,13 @@
 
 .ded-side-nav {
   position: sticky;
-  top: $header-h;
+  // top: $header-h;
   left: 0;
   display: inline-flex;
   flex-direction: column;
   gap: $spacing-16;
   padding: 16px;
-  height: calc(100vh - $header-h);
+  // height: calc(100vh - $header-h);
   background-color: list.nth($sidebar, $site);
 
   &-desktop {
