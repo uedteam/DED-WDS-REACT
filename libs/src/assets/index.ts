@@ -51,6 +51,7 @@ import SvgWarningTri from '@assets/warning-tri.svg?react';
 import SvgWindow from '@assets/window.svg?react';
 import SvgLine from '@assets/line.svg?react';
 import SvgClock from '@assets/clock.svg?react';
+import SvgArrowDropDown from '@assets/arrow-drop-down.svg?react';
 
 export {
   SvgAccount,
@@ -106,4 +107,5 @@ export {
   SvgWindow,
   SvgLine,
   SvgClock,
+  SvgArrowDropDown,
 };
