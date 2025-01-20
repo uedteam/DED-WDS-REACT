@@ -6,7 +6,7 @@ interface Option {
 }
 
 export interface SelectProps {
-  options: Option[];
+  dataSource: Option[];
   value?: string | number;
   placeholder?: string;
   isDisabled?: boolean;
@@ -16,7 +16,7 @@ export interface SelectProps {
 }
 
 export const Select: FC<SelectProps> = ({
-  options,
+  dataSource,
   value,
   onChange,
   placeholder = 'Select an option',
@@ -42,7 +42,7 @@ export const Select: FC<SelectProps> = ({
         <option value="" disabled hidden>
           {placeholder}
         </option>
-        {options.map((option) => (
+        {dataSource.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

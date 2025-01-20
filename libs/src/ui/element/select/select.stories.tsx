@@ -17,7 +17,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     /* 設定參數 */
-    options: {
+    dataSource: {
       description: '選項',
       control: {
         type: 'object',
@@ -72,7 +72,7 @@ export default {
     },
   },
   args: {
-    options,
+    dataSource: options,
     placeholder: 'Select',
     value: '',
     suffix: <SvgArrowDropDown width={18} height={18} />,
