@@ -5,7 +5,7 @@ module.exports = {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    './libs/**/*.{js,ts,jsx,tsx}',
+    './libs/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {

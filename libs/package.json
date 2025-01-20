@@ -34,7 +34,8 @@
     "report": "nx report",
     "build-storybook": "rm -rf dist/storybook && nx build-storybook",
     "deploy-storybook": "gh-pages -d dist/storybook",
-    "artifactregistry-login": "npx google-artifactregistry-auth"
+    "artifactregistry-login": "npx google-artifactregistry-auth",
+    "print-access-token": "gcloud auth application-default print-access-token"
   },
   "peerDependencies": {
     "react": "18.3.1",

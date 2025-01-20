@@ -16,7 +16,6 @@ const RouterLayout = () => {
   return (
     <div>
       <Outlet />
-
       <div className="demo-button-group">
         <button className="btn btn-gradient" onClick={() => navigate('/lab1')}>
           Lab1
