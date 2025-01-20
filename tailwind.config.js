@@ -24,6 +24,9 @@ module.exports = {
       boxShadow: {
         card: '0px 1px 4px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.15)',
       },
+      animation: {
+        'spin-slow': 'spin 2s linear infinite',
+      },
     },
   },
   plugins: [],
